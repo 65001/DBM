@@ -1,1 +1,1 @@
-Listview_Width=1500;Listview_Height=900;VersionID=1114;Extensions=db;LastFolder=C:\\Users\\Abhishek\\Documents\\Proggraming\\SB\\Projects\\DB Manager\\Assets;EULA_By=Abhishek;EULA_Version=EULAv2.7.2;EULA=True;
+Listview_Width=1500;Listview_Height=900;VersionID=1114;Extensions=1\=db\;2\=sqlite\;3\=*\;;LastFolder=C:\\Users\\Abhishek\\Documents\\Proggraming\\SB\\Projects\\DB Manager\\Assets;EULA_By=Abhishek;EULA_Version=EULAv2.7.2;EULA=True;Transactions=1;Deliminator=,;

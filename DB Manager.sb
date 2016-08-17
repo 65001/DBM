@@ -41,6 +41,10 @@
 'Logging Changes
 'HTML Code Outputted is more stylized 
 
+'v1114
+' Transaction DB Implemented (Default is OFF )
+'
+
 '______________________________________________________________________________
 '                                                                                                 To do
 '______________________________________________________________________________
@@ -48,7 +52,6 @@
 'Automatic Limiter on Dataview ? 
 'Export Menu
 'Access Table 
-'Transaction DB (Logs all Transactions )
 'Make the mastertable a view and remove the program only restrictions on it 
 'Mods ? 
 
@@ -63,6 +66,7 @@ LDGraphicsWindow.Closing = Closing
 logfunction = "Log"
 QueryFunction = "Query"
 CommandFunction = "Command" 
+TransactionFunction = "TransactionRecord"
 TrackDefaultTable = "TrackDefaultTable"
 
 LDUtilities.ShowErrors = "False"
@@ -92,8 +96,7 @@ Engine_Mode = 4
 LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer Primary Key,[UTC_DATE] TEXT,[UTC_TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
 LOG_DB_SQL_View = "CREATE VIEW IF NOT EXISTS [LOCAL_TIME] AS SELECT ID,DATE,TIME,USER,PRODUCTID,PRODUCTVERSION,Type,Event From Log;CREATE VIEW IF NOT EXISTS [UTC_TIME] AS Select ID,UTC_DATE,UTC_TIME,USER,ProductID,ProductVersion,Type,Event From Log;"
 
-Transactions_SQL = "CREATE TABLE IF NOT EXISTS Transactions (ID INTEGER PRIMARY KEY,USER TEXT,PATH TEXT,DB TEXT,SQL TEXT,TYPE TEXT);"
-'Access_DB_Create_SQL = "Create TABLE IF NOT EXISTS Access (ID PRIMARY KEY,Name,Type,Path,Admin,User,ReadOnly);Create TABLE IF NOT EXISTS Users (ID PRIMARY KEY,Username TEXT,Position TEXT); " 
+Transactions_SQL = "CREATE TABLE IF NOT EXISTS Transactions (ID INTEGER PRIMARY KEY,UTC_DATE TEXT,UTC_TIME TEXT,USER TEXT,PATH TEXT,DB TEXT,SNAME TEXT,SQL TEXT,Type TEXT,Reason TEXT);"
 
 '______________________________________________________________________________
 '                                                               File Operations 
@@ -105,17 +108,32 @@ LogDBpath = AssetPath +"Log.db"
 TransactionDBpath = AssetPath +"Transactions.db" 
 EULAFile = AssetPath +"EULA.txt"
 settingspath = AssetPath+"setting.txt"
+ModPath = AssetPath +"Mod\"
+
+
 
 HelpPath = AssetPath +"HELP Table.html" 
 
+
 LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
 TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 
-LDCall.Function2( CommandFunction , LOG_DB , LOG_DB_SQL ) 
-LDCall.Function2( CommandFunction , LOG_DB , LOG_DB_SQL_View )
-LDCall.Function2( CommandFunction , TransactionDB , Transactions_SQL ) 
 
-LogNumber = LDDataBase.Query(LOG_DB,"SELECT COUNT(ID) From Log","","True")
+LDList.Add("DB_Path", LogDBpath ) 
+LDList.Add("DB_Name", Log_DB ) 
+
+LDList.Add("DB_Path", TransactionDBpath ) 
+LDList.Add("DB_Name", TransactionDB ) 
+
+LDDataBase.Command( TransactionDB , Transactions_SQL)
+LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL,"App","Auto Creation Statements" ) 
+LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL_View ,"App","Auto Creation Statements")
+LDCall.Function4( CommandFunction , TransactionDB , Transactions_SQL ,"App","Auto Creation Statements") 
+
+LogNumber = LDDataBase.Query( LOG_DB,"SELECT COUNT(ID) From Log;","","True")
 LogNumber = LogNumber[1]["COUNT(ID)"]
+LDCall.Function5(TransactionFunction , "App" , LOG_DB +"| LOG"  ,"SELECT COUNT(ID) From Log;" ,"Query", " Auto Query Log Count") 
+TransactionNumber = LDDataBase.Query( TransactionDB,"SELECT COUNT(ID) From Transactions","","True")
+TransactionNumber = TransactionNumber[1]["COUNT(ID)"]
 
 OnlineEULaPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRNTFKckFKLVNNUDg" 'EULA Path
 OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download"
@@ -179,6 +197,7 @@ Sub LoadSettings
   lastFolder = Settings["LastFolder"]
   SupportedExtensions = Settings["Extensions"]
   deliminator = Settings["Deliminator"] 
+  Transactions_mode = Settings["Transactions"] 
   
   EULA_Accepted = Settings["EULA"]
   EULA_Accepted_By = Settings["EULA_By"]
@@ -188,11 +207,17 @@ Sub LoadSettings
     LDCall.Function2(logfunction,"Settings Value Missing. Defaults Restored","Application")
     Settings = "Listview_Width=1000;Listview_Height=900;VersionID="+PrgmVersionID +";Extensions=db;"
     Settings["LastFolder"] = LDFile.DocumentsFolder
+    Settings["Transactions"] = 0 
     SaveSettings()
     LoadSettings()
-  Else
-    ' TextWindow.WriteLine(Listview_Width+","+Listview_Height+","+VersionID+","+lastFolder+"," + SupportedExtensions)
   EndIf
+  
+  If Text.GetLength( Transactions_mode ) = 0 Then 
+    Settings["Transactions"] = 0 
+    SaveSettings() 
+    LoadSettings() 
+  EndIf 
+  
 EndSub
 
 Sub SaveSettings
@@ -217,7 +242,9 @@ Sub Load_DB
     database =  LDDataBase.ConnectSQLite(databasepath)
     LDCall.Function2(logfunction, "Program Started - OPENED : " + databasepath ,"Application")
     Settings["LastFolder"] = LDFile.GetFolder(databasepath)
-    File.WriteContents(settingspath,Settings)
+    SaveSettings()
+    LDList.Add("DB_Path", databasepath ) 
+    LDList.Add("DB_Name", database  ) 
   Else
     LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + databasepath,"Application" )
     GraphicsWindow.ShowMessage("File Could not be found or opened ", "Fatal Error" )
@@ -329,6 +356,7 @@ Sub MainMenuUI
   MenuList["-"] = "Help"
   MenuList["Settings Editor"] = "Settings" 
   MenuList["Toggle Debug"] = "Settings"
+  MenuList["Toggle Transaction Log"] = "Settings" 
   MenuList["Refresh"] = "Settings"
   MenuList["Check for Updates"] = "Settings"
   MenuList["-"] = "Settings" 
@@ -339,6 +367,12 @@ Sub MainMenuUI
     LDCall.Function2( logfunction , "Debug Mode is ON","UI")
   ElseIf debug_mode = 0 Then  
     CheckList["Toggle Debug"] = "False"
+  EndIf
+  
+  If Transactions_mode = 1 Then 
+    CheckList["Toggle Transaction Log"] = "True"
+  ElseIf Transactions_mode = 0 Then
+    CheckList["Toggle Transaction Log"] = "False" 
   EndIf
   
   ViewDB_Button = "View"
@@ -358,6 +392,7 @@ Sub MainMenuUI
   ShowHelp = "Show Help"
   RefreshButton = "Refresh"
   CheckForUpdates = "Check for Updates"
+  ToggleTransaction = "Toggle Transaction Log"
   
   GraphicsWindow.Clear()
   LDGraphicsWindow.State = 2
@@ -489,7 +524,7 @@ Sub MainMenuHandler
       TextWindow.Write("Creation Statement:")
       UserSQL  = TextWindow.Read()
       
-      LDCall.Function2( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ) 
+      LDCall.Function4( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ,LDFile.UserName ,"NEW DB") 
       LDCall.Function2(logfunction, "Created DB : " + NewFileSavePath,"Application")
       
       listview = "" 
@@ -534,7 +569,7 @@ Sub MainMenuHandler
     EndIf
     CurrentControl = listview
     If Default_Table <> "" Then 
-      LDCall.Function3(QueryFunction,"SELECT * FROM " + Default_Table +";",CurrentControl,"False")
+      LDCall.Function5(QueryFunction,"SELECT * FROM " + Default_Table +";",CurrentControl,"False" ,"App","View Function")
     EndIf 
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
@@ -560,9 +595,9 @@ Sub MainMenuHandler
     Results_Search = 1
     GenerateQuery()
   ElseIF LastClickedButton = CustomQueryButton Then 'USER Custom Query SQL 
-    LDCall.Function3(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False")
+    LDCall.Function5(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False",LDFile.UserName,"User Requested")
   ElseIf LastClickedButton = CommandButton Then 'User Custom Run SQL 
-    updated = LDCall.Function2(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) )
+    updated = LDCall.Function4(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) , LDFile.UserName,"User Requested" )
     GraphicsWindow.ShowMessage(" " + updated + " number of rows were updated.","") 
   ElseIf LastClickedButton = RunFunctionButton Then
     Results_Function = 1
@@ -576,13 +611,13 @@ Sub MainMenuHandler
     EndFor 
     IMPORT_CSV()
     Import_CSV_Headers()
-    records =  LDCall.Function2(CommandFunction , database,Import_CSV_SQL_Final)
+    records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV")
     LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file","Application")
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT")
     File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
   ElseIf LastClickedButton = ImportSQL_Button Then ' Imports SQL 
     CurrentFolder = LDFile.GetFolder(databasepath)
-    records =  LDCall.Function2( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) )
+    records =  LDCall.Function4( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) , LDFile.UserName ,"Import SQL")
     LDCall.Function2(logfunction, "Imported data into: " + databasepath +" From sql file","Application")
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT")
   ElseIf LastClickedButton = ExportSQL_Button Then 
@@ -641,10 +676,18 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = CheckForUpdates Then 
     MannualUpdateCheck = 1 
     UpdateFunction()
+  ElseIf LastClickedButton = ToggleTransaction Then
+    If Transactions_mode = 1 Then 
+      Transactions_mode = 0 
+    ElseIf Transactions_mode = 0 Then 
+      Transactions_mode = 1 
+    EndIf 
+    Settings["Transactions"] = Transactions_mode 
+    SaveSettings()
   EndIf
   
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
-    'Export_UI()
+    'Export_UI() ' Not Yet Implemtented //TO DO 
     LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,"Application")
     GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton,"EXPORT")
   EndIf
@@ -790,16 +833,16 @@ Sub Settings_UI
   
   GraphicsWindow.FontSize = 20
   
-  GraphicsWindow.DrawText(1,30,"Listview Width")
+  GraphicsWindow.DrawText(10,30,"Listview Width")
   Settings_WidthTB = Controls.AddTextBox(200,25)
   
-  GraphicsWindow.DrawText(1,65,"Listview Height")
+  GraphicsWindow.DrawText(10,65,"Listview Height")
   Settings_HeigthTB = Controls.AddTextBox(200, 60)
   
-  GraphicsWindow.DrawText(1,100,"Extensions")
+  GraphicsWindow.DrawText(10,100,"Extensions")
   Settings_ExtensionsTB = Controls.AddTextBox(200,95)
   
-  GraphicsWindow.DrawText(1,135,"Deliminator")
+  GraphicsWindow.DrawText(10,135,"Deliminator")
   Settings_DeliminatorTB = Controls.AddTextBox(200,130)
   
   Setting_Save = Controls.AddButton("Save and Close",50,200)
@@ -851,14 +894,14 @@ Sub GenerateQuery
     CMD = CMD + "DESC;"
   EndIf
   
-  LDCall.Function3(QueryFunction,CMD,CurrentControl,"False")
+  LDCall.Function5(QueryFunction,CMD,CurrentControl,"False","App","Auto Generated Query on behalf of " + LDFile.UserName)
 EndSub
 
 Sub Get_SCHEMA
   If database <> "" Then 'Prevents Application from querying a nonexistent db 
-    TableList = LDCall.Function3(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='table';","","True")
-    ViewList  = LDCall.Function3(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='view';","","True")
-    IndexList = LDCall.Function3(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='index';","","True")
+    TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='table';","","True","App","SCHEMA")
+    ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='view';","","True","App","SCHEMA")
+    IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='index';","","True","App","SCHEMA")
     
     For I = 1 To Array.GetItemCount(TableList)
       SCHEMA_TableList[I] = TableList[I]["tbl_name"]
@@ -881,7 +924,7 @@ EndSub
 Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View 
   SchemaList = ""
   LDList.Clear("SCHEMA")
-  SCHEMA = LDCall.Function3(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True")
+  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True","App","SCHEMA-PRIVATE")
   For Get_SCHEMA_I = 1 To Array.GetItemCount(SCHEMA)
     LDList.Add("SCHEMA",SCHEMA[Get_SCHEMA_I]["name"] )
   EndFor
@@ -900,7 +943,7 @@ Sub Export_CSV
     LDUtilities.CSVDeliminator = deliminator
   EndIf
   
-  return =  LDCall.Function3(QueryFunction,querycmd,"","True")
+  return =  LDCall.Function5(QueryFunction,querycmd,"","True","App","EXPORT CSV ON BEHALF OF " + LDFile.UserName)
   csvdata = return 
   
   return2 = Array.GetAllIndices(return)
@@ -923,7 +966,7 @@ Sub Export_CSV
 EndSub
 
 Sub Export_XML
-  EXPORTDATA = LDCall.Function3(QueryFunction,querycmd,"","True")
+  EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True","App","Export XML on behalf of " + LDFile.UserName )
   XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
   File.DeleteFile(XML_Path)
   XML_Createment_Statement = "<?xml version=" +DoubleQuotesCharacter+ XML_Version_Number+DoubleQuotesCharacter+" encoding="+DoubleQuotesCharacter+ "UTF-8"+DoubleQuotesCharacter+" standalone="+DoubleQuotesCharacter+"yes" + DoubleQuotesCharacter +"?>"
@@ -970,8 +1013,8 @@ EndSub
 
 Sub Export_SQL_Dump_Fetch
   LDList.Clear("EXPORT_SQL")
-  Export_SQL_DUMP_SCHEMA = LDCall.Function3(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True")
-  EXPORT_SQL_DATA = LDCall.Function3(QueryFunction,"Select * FROM "+Default_Table+";","","True")
+  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True","App","Export SQL - SCHEMA - On behalf of " + LDFile.UserName)
+  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True","App","Export SQL - SQL - On behalf of " + LDFile.UserName)
   EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
   
   For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
@@ -1006,8 +1049,8 @@ Sub Export_SQL_DUMP_WRITE
 EndSub
 
 Sub Export_HTML
-  Export_HTML_SCHEMA = LDCall.Function3(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True")
-  EXPORT_HTML_DATA = LDCall.Function3(QueryFunction,"Select * FROM "+Default_Table+";","","True")
+  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True","App","Export HTML SCHEMA on behalf of " + LDFile.UserName)
+  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True","App","Export HTML DATA on behalf of " + LDFile.UserName )
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
   
   HTML_Statement = "" 
@@ -1086,6 +1129,20 @@ Sub Import_CSV_Headers
   Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
   Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
 EndSub
+'______________________________________________________________________________
+'                                                                                          MOD
+'______________________________________________________________________________
+Sub MOD_XML
+  
+EndSub
+
+Sub MOD_READ
+  
+EndSub
+
+Sub MOD_RUN
+  
+EndSub 
 
 '______________________________________________________________________________
 '                                                                                     Query
@@ -1093,8 +1150,10 @@ EndSub
 Sub Query
   QueryArgs = args
   If database <> "" Then 
-    return =  LDDataBase.Query(database,args[1],args[2],args[3])
-
+    return =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
+    If Text.IsSubText(QueryArgs[5] , "SCHEMA" ) <> "True" Then 
+      LDCall.Function5( TransactionFunction, QueryArgs[4] , database , QueryArgs[1] , "Query" , QueryArgs[5] ) 
+    EndIf
   Else 
     LDCall.Function2(logfunction ,"Query Error : No Database has been loaded", "UI" ) 
     GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Query Error " ) 
@@ -1108,13 +1167,21 @@ EndSub
 Sub Command 'Runs A Command Function 
   CommandArgs = args 
   If args[1] <> "" Then 
-    
-    return = LDDataBase.Command(args[1] ,LDText.Trim( args[2] ) )
+    LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
+    return = LDDataBase.Command(CommandArgs[1] ,LDText.Trim( CommandArgs[2] ) )
   Else 
     LDCall.Function2(logfunction ,"Command Error : No Database has been loaded", "UI" ) 
     GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Command Error " ) 
   EndIf
 EndSub
+
+Sub TransactionRecord
+  If Transactions_mode = 1 Then 
+    Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",args[2] ) )
+    Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+args[1] +"','"+args[2]+"','"+ LDText.Replace(args[3],"'","''")+"','"+args[4]+"','"+ args[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+    LDDataBase.Command( TransactionDB , Transactions_SQL )  
+  EndIf 
+EndSub 
 
 '______________________________________________________________________________
 '                                                                                     Logging
@@ -1153,7 +1220,7 @@ Sub Log
     LogNumber = LogNumber + 1
     return = File.AppendContents(logpath,Clock.Date + "|" + Clock.Time +"|" + LDFile.UserName +"|" + ProductID +"|"+ VersionID+"|"+   LogEvent)
     LOG_CMD = "INSERT INTO LOG (ID,UTC_DATE,UTC_TIME,DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
-    LDCall.Function2( CommandFunction , LOG_DB , LOG_CMD ) 
+    LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , "App" ,"Auto Log") 
   EndIf 
 EndSub
 
