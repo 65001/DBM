@@ -1,0 +1,238 @@
+GraphicsWindow.Show()
+logpath =  Program.Directory +"\Learn SQL Log.txt" 
+Startup()
+
+Sub Startup
+  LDEvents.Error = ErrorHandler
+  Controls.ButtonClicked = UI_Handler 
+  
+  GetPath()
+  Copyright()
+  UI()
+  Mount()
+  Main()
+EndSub 
+
+Sub Copyright
+  TextWindow.ForegroundColor = "WHITE" 
+  TextWindow.Clear()
+  TextWindow.WriteLine("POWERED BY MYSQL & LD EXTENSION FOR SMALL BASIC.") 
+  TextWindow.WriteLine(" (c) 2015 . All rights reserved. " + Text.GetCharacter(10) + " MADE BY ABHISHEK SATHIABALAN") 
+  TextWindow.WriteLine("")
+  TextWindow.WriteLine("Type in Help to bring up a list of commands") 
+  TextWindow.WriteLine("")
+EndSub 
+
+Sub GetPath
+  If Program.ArgumentCount = 1 then 
+    databasepath =  Program.GetArgument(1) 
+  Else 
+    databasepath = LDDialogs.OpenFile("db","") 
+  Endif 
+  
+  If databasepath <> "" then 
+    database =  LDDataBase.ConnectSQLite(databasepath)
+    listview = LDDataBase.AddListView(1000,900) 
+    Controls.Move(listview,10,30) 
+  Else 
+    GraphicsWindow.ShowMessage("File Could not be found or opened ", "Fatal Error" ) 
+    Program.End()
+  Endif 
+EndSub 
+
+Sub Mount 
+  PrgmDataStatus = "True" 
+  
+  cmdused = "SELECT * FROM sqlite_master WHERE type = 'table';"
+  Query()
+  cmdused = ""
+  
+  If Array.GetItemCount(querydata) = 1 then 
+    cmdused = "SELECT tbl_name FROM sqlite_master WHERE type ='table';" 
+    Query()
+    cmdused = "" 
+    
+    PrgmDataStatus = "False" 
+    TextWindow.WriteLine("OPENED TABLE " +  querydata[1]["tbl_name"] ) 
+    cmdused = "SELECT * FROM " + querydata[1]["tbl_name"] +";"
+    Query()
+    cmdused = "" 
+  Endif 
+  PrgmDataStatus = "False" 
+  status = "False"
+EndSub
+
+Sub UI
+  GraphicsWindow.BrushColor = "#333333"
+  GraphicsWindow.FontName = "Segoe UI"
+  GraphicsWindow.FontBold = "False"
+  GraphicsWindow.PenWidth = 1
+  GraphicsWindow.PenColor = "#666666"
+EndSub 
+
+Sub UI_Handler 
+  
+EndSub 
+
+Sub Main 
+  TextWindow.Title = "SQL"
+  While 1 = 1 
+    TextWindow.Write(">" ) 
+    cmd = TextWindow.Read()
+    index=   Text.GetIndexOf(cmd,";")
+    IntpreterCMDS()
+    
+    If index = 0 Then 
+      flag = 1 
+      cmdused = Text.Append( cmdused , cmd )  
+      Main()
+    Else
+      cmdused = Text.Append( cmdused , cmd )  
+    EndIf
+    
+    RunAs()
+    cmdused = "" 
+  EndWhile 
+EndSub
+
+Sub IntpreterCMDS
+  intcmds = Text.ConvertToLowerCase(cmd) 
+  If intcmds = "status" Then 
+    TextWindow.WriteLine("Status: " + status ) 
+    TextWindow.WriteLine("1. True " )
+    TextWindow.WriteLine("2. False " )
+    option = TextWindow.ReadNumber() 
+    If option = 1 Then 
+      status = "True"
+    ElseIf option =2 then 
+      status = "False"
+    EndIf
+    
+    TextWindow.WriteLine("Status Updated")
+    cmdused = "" 
+    cmd = "" 
+  ElseIf intcmds = "cls" then 
+    TextWindow.Clear()
+    cmdused = "" 
+    cmd = "" 
+  elseif intcmds = "export" then 
+    TextWindow.WriteLine("") 
+    TextWindow.WriteLine("A deliminator for writing this CSV files. Default ',' " )
+    TextWindow.Write("Deliminator : ") 
+    deliminator = TextWindow.Read()
+    
+    If deliminator = "," or deliminator = "" then 
+    Else
+      LDUtilities.CSVDeliminator = deliminator 
+    EndIf 
+    TextWindow.WriteLine("")
+    TextWindow.WriteLine("SELECT DATA TO WRITE IN CSV") 
+    TextWindow.Write(">")
+    querycmd = TextWindow.Read() 
+    querycmd = Text.ConvertToLowerCase(querycmd) 
+    WriteCSV()
+    cmdused = "" 
+    cmd = "" 
+  elseif intcmds = "import" then 
+    ImportfilePath  = LDDialogs.OpenFile("sql",LDFile.GetFolder(databasepath))
+    ImportFileCnts = File.ReadContents( ImportfilePath  )
+    records =   LDDataBase.Command(database, ImportFileCnts ) 
+    TextWindow.WriteLine(records + "updated" ) 
+    TextWindow.WriteLine( LDFile.Size(ImportfilePath) + " bytes processed | " + Text.GetLength(ImportFileCnts)  )
+    cmdused = "" 
+    cmd = "" 
+  elseif intcmds = "help" then 
+    TextWindow.Clear()
+    TextWindow.WriteLine("CLS    - Clears Screen") 
+    TextWindow.WriteLine("IMPORT - SQL Statements into a database.") 
+    TextWindow.WriteLine("EXPORT - Exports a data set using CSV")
+    TextWindow.WriteLine("HELP   - Brings up this screen") 
+    TextWindow.WriteLine("STATUS - Settings Query Data to be shown in console") 
+    cmdused = "" 
+    cmd = "" 
+  EndIf
+EndSub
+
+Sub WriteCSV
+  return =  LDDataBase.Query(database,querycmd,"","True") 
+  return2 = Array.GetAllIndices(return)
+  return2 = return[return2[1]]
+  return2 = Array.GetAllIndices(return2) 
+  
+  csvpathextra = Text.GetSubText(querycmd,Text.GetIndexOf(querycmd,"from")+4,(Text.GetIndexOf(querycmd,";")-1) )
+  csvpath = LDFile.GetFolder(databasepath) +"\" +  csvpathextra + " _database.csv"
+  
+  csvdata = LDDataBase.Query(database,querycmd,"","True")
+  
+  For i = 1 To Array.GetItemCount(return2) 'Gets Column Names  Headers 
+    csvdata[0][i] =  return2[i]
+  EndFor
+  
+  For i = 0 To Array.GetItemCount(csvdata) + 1 'Puts Column Names into Data 
+    csvdataREAL[i+1] = csvdata[i] 
+  EndFor   
+  
+  LDFile.WriteCSV(csvpath,csvdataREAL ) 
+  csvdata = "" 
+  TextWindow.WriteLine("Ran") 
+EndSub
+
+Sub RunAs
+  TextWindow.WriteLine("Run as ")
+  TextWindow.WriteLine("1. Command")
+  TextWindow.WriteLine("2. Query")
+  option =  TextWindow.ReadNumber() 
+  If option = 1 Then 
+    cmdSub()
+    TextWindow.WriteLine("Updated " + return + " Rows.") 
+  ElseIf option =2 then 
+    Query()
+  Else
+    RunAs()
+  EndIf 
+EndSub
+
+
+Sub cmdSub
+  return =  LDDataBase.Command(database,cmdused)
+EndSub
+
+Sub Query
+  If PrgmDataStatus = "True" Then 'Program Needs Database to return data 
+    querydata =   LDDataBase.Query(database,cmdused,"",PrgmDataStatus) 
+  Else 
+    querydata =   LDDataBase.Query(database,cmdused,listview,status) 
+    
+    If status = "True" Then 
+      
+      For i = 1 To Array.GetItemCount(querydata)
+        subquerydata =   Array.GetAllIndices( querydata[i] ) 
+        TextWindow.ForegroundColor = "GREEN"
+        TextWindow.WriteLine("RECORD : " + i ) 
+        
+        For ii = 1 To Array.GetItemCount(subquerydata)
+          TextWindow.ForegroundColor = "WHITE"
+          TextWindow.Write(subquerydata[ii] + ":")
+          TextWindow.CursorLeft = 20 
+          TextWindow.WriteLine( querydata[i][subquerydata[ii]]) 
+        EndFor
+        
+      EndFor
+      
+      TextWindow.WriteLine("")   
+    EndIf 
+    
+    TextWindow.WriteLine("RAN QUERY") 
+  EndIf 
+EndSub
+
+Sub ErrorHandler
+  Error =   LDEvents.LastError 
+  File.AppendContents(logpath,error) 
+  If  Text.IsSubText(Error, " Operation is not valid due to the current state of the object") = "True" Then 
+    database =  LDDataBase.ConnectSQLite(databasepath) 
+    TextWindow.ForegroundColor = "RED" 
+    TextWindow.WriteLine("Suggest Restart of Program")
+    TextWindow.ForegroundColor = "GRAY" 
+  EndIf
+EndSub 

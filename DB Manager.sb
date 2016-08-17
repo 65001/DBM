@@ -1,0 +1,1215 @@
+'Copyrighted Software 2016. Abhishek Sathiabalan . All Rights Reserved. Governed by EULA. 
+
+'v1000
+'Initial Release
+'v1100
+'Import - Export Feature ; Functions Added ; Known Bugs : Crash upon Edit with too many lines
+'v1101
+'Log Data Base Implemented
+'v1102
+'Bug Fixes
+'v1103
+' Schema for DB file with more than one table implemented
+'v1104
+'Ability to switch between Tables in the same database | Possibly Unstable Feature
+'Multiple Tables support
+'v1105
+'Schema system updated to use PRAGMA table_info(table_name);
+'v1106
+'Bug Fixes
+'Allows you to export data to sql
+'Changed Online EULA Path
+'Changed order of program
+'v1107
+'Exports into HTML Tables
+'v1108
+'Import From CSV (Potentially Unstable)
+'v1109
+'Added Limited Support for Views ,  Indexes , and SQLite_master table through GUI
+'v1110
+'Attempt to refactor code . New Menu Interface 
+'v1111
+'Help Code
+'New Settings Menu 
+'v1112
+'Refactored Code 
+'Better Information Presented 
+'Moved Around Things in the Menu 
+'Update Function 
+'v1113
+'Bug Fixes 
+'Logging Changes
+'HTML Code Outputted is more stylized 
+
+'______________________________________________________________________________
+'                                                                                                 To do
+'______________________________________________________________________________
+'Dataview bug report | Dataview Crash Bug 
+'Automatic Limiter on Dataview ? 
+'Export Menu
+'Access Table 
+'Transaction DB (Logs all Transactions )
+'Make the mastertable a view and remove the program only restrictions on it 
+'Mods ? 
+
+GraphicsWindow.Show()
+MainWindowID =  LDWindows.CurrentID
+LDGraphicsWindow.ExitOnClose = "False"
+LDGraphicsWindow.CancelClose = "True"
+LDGraphicsWindow.Closing = Closing
+'______________________________________________________________________________
+'                                                                               Functions List 
+'______________________________________________________________________________
+logfunction = "Log"
+QueryFunction = "Query"
+CommandFunction = "Command" 
+TrackDefaultTable = "TrackDefaultTable"
+
+LDUtilities.ShowErrors = "False"
+LDUtilities.ShowFileErrors= "False"
+LDUtilities.ShowNoShapeErrors = "False"
+LDEvents.Error = ErrorHandler
+
+debug_mode = 0 '1=On;0=Off(Default)
+
+copyrightDate = 2016
+ProductID = "DBM"
+PrgmVersionID = 1114
+title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
+Self = Program.Directory +"\DB Manager Test.exe"
+
+'______________________________________________________________________________
+'                                                                                    Not to be set by Settings
+'______________________________________________________________________________
+
+
+DoubleQuotesCharacter = Text.GetCharacter(34)
+XML_Version_Number ="1.0"
+SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;"
+DB_Engines_Types = "1=MySQL;2=Odbc;3=Oledb;4=SQLite;5=SqlServer;" 
+Engine_Mode = 4 
+
+LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer Primary Key,[UTC_DATE] TEXT,[UTC_TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
+LOG_DB_SQL_View = "CREATE VIEW IF NOT EXISTS [LOCAL_TIME] AS SELECT ID,DATE,TIME,USER,PRODUCTID,PRODUCTVERSION,Type,Event From Log;CREATE VIEW IF NOT EXISTS [UTC_TIME] AS Select ID,UTC_DATE,UTC_TIME,USER,ProductID,ProductVersion,Type,Event From Log;"
+
+Transactions_SQL = "CREATE TABLE IF NOT EXISTS Transactions (ID INTEGER PRIMARY KEY,USER TEXT,PATH TEXT,DB TEXT,SQL TEXT,TYPE TEXT);"
+'Access_DB_Create_SQL = "Create TABLE IF NOT EXISTS Access (ID PRIMARY KEY,Name,Type,Path,Admin,User,ReadOnly);Create TABLE IF NOT EXISTS Users (ID PRIMARY KEY,Username TEXT,Position TEXT); " 
+
+'______________________________________________________________________________
+'                                                               File Operations 
+'______________________________________________________________________________
+AssetPath = Program.Directory +"\Assets\"
+File.CreateDirectory(AssetPath)
+logpath = AssetPath +"Log.txt"
+LogDBpath = AssetPath +"Log.db"
+TransactionDBpath = AssetPath +"Transactions.db" 
+EULAFile = AssetPath +"EULA.txt"
+settingspath = AssetPath+"setting.txt"
+
+HelpPath = AssetPath +"HELP Table.html" 
+
+LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
+TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 
+LDCall.Function2( CommandFunction , LOG_DB , LOG_DB_SQL ) 
+LDCall.Function2( CommandFunction , LOG_DB , LOG_DB_SQL_View )
+LDCall.Function2( CommandFunction , TransactionDB , Transactions_SQL ) 
+
+LogNumber = LDDataBase.Query(LOG_DB,"SELECT COUNT(ID) From Log","","True")
+LogNumber = LogNumber[1]["COUNT(ID)"]
+
+OnlineEULaPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRNTFKckFKLVNNUDg" 'EULA Path
+OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download"
+
+StartTime[1] = Clock.ElapsedMilliseconds
+LDNetwork.DownloadFile(EULAFile,OnlineEULaPath)
+EndTime[1] = Clock.ElapsedMilliseconds
+
+LoadedFile = 0 
+SortByMode = 1 
+CLLF = Text.GetCharacter(10) '+ Text.GetCharacter(13) 
+TabKey = Text.GetCharacter(9) 
+args = ""
+
+'Gets EULA Version 
+EULA_Version = LDText.Replace(File.ReadLine(EULAFile,1)," ","")
+For I = 1 To Text.GetLength(EULA_Version)
+  Character =  Text.GetSubText(EULA_Version,I,1) 
+  If Character <> TabKey Then
+    NEULA_Version = Text.Append(NEULA_Version, Character )
+  EndIf
+EndFor
+EULA_Version = NEULA_Version
+NEULA_Version =""
+
+'______________________________________________________________________________
+'                                                                                     End of No Settings Zone
+'______________________________________________________________________________
+LDCall.Function2( logfunction , "Program Started","Application") 
+Startup()
+
+Sub Startup
+  LoadSettings()
+  If Program.ArgumentCount  = 1  Then
+    GetPath()
+    Load_DB()
+  EndIf
+  If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) Then
+    StartTime[2] = Clock.ElapsedMilliseconds
+    '   MannualUpdateCheck = 0 
+    '   UpdateFunction()
+    EndTime[2] = Clock.ElapsedMilliseconds 
+    '   debug_mode = 1 
+    '   Time[1] = EndTime[1] - StartTime[1] 
+    '   Time[2] = EndTime[2] - StartTime[2]
+    '   TextWindow.WriteLine( EndTime[1] - StartTime[1] ) 
+    '   TextWindow.WriteLine( EndTime[2] - StartTime[2] ) 
+    ' TextWindow.WriteLine("Total: "+( Math.Ceiling ( (Time[1] + Time[2]) )/1000) ) 
+    MainMenuUI()
+  Else
+    SaveSettings()
+    EULA_UI()
+  EndIf
+EndSub
+
+Sub LoadSettings
+  Settings = File.ReadContents(settingspath)
+  Listview_Width = Settings["Listview_Width"]' 1000
+  Listview_Height = Settings["Listview_Height"] '900
+  VersionID = Settings["VersionID"] '1000
+  lastFolder = Settings["LastFolder"]
+  SupportedExtensions = Settings["Extensions"]
+  deliminator = Settings["Deliminator"] 
+  
+  EULA_Accepted = Settings["EULA"]
+  EULA_Accepted_By = Settings["EULA_By"]
+  EULA_Accepted_Version = Settings["EULA_Version"]
+  
+  If Listview_Width = "" Or Listview_Height = "" Or VersionID ="" Or lastFolder ="" Or SupportedExtensions = "" Then
+    LDCall.Function2(logfunction,"Settings Value Missing. Defaults Restored","Application")
+    Settings = "Listview_Width=1000;Listview_Height=900;VersionID="+PrgmVersionID +";Extensions=db;"
+    Settings["LastFolder"] = LDFile.DocumentsFolder
+    SaveSettings()
+    LoadSettings()
+  Else
+    ' TextWindow.WriteLine(Listview_Width+","+Listview_Height+","+VersionID+","+lastFolder+"," + SupportedExtensions)
+  EndIf
+EndSub
+
+Sub SaveSettings
+  status=  File.WriteContents(settingspath,Settings)
+  If status = "FAILED" Then
+    LDCall.Function2( logfunction ,"Failed to save settings","UI") 
+    GraphicsWindow.ShowMessage("FAILED TO SAVE SETTINGS!!","")
+  EndIf
+EndSub
+
+Sub GetPath
+  If Program.ArgumentCount  = 1 AND LoadedFile = 0 Then
+    databasepath = Program.getArgument(1)
+    LoadedFile = 1 
+  Else
+    databasepath = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
+  EndIf
+EndSub
+
+Sub Load_DB  
+  If LDFile.Exists(databasepath) = "True" then
+    database =  LDDataBase.ConnectSQLite(databasepath)
+    LDCall.Function2(logfunction, "Program Started - OPENED : " + databasepath ,"Application")
+    Settings["LastFolder"] = LDFile.GetFolder(databasepath)
+    File.WriteContents(settingspath,Settings)
+  Else
+    LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + databasepath,"Application" )
+    GraphicsWindow.ShowMessage("File Could not be found or opened ", "Fatal Error" )
+  Endif
+EndSub
+
+'______________________________________________________________________________
+'                                                                                     EULA UI
+'______________________________________________________________________________
+Sub EULA_UI
+  GraphicsWindow.Show()
+  GraphicsWindow.Left = Desktop.Width / 3
+  GraphicsWindow.Top = Desktop.Height / 4
+  GraphicsWindow.Title = title + "EULA"
+  
+  defaultWidth = GraphicsWindow.Width
+  defaultHeight= GraphicsWindow.Height
+  
+  ' GraphicsWindow.BackgroundColor = "LightGray"
+  
+  LDControls.RichTextBoxReadOnly = "True"
+  eulatextbox =  LDControls.AddRichTextBox(600,350)
+  Controls.Move(eulatextbox,10,10)
+  LDControls.RichTextBoxReadOnly = "False"
+  
+  DowloandedFilePath = File.GetTemporaryFilePath()
+  LDNetwork.DownloadFile(DowloandedFilePath ,OnlineEULaPath)
+  OnlineEULACnts = File.ReadContents( DowloandedFilePath )
+  OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
+  
+  If OnlineEULACnts = "" Then
+    LDCall.Function2( logfunction , "Failed to load online EULA","UI")
+    GraphicsWindow.ShowMessage("Failed to load online EULA","Error")
+    EULAContents = Text.Append("This is the EULA that came with this program. This may not be the most latest EULA. Subject to General Part F the most latest EULA can be found here:" +Text.GetCharacter(10) + OnlineEULaPath ,File.ReadContents(EULAFile) )
+  Else
+    EULAContents = OnlineEULACnts
+    File.WriteContents(EULAFile, EULAContents)
+  EndIf
+  
+  If EULAContents = "" Then
+    LDCall.Function2( logfunction , "NO EULA FOUND. Local or Online","UI")
+    GraphicsWindow.ShowMessage("EULA could not be loaded. This program cannot start without its EULA." "EULA LOAD ERROR")
+    Program.End()
+  Else
+    
+    LDControls.RichTextBoxSetText(eulatextbox,EULAContents,"False")
+    EULAContents = ""
+    
+    Ihaveread =  LDControls.AddCheckBox("I have read and agree to this EULA.")
+    Controls.Move(Ihaveread,190,365)
+    
+    EULAaccept = Controls.AddButton("Accept",235,390)
+    EULADecline = Controls.AddButton("Decline",235+80,390)
+    
+    Controls.SetSize(EULAaccept,70,30)
+    Controls.SetSize(EULADecline,70,30)
+    Controls.ButtonClicked = EULA_Handler
+  EndIf
+EndSub
+
+Sub EULA_Handler
+  LastClickedButton = Controls.LastClickedButton
+  Settings["EULA_By"]  = LDFile.UserName
+  Settings["EULA_Version"] = EULA_Version
+  Settings["VersionID"] = PrgmVersionID
+  If LDControls.CheckBoxGetState(Ihaveread) = "True" And LastClickedButton = EULAaccept Then
+    Settings["EULA"] = "True"
+    SaveSettings()
+    MainMenuUI()
+  ElseIf LastClickedButton = EULADecline Then
+    LDCall.Function2( logfunction , "EULA Declined","UI")
+    GraphicsWindow.ShowMessage("If you disagree with this EULA please delete this program","EULA Decline")
+    Settings["EULA"] = "False"
+    SaveSettings()
+    Program.End()
+  EndIf
+EndSub
+
+'______________________________________________________________________________
+'                                                                                     Maine Menu UI
+'______________________________________________________________________________
+
+Sub MainMenuUI 
+  GraphicsWindow.CanResize = "True"
+  '  LDGraphicsWindow.CancelClose = "False"
+  '  LDGraphicsWindow.ExitOnClose = "True" 
+  LDGraphicsWindow.ExitButtonMode(GraphicsWindow.Title,"Enabled")
+  
+  MenuList["File"] = "Main"
+  MenuList["New"] = "File"
+  MenuList["Open"] = "File"
+  MenuList["Edit"] = "Main"
+  MenuList["View"] = "Main"
+  MenuList["Save"] = "Main"
+  MenuList["Import"] = "Main"
+  MenuList["CSV"] = "Import"
+  MenuList["SQL"] = "Import"
+  MenuList["-"] = "Import"
+  MenuList["Export"] = "Main"
+  MenuList["CSV "] = "Export"
+  MenuList["SQL "] = "Export" 
+  MenuList["XML "] = "Export"
+  MenuList["HTML "] = "Export"
+  MenuList["-"]= "Export"
+  MenuList["Settings"] = "Main"
+  MenuList["Help"] = "Settings"
+  MenuList["About"] = "Help"
+  MenuList["Show Help"] = "Help"
+  MenuList["-"] = "Help"
+  MenuList["Settings Editor"] = "Settings" 
+  MenuList["Toggle Debug"] = "Settings"
+  MenuList["Refresh"] = "Settings"
+  MenuList["Check for Updates"] = "Settings"
+  MenuList["-"] = "Settings" 
+  
+  
+  If debug_mode = 1 Then 
+    CheckList["Toggle Debug"] = "True"
+    LDCall.Function2( logfunction , "Debug Mode is ON","UI")
+  ElseIf debug_mode = 0 Then  
+    CheckList["Toggle Debug"] = "False"
+  EndIf
+  
+  ViewDB_Button = "View"
+  NewDB_Button = "New"
+  EditDB_Button = "Edit"
+  OpenDB_Button = "Open"
+  ImportCSV_Button = "CSV"
+  ImportSQL_Button = "SQL"
+  ExportCSV_Button = "CSV "
+  ExportSQL_Button = "SQL "
+  ExportXML_Button = "XML "
+  ExportHTML_Button = "HTML "
+  SaveButton = "Save"
+  SettingsButton = "Settings Editor"
+  ToggleDebug_Button = "Toggle Debug"
+  AboutButton = "About"
+  ShowHelp = "Show Help"
+  RefreshButton = "Refresh"
+  CheckForUpdates = "Check for Updates"
+  
+  GraphicsWindow.Clear()
+  LDGraphicsWindow.State = 2
+  GraphicsWindow.Title = title + " " 
+  
+  Default_FontSize = GraphicsWindow.FontSize
+  
+  TypesOfSorts = "1=Table;2=View;3=Index;4=Master Table;"
+  
+  Get_SCHEMA()
+  SCHEMA_CurrentList = SCHEMA_TableList 
+  
+  GraphicsWindow.FontSize = 20
+  Menu = LDControls.AddMenu(Desktop.Width,25,MenuList,"",CheckList) 
+  LDControls.MenuClicked = MainMenuHandler
+  
+  Shapes.Move( Shapes.AddText("Sort:") , 890 ,  1) 
+  
+  GraphicsWindow.FontSize = Default_FontSize
+  TableCB =  LDControls.AddComboBox(SCHEMA_TableList,100,100)
+  SortsCB =  LDControls.AddComboBox(TypesOfSorts,100,100)
+  
+  Controls.Move(TableCB,970,5)
+  Controls.Move(SortsCB,1075,5) 
+  
+  LastClickedButton = "View"
+  MainMenuHandler()
+  
+  GraphicsWindow.Title = title + " Table: " + Default_Table
+  Ldcontrols.MenuClicked = MainMenuMenu
+  LDControls.ComboBoxItemChanged = ComboBoxChanged
+  Controls.ButtonClicked = MainMenuButton
+  If debug_mode = 0 Then
+    TextWindow.Hide()
+  EndIf
+  
+EndSub
+
+Sub MainMenuMenu
+  LastClickedButton = LDControls.LastMenuItem
+  MainMenuHandler()
+EndSub
+
+Sub MainMenuButton
+  LastClickedButton = Controls.LastClickedButton
+  MainMenuHandler() 
+EndSub
+
+Sub ComboBoxChanged
+  LastClickedCB =  LDControls.LastComboBox
+  LastCBIndex = LDControls.LastComboBoxIndex
+  If LastClickedCB = TableCB Then 
+    If  LDList.GetAt(TrackDefaultTable,LDList.Count(TrackDefaultTable)) <> LastCBIndex Then
+      ' TextWindow.WriteLine( SCHEMA_TableList[ LDControls.LastComboBoxIndex ] )
+      LDList.Add(TrackDefaultTable,LastCBIndex)
+      Default_Table = SCHEMA_CurrentList[ LastCBIndex ]
+      
+      Get_SCHEMA_Private()
+      Hide_Display_Results()
+      List = SchemaList
+      LDControls.ComboBoxContent(SortByCB ,SchemaList)
+      LDControls.ComboBoxContent(SearchByCB, SchemaList )
+      LDControls.ComboBoxContent(ColumnListCB, SchemaList )
+      GraphicsWindow.Title = title + TypesOfSorts[SortByMode] +": "  + Default_Table
+      LastClickedButton = ViewDB_Button
+      MainMenuHandler()
+    EndIf 
+  ElseIf LastClickedCB = SortsCB Then 
+    SortsCB_IndexList = "1="+SCHEMA_TableList+";2="+SCHEMA_ViewList+";3="+SCHEMA_IndexList+";"
+    SortByMode = LastCBIndex 
+    If LastCBIndex = 1 Then 
+      Default_Table = SCHEMA_TableList[1]
+      SCHEMA_CurrentList = SCHEMA_TableList
+      LDControls.ComboBoxContent(TableCB, SCHEMA_TableList )
+    ElseIf LastCBIndex = 2 Then 
+      Default_Table = SCHEMA_ViewList[1]
+      SCHEMA_CurrentList = SCHEMA_ViewList
+      LDControls.ComboBoxContent(TableCB, SCHEMA_ViewList )
+    ElseIf LastCBIndex = 3 Then
+      Default_Table = SCHEMA_IndexList[1] 
+      SCHEMA_CurrentList = SCHEMA_IndexList
+      LDControls.ComboBoxContent(TableCB, SCHEMA_IndexList )
+    ElseIf LastCBIndex = 4 then 
+      Default_Table = "sqlite_master" 
+      LastClickedButton = ViewDB_Button
+      MainMenuHandler()
+    EndIf 
+    
+    If (LastCBIndex = 1 OR LastCBIndex = 2 OR LastCBIndex = 3 Or LastCBIndex = 4)and Default_Table <> "" Then 
+      
+      LDList.Clear(TrackDefaultTable)
+      LDList.Add(TrackDefaultTable,1)
+      Get_SCHEMA_Private()
+      Hide_Display_Results()
+      List = SchemaList
+      LDControls.ComboBoxContent(SortByCB ,SchemaList)
+      LDControls.ComboBoxContent(SearchByCB, SchemaList )
+      LDControls.ComboBoxContent(ColumnListCB, SchemaList )
+      GraphicsWindow.Title = title + TypesOfSorts[SortByMode] +": "  + Default_Table
+      LastClickedButton = ViewDB_Button
+      MainMenuHandler()
+      
+      GraphicsWindow.Title = title + " "+ TypesOfSorts[SortByMode] +": "  + Default_Table
+    Else
+      LDCall.Function2(logfunction,"In the current database no "+ TypesOfSorts[SortByMode] +"s can be found.","UI")
+      GraphicsWindow.ShowMessage("In the current database no "+ TypesOfSorts[SortByMode] +"s can be found." , "Error" ) 
+    EndIf 
+    
+    If debug_mode = 1 Then  
+      TextWindow.WriteLine("DEBUG: "+  LastCBIndex +":"+ TypesOfSorts[LastCBIndex] +":" + SortsCB_IndexList[LastCBIndex] +":" + Default_Table ) 
+    EndIf 
+  EndIf
+EndSub
+
+Sub MainMenuHandler
+  Results_Search = 0
+  Results_Sort = 0
+  Results_Function = 0
+  
+  If debug_mode = 0 Then
+    TextWindow.Hide()
+  EndIf
+  
+  If LastClickedButton = NewDB_Button Then 'New Database
+    NewFileSavePath =  LDDialogs.SaveFile("db",lastFolder)
+    If NewFileSavePath <> "" Then
+      lastFolder = LDFile.GetFolder(NewFileSavePath)
+      SaveSettings()
+      TextWindow.Write("Creation Statement:")
+      UserSQL  = TextWindow.Read()
+      
+      LDCall.Function2( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ) 
+      LDCall.Function2(logfunction, "Created DB : " + NewFileSavePath,"Application")
+      
+      listview = "" 
+      Dataview = "" 
+      databasepath = NewFileSavePath 
+      LoadSettings()
+      Load_DB()
+      SaveSettings()
+      MainMenuUI()
+    EndIf
+  ElseIf LastClickedButton = EditDB_Button Then 'Edit Database List View
+    If database <> "" Then 
+      If SortByMode <> 4 Then 
+        Controls.HideControl(listview)
+        If Dataview = "" Then
+          Dataview =  LDControls.AddDataView(Listview_Width,Listview_Height,"")
+          'TextWindow.WriteLine(Dataview)
+          Controls.Move(Dataview,10,35)
+        Else
+          Controls.ShowControl(Dataview)
+        EndIf
+        CurrentControl = Dataview
+        LDDataBase.EditTable(database,Default_Table,CurrentControl)
+        Hide_Display_Results()
+      Else 
+        LDCall.Function2(logfunction ,"Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table","UI")
+        GraphicsWindow.ShowMessage("Error : Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table","Access Denied") 
+      EndIf 
+    Else 
+      LDCall.Function2(logfunction ,"Error : No Database has been loaded" , "UI" ) 
+      GraphicsWindow.ShowMessage("Error : No Database has been loaded","Error") 
+    EndIf
+  ElseIf LastClickedButton = ViewDB_Button Then 'View Database
+    Controls.HideControl(Dataview)
+    If listview = "" Then
+      listview = LDDataBase.AddListView(Listview_Width,Listview_Height)
+      Controls.Move(listview,10,35)
+      Display_Results()
+    Else
+      Show_Display_Results()
+      Controls.ShowControl(listview)
+    EndIf
+    CurrentControl = listview
+    If Default_Table <> "" Then 
+      LDCall.Function3(QueryFunction,"SELECT * FROM " + Default_Table +";",CurrentControl,"False")
+    EndIf 
+  ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
+    listview = ""
+    Dataview = ""
+    LoadSettings()
+    GetPath()
+    Load_DB()
+    SaveSettings()
+    MainMenuUI()
+  Elseif LastClickedButton = SaveButton  Then 'Save Button   
+    If database <> "" and Dataview <> "" Then 
+      Save_Status = LDDataBase.SaveTable(database,Dataview)
+      LDCall.Function2(logfunction ,"The save was : " + Save_Status , "UI" ) 
+      GraphicsWindow.ShowMessage("The save was : " + Save_Status,"Save Status !")
+    Else 
+      LDCall.Function2(logfunction ,"The Database or Dataview does not exist or have not yet been loaded", "UI" ) 
+      GraphicsWindow.ShowMessage("Error : The Database or Dataview does not exist or have not yet been loaded","Save Error") 
+    EndIf
+  ElseIf LastClickedButton = SortButton Then 'Sort View
+    Results_Sort = 1
+    GenerateQuery()
+  ElseIf LastClickedButton = SearchButton Then 'Search View
+    Results_Search = 1
+    GenerateQuery()
+  ElseIF LastClickedButton = CustomQueryButton Then 'USER Custom Query SQL 
+    LDCall.Function3(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False")
+  ElseIf LastClickedButton = CommandButton Then 'User Custom Run SQL 
+    updated = LDCall.Function2(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) )
+    GraphicsWindow.ShowMessage(" " + updated + " number of rows were updated.","") 
+  ElseIf LastClickedButton = RunFunctionButton Then
+    Results_Function = 1
+    GenerateQuery()
+  ElseIf LastClickedButton = ImportCSV_Button Then 'Imports CSV
+    Import_CSV_Path = LDDialogs.OpenFile("csv","")
+    I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
+    I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
+    For I = 1 to Array.GetItemCount(I_CSV_Array[1])
+      I_CSV_Int_Array[I] = 1  
+    EndFor 
+    IMPORT_CSV()
+    Import_CSV_Headers()
+    records =  LDCall.Function2(CommandFunction , database,Import_CSV_SQL_Final)
+    LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file","Application")
+    GraphicsWindow.ShowMessage(records + " records updated","IMPORT")
+    File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+  ElseIf LastClickedButton = ImportSQL_Button Then ' Imports SQL 
+    CurrentFolder = LDFile.GetFolder(databasepath)
+    records =  LDCall.Function2( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) )
+    LDCall.Function2(logfunction, "Imported data into: " + databasepath +" From sql file","Application")
+    GraphicsWindow.ShowMessage(records + " records updated","IMPORT")
+  ElseIf LastClickedButton = ExportSQL_Button Then 
+    Export_SQL_Dump_Fetch()
+    Export_SQL_Dump_Write()
+  ElseIf LastClickedButton = ExportCSV_Button Then
+    TextWindow.WriteLine("")
+    TextWindow.WriteLine("SELECT DATA TO WRITE IN " + LastClickedButton)
+    TextWindow.Write(">")
+    querycmd = TextWindow.Read()
+    querycmd = Text.ConvertToLowerCase(querycmd)
+    Export_CSV()
+  ElseIf LastClickedButton = ExportXML_Button Then
+    TextWindow.WriteLine("")
+    TextWindow.WriteLine("SELECT DATA TO WRITE IN " + LastClickedButton)
+    TextWindow.Write(">")
+    querycmd = TextWindow.Read()
+    querycmd = Text.ConvertToLowerCase(querycmd)
+    Export_XML()
+  ElseIf LastClickedButton = ExportHTML_Button Then
+    Export_HTML()
+  ElseIf LastClickedButton = ToggleDebug_Button Then 
+    If debug_mode = 1 Then 
+      debug_mode = 0
+    ElseIf debug_mode = 0 Then
+      debug_mode = 1
+    EndIf 
+  ElseIf LastClickedButton = AboutButton Then 
+    GraphicsWindow.ShowMessage("DBM is a Database Mangement Program developed by Abhishek Sathiabalan. Copyright " + copyrightDate + ". All rights reserved." + CLLF + CLLF +"You are running : " + ProductID +" v" + VersionID ,"About") 
+  ElseIf LastClickedButton = ShowHelp Then
+    LDProcess.Start(HelpPath,"") 
+  ElseIf LastClickedButton = SettingsButton Then 
+    Settings_UI()
+  ElseIf LastClickedButton = Setting_Save Then 
+    Settings["Listview_Width"] = Controls.GetTextBoxText(Settings_WidthTB )
+    Settings["Listview_Height"]= Controls.GetTextBoxText(Settings_HeigthTB )
+    Settings["Extensions"] = Controls.GetTextBoxText(Settings_ExtensionsTB)
+    Settings["Deliminator"] = Controls.GetTextBoxText( Settings_DeliminatorTB )
+    SaveSettings()
+    LoadSettings()
+    
+    LastClickedButton = Settings_Close 
+    MainMenuHandler()
+  ElseIf LastClickedButton = Settings_Close Then 
+    listview = ""
+    Dataview = ""
+    MainMenuUI()
+  ElseIf LastClickedButton = MoveRight Then 'Export UI Controls 
+    
+  ElseIf LastClickedButton = MoveLeft Then
+    
+  ElseIf LastClickedButton = NextButton Then 
+    
+  ElseIf LastClickedButton = RefreshButton Then 
+    Get_SCHEMA()
+  ElseIf LastClickedButton = CheckForUpdates Then 
+    MannualUpdateCheck = 1 
+    UpdateFunction()
+  EndIf
+  
+  If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
+    'Export_UI()
+    LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,"Application")
+    GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton,"EXPORT")
+  EndIf
+EndSub
+
+'______________________________________________________________________________
+'                                                                                     Graphic Magic
+'______________________________________________________________________________
+Sub Hide_Display_Results
+  default_Brush = GraphicsWindow.BrushColor
+  GraphicsWindow.BrushColor = "WHITE"
+  GraphicsWindow.FillRectangle( UIx -5 ,45 ,320 ,350)
+  GraphicsWindow.BrushColor = default_Brush
+  For I = 1 To Array.GetItemCount(Display_Results_MasterControlsList)
+    Controls.HideControl(Display_Results_MasterControlsList[I] )
+  EndFor
+EndSub
+
+Sub Show_Display_Results
+  GraphicsWindow.DrawRectangle( UIx ,50 ,310 ,240)
+  GraphicsWindow.FontSize = 15
+  GraphicsWindow.DrawText( UIx + 100 , 52 , "Display Settings")
+  GraphicsWindow.DrawText( UIx + 20 ,73 , "Sort by")
+  GraphicsWindow.DrawText( UIx + 100 , 150 , "Search Settings")
+  GraphicsWindow.DrawText( UIx + 20,180,"Search in")
+  GraphicsWindow.DrawText( UIx + 20,210,"Search:")
+  For I = 1 To Array.GetItemCount(Display_Results_MasterControlsList)
+    Controls.ShowControl(Display_Results_MasterControlsList[I] )
+  EndFor
+EndSub
+
+Sub Display_Results
+  
+  GraphicsWindow.Width = Desktop.Width
+  GraphicsWindow.Height = Desktop.Height
+  GraphicsWindow.Left = 0
+  GraphicsWindow.Top = 0
+  UIx = Listview_Width + 50
+  OrderByOptions = "1=ASC;2=DESC;"
+  
+  GraphicsWindow.DrawRectangle( UIx ,50 ,310 ,340)
+  GraphicsWindow.FontSize = 15
+  GraphicsWindow.DrawText( UIx + 100 , 52 , "Display Settings")
+  GraphicsWindow.DrawText( UIx + 20 ,73 , "Sort by")
+  GraphicsWindow.DrawText( UIx + 100 , 150 , "Search Settings")
+  GraphicsWindow.DrawText( UIx + 20,180,"Search in")
+  GraphicsWindow.DrawText( UIx + 20,210,"Search:")
+  GraphicsWindow.DrawText( UIx + 127,290,"Functions:")
+  
+  GraphicsWindow.FontSize = 13
+  List = Text.ConvertToUpperCase( SchemaList )
+  FunctionList = ""
+  
+  'Sort
+  SortByCB = LDControls.AddComboBox(List,100,100)
+  ASCDESC_CB = LDControls.AddComboBox("1=Asccending;2=Descending;",110,100)
+  SortButton = Controls.AddButton("SORT", UIx + 10 , 120)
+  Controls.Move(SortByCB, UIx + 80 , 72 )
+  Controls.Move(ASCDESC_CB,  UIx + 190, 72)
+  Controls.SetSize(SortButton,290,25)
+  
+  
+  'Search
+  SearchByCB = LDControls.AddComboBox(List,200,120)
+  SearchTextTB = Controls.AddTextBox(UIx + 100,210)
+  StrictSearchCheckBox = LDControls.AddCheckBox("Strict Search")
+  SearchButton = Controls.AddButton("SEARCH",UIx +10,260)
+  Controls.SetSize(SearchTextTB, 200, 25)
+  Controls.SetSize(SearchButton,290,25)
+  Controls.Move(StrictSearchCheckBox,UIx+20,240)
+  Controls.Move(SearchByCB, UIx + 100 , 160 +20 )
+  
+  'Functions
+  FunctionListCB =  LDControls.AddComboBox(SQLFunctionsList,130,100)
+  Controls.Move( FunctionListCB , UIx + 10 , 310 )
+  ColumnListCB = LDControls.AddComboBox(List,135,100)
+  Controls.Move( ColumnListCB , UIx + 160 , 310 )
+  
+  RunFunctionButton = Controls.AddButton("RUN FUNCTION",UIx +10 , 340)
+  Controls.SetSize( RunFunctionButton, 290 , 25 )
+  
+  'Custom Query
+  CustomQuery =  Controls.AddMultiLineTextBox(UIx,420)
+  Controls.SetSize(CustomQuery,310, 150)
+  CustomQueryButton = Controls.AddButton("QUERY",UIx , 580)
+  Controls.SetSize(CustomQueryButton, 310 ,25)
+  CommandButton =  Controls.AddButton("COMMAND",UIx, 580 +35)
+  Controls.SetSize(CommandButton, 310 ,25)
+  
+  Controls.SetTextBoxText(CustomQuery,"This Textbox allows you to use Custom" +CLLF+" SQL Queries. Remove this and type in an SQL"+CLLF+" statement."+CLLF+"You also use it to export data")
+  
+  Display_Results_MasterControlsList = "1="+SortByCB+";2="+ASCDESC_CB+";3="+SortButton+";4="+SearchByCB+";5="+SearchTextTB+";6="+StrictSearchCheckBox+";7="+SearchButton+";8="+CustomQuery+";9="+CustomQueryButton+";"
+  Display_Results_MasterControlsList = Display_Results_MasterControlsList +"10="+CommandButton+";11="+FunctionListCB+";12="+ColumnListCB+";13="+RunFunctionButton+";"
+EndSub
+
+Sub Export_UI 'Currently not in use 
+  ExportWinID = LDWindows.Create()
+  GraphicsWindow.Title = "Export"
+  LDGraphicsWindow.CancelClose = "True"
+  LDGraphicsWindow.ExitOnClose = "False"
+  LDGraphicsWindow.ExitButtonMode("Settings","Disabled")
+  
+  Export_Tables_UI = "" 
+  For I = 1 To Array.GetItemCount(SCHEMA_TableList ) 
+    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_TableList[I] + " (T)"
+  EndFor 
+  
+  For I = 1 To Array.GetItemCount(SCHEMA_IndexList ) 
+    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_IndexList[I] + " (I)"
+  EndFor
+  
+  For I = 1 To Array.GetItemCount(SCHEMA_ViewList ) 
+    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_ViewList[I] + " (V)"
+  EndFor
+  
+  ExportListBox[1] = LDControls.AddListBox(Export_Tables_UI,200,200)
+  ExportListBox[2] = LDControls.AddListBox("",200,200)
+  Controls.Move(ExportListBox[1] , 1, 40 )
+  Controls.Move(ExportListBox[2] , 300,40 )
+  
+  ToolTip[1] = Shapes.AddText("Tables / Views / Indexes" )
+  ToolTip[2] = Shapes.AddText("Export Following:")
+  Shapes.Move(ToolTip[1], 25 ,20 )
+  Shapes.Move(ToolTip[2], 345,20 )
+  
+  MoveRight =  Controls.AddButton(">",230,120)
+  MoveLeft = Controls.AddButton("<",230,150)
+  NextButton = Controls.AddButton("Next", 230,180 )
+  Controls.SetSize( MoveRight ,50 , 25)
+  Controls.SetSize( MoveLeft ,50 , 25)
+  Controls.SetSize( NextButton , 50 , 25 )
+EndSub
+
+Sub Settings_UI
+  GraphicsWindow.Clear()
+  GraphicsWindow.Title = "Settings"
+  
+  GraphicsWindow.CanResize = "False"
+  LDGraphicsWindow.CancelClose = "True"
+  LDGraphicsWindow.ExitOnClose = "False" 
+  LDGraphicsWindow.Closing = Closing 
+  LDGraphicsWindow.ExitButtonMode("Settings","Disabled")
+  
+  GraphicsWindow.FontSize = 20
+  
+  GraphicsWindow.DrawText(1,30,"Listview Width")
+  Settings_WidthTB = Controls.AddTextBox(200,25)
+  
+  GraphicsWindow.DrawText(1,65,"Listview Height")
+  Settings_HeigthTB = Controls.AddTextBox(200, 60)
+  
+  GraphicsWindow.DrawText(1,100,"Extensions")
+  Settings_ExtensionsTB = Controls.AddTextBox(200,95)
+  
+  GraphicsWindow.DrawText(1,135,"Deliminator")
+  Settings_DeliminatorTB = Controls.AddTextBox(200,130)
+  
+  Setting_Save = Controls.AddButton("Save and Close",50,200)
+  Settings_Close = Controls.AddButton("Close without Saving" , 50, 250 ) 
+  
+  Controls.SetSize ( Setting_Save , 280 , 35 )
+  Controls.SetSize ( Settings_Close , 280 , 35 )
+  
+  Controls.SetTextBoxText(Settings_WidthTB , Listview_Width )
+  Controls.SetTextBoxText(Settings_HeigthTB, Listview_Height )
+  Controls.SetTextBoxText(Settings_ExtensionsTB , Settings["Extensions"] )
+  Controls.SetTextBoxText( Settings_DeliminatorTB , Settings["Deliminator"] ) 
+  
+  GraphicsWindow.FontSize = Default_FontSize 
+EndSub
+'______________________________________________________________________________
+'                                                                                    Operations
+'______________________________________________________________________________
+Sub GenerateQuery
+  SearchByGQ = LDControls.ComboBoxGetSelected(SearchByCB)
+  OrderByGQ =  LDControls.ComboBoxGetSelected(SortByCB)
+  SortOrder =  LDControls.ComboBoxGetSelected(ASCDESC_CB)
+  StrictSearchChecked = LDControls.CheckBoxGetState(StrictSearchCheckBox)
+  FunctionListGQ = LDControls.ComboBoxGetSelected( FunctionListCB )
+  ColumnListGQ = LDControls.ComboBoxGetSelected( ColumnListCB)
+  SearchTextGQ = Controls.GetTextBoxText(SearchTextTB)
+  
+  CMD = "" 'Techincally not needed , keep it in for clarity 
+  CMD = "SELECT * FROM " +Default_Table +" "
+  If Results_Sort = 1 Then
+  ElseIf Results_Search = 1 Then
+    SearchTextGQ = LDText.Replace(SearchByGQ,"'","''")
+    CMD = CMD + "WHERE "+ List[SearchByGQ]
+    If StrictSearchChecked = "False" Then ' Non Strict
+      CMD = CMD +" LIKE '%" + Controls.GetTextBoxText(SearchTextTB)+"%' "
+    Else 'Strict
+      CMD = CMD +"='" + Controls.GetTextBoxText(SearchTextTB)+"' "
+    EndIf
+  ElseIf Results_Function = 1 Then
+    CMD = ""
+    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" + List[ColumnListGQ]+") FROM " +Default_Table +" "
+  EndIf
+  
+  'Apply Sort Constraints
+  CMD = CMD + "ORDER BY " + List[SearchByGQ] +" "
+  If SortOrder = 1 Then
+    CMD = CMD + "ASC;"
+  ElseIf SortOrder = 2 Then
+    CMD = CMD + "DESC;"
+  EndIf
+  
+  LDCall.Function3(QueryFunction,CMD,CurrentControl,"False")
+EndSub
+
+Sub Get_SCHEMA
+  If database <> "" Then 'Prevents Application from querying a nonexistent db 
+    TableList = LDCall.Function3(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='table';","","True")
+    ViewList  = LDCall.Function3(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='view';","","True")
+    IndexList = LDCall.Function3(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='index';","","True")
+    
+    For I = 1 To Array.GetItemCount(TableList)
+      SCHEMA_TableList[I] = TableList[I]["tbl_name"]
+    EndFor
+    
+    For I = 1 To Array.GetItemCount(ViewList)
+      SCHEMA_ViewList[I] = ViewList[I]["tbl_name"] 
+    EndFor
+    
+    For I = 1 To Array.GetItemCount(IndexList)
+      SCHEMA_IndexList[I] = IndexList[I]["tbl_name"] 
+    EndFor
+    
+    Default_Table  = SCHEMA_TableList[1]
+    LDList.Add(TrackDefaultTable,1)
+    Get_SCHEMA_Private()
+  EndIf 
+EndSub
+
+Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View 
+  SchemaList = ""
+  LDList.Clear("SCHEMA")
+  SCHEMA = LDCall.Function3(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True")
+  For Get_SCHEMA_I = 1 To Array.GetItemCount(SCHEMA)
+    LDList.Add("SCHEMA",SCHEMA[Get_SCHEMA_I]["name"] )
+  EndFor
+  SchemaList= LDList.ToArray("SCHEMA")
+EndSub
+
+'______________________________________________________________________________
+'                                                                                    EXPORT
+'______________________________________________________________________________
+Sub Export_CSV
+  TextWindow.WriteLine("")
+  
+  If deliminator = "" then
+    LDUtilities.CSVDeliminator = "," 
+  Else
+    LDUtilities.CSVDeliminator = deliminator
+  EndIf
+  
+  return =  LDCall.Function3(QueryFunction,querycmd,"","True")
+  csvdata = return 
+  
+  return2 = Array.GetAllIndices(return)
+  return2 = return [return2[1] ]
+  return2 = Array.GetAllIndices(return2)
+  
+  csvpath = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.csv"
+  
+  
+  For i = 1 To Array.GetItemCount(return2) 'Gets Column Names  Headers
+    csvdata[0][i] =  return2[i]
+  EndFor
+  
+  For i = 0 To Array.GetItemCount(csvdata) + 1 'Puts Column Names into Data
+    csvdataREAL[i+1] = csvdata[i]
+  EndFor
+  
+  LDFile.WriteCSV(csvpath,csvdataREAL )
+  csvdata = ""
+EndSub
+
+Sub Export_XML
+  EXPORTDATA = LDCall.Function3(QueryFunction,querycmd,"","True")
+  XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
+  File.DeleteFile(XML_Path)
+  XML_Createment_Statement = "<?xml version=" +DoubleQuotesCharacter+ XML_Version_Number+DoubleQuotesCharacter+" encoding="+DoubleQuotesCharacter+ "UTF-8"+DoubleQuotesCharacter+" standalone="+DoubleQuotesCharacter+"yes" + DoubleQuotesCharacter +"?>"
+  XML_Createment_Statement = XML_Createment_Statement +"<root></root>"
+  File.AppendContents(XML_Path,XML_Createment_Statement)
+  XML_Document = LDxml.Open(XML_Path)
+  XML_Parent = LDxml.Parent()
+  LDxml.FirstChild()
+  GO = 1
+  XML_Fetch_All()
+  While 1 = GO
+    If XML_Array[5] = "XmlDeclaration" Or XML_Array[5] ="root" Then 'Ignores Root and XMLDeclaration
+      LDxml.NextSibling()
+      XML_Fetch_All()
+    Else
+      XML_Write()
+      LDxml.Save(XML_Path)
+      GO = 0
+    EndIf
+  EndWhile
+EndSub
+
+Sub XML_Fetch_All
+  XML_Array[1] = LDxml.Attributes
+  XML_Array[2] = LDxml.AttributesCount
+  XML_Array[3] = LDxml.ChildrenCount
+  XML_Array[4] = LDxml.NodeName
+  XML_Array[5] = LDxml.NodeType
+  
+  XML_Array_SCHEMA ="1=Attributes:;2=Attribute Count:;3=Children count:;4=Node Name:;5=Node Type:;"
+EndSub
+
+Sub XML_Write 'Writes Data Out. Currently all data is stuck under the 1st record instead of their respective records.
+  For I = 1 To Array.GetItemCount(EXPORTDATA)
+    data["id"]=I
+    LDxml.AddNode("record",data,"","Append")
+    Child = LDxml.LastChild()
+    For II = 1 To Array.GetItemCount(EXPORTDATA[I])
+      LDxml.AddNode(SchemaList[II],"",EXPORTDATA[I][SchemaList[II]],"Append")
+    EndFor
+    LDxml.Parent()
+  EndFor
+EndSub
+
+Sub Export_SQL_Dump_Fetch
+  LDList.Clear("EXPORT_SQL")
+  Export_SQL_DUMP_SCHEMA = LDCall.Function3(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True")
+  EXPORT_SQL_DATA = LDCall.Function3(QueryFunction,"Select * FROM "+Default_Table+";","","True")
+  EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
+  
+  For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
+    LDList.Add("EXPORT_SQL",SCHEMA[Export_SQL_I]["type"] ) 'Type of Data 
+  EndFor
+  Export_SQL_DUMP_SCHEMA = LDList.ToArray("EXPORT_SQL")
+EndSub
+
+Sub Export_SQL_DUMP_WRITE
+  'Generates Create Table Schema with proper Schema
+  Dump_SQL = "CREATE TABLE " + Default_Table +"("
+  For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
+    DUMP_SQL = DUMP_SQL + SchemaList[Export_SQL_I] +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
+    If Export_SQL_I < Array.GetItemCount(SchemaList) Then
+      DUMP_SQL = DUMP_SQL +","
+    EndIf
+  EndFor
+  
+  DUMP_SQL = DUMP_SQL +");"
+  'Exports Data from SQL Table
+  For Export_SQL_I = 1 To Array.GetItemCount(EXPORT_SQL_DATA)
+    DUMP_SQL = DUMP_SQL +"INSERT INTO " +Default_Table + " VALUES ('"
+    For Export_SQL_II = 1 To Array.GetItemCount(EXPORT_SQL_DATA[Export_SQL_I])
+      DUMP_SQL =DUMP_SQL + LDText.Replace(EXPORT_SQL_DATA[Export_SQL_I][SchemaList[Export_SQL_II]],"'","''")
+      If Export_SQL_II < Array.GetItemCount(SchemaList) Then
+        DUMP_SQL = DUMP_SQL +"','"
+      EndIf
+    EndFor
+    DUMP_SQL = DUMP_SQL +"');" + CLLF
+  EndFor
+  File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
+EndSub
+
+Sub Export_HTML
+  Export_HTML_SCHEMA = LDCall.Function3(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True")
+  EXPORT_HTML_DATA = LDCall.Function3(QueryFunction,"Select * FROM "+Default_Table+";","","True")
+  EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
+  
+  HTML_Statement = "" 
+  HTML_Statement = "<!DOCTYPE html>"+CLLF+"<html>"+CLLF+TabKey+"<title>" + Default_Table +" Exported</title>" +CLLF + CLLF
+  HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}table {border-collapse: collapse; width: 100%;}th, td {padding: 15px;}tr:hover{background-color:#f5f5f5}"
+  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
+  HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
+  HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->" + CLLF 
+  HTML_Statement = HTML_Statement + TabKey +"</head>" + CLLF + CLLF  
+  HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"+CLLF + TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF
+  
+  
+  For EXPORT_HTML_I = 1 To  Array.GetItemCount(Export_HTML_SCHEMA)
+    HTML_Statement = HTML_Statement + TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I]["name"] +"</th>" + CLLF
+  EndFor 
+  HTML_Statement = HTML_Statement +TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF
+  
+  For EXPORT_HTML_I = 1 To Array.GetItemCount(EXPORT_HTML_DATA)
+    HTML_Statement = HTML_Statement +TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF
+    For EXPORT_HTML_II = 1 To Array.GetItemCount(Export_HTML_SCHEMA)
+      HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + EXPORT_HTML_DATA[EXPORT_HTML_I][Export_HTML_SCHEMA[EXPORT_HTML_II]["name"]] +"</td>" + CLLF
+    EndFor
+    HTML_Statement = HTML_Statement +TabKey + TabKey+Tabkey+Tabkey+"</tr>"+CLLF 
+  EndFor
+  HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
+  File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
+EndSub
+'______________________________________________________________________________
+'                                                                                    IMPORT
+'______________________________________________________________________________
+
+Sub IMPORT_CSV
+  Import_CSV_SQL = "" 
+  For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
+    Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + I_CSV_Name + " VALUES ('"
+    CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[I] )
+    For II = 1 To Array.GetItemCount(I_CSV_Array[I])
+      CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
+      CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
+      
+      Import_CSV_SQL =  Import_CSV_SQL+ CSV_Array_Temp
+      
+      If CSV_Array_Temp <> 0 And Math.SquareRoot(CSV_Array_Temp) = 0 Then
+        CSV_Int_Array[II] = 0 
+      EndIf 
+      
+      If II < Array.GetItemCount(I_CSV_Array[i]) Then 
+        Import_CSV_SQL = Import_CSV_SQL + "','"
+      EndIf
+      
+    EndFor
+    
+    Import_CSV_SQL = Import_CSV_SQL + "');" + Text.GetCharacter(10)
+  EndFor
+EndSub
+
+Sub Import_CSV_Headers
+  ' LDClipboard.SetText(Import_CSV_SQL)
+  
+  Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + I_CSV_Name +" ("
+  Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
+  
+  For I = 1 To Array.GetItemCount(I_CSV_Array[1])
+    Import_CSV_HSQL = Import_CSV_HSQL +I_CSV_Array[1][I] + " " 
+    If CSV_Int_Array[I] = 1 Then 
+      Import_CSV_HSQL = Import_CSV_HSQL +"INTEGER"
+    Else 
+      Import_CSV_HSQL = Import_CSV_HSQL +"TEXT"
+    EndIf 
+    
+    If I < Array.GetItemCount(I_CSV_Array[1]) Then 
+      Import_CSV_HSQL = Import_CSV_HSQL + ","
+    EndIf
+    
+  EndFor
+  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
+  Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
+EndSub
+
+'______________________________________________________________________________
+'                                                                                     Query
+'______________________________________________________________________________
+Sub Query
+  QueryArgs = args
+  If database <> "" Then 
+    return =  LDDataBase.Query(database,args[1],args[2],args[3])
+
+  Else 
+    LDCall.Function2(logfunction ,"Query Error : No Database has been loaded", "UI" ) 
+    GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Query Error " ) 
+  EndIf 
+EndSub
+
+'______________________________________________________________________________
+'                                                                                     Database Command 
+'______________________________________________________________________________
+
+Sub Command 'Runs A Command Function 
+  CommandArgs = args 
+  If args[1] <> "" Then 
+    
+    return = LDDataBase.Command(args[1] ,LDText.Trim( args[2] ) )
+  Else 
+    LDCall.Function2(logfunction ,"Command Error : No Database has been loaded", "UI" ) 
+    GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Command Error " ) 
+  EndIf
+EndSub
+
+'______________________________________________________________________________
+'                                                                                     Logging
+'______________________________________________________________________________
+Sub Closing
+  If databasepath = "" Then 
+    LDCall.Function2(logfunction, "Program Closing ","Application")
+  Else 
+    LDCall.Function2(logfunction, "Program Closing - Closing : " + databasepath ,"Application")
+  EndIf 
+  Program.End()
+EndSub
+
+Sub ErrorHandler
+  TextWindow.WriteLine( LDEvents.LastError )
+  LDCall.Function2(logfunction, LDEvents.LastError ,"System" )
+EndSub
+
+Sub Log
+  LogEvent = args[1]
+  TypeofError = args[2] 
+  If TypeofError = "Debug" And debug_mode = 0 Then 'DO NOT STORE IF TRUE 
+  Else 
+    If TypeofError = "" Then 
+      TypeofError = "Unknown"
+    EndIf 
+    
+    If debug_mode = 1 Then 
+      If Text.StartsWith(LogEvent,"LDDataBase.Query") = "True" Then 
+        TextWindow.WriteLine(QueryArgs )
+      ElseIf Text.StartsWith(LogEvent,"LDDataBase.Command") = "True" Then
+        TextWindow.WriteLine( CommandArgs ) 
+      EndIf 
+    EndIf 
+    
+    LogNumber = LogNumber + 1
+    return = File.AppendContents(logpath,Clock.Date + "|" + Clock.Time +"|" + LDFile.UserName +"|" + ProductID +"|"+ VersionID+"|"+   LogEvent)
+    LOG_CMD = "INSERT INTO LOG (ID,UTC_DATE,UTC_TIME,DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
+    LDCall.Function2( CommandFunction , LOG_DB , LOG_CMD ) 
+  EndIf 
+EndSub
+
+'______________________________________________________________________________
+'                       Update Function
+'______________________________________________________________________________
+
+Sub UpdateFunction
+  UpdateDownload()
+  UpdateUI()
+EndSub
+
+Sub UpdateDownload
+  UpdaterDB = AssetPath+"Updater.db"
+  
+  If LDNetwork.DownloadFile(UpdaterDB,OnlineDB_Refrence_Location) <> "-1" Then 
+    UpdaterDB =  LDDataBase.ConnectSQLite(UpdaterDB)
+    QueryItems =  LDDataBase.Query(UpdaterDB,"SELECT * FROM updates WHERE PRODUCTID =" + "'"+PRODUCTID + "';" ,"","True") 
+    
+    LatestVersion = QueryItems[1]["VERSION"]
+    DownloadLocation = QueryItems[1]["URL"] 
+  Else
+    GraphicsWindow.ShowMessage("An Error has occured. Please check the log for details.","Error") 
+  EndIf 
+EndSub 
+
+Sub UpdateUI
+  If LatestVersion = PrgmVersionID And MannualUpdateCheck = 1 Then 
+    LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
+    GraphicsWindow.ShowMessage("There are no updates available","No Updates") 
+  ElseIf PrgmVersionID  > LatestVersion AND MannualUpdateCheck = 1 Then 
+    LDCall.Function2(logfunction ,"You have early beta version of the program", "UI" ) 
+    GraphicsWindow.ShowMessage("You have a more recent edition of the program than that offered to the public." + CLLF + " You have version " + PrgmVersionID  + " while the most recent public release is version " + LatestVersion,"No Updates") 
+  ElseIf (PrgmVersionID  < LatestVersion) Then 
+    If   ( LDDialogs.Confirm("Do you wish to download Version " + LatestVersion + "? You have Version " + PrgmVersionID ,"Download Update") = "Yes" ) Then 
+      LDCall.Function2(logfunction ,"Starting Download of Update", "UI" )   
+      DownloadUpdate()  
+    EndIf  
+  EndIf 
+EndSub
+
+Sub DownloadUpdate
+  
+  DownloadFolder = "" 
+  While DownloadFolder = "" 
+    GraphicsWindow.ShowMessage("You will be prompted to select the download location.","Download Location") 
+    DownloadFolder =  LDDialogs.SaveFile("1=zip;2=*","C:\Users\"+LDFile.UserName)
+  EndWhile 
+  
+  UpdaterSize = LDNetwork.DownloadFile(DownloadFolder,DownloadLocation) 
+  
+  If UpdaterSize <> "-1" then 
+    LDCall.Function2(logfunction ,"Dowloaded update to : " + DownloadFolder, "UI" ) 
+    GraphicsWindow.ShowMessage("SUCCESS","Update Downloaded")
+  Else
+    GraphicsWindow.ShowMessage("An Error has occured. Please check the log for details.","Error") 
+  EndIf 
+  
+EndSub 
