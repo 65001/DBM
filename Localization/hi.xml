@@ -22,7 +22,7 @@
     <Refresh language="hi">ताज़ा करें</Refresh>
     <Check_for_Updates language="hi">अद्यतनों के लिए जाँचें</Check_for_Updates>
     <PXML language="hi">XML</PXML>
-    <PRGM_Start language="hi">कार्यक्रम शुरू</PRGM_Start>
+    <PRGM_Start language="hi">कार्यक्रम शुरू कर दिया</PRGM_Start>
     <Application language="hi">अनुप्रयोग</Application>
     <Failed_Save_Settings language="hi">सेटिंग्स को सहेजने के लिए विफल</Failed_Save_Settings>
     <Error language="hi">त्रुटि</Error>
@@ -30,10 +30,9 @@
     <Table language="hi">तालिका</Table>
     <Index language="hi">सूचकांक</Index>
     <View language="hi">दृश्य</View>
-    <Master_Table language="hi">मास्टर तालिका</Master_Table>
+    <Master_Table language="hi">मुख्य तालिका</Master_Table>
     <Sort language="hi">सॉर्ट करें</Sort>
-    <Asc language="hi">Asccending</Asc>
-    <Desc language="hi">
-    </Desc>
+    <Asc language="hi">आरोही</Asc>
+    <Desc language="hi">अवरोही क्रम</Desc>
   </Language>
 </root>

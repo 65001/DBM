@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="th">
+    <File language="th">แฟ้ม</File>
+    <New language="th">ใหม่</New>
+    <Open language="th">เปิด</Open>
+    <Edit language="th">แก้ไข</Edit>
+    <View language="th">ดู</View>
+    <Save language="th">บันทึก</Save>
+    <Import language="th">นำเข้า</Import>
+    <CSV language="th">CSV</CSV>
+    <SQL language="th">SQL</SQL>
+    <Export language="th">การส่งออก</Export>
+    <HTML language="th">HTML</HTML>
+    <Settings language="th">การตั้งค่า</Settings>
+    <Help language="th">วิธีใช้</Help>
+    <About language="th">เกี่ยวกับ</About>
+    <Show_Help language="th">แสดงวิธีใช้</Show_Help>
+    <Settings_Editor language="th">ตัวแก้ไขการตั้งค่า</Settings_Editor>
+    <Toggle_Debug language="th">ตรวจแก้จุดบกพร่องสลับ</Toggle_Debug>
+    <Toggle_Transaction_Log language="th">สลับล็อกธุรกรรม</Toggle_Transaction_Log>
+    <Refresh language="th">รีเฟรช</Refresh>
+    <Check_for_Updates language="th">ตรวจสอบปรับปรุง</Check_for_Updates>
+    <PXML language="th">
+    </PXML>
+  </Language>
+</root>

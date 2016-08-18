@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ko">
+    <File language="ko">파일</File>
+    <New language="ko">새로운 내용</New>
+    <Open language="ko">오픈</Open>
+    <Edit language="ko">편집</Edit>
+    <View language="ko">보기</View>
+    <Save language="ko">저장</Save>
+    <Import language="ko">가져오기</Import>
+    <CSV language="ko">CSV</CSV>
+    <SQL language="ko">SQL</SQL>
+    <Export language="ko">내보내기</Export>
+    <HTML language="ko">HTML</HTML>
+    <Settings language="ko">설정</Settings>
+    <Help language="ko">도움말</Help>
+    <About language="ko">에 대 한</About>
+    <Show_Help language="ko">도움말을 표시</Show_Help>
+    <Settings_Editor language="ko">설정 편집기</Settings_Editor>
+    <Toggle_Debug language="ko">전환 디버그</Toggle_Debug>
+    <Toggle_Transaction_Log language="ko">전환 트랜잭션 로그</Toggle_Transaction_Log>
+    <Refresh language="ko">새로 고침</Refresh>
+    <Check_for_Updates language="ko">업데이트 확인</Check_for_Updates>
+    <PXML language="ko">
+    </PXML>
+  </Language>
+</root>

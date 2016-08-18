@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="yue">
+    <File language="yue">文件</File>
+    <New language="yue">新增功能</New>
+    <Open language="yue">開放</Open>
+    <Edit language="yue">編輯</Edit>
+    <View language="yue">视图</View>
+    <Save language="yue">保存</Save>
+    <Import language="yue">導入</Import>
+    <CSV language="yue">CSV</CSV>
+    <SQL language="yue">SQL</SQL>
+    <Export language="yue">出口</Export>
+    <HTML language="yue">HTML</HTML>
+    <Settings language="yue">設置</Settings>
+    <Help language="yue">幫手</Help>
+    <About language="yue">關於</About>
+    <Show_Help language="yue">顯示幫助</Show_Help>
+    <Settings_Editor language="yue">設置編輯器</Settings_Editor>
+    <Toggle_Debug language="yue">切換調試</Toggle_Debug>
+    <Toggle_Transaction_Log language="yue">切換事務日誌</Toggle_Transaction_Log>
+    <Refresh language="yue">刷新</Refresh>
+    <Check_for_Updates language="yue">檢查更新</Check_for_Updates>
+    <PXML language="yue">
+    </PXML>
+  </Language>
+</root>

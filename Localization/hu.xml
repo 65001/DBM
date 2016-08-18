@@ -32,8 +32,7 @@
     <View language="hu">Nézet</View>
     <Master_Table language="hu">Törzstábla</Master_Table>
     <Sort language="hu">Rendezés</Sort>
-    <Asc language="hu">Asccending</Asc>
-    <Desc language="hu">
-    </Desc>
+    <Asc language="hu">Növekvő</Asc>
+    <Desc language="hu">Csökkenő</Desc>
   </Language>
 </root>

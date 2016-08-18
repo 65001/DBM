@@ -32,8 +32,7 @@
     <View language="et">Vaade</View>
     <Master_Table language="et">Kapten tabel</Master_Table>
     <Sort language="et">Sortimine</Sort>
-    <Asc language="et">Asccending</Asc>
-    <Desc language="et">
-    </Desc>
+    <Asc language="et">Tõusvas järjestuses</Asc>
+    <Desc language="et">Laskuvas järjestuses</Desc>
   </Language>
 </root>

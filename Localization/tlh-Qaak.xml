@@ -32,8 +32,7 @@
     <View language="tlh-Qaak"></View>
     <Master_Table language="tlh-Qaak"> </Master_Table>
     <Sort language="tlh-Qaak"></Sort>
-    <Asc language="tlh-Qaak"></Asc>
-    <Desc language="tlh-Qaak">
-    </Desc>
+    <Asc language="tlh-Qaak"></Asc>
+    <Desc language="tlh-Qaak"></Desc>
   </Language>
 </root>

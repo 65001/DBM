@@ -3,7 +3,7 @@
   <Language language="ru">
     <File language="ru">Файл</File>
     <New language="ru">Новые функции</New>
-    <Open language="ru">Открытые</Open>
+    <Open language="ru">Открыть</Open>
     <Edit language="ru">Правка</Edit>
     <View language="ru">Вид</View>
     <Save language="ru">Сохранить</Save>
@@ -16,11 +16,11 @@
     <Help language="ru">Справка</Help>
     <About language="ru">О</About>
     <Show_Help language="ru">Показать помощь</Show_Help>
-    <Settings_Editor language="ru">Параметры редактора</Settings_Editor>
-    <Toggle_Debug language="ru">Переключить отладки</Toggle_Debug>
-    <Toggle_Transaction_Log language="ru">Журнал транзакций переключения</Toggle_Transaction_Log>
+    <Settings_Editor language="ru">Редактор параметров</Settings_Editor>
+    <Toggle_Debug language="ru">Рычажные Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="ru">Переключение журнала транзакций</Toggle_Transaction_Log>
     <Refresh language="ru">Обновить</Refresh>
-    <Check_for_Updates language="ru">Проверить наличие обновлений</Check_for_Updates>
+    <Check_for_Updates language="ru">Проверка обновлений</Check_for_Updates>
     <PXML language="ru">XML</PXML>
     <PRGM_Start language="ru">Программа начала</PRGM_Start>
     <Application language="ru">Применение</Application>
@@ -32,8 +32,7 @@
     <View language="ru">Вид</View>
     <Master_Table language="ru">Мастер таблицы</Master_Table>
     <Sort language="ru">Сортировка</Sort>
-    <Asc language="ru">Asccending</Asc>
-    <Desc language="ru">
-    </Desc>
+    <Asc language="ru">По возрастанию</Asc>
+    <Desc language="ru">По убыванию</Desc>
   </Language>
 </root>

@@ -115,6 +115,10 @@ HelpPath = AssetPath +"HELP Table.html"
 LocalizationsFolder = Program.Directory +"\Localization\"
 LocalizationsFilesArray  =  File.GetFiles ( LocalizationsFolder ) 
 
+For I = 1 To Array.GetItemCount( LocalizationsFilesArray  )
+  MLanguages[I] =  LDFile.GetFile( LocalizationsFilesArray[I] ) 
+EndFor 
+
 IF LDFile.Exists(AssetPath) = "FALSE" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
   File.CreateDirectory(AssetPath)
   File.CreateDirectory(LocalizationsFolder ) 
@@ -261,8 +265,10 @@ Sub LangListBuild
   LangList["Sort"]  = LDCall.Function( LanguageBuildFunction ,"Sort")  
   LangList["Asc"]  = LDCall.Function( LanguageBuildFunction ,"Asc")  
   LangList["Desc"]  = LDCall.Function( LanguageBuildFunction ,"Desc")  
-  debug_mode = 1 
-  TextWindow.WriteLine ( LangList["Desc"] ) 
+  
+  For I = 1 To Array.GetItemCount( LangList ) 
+    
+  EndFor 
 EndSub 
 
 Sub LangBuildFunction

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ur">
+    <File language="ur">مسل</File>
+    <New language="ur">نیا</New>
+    <Open language="ur">کھلا</Open>
+    <Edit language="ur">تدوین کریں</Edit>
+    <View language="ur">منظر</View>
+    <Save language="ur">محفوظ کریں</Save>
+    <Import language="ur">درآمد کریں</Import>
+    <CSV language="ur">CSV</CSV>
+    <SQL language="ur">SQL</SQL>
+    <Export language="ur">برآمد کریں</Export>
+    <HTML language="ur">HTML</HTML>
+    <Settings language="ur">سیٹنگیں</Settings>
+    <Help language="ur">مدد</Help>
+    <About language="ur">کے بارے میں</About>
+    <Show_Help language="ur">مدد نمایش کریں</Show_Help>
+    <Settings_Editor language="ur">سیٹنگیں تدوین کار</Settings_Editor>
+    <Toggle_Debug language="ur">ٹوگل ٹھیک کریں</Toggle_Debug>
+    <Toggle_Transaction_Log language="ur">ٹوگل لین دین لاگ ان کریں</Toggle_Transaction_Log>
+    <Refresh language="ur">تازہ کریں</Refresh>
+    <Check_for_Updates language="ur">پڑتال برائے تازہ کاریاں</Check_for_Updates>
+    <PXML language="ur">
+    </PXML>
+  </Language>
+</root>

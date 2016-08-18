@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ja">
+    <File language="ja">ファイル</File>
+    <New language="ja">新機能</New>
+    <Open language="ja">オープン</Open>
+    <Edit language="ja">編集</Edit>
+    <View language="ja">ビュー</View>
+    <Save language="ja">保存</Save>
+    <Import language="ja">インポート</Import>
+    <CSV language="ja">CSV</CSV>
+    <SQL language="ja">SQL</SQL>
+    <Export language="ja">エクスポート</Export>
+    <HTML language="ja">HTML</HTML>
+    <Settings language="ja">設定</Settings>
+    <Help language="ja">ヘルプ</Help>
+    <About language="ja">について</About>
+    <Show_Help language="ja">ヘルプを表示します。</Show_Help>
+    <Settings_Editor language="ja">設定エディター</Settings_Editor>
+    <Toggle_Debug language="ja">トグルのデバッグ</Toggle_Debug>
+    <Toggle_Transaction_Log language="ja">トグル トランザクション ログ</Toggle_Transaction_Log>
+    <Refresh language="ja">更新</Refresh>
+    <Check_for_Updates language="ja">更新プログラムの確認</Check_for_Updates>
+    <PXML language="ja">
+    </PXML>
+  </Language>
+</root>

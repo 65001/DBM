@@ -26,14 +26,13 @@
     <Application language="sv">Ansökan</Application>
     <Failed_Save_Settings language="sv">Det gick inte att spara inställningarna</Failed_Save_Settings>
     <Error language="sv">Fel</Error>
-    <Failed language="sv">Det gick inte</Failed>
+    <Failed language="sv">Misslyckades</Failed>
     <Table language="sv">Tabell</Table>
     <Index language="sv">Index</Index>
     <View language="sv">Visa</View>
-    <Master_Table language="sv">Master Table</Master_Table>
+    <Master_Table language="sv">Master tabell</Master_Table>
     <Sort language="sv">Sortera</Sort>
-    <Asc language="sv">Asccending</Asc>
-    <Desc language="sv">
-    </Desc>
+    <Asc language="sv">Stigande</Asc>
+    <Desc language="sv">Fallande</Desc>
   </Language>
 </root>

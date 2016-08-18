@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="sr-Latn">
+    <File language="sr-Latn">Datoteka</File>
+    <New language="sr-Latn">Novi</New>
+    <Open language="sr-Latn">Otvorena</Open>
+    <Edit language="sr-Latn">Uredi</Edit>
+    <View language="sr-Latn">Prikaz</View>
+    <Save language="sr-Latn">Sačuvaj</Save>
+    <Import language="sr-Latn">Uvoz</Import>
+    <CSV language="sr-Latn">CSV</CSV>
+    <SQL language="sr-Latn">SQL</SQL>
+    <Export language="sr-Latn">Izvoz</Export>
+    <HTML language="sr-Latn">HTML</HTML>
+    <Settings language="sr-Latn">Postavke</Settings>
+    <Help language="sr-Latn">Pomoć</Help>
+    <About language="sr-Latn">O</About>
+    <Show_Help language="sr-Latn">Prikaži pomoć</Show_Help>
+    <Settings_Editor language="sr-Latn">Postavke uređivača</Settings_Editor>
+    <Toggle_Debug language="sr-Latn">Preklopnik za otklanjanje grešaka</Toggle_Debug>
+    <Toggle_Transaction_Log language="sr-Latn">Uključi/isključi evidencije transakcija</Toggle_Transaction_Log>
+    <Refresh language="sr-Latn">Osvježi</Refresh>
+    <Check_for_Updates language="sr-Latn">Proverite da li</Check_for_Updates>
+    <PXML language="sr-Latn">
+    </PXML>
+  </Language>
+</root>

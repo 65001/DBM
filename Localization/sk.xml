@@ -32,8 +32,7 @@
     <View language="sk">Zobrazenie</View>
     <Master_Table language="sk">Hlavná tabuľka</Master_Table>
     <Sort language="sk">Zoradiť</Sort>
-    <Asc language="sk">Asccending</Asc>
-    <Desc language="sk">
-    </Desc>
+    <Asc language="sk">Vzostupne</Asc>
+    <Desc language="sk">Zostupne</Desc>
   </Language>
 </root>

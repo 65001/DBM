@@ -32,8 +32,7 @@
     <View language="no">Vis</View>
     <Master_Table language="no">Master tabell</Master_Table>
     <Sort language="no">Sorter</Sort>
-    <Asc language="no">Asccending</Asc>
-    <Desc language="no">
-    </Desc>
+    <Asc language="no">Stigende</Asc>
+    <Desc language="no">Synkende</Desc>
   </Language>
 </root>

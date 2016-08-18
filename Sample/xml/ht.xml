@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ht">
+    <File language="ht">Ranpli</File>
+    <New language="ht">Nouvo</New>
+    <Open language="ht">Louvri</Open>
+    <Edit language="ht">Edite</Edit>
+    <View language="ht">Vi</View>
+    <Save language="ht">Mete sou kote</Save>
+    <Import language="ht">Apwè ke</Import>
+    <CSV language="ht">CSV</CSV>
+    <SQL language="ht">SQL</SQL>
+    <Export language="ht">Ekspòtasyon</Export>
+    <HTML language="ht">HTML</HTML>
+    <Settings language="ht">Nòmal</Settings>
+    <Help language="ht">Anmwe</Help>
+    <About language="ht">Osijè de</About>
+    <Show_Help language="ht">Montre èd</Show_Help>
+    <Settings_Editor language="ht">Editè nòmal</Settings_Editor>
+    <Toggle_Debug language="ht">Déboguer /</Toggle_Debug>
+    <Toggle_Transaction_Log language="ht">Log zafè /</Toggle_Transaction_Log>
+    <Refresh language="ht">Rafrechi</Refresh>
+    <Check_for_Updates language="ht">Chèk pou FAQ</Check_for_Updates>
+    <PXML language="ht">
+    </PXML>
+  </Language>
+</root>

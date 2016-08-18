@@ -32,8 +32,7 @@
     <View language="sr-Latn">Prikaz</View>
     <Master_Table language="sr-Latn">Gospodar tabele</Master_Table>
     <Sort language="sr-Latn">Sortiranje</Sort>
-    <Asc language="sr-Latn">Asccending</Asc>
-    <Desc language="sr-Latn">
-    </Desc>
+    <Asc language="sr-Latn">Rastućem</Asc>
+    <Desc language="sr-Latn">Opadajućem</Desc>
   </Language>
 </root>

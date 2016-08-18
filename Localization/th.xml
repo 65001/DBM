@@ -32,8 +32,7 @@
     <View language="th">ดู</View>
     <Master_Table language="th">ตารางหลัก</Master_Table>
     <Sort language="th">เรียงลำดับ</Sort>
-    <Asc language="th">Asccending</Asc>
-    <Desc language="th">
-    </Desc>
+    <Asc language="th">จากน้อยไปมาก</Asc>
+    <Desc language="th">มากไปหาน้อย</Desc>
   </Language>
 </root>

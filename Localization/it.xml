@@ -32,8 +32,7 @@
     <View language="it">Vista</View>
     <Master_Table language="it">Tabella master</Master_Table>
     <Sort language="it">Ordinamento</Sort>
-    <Asc language="it">Asccending</Asc>
-    <Desc language="it">
-    </Desc>
+    <Asc language="it">Ascendente</Asc>
+    <Desc language="it">Discendente</Desc>
   </Language>
 </root>

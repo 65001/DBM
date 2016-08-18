@@ -32,8 +32,7 @@
     <View language="ar">طريقة العرض</View>
     <Master_Table language="ar">الجدول الرئيسي</Master_Table>
     <Sort language="ar">الفرز</Sort>
-    <Asc language="ar">أسكسيندينج</Asc>
-    <Desc language="ar">
-    </Desc>
+    <Asc language="ar">ترتيب تصاعدي</Asc>
+    <Desc language="ar">تنازلي</Desc>
   </Language>
 </root>

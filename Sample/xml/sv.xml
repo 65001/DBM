@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="sv">
+    <File language="sv">Fil</File>
+    <New language="sv">Nya</New>
+    <Open language="sv">Öppen</Open>
+    <Edit language="sv">Redigera</Edit>
+    <View language="sv">Visa</View>
+    <Save language="sv">Spara</Save>
+    <Import language="sv">Import</Import>
+    <CSV language="sv">CSV</CSV>
+    <SQL language="sv">SQL</SQL>
+    <Export language="sv">Exportera</Export>
+    <HTML language="sv">HTML</HTML>
+    <Settings language="sv">Inställningar</Settings>
+    <Help language="sv">Hjälp</Help>
+    <About language="sv">Om</About>
+    <Show_Help language="sv">Visa hjälp</Show_Help>
+    <Settings_Editor language="sv">Inställningar Redaktör</Settings_Editor>
+    <Toggle_Debug language="sv">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="sv">Toggle transaktionsloggen</Toggle_Transaction_Log>
+    <Refresh language="sv">Uppdatera</Refresh>
+    <Check_for_Updates language="sv">Sök efter uppdateringar</Check_for_Updates>
+    <PXML language="sv">
+    </PXML>
+  </Language>
+</root>

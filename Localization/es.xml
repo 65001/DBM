@@ -32,8 +32,7 @@
     <View language="es">Ver</View>
     <Master_Table language="es">Tabla maestra</Master_Table>
     <Sort language="es">Tipo</Sort>
-    <Asc language="es">Asccending</Asc>
-    <Desc language="es">
-    </Desc>
+    <Asc language="es">Ascendente</Asc>
+    <Desc language="es">Descendente</Desc>
   </Language>
 </root>

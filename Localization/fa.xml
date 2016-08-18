@@ -32,8 +32,7 @@
     <View language="fa">مشاهده</View>
     <Master_Table language="fa">میز کارشناسی ارشد</Master_Table>
     <Sort language="fa">مرتب کردن بر اساس</Sort>
-    <Asc language="fa">Asccending</Asc>
-    <Desc language="fa">
-    </Desc>
+    <Asc language="fa">صعودی</Asc>
+    <Desc language="fa">نزولی</Desc>
   </Language>
 </root>

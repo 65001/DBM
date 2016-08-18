@@ -32,8 +32,7 @@
     <View language="yue">视图</View>
     <Master_Table language="yue">主表</Master_Table>
     <Sort language="yue">排序</Sort>
-    <Asc language="yue">Asccending</Asc>
-    <Desc language="yue">
-    </Desc>
+    <Asc language="yue">升序</Asc>
+    <Desc language="yue">降序</Desc>
   </Language>
 </root>

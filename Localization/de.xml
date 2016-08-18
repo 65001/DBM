@@ -32,8 +32,7 @@
     <View language="de">Blick</View>
     <Master_Table language="de">Master-Tabelle</Master_Table>
     <Sort language="de">Art</Sort>
-    <Asc language="de">Asccending</Asc>
-    <Desc language="de">
-    </Desc>
+    <Asc language="de">Aufsteigend</Asc>
+    <Desc language="de">Absteigend</Desc>
   </Language>
 </root>

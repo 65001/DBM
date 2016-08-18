@@ -32,8 +32,7 @@
     <View language="ht">Vi</View>
     <Master_Table language="ht">Tab mèt</Master_Table>
     <Sort language="ht">Kalite</Sort>
-    <Asc language="ht">Asccending</Asc>
-    <Desc language="ht">
-    </Desc>
+    <Asc language="ht">K'ap</Asc>
+    <Desc language="ht">Desann</Desc>
   </Language>
 </root>

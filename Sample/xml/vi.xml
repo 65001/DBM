@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="vi">
+    <File language="vi">Tập tin</File>
+    <New language="vi">Mới</New>
+    <Open language="vi">Mở cửa</Open>
+    <Edit language="vi">Chỉnh sửa</Edit>
+    <View language="vi">Xem</View>
+    <Save language="vi">Tiết kiệm</Save>
+    <Import language="vi">Nhập khẩu</Import>
+    <CSV language="vi">CSV</CSV>
+    <SQL language="vi">SQL</SQL>
+    <Export language="vi">Xuất khẩu</Export>
+    <HTML language="vi">HTML</HTML>
+    <Settings language="vi">Cài đặt</Settings>
+    <Help language="vi">Trợ giúp</Help>
+    <About language="vi">Về</About>
+    <Show_Help language="vi">Hiển thị trợ giúp</Show_Help>
+    <Settings_Editor language="vi">Biên tập viên cài đặt</Settings_Editor>
+    <Toggle_Debug language="vi">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="vi">Chuyển đổi giao dịch đăng nhập</Toggle_Transaction_Log>
+    <Refresh language="vi">Làm mới</Refresh>
+    <Check_for_Updates language="vi">Kiểm tra Cập Nhật</Check_for_Updates>
+    <PXML language="vi">
+    </PXML>
+  </Language>
+</root>

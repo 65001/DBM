@@ -32,8 +32,7 @@
     <View language="fr">Vue</View>
     <Master_Table language="fr">Tableau de maître</Master_Table>
     <Sort language="fr">Tri</Sort>
-    <Asc language="fr">Asccending</Asc>
-    <Desc language="fr">
-    </Desc>
+    <Asc language="fr">Ordre croissant</Asc>
+    <Desc language="fr">Décroissant</Desc>
   </Language>
 </root>

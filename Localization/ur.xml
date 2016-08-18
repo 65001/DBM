@@ -32,8 +32,7 @@
     <View language="ur">منظر</View>
     <Master_Table language="ur">ماسٹر جدول</Master_Table>
     <Sort language="ur">چھانٹیں</Sort>
-    <Asc language="ur">اسککاندانگ</Asc>
-    <Desc language="ur">
-    </Desc>
+    <Asc language="ur">صعودی</Asc>
+    <Desc language="ur">نزولی</Desc>
   </Language>
 </root>

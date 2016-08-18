@@ -32,8 +32,7 @@
     <View language="he">תצוגה</View>
     <Master_Table language="he">טבלת מאסטר</Master_Table>
     <Sort language="he">מיון</Sort>
-    <Asc language="he">Asccending</Asc>
-    <Desc language="he">
-    </Desc>
+    <Asc language="he">בסדר עולה</Asc>
+    <Desc language="he">יורד</Desc>
   </Language>
 </root>

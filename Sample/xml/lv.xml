@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="lv">
+    <File language="lv">Failu</File>
+    <New language="lv">Jauns</New>
+    <Open language="lv">Atvērts</Open>
+    <Edit language="lv">Rediģēt</Edit>
+    <View language="lv">Skats</View>
+    <Save language="lv">Saglabāt</Save>
+    <Import language="lv">Importa</Import>
+    <CSV language="lv">CSV</CSV>
+    <SQL language="lv">SQL</SQL>
+    <Export language="lv">Eksports</Export>
+    <HTML language="lv">HTML</HTML>
+    <Settings language="lv">Iestatījumi</Settings>
+    <Help language="lv">palīgā</Help>
+    <About language="lv">Par</About>
+    <Show_Help language="lv">Parādīt palīdzību</Show_Help>
+    <Settings_Editor language="lv">Iestatījumi redaktoru</Settings_Editor>
+    <Toggle_Debug language="lv">Rādīt atkļūdošanas</Toggle_Debug>
+    <Toggle_Transaction_Log language="lv">Pārslēgšanas darbību reģistrācijas žurnāls</Toggle_Transaction_Log>
+    <Refresh language="lv">Atsvaidzināt</Refresh>
+    <Check_for_Updates language="lv">Pārbaudīt, vai nav atjauninājumu</Check_for_Updates>
+    <PXML language="lv">
+    </PXML>
+  </Language>
+</root>

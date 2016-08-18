@@ -32,8 +32,7 @@
     <View language="af">Bekyk</View>
     <Master_Table language="af">Meester tabel</Master_Table>
     <Sort language="af">Rangskik</Sort>
-    <Asc language="af">Asccending</Asc>
-    <Desc language="af">
-    </Desc>
+    <Asc language="af">Stygende</Asc>
+    <Desc language="af">Dalende</Desc>
   </Language>
 </root>

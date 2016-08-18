@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="en">
+    <File language="en">File</File>
+    <New language="en">New</New>
+    <Open language="en">Open</Open>
+    <Edit language="en">Edit</Edit>
+    <View language="en">View</View>
+    <Save language="en">Save</Save>
+    <Import language="en">Import</Import>
+    <CSV language="en">CSV</CSV>
+    <SQL language="en">SQL</SQL>
+    <Export language="en">Export</Export>
+    <HTML language="en">HTML</HTML>
+    <Settings language="en">Settings</Settings>
+    <Help language="en">Help</Help>
+    <About language="en">About</About>
+    <Show_Help language="en">Show Help</Show_Help>
+    <Settings_Editor language="en">Settings Editor</Settings_Editor>
+    <Toggle_Debug language="en">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="en">Toggle Transaction Log</Toggle_Transaction_Log>
+    <Refresh language="en">Refresh</Refresh>
+    <Check_for_Updates language="en">Check for Updates</Check_for_Updates>
+    <PXML language="en">XML</PXML>
+    <PRGM_Start language="en">Program Started</PRGM_Start>
+    <Application language="en">Application</Application>
+  </Language>
+</root>

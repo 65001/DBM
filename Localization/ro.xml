@@ -32,8 +32,7 @@
     <View language="ro">Vezi</View>
     <Master_Table language="ro">Tabelul de Master</Master_Table>
     <Sort language="ro">Sortare</Sort>
-    <Asc language="ro">Asccending</Asc>
-    <Desc language="ro">
-    </Desc>
+    <Asc language="ro">Ascendent</Asc>
+    <Desc language="ro">Descendentă</Desc>
   </Language>
 </root>

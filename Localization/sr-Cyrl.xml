@@ -32,8 +32,7 @@
     <View language="sr-Cyrl">Приказ</View>
     <Master_Table language="sr-Cyrl">Господар табеле</Master_Table>
     <Sort language="sr-Cyrl">Сортирање</Sort>
-    <Asc language="sr-Cyrl">Асццендинг</Asc>
-    <Desc language="sr-Cyrl">
-    </Desc>
+    <Asc language="sr-Cyrl">Растућем</Asc>
+    <Desc language="sr-Cyrl">Опадајућем</Desc>
   </Language>
 </root>

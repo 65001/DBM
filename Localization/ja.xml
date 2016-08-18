@@ -32,8 +32,7 @@
     <View language="ja">ビュー</View>
     <Master_Table language="ja">マスター テーブル</Master_Table>
     <Sort language="ja">並べ替え</Sort>
-    <Asc language="ja">Asccending</Asc>
-    <Desc language="ja">
-    </Desc>
+    <Asc language="ja">昇順</Asc>
+    <Desc language="ja">降順</Desc>
   </Language>
 </root>

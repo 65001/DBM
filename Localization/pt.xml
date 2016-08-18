@@ -32,8 +32,7 @@
     <View language="pt">Modo de exibição</View>
     <Master_Table language="pt">Tabela mestre</Master_Table>
     <Sort language="pt">Tipo</Sort>
-    <Asc language="pt">Asccending</Asc>
-    <Desc language="pt">
-    </Desc>
+    <Asc language="pt">Ascendente</Asc>
+    <Desc language="pt">Decrescente</Desc>
   </Language>
 </root>

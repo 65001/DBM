@@ -32,8 +32,7 @@
     <View language="otq">Di nu'i</View>
     <Master_Table language="otq">Tabla maestra</Master_Table>
     <Sort language="otq">Ar klase</Sort>
-    <Asc language="otq">Asccending</Asc>
-    <Desc language="otq">
-    </Desc>
+    <Asc language="otq">Ascendente</Asc>
+    <Desc language="otq">Descendente</Desc>
   </Language>
 </root>

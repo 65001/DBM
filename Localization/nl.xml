@@ -32,8 +32,7 @@
     <View language="nl">Weergave</View>
     <Master_Table language="nl">Tabel Master</Master_Table>
     <Sort language="nl">Sorteren</Sort>
-    <Asc language="nl">Asccending</Asc>
-    <Desc language="nl">
-    </Desc>
+    <Asc language="nl">Oplopend</Asc>
+    <Desc language="nl">Aflopend</Desc>
   </Language>
 </root>

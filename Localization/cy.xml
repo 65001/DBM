@@ -32,8 +32,7 @@
     <View language="cy">Barn</View>
     <Master_Table language="cy">Tabl Meistr</Master_Table>
     <Sort language="cy">Math</Sort>
-    <Asc language="cy">Asccending</Asc>
-    <Desc language="cy">
-    </Desc>
+    <Asc language="cy">O'r dechrau i'r diwedd</Asc>
+    <Desc language="cy">O'r diwedd i'r dechrau</Desc>
   </Language>
 </root>

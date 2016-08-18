@@ -32,8 +32,7 @@
     <View language="zh-CHS">视图</View>
     <Master_Table language="zh-CHS">主表</Master_Table>
     <Sort language="zh-CHS">排序</Sort>
-    <Asc language="zh-CHS">Asccending</Asc>
-    <Desc language="zh-CHS">
-    </Desc>
+    <Asc language="zh-CHS">升序</Asc>
+    <Desc language="zh-CHS">降序</Desc>
   </Language>
 </root>

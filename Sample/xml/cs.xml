@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="cs">
+    <File language="cs">Soubor</File>
+    <New language="cs">Nové</New>
+    <Open language="cs">Otevřené</Open>
+    <Edit language="cs">Úpravy</Edit>
+    <View language="cs">Pohled</View>
+    <Save language="cs">Uložit</Save>
+    <Import language="cs">Importovat</Import>
+    <CSV language="cs">CSV</CSV>
+    <SQL language="cs">SQL</SQL>
+    <Export language="cs">Exportovat</Export>
+    <HTML language="cs">HTML</HTML>
+    <Settings language="cs">Nastavení</Settings>
+    <Help language="cs">Pomoc</Help>
+    <About language="cs">O</About>
+    <Show_Help language="cs">Zobrazit nápovědu</Show_Help>
+    <Settings_Editor language="cs">Editor nastavení</Settings_Editor>
+    <Toggle_Debug language="cs">Zapnout ladění</Toggle_Debug>
+    <Toggle_Transaction_Log language="cs">Přepnout transakční protokol</Toggle_Transaction_Log>
+    <Refresh language="cs">Aktualizovat</Refresh>
+    <Check_for_Updates language="cs">Vyhledat aktualizace</Check_for_Updates>
+    <PXML language="cs">
+    </PXML>
+  </Language>
+</root>

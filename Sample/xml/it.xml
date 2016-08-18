@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="it">
+    <File language="it">File</File>
+    <New language="it">Nuovo</New>
+    <Open language="it">Aperto</Open>
+    <Edit language="it">Modifica</Edit>
+    <View language="it">Vista</View>
+    <Save language="it">Salva</Save>
+    <Import language="it">Importazione</Import>
+    <CSV language="it">CSV</CSV>
+    <SQL language="it">SQL</SQL>
+    <Export language="it">Esportazione</Export>
+    <HTML language="it">HTML</HTML>
+    <Settings language="it">Impostazioni</Settings>
+    <Help language="it">Guida</Help>
+    <About language="it">Circa</About>
+    <Show_Help language="it">Visualizza la guida</Show_Help>
+    <Settings_Editor language="it">Editor di impostazioni</Settings_Editor>
+    <Toggle_Debug language="it">Attiva/disattiva Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="it">Log delle transazioni attiva/disattiva</Toggle_Transaction_Log>
+    <Refresh language="it">Aggiornamento</Refresh>
+    <Check_for_Updates language="it">Controlla aggiornamenti</Check_for_Updates>
+    <PXML language="it">
+    </PXML>
+  </Language>
+</root>

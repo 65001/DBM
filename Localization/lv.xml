@@ -32,8 +32,7 @@
     <View language="lv">Skats</View>
     <Master_Table language="lv">Vispārējās tabulas</Master_Table>
     <Sort language="lv">Kārtot</Sort>
-    <Asc language="lv">Asccending</Asc>
-    <Desc language="lv">
-    </Desc>
+    <Asc language="lv">Augošā secībā</Asc>
+    <Desc language="lv">Dilstošā secībā</Desc>
   </Language>
 </root>

@@ -32,8 +32,7 @@
     <View language="bg">Изглед</View>
     <Master_Table language="bg">Магистър Билярд</Master_Table>
     <Sort language="bg">Сортиране</Sort>
-    <Asc language="bg">Asccending</Asc>
-    <Desc language="bg">
-    </Desc>
+    <Asc language="bg">Възходящо</Asc>
+    <Desc language="bg">Низходящ</Desc>
   </Language>
 </root>

@@ -32,8 +32,7 @@
     <View language="sl">Pogled</View>
     <Master_Table language="sl">Mojster tabela</Master_Table>
     <Sort language="sl">Razvrščanje</Sort>
-    <Asc language="sl">Asccending</Asc>
-    <Desc language="sl">
-    </Desc>
+    <Asc language="sl">Naraščajoče</Asc>
+    <Desc language="sl">Padajoče</Desc>
   </Language>
 </root>

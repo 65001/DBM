@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="et">
+    <File language="et">Faili</File>
+    <New language="et">Uus</New>
+    <Open language="et">Avatud</Open>
+    <Edit language="et">Redigeeri</Edit>
+    <View language="et">Vaade</View>
+    <Save language="et">Salvesta</Save>
+    <Import language="et">Import</Import>
+    <CSV language="et">CSV</CSV>
+    <SQL language="et">SQL</SQL>
+    <Export language="et">Ekspordi</Export>
+    <HTML language="et">HTML</HTML>
+    <Settings language="et">Seaded</Settings>
+    <Help language="et">Abi</Help>
+    <About language="et">Kohta</About>
+    <Show_Help language="et">Kuva spikker</Show_Help>
+    <Settings_Editor language="et">Seaded toimetaja</Settings_Editor>
+    <Toggle_Debug language="et">Lülita Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="et">Lülita tehingute register</Toggle_Transaction_Log>
+    <Refresh language="et">Värskenda</Refresh>
+    <Check_for_Updates language="et">Värskenduste otsimine</Check_for_Updates>
+    <PXML language="et">
+    </PXML>
+  </Language>
+</root>

@@ -32,8 +32,7 @@
     <View language="da">Se</View>
     <Master_Table language="da">Master tabel</Master_Table>
     <Sort language="da">Sorter</Sort>
-    <Asc language="da">Asccending</Asc>
-    <Desc language="da">
-    </Desc>
+    <Asc language="da">Stigende</Asc>
+    <Desc language="da">Faldende</Desc>
   </Language>
 </root>

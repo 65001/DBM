@@ -32,8 +32,7 @@
     <View language="mww">Saib</View>
     <Master_Table language="mww">Siv cov lus</Master_Table>
     <Sort language="mww">Tsi</Sort>
-    <Asc language="mww">Asccending</Asc>
-    <Desc language="mww">
-    </Desc>
+    <Asc language="mww">Ascending</Asc>
+    <Desc language="mww">Nqis roob</Desc>
   </Language>
 </root>

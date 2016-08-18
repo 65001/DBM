@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="zh-CHS">
+    <File language="zh-CHS">文件</File>
+    <New language="zh-CHS">新增功能</New>
+    <Open language="zh-CHS">开放</Open>
+    <Edit language="zh-CHS">编辑</Edit>
+    <View language="zh-CHS">视图</View>
+    <Save language="zh-CHS">保存</Save>
+    <Import language="zh-CHS">导入</Import>
+    <CSV language="zh-CHS">CSV</CSV>
+    <SQL language="zh-CHS">SQL</SQL>
+    <Export language="zh-CHS">出口</Export>
+    <HTML language="zh-CHS">HTML</HTML>
+    <Settings language="zh-CHS">设置</Settings>
+    <Help language="zh-CHS">帮助</Help>
+    <About language="zh-CHS">关于</About>
+    <Show_Help language="zh-CHS">显示帮助</Show_Help>
+    <Settings_Editor language="zh-CHS">设置编辑器</Settings_Editor>
+    <Toggle_Debug language="zh-CHS">切换调试</Toggle_Debug>
+    <Toggle_Transaction_Log language="zh-CHS">切换事务日志</Toggle_Transaction_Log>
+    <Refresh language="zh-CHS">刷新</Refresh>
+    <Check_for_Updates language="zh-CHS">检查更新</Check_for_Updates>
+    <PXML language="zh-CHS">
+    </PXML>
+  </Language>
+</root>

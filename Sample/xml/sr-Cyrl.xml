@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="sr-Cyrl">
+    <File language="sr-Cyrl">Датотека</File>
+    <New language="sr-Cyrl">Нови</New>
+    <Open language="sr-Cyrl">Отворена</Open>
+    <Edit language="sr-Cyrl">Уреди</Edit>
+    <View language="sr-Cyrl">Приказ</View>
+    <Save language="sr-Cyrl">Сачувај</Save>
+    <Import language="sr-Cyrl">Увоз</Import>
+    <CSV language="sr-Cyrl">ЦСВ</CSV>
+    <SQL language="sr-Cyrl">СQЛ</SQL>
+    <Export language="sr-Cyrl">Извоз</Export>
+    <HTML language="sr-Cyrl">ХТМЛ</HTML>
+    <Settings language="sr-Cyrl">Поставке</Settings>
+    <Help language="sr-Cyrl">Помоћ</Help>
+    <About language="sr-Cyrl">О</About>
+    <Show_Help language="sr-Cyrl">Прикажи помоћ</Show_Help>
+    <Settings_Editor language="sr-Cyrl">Поставке уређивача</Settings_Editor>
+    <Toggle_Debug language="sr-Cyrl">Преклопник за отклањање грешака</Toggle_Debug>
+    <Toggle_Transaction_Log language="sr-Cyrl">Укључи /искључи евиденције трансакција</Toggle_Transaction_Log>
+    <Refresh language="sr-Cyrl">Освјежи</Refresh>
+    <Check_for_Updates language="sr-Cyrl">Проверите да ли</Check_for_Updates>
+    <PXML language="sr-Cyrl">
+    </PXML>
+  </Language>
+</root>

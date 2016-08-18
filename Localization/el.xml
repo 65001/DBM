@@ -32,8 +32,7 @@
     <View language="el">Προβολή</View>
     <Master_Table language="el">Πίνακας κύριων</Master_Table>
     <Sort language="el">Είδος</Sort>
-    <Asc language="el">Asccending</Asc>
-    <Desc language="el">
-    </Desc>
+    <Asc language="el">Αύξουσα</Asc>
+    <Desc language="el">Φθίνουσα σειρά</Desc>
   </Language>
 </root>

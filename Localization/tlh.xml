@@ -32,8 +32,7 @@
     <View language="tlh">jIH</View>
     <Master_Table language="tlh">pIn'a' raS</Master_Table>
     <Sort language="tlh">Segh</Sort>
-    <Asc language="tlh">asccending</Asc>
-    <Desc language="tlh">
-    </Desc>
+    <Asc language="tlh">nen</Asc>
+    <Desc language="tlh">ghIr</Desc>
   </Language>
 </root>

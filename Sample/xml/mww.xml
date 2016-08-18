@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="mww">
+    <File language="mww">Cov ntaub ntawv</File>
+    <New language="mww">Tshiab</New>
+    <Open language="mww">Qhib</Open>
+    <Edit language="mww">Kho kom raug</Edit>
+    <View language="mww">Saib</View>
+    <Save language="mww">Tseg</Save>
+    <Import language="mww">Ntshuam</Import>
+    <CSV language="mww">CSV</CSV>
+    <SQL language="mww">SQL</SQL>
+    <Export language="mww">Export</Export>
+    <HTML language="mww">HTML</HTML>
+    <Settings language="mww">Chaw</Settings>
+    <Help language="mww">Pab</Help>
+    <About language="mww">Hais txog</About>
+    <Show_Help language="mww">Qhia pab</Show_Help>
+    <Settings_Editor language="mww">Editor nqis</Settings_Editor>
+    <Toggle_Debug language="mww">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="mww">Toggle lw cav</Toggle_Transaction_Log>
+    <Refresh language="mww">Kho kom tshiab</Refresh>
+    <Check_for_Updates language="mww">Tshev tshiab</Check_for_Updates>
+    <PXML language="mww">
+    </PXML>
+  </Language>
+</root>

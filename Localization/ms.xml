@@ -32,8 +32,7 @@
     <View language="ms">Pandangan</View>
     <Master_Table language="ms">Jadual induk</Master_Table>
     <Sort language="ms">Semacam</Sort>
-    <Asc language="ms">Asccending</Asc>
-    <Desc language="ms">
-    </Desc>
+    <Asc language="ms">Menaik</Asc>
+    <Desc language="ms">Menurun</Desc>
   </Language>
 </root>

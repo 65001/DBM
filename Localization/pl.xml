@@ -32,8 +32,7 @@
     <View language="pl">Widok</View>
     <Master_Table language="pl">Główna tabela</Master_Table>
     <Sort language="pl">Sortowanie</Sort>
-    <Asc language="pl">Asccending</Asc>
-    <Desc language="pl">
-    </Desc>
+    <Asc language="pl">Rosnąco</Asc>
+    <Desc language="pl">Malejąco</Desc>
   </Language>
 </root>

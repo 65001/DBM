@@ -32,8 +32,7 @@
     <View language="fi">Näkymä</View>
     <Master_Table language="fi">Päätaulukon</Master_Table>
     <Sort language="fi">Lajittele</Sort>
-    <Asc language="fi">Asccending</Asc>
-    <Desc language="fi">
-    </Desc>
+    <Asc language="fi">Nouseva</Asc>
+    <Desc language="fi">Laskeva</Desc>
   </Language>
 </root>

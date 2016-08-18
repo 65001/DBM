@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ru">
+    <File language="ru">Файл</File>
+    <New language="ru">Новые функции</New>
+    <Open language="ru">Открытые</Open>
+    <Edit language="ru">Редактировать</Edit>
+    <View language="ru">Вид</View>
+    <Save language="ru">Сохранить</Save>
+    <Import language="ru">Импорт</Import>
+    <CSV language="ru">CSV</CSV>
+    <SQL language="ru">SQL</SQL>
+    <Export language="ru">Экспорт</Export>
+    <HTML language="ru">HTML</HTML>
+    <Settings language="ru">Параметры</Settings>
+    <Help language="ru">Справка</Help>
+    <About language="ru">О</About>
+    <Show_Help language="ru">Показать справку</Show_Help>
+    <Settings_Editor language="ru">Параметры редактора</Settings_Editor>
+    <Toggle_Debug language="ru">Переключить отладки</Toggle_Debug>
+    <Toggle_Transaction_Log language="ru">Журнал транзакций переключения</Toggle_Transaction_Log>
+    <Refresh language="ru">Обновить</Refresh>
+    <Check_for_Updates language="ru">Проверить наличие обновлений</Check_for_Updates>
+    <PXML language="ru">
+    </PXML>
+  </Language>
+</root>

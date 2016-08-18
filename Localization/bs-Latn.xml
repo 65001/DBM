@@ -32,8 +32,7 @@
     <View language="bs-Latn">Prikaz</View>
     <Master_Table language="bs-Latn">Master tablice</Master_Table>
     <Sort language="bs-Latn">Sortiraj</Sort>
-    <Asc language="bs-Latn">Asccending</Asc>
-    <Desc language="bs-Latn">
-    </Desc>
+    <Asc language="bs-Latn">Uzlazno</Asc>
+    <Desc language="bs-Latn">Silazno</Desc>
   </Language>
 </root>

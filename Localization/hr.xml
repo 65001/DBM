@@ -32,8 +32,7 @@
     <View language="hr">Prikaz</View>
     <Master_Table language="hr">Master tablice</Master_Table>
     <Sort language="hr">Sortiranje</Sort>
-    <Asc language="hr">Asccending</Asc>
-    <Desc language="hr">
-    </Desc>
+    <Asc language="hr">Uzlazno</Asc>
+    <Desc language="hr">Silazno</Desc>
   </Language>
 </root>

@@ -32,8 +32,7 @@
     <View language="ca">Veure</View>
     <Master_Table language="ca">Taula de Màster</Master_Table>
     <Sort language="ca">Mena</Sort>
-    <Asc language="ca">Asccending</Asc>
-    <Desc language="ca">
-    </Desc>
+    <Asc language="ca">Ascendent</Asc>
+    <Desc language="ca">Descendent</Desc>
   </Language>
 </root>

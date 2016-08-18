@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="tr">
+    <File language="tr">Dosya</File>
+    <New language="tr">Yeni</New>
+    <Open language="tr">Açık</Open>
+    <Edit language="tr">Düzenle</Edit>
+    <View language="tr">Görünüm</View>
+    <Save language="tr">Kaydet</Save>
+    <Import language="tr">Alma</Import>
+    <CSV language="tr">CSV</CSV>
+    <SQL language="tr">SQL</SQL>
+    <Export language="tr">Dışa aktarma</Export>
+    <HTML language="tr">HTML</HTML>
+    <Settings language="tr">Ayarlar</Settings>
+    <Help language="tr">Yardım</Help>
+    <About language="tr">Hakkında</About>
+    <Show_Help language="tr">Yardımı göster</Show_Help>
+    <Settings_Editor language="tr">Ayarları Düzenleyicisi</Settings_Editor>
+    <Toggle_Debug language="tr">İki durumlu hata ayıklama</Toggle_Debug>
+    <Toggle_Transaction_Log language="tr">İki durumlu işlem günlüğü</Toggle_Transaction_Log>
+    <Refresh language="tr">Yenileme</Refresh>
+    <Check_for_Updates language="tr">Kontrol için güncelleştirmek</Check_for_Updates>
+    <PXML language="tr">
+    </PXML>
+  </Language>
+</root>

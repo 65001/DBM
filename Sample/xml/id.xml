@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="id">
+    <File language="id">File</File>
+    <New language="id">Baru</New>
+    <Open language="id">Buka</Open>
+    <Edit language="id">Mengedit</Edit>
+    <View language="id">Pemandangan</View>
+    <Save language="id">Simpan</Save>
+    <Import language="id">Impor</Import>
+    <CSV language="id">CSV</CSV>
+    <SQL language="id">SQL</SQL>
+    <Export language="id">Ekspor</Export>
+    <HTML language="id">HTML</HTML>
+    <Settings language="id">Pengaturan</Settings>
+    <Help language="id">Tolong</Help>
+    <About language="id">Tentang</About>
+    <Show_Help language="id">Tampilkan bantuan</Show_Help>
+    <Settings_Editor language="id">Pengaturan Editor</Settings_Editor>
+    <Toggle_Debug language="id">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="id">Log transaksi Toggle</Toggle_Transaction_Log>
+    <Refresh language="id">Refresh</Refresh>
+    <Check_for_Updates language="id">Memeriksa pembaruan</Check_for_Updates>
+    <PXML language="id">
+    </PXML>
+  </Language>
+</root>

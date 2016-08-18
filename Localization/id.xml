@@ -32,8 +32,7 @@
     <View language="id">Pemandangan</View>
     <Master_Table language="id">Biliar Master</Master_Table>
     <Sort language="id">Urutkan</Sort>
-    <Asc language="id">Asccending</Asc>
-    <Desc language="id">
-    </Desc>
+    <Asc language="id">Naik</Asc>
+    <Desc language="id">Menurun</Desc>
   </Language>
 </root>

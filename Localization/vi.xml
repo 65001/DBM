@@ -32,8 +32,7 @@
     <View language="vi">Xem</View>
     <Master_Table language="vi">Bảng Master</Master_Table>
     <Sort language="vi">Sắp xếp</Sort>
-    <Asc language="vi">Asccending</Asc>
-    <Desc language="vi">
-    </Desc>
+    <Asc language="vi">Tăng dần</Asc>
+    <Desc language="vi">Giảm dần</Desc>
   </Language>
 </root>

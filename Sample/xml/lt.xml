@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="lt">
+    <File language="lt">Failą</File>
+    <New language="lt">Naujas</New>
+    <Open language="lt">Atvira</Open>
+    <Edit language="lt">Redaguoti</Edit>
+    <View language="lt">Rodyti</View>
+    <Save language="lt">Išsaugoti</Save>
+    <Import language="lt">Importo</Import>
+    <CSV language="lt">CSV</CSV>
+    <SQL language="lt">SQL</SQL>
+    <Export language="lt">Eksporto</Export>
+    <HTML language="lt">HTML</HTML>
+    <Settings language="lt">Parametrai</Settings>
+    <Help language="lt">pagalba</Help>
+    <About language="lt">Apie</About>
+    <Show_Help language="lt">Žinynui Rodyti</Show_Help>
+    <Settings_Editor language="lt">Nustatymų redagavimo priemonę</Settings_Editor>
+    <Toggle_Debug language="lt">Įjungti/išjungti derinimo</Toggle_Debug>
+    <Toggle_Transaction_Log language="lt">Įjungti/išjungti operacijų žurnalą</Toggle_Transaction_Log>
+    <Refresh language="lt">Atnaujinti</Refresh>
+    <Check_for_Updates language="lt">Tikrinti, ar yra naujinimų</Check_for_Updates>
+    <PXML language="lt">
+    </PXML>
+  </Language>
+</root>

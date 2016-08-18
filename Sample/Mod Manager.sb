@@ -1,0 +1,56 @@
+GraphicsWindow.Title = Title + " Mod Manager" 
+DoubleQuote = Text.GetCharacter(34) 
+DoubleQuotesCharacter = DoubleQuote 
+XML_Version_Number = "1.0"
+VOID()
+Mod_Manger()
+
+Sub VOID 'Arguments that will be fetched by the calling program ... Must be included ! 
+  Title = "" 
+  ModManifestXML = Program.Directory +"\Mod Manifest.xml"
+  XML_Path = ModManifestXML 
+  XML_Createment_Statement = "<?xml version=" +DoubleQuotesCharacter+ XML_Version_Number+DoubleQuotesCharacter+" encoding="+DoubleQuotesCharacter+ "UTF-8"+DoubleQuotesCharacter+" standalone="+DoubleQuotesCharacter+"yes" + DoubleQuotesCharacter +"?>"
+  XML_Createment_Statement = XML_Createment_Statement +"<root></root>"
+  File.AppendContents(XML_Path,XML_Createment_Statement)
+  File.WriteContents( ModManifestXML , XML_Createment_Statement ) 
+  TextWindow.WriteLine( XML_Path ) 
+EndSub 
+
+Sub Mod_Manger
+  XML_Read()
+  XML_Parse()
+  XML_WRITE()
+  TextWindow.WriteLine ( status ) 
+  LDxml.Save(XML_Path ) 
+  Load_Mod() 
+  Call_Mod() 
+EndSub 
+
+Sub XML_Read
+  If ModManifestXML = "" Then 
+    VOID() 
+  EndIf
+  XML_Manifest = LDxml.Open(XML_Path )
+EndSub 
+
+Sub XML_WRITE
+  status[0] =  LDxml.FirstNode()
+  Data[1] = "Name=Basic Mod;Description=Test Mod;Path=\Mod.sb;Language=sb;" 
+  
+  
+  For I = 1 To Array.GetItemCount(Data) 
+    status[ Array.GetItemCount(status) + 1 ] =  LDxml.AddNode("Mod",Data[I],"","Append") 
+  EndFor 
+EndSub 
+
+Sub XML_Parse
+  
+EndSub
+
+Sub Load_Mod
+  
+EndSub
+
+Sub Call_Mod
+  
+EndSub 

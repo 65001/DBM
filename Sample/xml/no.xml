@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="no">
+    <File language="no">Filen</File>
+    <New language="no">Nye</New>
+    <Open language="no">Åpne</Open>
+    <Edit language="no">Rediger</Edit>
+    <View language="no">Vis</View>
+    <Save language="no">Lagre</Save>
+    <Import language="no">Import</Import>
+    <CSV language="no">CSV</CSV>
+    <SQL language="no">SQL</SQL>
+    <Export language="no">Eksportere</Export>
+    <HTML language="no">HTML</HTML>
+    <Settings language="no">Innstillinger</Settings>
+    <Help language="no">hjelp</Help>
+    <About language="no">Om</About>
+    <Show_Help language="no">Vis hjelp</Show_Help>
+    <Settings_Editor language="no">Innstillinger Editor</Settings_Editor>
+    <Toggle_Debug language="no">Aktiver/deaktiver Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="no">Veksle transaksjonslogg</Toggle_Transaction_Log>
+    <Refresh language="no">Oppdater</Refresh>
+    <Check_for_Updates language="no">Se etter oppdateringer</Check_for_Updates>
+    <PXML language="no">
+    </PXML>
+  </Language>
+</root>

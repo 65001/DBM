@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="nl">
+    <File language="nl">Bestand</File>
+    <New language="nl">Nieuw</New>
+    <Open language="nl">Open</Open>
+    <Edit language="nl">Bewerken</Edit>
+    <View language="nl">Weergave</View>
+    <Save language="nl">Opslaan</Save>
+    <Import language="nl">Importeren</Import>
+    <CSV language="nl">CSV</CSV>
+    <SQL language="nl">SQL</SQL>
+    <Export language="nl">Exporteren</Export>
+    <HTML language="nl">HTML</HTML>
+    <Settings language="nl">Instellingen</Settings>
+    <Help language="nl">Help</Help>
+    <About language="nl">Over</About>
+    <Show_Help language="nl">Help weergeven</Show_Help>
+    <Settings_Editor language="nl">Instellingen Editor</Settings_Editor>
+    <Toggle_Debug language="nl">/ Uitschakelen Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="nl">Transactielogboek van de knevel</Toggle_Transaction_Log>
+    <Refresh language="nl">Vernieuwen</Refresh>
+    <Check_for_Updates language="nl">Controleren op Updates</Check_for_Updates>
+    <PXML language="nl">
+    </PXML>
+  </Language>
+</root>

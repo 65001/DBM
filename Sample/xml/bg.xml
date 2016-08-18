@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="bg">
+    <File language="bg">Файл</File>
+    <New language="bg">Нов</New>
+    <Open language="bg">Отворен</Open>
+    <Edit language="bg">Редактиране</Edit>
+    <View language="bg">Изглед</View>
+    <Save language="bg">Запиши</Save>
+    <Import language="bg">Импортиране</Import>
+    <CSV language="bg">CSV</CSV>
+    <SQL language="bg">SQL</SQL>
+    <Export language="bg">Износ</Export>
+    <HTML language="bg">HTML</HTML>
+    <Settings language="bg">Настройки</Settings>
+    <Help language="bg">Помощ</Help>
+    <About language="bg">За</About>
+    <Show_Help language="bg">Показване на помощ</Show_Help>
+    <Settings_Editor language="bg">Настройки редактор</Settings_Editor>
+    <Toggle_Debug language="bg">Превключване Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="bg">Превключване на РКООНИК</Toggle_Transaction_Log>
+    <Refresh language="bg">Обновяване</Refresh>
+    <Check_for_Updates language="bg">Проверка за актуализации</Check_for_Updates>
+    <PXML language="bg">
+    </PXML>
+  </Language>
+</root>

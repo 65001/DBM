@@ -32,8 +32,7 @@
     <View language="uk">Подання</View>
     <Master_Table language="uk">Майстри стіл</Master_Table>
     <Sort language="uk">Сортування</Sort>
-    <Asc language="uk">Asccending</Asc>
-    <Desc language="uk">
-    </Desc>
+    <Asc language="uk">За зростанням</Asc>
+    <Desc language="uk">За спаданням</Desc>
   </Language>
 </root>

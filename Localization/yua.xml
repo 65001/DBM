@@ -32,8 +32,7 @@
     <View language="yua">Wil</View>
     <Master_Table language="yua">Tabla maestra</Master_Table>
     <Sort language="yua">Bin yano'ob</Sort>
-    <Asc language="yua">Asccending</Asc>
-    <Desc language="yua">
-    </Desc>
+    <Asc language="yua">Ascendente</Asc>
+    <Desc language="yua">Descendente</Desc>
   </Language>
 </root>

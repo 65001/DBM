@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="sw">
+    <File language="sw">Faili</File>
+    <New language="sw">Mpya</New>
+    <Open language="sw">Fungua</Open>
+    <Edit language="sw">Hariri</Edit>
+    <View language="sw">Mwoneko</View>
+    <Save language="sw">Hifadhi</Save>
+    <Import language="sw">Leta</Import>
+    <CSV language="sw">CSV</CSV>
+    <SQL language="sw">SQL</SQL>
+    <Export language="sw">Hamisha</Export>
+    <HTML language="sw">HTML</HTML>
+    <Settings language="sw">Vipimo vya</Settings>
+    <Help language="sw">Msaada</Help>
+    <About language="sw">Kuhusu</About>
+    <Show_Help language="sw">Onyesha msaada</Show_Help>
+    <Settings_Editor language="sw">Mipangilio ya mhariri</Settings_Editor>
+    <Toggle_Debug language="sw">Togoa rekebishi</Toggle_Debug>
+    <Toggle_Transaction_Log language="sw">Togoa shughuli logi</Toggle_Transaction_Log>
+    <Refresh language="sw">Onyesha upya</Refresh>
+    <Check_for_Updates language="sw">Kagua sasishi</Check_for_Updates>
+    <PXML language="sw">
+    </PXML>
+  </Language>
+</root>

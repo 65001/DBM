@@ -32,8 +32,7 @@
     <View language="lt">Rodyti</View>
     <Master_Table language="lt">Pagrindinis stalas</Master_Table>
     <Sort language="lt">Rūšiuoti</Sort>
-    <Asc language="lt">Asccending</Asc>
-    <Desc language="lt">
-    </Desc>
+    <Asc language="lt">Didėjimo tvarka</Asc>
+    <Desc language="lt">Mažėjančia tvarka</Desc>
   </Language>
 </root>

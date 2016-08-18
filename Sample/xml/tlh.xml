@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="tlh">
+    <File language="tlh">teywI'</File>
+    <New language="tlh">chu'</New>
+    <Open language="tlh">ghIt</Open>
+    <Edit language="tlh">edit</Edit>
+    <View language="tlh">jIH</View>
+    <Save language="tlh">choq</Save>
+    <Import language="tlh">DughajmoH</Import>
+    <CSV language="tlh">CSV</CSV>
+    <SQL language="tlh">SQL</SQL>
+    <Export language="tlh">export</Export>
+    <HTML language="tlh">HTML</HTML>
+    <Settings language="tlh">setting</Settings>
+    <Help language="tlh">QaH</Help>
+    <About language="tlh">umqu' ghot</About>
+    <Show_Help language="tlh">QaH cha'</Show_Help>
+    <Settings_Editor language="tlh">settings Editor</Settings_Editor>
+    <Toggle_Debug language="tlh">toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="tlh">toggle Transaction QonoS</Toggle_Transaction_Log>
+    <Refresh language="tlh">refresh</Refresh>
+    <Check_for_Updates language="tlh">check Updates</Check_for_Updates>
+    <PXML language="tlh">
+    </PXML>
+  </Language>
+</root>

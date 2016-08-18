@@ -32,8 +32,7 @@
     <View language="sw">Mwoneko</View>
     <Master_Table language="sw">Meza ya Bwana</Master_Table>
     <Sort language="sw">Panga</Sort>
-    <Asc language="sw">Asccending</Asc>
-    <Desc language="sw">
-    </Desc>
+    <Asc language="sw">A-z</Asc>
+    <Desc language="sw">Kushuka</Desc>
   </Language>
 </root>

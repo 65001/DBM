@@ -32,8 +32,7 @@
     <View language="cs">Pohled</View>
     <Master_Table language="cs">Hlavní tabulka</Master_Table>
     <Sort language="cs">Řazení</Sort>
-    <Asc language="cs">Asccending</Asc>
-    <Desc language="cs">
-    </Desc>
+    <Asc language="cs">Vzestupně</Asc>
+    <Desc language="cs">Sestupně</Desc>
   </Language>
 </root>

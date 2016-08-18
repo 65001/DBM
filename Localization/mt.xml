@@ -32,8 +32,7 @@
     <View language="mt">Ara</View>
     <Master_Table language="mt">Tabella tal-kaptan</Master_Table>
     <Sort language="mt">Issortja</Sort>
-    <Asc language="mt">Asccending</Asc>
-    <Desc language="mt">
-    </Desc>
+    <Asc language="mt">Axxendenti</Asc>
+    <Desc language="mt">Dixxendenti</Desc>
   </Language>
 </root>
