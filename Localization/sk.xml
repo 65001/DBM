@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="sk">
+    <File language="sk">Súbor</File>
+    <New language="sk">Nové</New>
+    <Open language="sk">Otvorené</Open>
+    <Edit language="sk">Upraviť</Edit>
+    <View language="sk">Zobrazenie</View>
+    <Save language="sk">Uložiť</Save>
+    <Import language="sk">Import</Import>
+    <CSV language="sk">CSV</CSV>
+    <SQL language="sk">SQL</SQL>
+    <Export language="sk">Vývoz</Export>
+    <HTML language="sk">HTML</HTML>
+    <Settings language="sk">Nastavenia</Settings>
+    <Help language="sk">pomoc</Help>
+    <About language="sk">O</About>
+    <Show_Help language="sk">Zobraziť Pomocníka</Show_Help>
+    <Settings_Editor language="sk">Nastavenie editora</Settings_Editor>
+    <Toggle_Debug language="sk">Prepínač Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="sk">Prepínanie protokole transakcií</Toggle_Transaction_Log>
+    <Refresh language="sk">Obnoviť</Refresh>
+    <Check_for_Updates language="sk">Skontrolovať aktualizácie</Check_for_Updates>
+    <PXML language="sk">XML</PXML>
+    <PRGM_Start language="sk">Program začal</PRGM_Start>
+    <Application language="sk">Aplikácia</Application>
+    <Failed_Save_Settings language="sk">Nepodarilo sa uložiť nastavenia</Failed_Save_Settings>
+    <Error language="sk">Chyba</Error>
+    <Failed language="sk">Zlyhalo</Failed>
+    <Table language="sk">Tabuľka</Table>
+    <Index language="sk">Index</Index>
+    <View language="sk">Zobrazenie</View>
+    <Master_Table language="sk">Hlavná tabuľka</Master_Table>
+    <Sort language="sk">Zoradiť</Sort>
+    <Asc language="sk">Asccending</Asc>
+    <Desc language="sk">
+    </Desc>
+  </Language>
+</root>

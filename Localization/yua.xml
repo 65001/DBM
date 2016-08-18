@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="yua">
+    <File language="yua">Archivo</File>
+    <New language="yua">Túumben</New>
+    <Open language="yua">Pi'ik'a'</Open>
+    <Edit language="yua">Editar</Edit>
+    <View language="yua">Wil</View>
+    <Save language="yua">Ooks</Save>
+    <Import language="yua">Tasbil</Import>
+    <CSV language="yua">CSV</CSV>
+    <SQL language="yua">SQL</SQL>
+    <Export language="yua">Ti' le jo'osa'al bisbil ba'alche'obo'</Export>
+    <HTML language="yua">HTML</HTML>
+    <Settings language="yua">Configuración</Settings>
+    <Help language="yua">Áantaj</Help>
+    <About language="yua">Acerca u</About>
+    <Show_Help language="yua">We'esik áantaj</Show_Help>
+    <Settings_Editor language="yua">Editor configuración</Settings_Editor>
+    <Toggle_Debug language="yua">Depuración palanca</Toggle_Debug>
+    <Toggle_Transaction_Log language="yua">Registro transacciones palanca</Toggle_Transaction_Log>
+    <Refresh language="yua">Ka'</Refresh>
+    <Check_for_Updates language="yua">Kaxant actualizaciones</Check_for_Updates>
+    <PXML language="yua">XML</PXML>
+    <PRGM_Start language="yua">Cha'ana' iniciado</PRGM_Start>
+    <Application language="yua">Ka'anatako'ob</Application>
+    <Failed_Save_Settings language="yua">Ma' u páajchaj ooks le configuración</Failed_Save_Settings>
+    <Error language="yua">Ba'alo'</Error>
+    <Failed language="yua">Ma' u páajchaj</Failed>
+    <Table language="yua">Tabla</Table>
+    <Index language="yua">Índice</Index>
+    <View language="yua">Wil</View>
+    <Master_Table language="yua">Tabla maestra</Master_Table>
+    <Sort language="yua">Bin yano'ob</Sort>
+    <Asc language="yua">Asccending</Asc>
+    <Desc language="yua">
+    </Desc>
+  </Language>
+</root>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="hu">
+    <File language="hu">Fájl</File>
+    <New language="hu">Új</New>
+    <Open language="hu">Nyitott</Open>
+    <Edit language="hu">Szerkesztése</Edit>
+    <View language="hu">Nézet</View>
+    <Save language="hu">Mentés</Save>
+    <Import language="hu">Import</Import>
+    <CSV language="hu">CSV</CSV>
+    <SQL language="hu">SQL</SQL>
+    <Export language="hu">Export</Export>
+    <HTML language="hu">HTML</HTML>
+    <Settings language="hu">Beállítások</Settings>
+    <Help language="hu">segítség</Help>
+    <About language="hu">Körülbelül</About>
+    <Show_Help language="hu">Súgó megjelenítése</Show_Help>
+    <Settings_Editor language="hu">Szerkesztő beállítások</Settings_Editor>
+    <Toggle_Debug language="hu">Debug ki-/ bekapcsolása</Toggle_Debug>
+    <Toggle_Transaction_Log language="hu">Toggle ügyleti</Toggle_Transaction_Log>
+    <Refresh language="hu">Frissítés</Refresh>
+    <Check_for_Updates language="hu">Ellenőriz részére korszerűsít</Check_for_Updates>
+    <PXML language="hu">XML</PXML>
+    <PRGM_Start language="hu">Elindított program</PRGM_Start>
+    <Application language="hu">Alkalmazás</Application>
+    <Failed_Save_Settings language="hu">Nem sikerült menteni a beállításokat</Failed_Save_Settings>
+    <Error language="hu">Hiba</Error>
+    <Failed language="hu">Nem sikerült</Failed>
+    <Table language="hu">Táblázat</Table>
+    <Index language="hu">Index</Index>
+    <View language="hu">Nézet</View>
+    <Master_Table language="hu">Törzstábla</Master_Table>
+    <Sort language="hu">Rendezés</Sort>
+    <Asc language="hu">Asccending</Asc>
+    <Desc language="hu">
+    </Desc>
+  </Language>
+</root>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="id">
+    <File language="id">File</File>
+    <New language="id">Baru</New>
+    <Open language="id">Buka</Open>
+    <Edit language="id">Mengedit</Edit>
+    <View language="id">Pemandangan</View>
+    <Save language="id">Simpan</Save>
+    <Import language="id">Impor</Import>
+    <CSV language="id">CSV</CSV>
+    <SQL language="id">SQL</SQL>
+    <Export language="id">Ekspor</Export>
+    <HTML language="id">HTML</HTML>
+    <Settings language="id">Pengaturan</Settings>
+    <Help language="id">Tolong</Help>
+    <About language="id">Tentang</About>
+    <Show_Help language="id">Tampilkan bantuan</Show_Help>
+    <Settings_Editor language="id">Pengaturan Editor</Settings_Editor>
+    <Toggle_Debug language="id">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="id">Log transaksi Toggle</Toggle_Transaction_Log>
+    <Refresh language="id">Refresh</Refresh>
+    <Check_for_Updates language="id">Memeriksa pembaruan</Check_for_Updates>
+    <PXML language="id">XML</PXML>
+    <PRGM_Start language="id">Program dimulai</PRGM_Start>
+    <Application language="id">Aplikasi</Application>
+    <Failed_Save_Settings language="id">Gagal untuk menyimpan pengaturan</Failed_Save_Settings>
+    <Error language="id">Kesalahan</Error>
+    <Failed language="id">Gagal</Failed>
+    <Table language="id">Meja</Table>
+    <Index language="id">Indeks</Index>
+    <View language="id">Pemandangan</View>
+    <Master_Table language="id">Biliar Master</Master_Table>
+    <Sort language="id">Urutkan</Sort>
+    <Asc language="id">Asccending</Asc>
+    <Desc language="id">
+    </Desc>
+  </Language>
+</root>

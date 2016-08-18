@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="sv">
+    <File language="sv">Fil</File>
+    <New language="sv">Nya</New>
+    <Open language="sv">Öppna</Open>
+    <Edit language="sv">Redigera</Edit>
+    <View language="sv">Visa</View>
+    <Save language="sv">Spara</Save>
+    <Import language="sv">Import</Import>
+    <CSV language="sv">CSV</CSV>
+    <SQL language="sv">SQL</SQL>
+    <Export language="sv">Exportera</Export>
+    <HTML language="sv">HTML</HTML>
+    <Settings language="sv">Inställningar</Settings>
+    <Help language="sv">Hjälp</Help>
+    <About language="sv">Om</About>
+    <Show_Help language="sv">Visa hjälp</Show_Help>
+    <Settings_Editor language="sv">Inställningar för Editor</Settings_Editor>
+    <Toggle_Debug language="sv">Toggle Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="sv">Toggle transaktionsloggen</Toggle_Transaction_Log>
+    <Refresh language="sv">Uppdatera</Refresh>
+    <Check_for_Updates language="sv">Sök efter uppdateringar</Check_for_Updates>
+    <PXML language="sv">XML</PXML>
+    <PRGM_Start language="sv">Programmet startas</PRGM_Start>
+    <Application language="sv">Ansökan</Application>
+    <Failed_Save_Settings language="sv">Det gick inte att spara inställningarna</Failed_Save_Settings>
+    <Error language="sv">Fel</Error>
+    <Failed language="sv">Det gick inte</Failed>
+    <Table language="sv">Tabell</Table>
+    <Index language="sv">Index</Index>
+    <View language="sv">Visa</View>
+    <Master_Table language="sv">Master Table</Master_Table>
+    <Sort language="sv">Sortera</Sort>
+    <Asc language="sv">Asccending</Asc>
+    <Desc language="sv">
+    </Desc>
+  </Language>
+</root>

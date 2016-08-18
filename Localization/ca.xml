@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ca">
+    <File language="ca">Arxiu</File>
+    <New language="ca">Nou</New>
+    <Open language="ca">Obert</Open>
+    <Edit language="ca">Editar</Edit>
+    <View language="ca">Veure</View>
+    <Save language="ca">Desa</Save>
+    <Import language="ca">Importació</Import>
+    <CSV language="ca">CSV</CSV>
+    <SQL language="ca">SQL</SQL>
+    <Export language="ca">Exportació</Export>
+    <HTML language="ca">HTML</HTML>
+    <Settings language="ca">Configuració</Settings>
+    <Help language="ca">Ajuda</Help>
+    <About language="ca">Sobre</About>
+    <Show_Help language="ca">Mostra ajuda</Show_Help>
+    <Settings_Editor language="ca">Editor de la configuració</Settings_Editor>
+    <Toggle_Debug language="ca">Depuració de tanca</Toggle_Debug>
+    <Toggle_Transaction_Log language="ca">Toggle Log de transacció</Toggle_Transaction_Log>
+    <Refresh language="ca">L'actualització</Refresh>
+    <Check_for_Updates language="ca">Buscar actualitzacions</Check_for_Updates>
+    <PXML language="ca">XML</PXML>
+    <PRGM_Start language="ca">Programa iniciat</PRGM_Start>
+    <Application language="ca">Aplicació</Application>
+    <Failed_Save_Settings language="ca">No ha pogut desar la configuració</Failed_Save_Settings>
+    <Error language="ca">Error</Error>
+    <Failed language="ca">Ha fallat</Failed>
+    <Table language="ca">Taula</Table>
+    <Index language="ca">Índex</Index>
+    <View language="ca">Veure</View>
+    <Master_Table language="ca">Taula de Màster</Master_Table>
+    <Sort language="ca">Mena</Sort>
+    <Asc language="ca">Asccending</Asc>
+    <Desc language="ca">
+    </Desc>
+  </Language>
+</root>

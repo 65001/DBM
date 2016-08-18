@@ -21,7 +21,19 @@
     <Toggle_Transaction_Log language="fr">Activer/désactiver des transactions</Toggle_Transaction_Log>
     <Refresh language="fr">Actualisation</Refresh>
     <Check_for_Updates language="fr">Check for Updates</Check_for_Updates>
-    <PXML language="fr">
-    </PXML>
+    <PXML language="fr">XML</PXML>
+    <PRGM_Start language="fr">Débuté du programme</PRGM_Start>
+    <Application language="fr">Application</Application>
+    <Failed_Save_Settings language="fr">Impossible d’enregistrer les paramètres</Failed_Save_Settings>
+    <Error language="fr">Erreur</Error>
+    <Failed language="fr">A échoué</Failed>
+    <Table language="fr">Tableau</Table>
+    <Index language="fr">Index</Index>
+    <View language="fr">Vue</View>
+    <Master_Table language="fr">Tableau de maître</Master_Table>
+    <Sort language="fr">Tri</Sort>
+    <Asc language="fr">Asccending</Asc>
+    <Desc language="fr">
+    </Desc>
   </Language>
 </root>

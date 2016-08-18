@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="hi">
+    <File language="hi">फ़ाइल</File>
+    <New language="hi">नई</New>
+    <Open language="hi">खुला</Open>
+    <Edit language="hi">संपादित करें</Edit>
+    <View language="hi">दृश्य</View>
+    <Save language="hi">सहेजें</Save>
+    <Import language="hi">आयात</Import>
+    <CSV language="hi">CSV</CSV>
+    <SQL language="hi">SQL</SQL>
+    <Export language="hi">निर्यात करें</Export>
+    <HTML language="hi">HTML</HTML>
+    <Settings language="hi">सेटिंग्स</Settings>
+    <Help language="hi">मदद</Help>
+    <About language="hi">के बारे में</About>
+    <Show_Help language="hi">मदद दिखाएँ</Show_Help>
+    <Settings_Editor language="hi">सेटिंग्स संपादक</Settings_Editor>
+    <Toggle_Debug language="hi">टॉगल करें डीबग</Toggle_Debug>
+    <Toggle_Transaction_Log language="hi">टॉगल करें हस्तांतरण लॉग</Toggle_Transaction_Log>
+    <Refresh language="hi">ताज़ा करें</Refresh>
+    <Check_for_Updates language="hi">अद्यतनों के लिए जाँचें</Check_for_Updates>
+    <PXML language="hi">XML</PXML>
+    <PRGM_Start language="hi">कार्यक्रम शुरू</PRGM_Start>
+    <Application language="hi">अनुप्रयोग</Application>
+    <Failed_Save_Settings language="hi">सेटिंग्स को सहेजने के लिए विफल</Failed_Save_Settings>
+    <Error language="hi">त्रुटि</Error>
+    <Failed language="hi">में विफल रहा</Failed>
+    <Table language="hi">तालिका</Table>
+    <Index language="hi">सूचकांक</Index>
+    <View language="hi">दृश्य</View>
+    <Master_Table language="hi">मास्टर तालिका</Master_Table>
+    <Sort language="hi">सॉर्ट करें</Sort>
+    <Asc language="hi">Asccending</Asc>
+    <Desc language="hi">
+    </Desc>
+  </Language>
+</root>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="mt">
+    <File language="mt">Il-fajl</File>
+    <New language="mt">Ġodda</New>
+    <Open language="mt">Miftuħa</Open>
+    <Edit language="mt">Editja l-</Edit>
+    <View language="mt">Ara</View>
+    <Save language="mt">Issejvja l-</Save>
+    <Import language="mt">Importazzjoni</Import>
+    <CSV language="mt">CSV</CSV>
+    <SQL language="mt">SQL</SQL>
+    <Export language="mt">L-esportazzjoni</Export>
+    <HTML language="mt">HTML</HTML>
+    <Settings language="mt">L-issettjar</Settings>
+    <Help language="mt">L-għajnuna</Help>
+    <About language="mt">Dwar il-</About>
+    <Show_Help language="mt">Uri għajnuna</Show_Help>
+    <Settings_Editor language="mt">Editur ta ' l-issettjar</Settings_Editor>
+    <Toggle_Debug language="mt">Ittogiljar iddibaggjar</Toggle_Debug>
+    <Toggle_Transaction_Log language="mt">Reġistru tat-transazzjonijiet tal-Ittogiljar</Toggle_Transaction_Log>
+    <Refresh language="mt">L-aġġornament</Refresh>
+    <Check_for_Updates language="mt">Iċċekkja għal aġġornamenti</Check_for_Updates>
+    <PXML language="mt">XML</PXML>
+    <PRGM_Start language="mt">Il-programm beda</PRGM_Start>
+    <Application language="mt">Applikazzjoni</Application>
+    <Failed_Save_Settings language="mt">Ma rnexxilux jissejvja l-issettjar</Failed_Save_Settings>
+    <Error language="mt">L-iżball</Error>
+    <Failed language="mt">Ma rnexxiex</Failed>
+    <Table language="mt">It-tabella</Table>
+    <Index language="mt">L-indiċi</Index>
+    <View language="mt">Ara</View>
+    <Master_Table language="mt">Tabella tal-kaptan</Master_Table>
+    <Sort language="mt">Issortja</Sort>
+    <Asc language="mt">Asccending</Asc>
+    <Desc language="mt">
+    </Desc>
+  </Language>
+</root>

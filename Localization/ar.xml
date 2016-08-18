@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ar">
+    <File language="ar">الملف</File>
+    <New language="ar">الجديد</New>
+    <Open language="ar">فتح</Open>
+    <Edit language="ar">تحرير</Edit>
+    <View language="ar">طريقة العرض</View>
+    <Save language="ar">حفظ</Save>
+    <Import language="ar">استيراد</Import>
+    <CSV language="ar">CSV</CSV>
+    <SQL language="ar">SQL</SQL>
+    <Export language="ar">تصدير</Export>
+    <HTML language="ar">إتش تي أم ال</HTML>
+    <Settings language="ar">إعدادات</Settings>
+    <Help language="ar">تعليمات</Help>
+    <About language="ar">حول</About>
+    <Show_Help language="ar">إظهار تعليمات</Show_Help>
+    <Settings_Editor language="ar">إعدادات محرر</Settings_Editor>
+    <Toggle_Debug language="ar">تبديل التصحيح</Toggle_Debug>
+    <Toggle_Transaction_Log language="ar">تبديل سجل المعاملات</Toggle_Transaction_Log>
+    <Refresh language="ar">قم بتحديث</Refresh>
+    <Check_for_Updates language="ar">التحقق من وجود تحديثات</Check_for_Updates>
+    <PXML language="ar">إكس أم ال</PXML>
+    <PRGM_Start language="ar">البرنامج بدأ</PRGM_Start>
+    <Application language="ar">التطبيق</Application>
+    <Failed_Save_Settings language="ar">فشل في حفظ إعدادات</Failed_Save_Settings>
+    <Error language="ar">خطأ</Error>
+    <Failed language="ar">فشل</Failed>
+    <Table language="ar">الجدول</Table>
+    <Index language="ar">فهرس</Index>
+    <View language="ar">طريقة العرض</View>
+    <Master_Table language="ar">الجدول الرئيسي</Master_Table>
+    <Sort language="ar">الفرز</Sort>
+    <Asc language="ar">أسكسيندينج</Asc>
+    <Desc language="ar">
+    </Desc>
+  </Language>
+</root>

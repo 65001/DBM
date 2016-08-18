@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="hr">
+    <File language="hr">Datoteka</File>
+    <New language="hr">Novi</New>
+    <Open language="hr">Otvoren</Open>
+    <Edit language="hr">Uredi</Edit>
+    <View language="hr">Prikaz</View>
+    <Save language="hr">Spremi</Save>
+    <Import language="hr">Uvoz</Import>
+    <CSV language="hr">CSV</CSV>
+    <SQL language="hr">SQL</SQL>
+    <Export language="hr">Izvoz</Export>
+    <HTML language="hr">HTML</HTML>
+    <Settings language="hr">Postavke</Settings>
+    <Help language="hr">Pomoć</Help>
+    <About language="hr">O</About>
+    <Show_Help language="hr">Pokaži pomoć</Show_Help>
+    <Settings_Editor language="hr">Postavke uređivača</Settings_Editor>
+    <Toggle_Debug language="hr">Uključivanje/isključivanje ispravljanja pogrešaka</Toggle_Debug>
+    <Toggle_Transaction_Log language="hr">Uključivanje/isključivanje transakcijski zapisnik</Toggle_Transaction_Log>
+    <Refresh language="hr">Osvježi</Refresh>
+    <Check_for_Updates language="hr">Provjeri ažuriranja</Check_for_Updates>
+    <PXML language="hr">XML</PXML>
+    <PRGM_Start language="hr">Program je započeo</PRGM_Start>
+    <Application language="hr">Aplikacija</Application>
+    <Failed_Save_Settings language="hr">Nije uspjelo spremanje postavki</Failed_Save_Settings>
+    <Error language="hr">Pogreška</Error>
+    <Failed language="hr">Nije uspjelo</Failed>
+    <Table language="hr">Tablica</Table>
+    <Index language="hr">Indeks</Index>
+    <View language="hr">Prikaz</View>
+    <Master_Table language="hr">Master tablice</Master_Table>
+    <Sort language="hr">Sortiranje</Sort>
+    <Asc language="hr">Asccending</Asc>
+    <Desc language="hr">
+    </Desc>
+  </Language>
+</root>

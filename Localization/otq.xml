@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="otq">
+    <File language="otq">Archivo</File>
+    <New language="otq">'Ra'yo je̲ya</New>
+    <Open language="otq">Abierto</Open>
+    <Edit language="otq">Editar</Edit>
+    <View language="otq">Di nu'i</View>
+    <Save language="otq">Guardar</Save>
+    <Import language="otq">Importación</Import>
+    <CSV language="otq">CSV</CSV>
+    <SQL language="otq">SQL</SQL>
+    <Export language="otq">Ya ar exportación</Export>
+    <HTML language="otq">HTML</HTML>
+    <Settings language="otq">Configuración</Settings>
+    <Help language="otq">Mfats'i</Help>
+    <About language="otq">Acerca ar</About>
+    <Show_Help language="otq">Mostrar mfats'i</Show_Help>
+    <Settings_Editor language="otq">Editor configuración</Settings_Editor>
+    <Toggle_Debug language="otq">Depuración palanca</Toggle_Debug>
+    <Toggle_Transaction_Log language="otq">Registro transacciones palanca</Toggle_Transaction_Log>
+    <Refresh language="otq">Actualización</Refresh>
+    <Check_for_Updates language="otq">Honi actualizaciones</Check_for_Updates>
+    <PXML language="otq">XML</PXML>
+    <PRGM_Start language="otq">Programa iniciado</PRGM_Start>
+    <Application language="otq">Nt'ot'e</Application>
+    <Failed_Save_Settings language="otq">Hingi ar himbí guardar ar configuración</Failed_Save_Settings>
+    <Error language="otq">Error</Error>
+    <Failed language="otq">Ar himbí pwede</Failed>
+    <Table language="otq">Tabla</Table>
+    <Index language="otq">Índice</Index>
+    <View language="otq">Di nu'i</View>
+    <Master_Table language="otq">Tabla maestra</Master_Table>
+    <Sort language="otq">Ar klase</Sort>
+    <Asc language="otq">Asccending</Asc>
+    <Desc language="otq">
+    </Desc>
+  </Language>
+</root>

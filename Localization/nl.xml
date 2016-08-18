@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="nl">
+    <File language="nl">Bestand</File>
+    <New language="nl">Nieuw</New>
+    <Open language="nl">Open</Open>
+    <Edit language="nl">Bewerken</Edit>
+    <View language="nl">Weergave</View>
+    <Save language="nl">Opslaan</Save>
+    <Import language="nl">Importeren</Import>
+    <CSV language="nl">CSV</CSV>
+    <SQL language="nl">SQL</SQL>
+    <Export language="nl">Exporteren</Export>
+    <HTML language="nl">HTML</HTML>
+    <Settings language="nl">Instellingen</Settings>
+    <Help language="nl">Help</Help>
+    <About language="nl">Over</About>
+    <Show_Help language="nl">Help weergeven</Show_Help>
+    <Settings_Editor language="nl">Instellingen Editor</Settings_Editor>
+    <Toggle_Debug language="nl">/ Uitschakelen Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="nl">Transactielogboek van de knevel</Toggle_Transaction_Log>
+    <Refresh language="nl">Vernieuwen</Refresh>
+    <Check_for_Updates language="nl">Controleren op Updates</Check_for_Updates>
+    <PXML language="nl">XML</PXML>
+    <PRGM_Start language="nl">Programma gestart</PRGM_Start>
+    <Application language="nl">Toepassing</Application>
+    <Failed_Save_Settings language="nl">Instellingen opslaan mislukt</Failed_Save_Settings>
+    <Error language="nl">Fout</Error>
+    <Failed language="nl">Mislukt</Failed>
+    <Table language="nl">Tabel</Table>
+    <Index language="nl">Index</Index>
+    <View language="nl">Weergave</View>
+    <Master_Table language="nl">Tabel Master</Master_Table>
+    <Sort language="nl">Sorteren</Sort>
+    <Asc language="nl">Asccending</Asc>
+    <Desc language="nl">
+    </Desc>
+  </Language>
+</root>

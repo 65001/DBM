@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="af">
+    <File language="af">Lêer</File>
+    <New language="af">Nuwe</New>
+    <Open language="af">Oop</Open>
+    <Edit language="af">Redigeer</Edit>
+    <View language="af">Bekyk</View>
+    <Save language="af">Stoor</Save>
+    <Import language="af">Invoer</Import>
+    <CSV language="af">CSV</CSV>
+    <SQL language="af">SQL</SQL>
+    <Export language="af">Uitvoer</Export>
+    <HTML language="af">HTML</HTML>
+    <Settings language="af">Instellings</Settings>
+    <Help language="af">Help</Help>
+    <About language="af">Oor</About>
+    <Show_Help language="af">Wys hulp</Show_Help>
+    <Settings_Editor language="af">Instellings redakteur</Settings_Editor>
+    <Toggle_Debug language="af">Wissel vir foutopspoor</Toggle_Debug>
+    <Toggle_Transaction_Log language="af">Wissel transaksie aanteken</Toggle_Transaction_Log>
+    <Refresh language="af">Verfris</Refresh>
+    <Check_for_Updates language="af">Kontroleer vir bywerkings</Check_for_Updates>
+    <PXML language="af">XML</PXML>
+    <PRGM_Start language="af">Program begin</PRGM_Start>
+    <Application language="af">Aansoek</Application>
+    <Failed_Save_Settings language="af">Kon nie opsies stoor nie</Failed_Save_Settings>
+    <Error language="af">Fout</Error>
+    <Failed language="af">Het misluk</Failed>
+    <Table language="af">Tabel</Table>
+    <Index language="af">Indeks</Index>
+    <View language="af">Bekyk</View>
+    <Master_Table language="af">Meester tabel</Master_Table>
+    <Sort language="af">Rangskik</Sort>
+    <Asc language="af">Asccending</Asc>
+    <Desc language="af">
+    </Desc>
+  </Language>
+</root>

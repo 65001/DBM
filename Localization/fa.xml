@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="fa">
+    <File language="fa">دریافت فایل</File>
+    <New language="fa">جدید</New>
+    <Open language="fa">باز</Open>
+    <Edit language="fa">ویرایش</Edit>
+    <View language="fa">مشاهده</View>
+    <Save language="fa">ذخیره</Save>
+    <Import language="fa">واردات</Import>
+    <CSV language="fa">CSV</CSV>
+    <SQL language="fa">SQL</SQL>
+    <Export language="fa">صادرات</Export>
+    <HTML language="fa">نسخه متنی</HTML>
+    <Settings language="fa">تنظیمات</Settings>
+    <Help language="fa">کمک</Help>
+    <About language="fa">درباره</About>
+    <Show_Help language="fa">راهنمای نمایش</Show_Help>
+    <Settings_Editor language="fa">تنظیمات ویرایشگر</Settings_Editor>
+    <Toggle_Debug language="fa">اشکالزدایی آمار بازدید</Toggle_Debug>
+    <Toggle_Transaction_Log language="fa">تغییر چگونگی وارد معامله</Toggle_Transaction_Log>
+    <Refresh language="fa">تازه کردن</Refresh>
+    <Check_for_Updates language="fa">بررسی برای به روز رسانی</Check_for_Updates>
+    <PXML language="fa">XML</PXML>
+    <PRGM_Start language="fa">برنامه آغاز شده</PRGM_Start>
+    <Application language="fa">نرم افزار</Application>
+    <Failed_Save_Settings language="fa">عدم موفقیت در ذخیره تنظیمات</Failed_Save_Settings>
+    <Error language="fa">خطا</Error>
+    <Failed language="fa">انجام نشد</Failed>
+    <Table language="fa">جدول</Table>
+    <Index language="fa">شاخص</Index>
+    <View language="fa">مشاهده</View>
+    <Master_Table language="fa">میز کارشناسی ارشد</Master_Table>
+    <Sort language="fa">مرتب کردن بر اساس</Sort>
+    <Asc language="fa">Asccending</Asc>
+    <Desc language="fa">
+    </Desc>
+  </Language>
+</root>

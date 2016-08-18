@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="el">
+    <File language="el">Αρχείο</File>
+    <New language="el">Νέα</New>
+    <Open language="el">Ανοιχτό</Open>
+    <Edit language="el">Επεξεργασία</Edit>
+    <View language="el">Προβολή</View>
+    <Save language="el">Αποθήκευση</Save>
+    <Import language="el">Εισαγωγή</Import>
+    <CSV language="el">CSV</CSV>
+    <SQL language="el">SQL</SQL>
+    <Export language="el">Εξαγωγή</Export>
+    <HTML language="el">HTML</HTML>
+    <Settings language="el">Ρυθμίσεις</Settings>
+    <Help language="el">Βοήθεια</Help>
+    <About language="el">Σχετικά με</About>
+    <Show_Help language="el">Εμφάνιση βοήθειας</Show_Help>
+    <Settings_Editor language="el">Ρυθμίσεων, ο Editor</Settings_Editor>
+    <Toggle_Debug language="el">Εναλλαγή εντοπισμού σφαλμάτων</Toggle_Debug>
+    <Toggle_Transaction_Log language="el">Εναλλαγή καταγραφής συναλλαγών</Toggle_Transaction_Log>
+    <Refresh language="el">Ανανέωση</Refresh>
+    <Check_for_Updates language="el">Έλεγχος για ενημερωμένες εκδόσεις</Check_for_Updates>
+    <PXML language="el">XML</PXML>
+    <PRGM_Start language="el">Ξεκίνησε το πρόγραμμα</PRGM_Start>
+    <Application language="el">Εφαρμογή</Application>
+    <Failed_Save_Settings language="el">Απέτυχε η Αποθήκευση ρυθμίσεων</Failed_Save_Settings>
+    <Error language="el">Σφάλμα</Error>
+    <Failed language="el">Απέτυχε</Failed>
+    <Table language="el">Πίνακας</Table>
+    <Index language="el">Ευρετήριο</Index>
+    <View language="el">Προβολή</View>
+    <Master_Table language="el">Πίνακας κύριων</Master_Table>
+    <Sort language="el">Είδος</Sort>
+    <Asc language="el">Asccending</Asc>
+    <Desc language="el">
+    </Desc>
+  </Language>
+</root>

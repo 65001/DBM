@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="uk">
+    <File language="uk">Файл</File>
+    <New language="uk">Нові</New>
+    <Open language="uk">Відкриті</Open>
+    <Edit language="uk">Редагувати</Edit>
+    <View language="uk">Подання</View>
+    <Save language="uk">Зберегти</Save>
+    <Import language="uk">Імпорт</Import>
+    <CSV language="uk">CSV</CSV>
+    <SQL language="uk">SQL</SQL>
+    <Export language="uk">Експорт</Export>
+    <HTML language="uk">HTML</HTML>
+    <Settings language="uk">Параметри</Settings>
+    <Help language="uk">Допомога</Help>
+    <About language="uk">Про</About>
+    <Show_Help language="uk">Показати довідку</Show_Help>
+    <Settings_Editor language="uk">Параметри редактора</Settings_Editor>
+    <Toggle_Debug language="uk">Увімкнути або вимкнути налагодження</Toggle_Debug>
+    <Toggle_Transaction_Log language="uk">Переключити журнал транзакцій</Toggle_Transaction_Log>
+    <Refresh language="uk">Оновити</Refresh>
+    <Check_for_Updates language="uk">Перевірити наявність оновлень</Check_for_Updates>
+    <PXML language="uk">XML</PXML>
+    <PRGM_Start language="uk">Програма почалася</PRGM_Start>
+    <Application language="uk">Застосування</Application>
+    <Failed_Save_Settings language="uk">Не вдалося зберегти параметри</Failed_Save_Settings>
+    <Error language="uk">Помилка</Error>
+    <Failed language="uk">Не вдалося</Failed>
+    <Table language="uk">Таблиця</Table>
+    <Index language="uk">Індекс</Index>
+    <View language="uk">Подання</View>
+    <Master_Table language="uk">Майстри стіл</Master_Table>
+    <Sort language="uk">Сортування</Sort>
+    <Asc language="uk">Asccending</Asc>
+    <Desc language="uk">
+    </Desc>
+  </Language>
+</root>

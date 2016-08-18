@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="bs-Latn">
+    <File language="bs-Latn">Datoteka</File>
+    <New language="bs-Latn">Novi</New>
+    <Open language="bs-Latn">Otvoren</Open>
+    <Edit language="bs-Latn">Uredi</Edit>
+    <View language="bs-Latn">Prikaz</View>
+    <Save language="bs-Latn">Spremi</Save>
+    <Import language="bs-Latn">Uvoz</Import>
+    <CSV language="bs-Latn">CSV</CSV>
+    <SQL language="bs-Latn">SQL</SQL>
+    <Export language="bs-Latn">Izvoz</Export>
+    <HTML language="bs-Latn">HTML</HTML>
+    <Settings language="bs-Latn">Postavke</Settings>
+    <Help language="bs-Latn">Pomoć</Help>
+    <About language="bs-Latn">O</About>
+    <Show_Help language="bs-Latn">Pokaži pomoć</Show_Help>
+    <Settings_Editor language="bs-Latn">Postavke uređivača</Settings_Editor>
+    <Toggle_Debug language="bs-Latn">Uključi/isključi Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="bs-Latn">Uključi/isključi Transakcijski zapisnik</Toggle_Transaction_Log>
+    <Refresh language="bs-Latn">Osvježi</Refresh>
+    <Check_for_Updates language="bs-Latn">Provjeri ima li ažuriranja</Check_for_Updates>
+    <PXML language="bs-Latn">XML</PXML>
+    <PRGM_Start language="bs-Latn">Program je započeo</PRGM_Start>
+    <Application language="bs-Latn">Aplikacija</Application>
+    <Failed_Save_Settings language="bs-Latn">Neuspjelo spremanje postavki</Failed_Save_Settings>
+    <Error language="bs-Latn">Pogreška</Error>
+    <Failed language="bs-Latn">Nije uspjelo</Failed>
+    <Table language="bs-Latn">Tablica</Table>
+    <Index language="bs-Latn">Indeks</Index>
+    <View language="bs-Latn">Prikaz</View>
+    <Master_Table language="bs-Latn">Master tablice</Master_Table>
+    <Sort language="bs-Latn">Sortiraj</Sort>
+    <Asc language="bs-Latn">Asccending</Asc>
+    <Desc language="bs-Latn">
+    </Desc>
+  </Language>
+</root>

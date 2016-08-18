@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="lt">
+    <File language="lt">Failą</File>
+    <New language="lt">Naujas</New>
+    <Open language="lt">Atvira</Open>
+    <Edit language="lt">Redaguoti</Edit>
+    <View language="lt">Rodyti</View>
+    <Save language="lt">Išsaugoti</Save>
+    <Import language="lt">Importo</Import>
+    <CSV language="lt">CSV</CSV>
+    <SQL language="lt">SQL</SQL>
+    <Export language="lt">Eksporto</Export>
+    <HTML language="lt">HTML</HTML>
+    <Settings language="lt">Parametrai</Settings>
+    <Help language="lt">pagalba</Help>
+    <About language="lt">Apie</About>
+    <Show_Help language="lt">Žinynui Rodyti</Show_Help>
+    <Settings_Editor language="lt">Nustatymų redagavimo priemonę</Settings_Editor>
+    <Toggle_Debug language="lt">Įjungti/išjungti derinimo</Toggle_Debug>
+    <Toggle_Transaction_Log language="lt">Įjungti/išjungti operacijų žurnalą</Toggle_Transaction_Log>
+    <Refresh language="lt">Atnaujinti</Refresh>
+    <Check_for_Updates language="lt">Tikrinti, ar yra naujinimų</Check_for_Updates>
+    <PXML language="lt">XML</PXML>
+    <PRGM_Start language="lt">Programa prasidėjo</PRGM_Start>
+    <Application language="lt">Programa</Application>
+    <Failed_Save_Settings language="lt">Nepavyko įrašyti parametrus</Failed_Save_Settings>
+    <Error language="lt">Klaida</Error>
+    <Failed language="lt">Nepavyko</Failed>
+    <Table language="lt">Lentelė</Table>
+    <Index language="lt">Indeksas</Index>
+    <View language="lt">Rodyti</View>
+    <Master_Table language="lt">Pagrindinis stalas</Master_Table>
+    <Sort language="lt">Rūšiuoti</Sort>
+    <Asc language="lt">Asccending</Asc>
+    <Desc language="lt">
+    </Desc>
+  </Language>
+</root>

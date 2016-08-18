@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="fi">
+    <File language="fi">Tiedosto</File>
+    <New language="fi">Uusi</New>
+    <Open language="fi">Avoinna</Open>
+    <Edit language="fi">Muokkaa</Edit>
+    <View language="fi">Näkymä</View>
+    <Save language="fi">Tallenna</Save>
+    <Import language="fi">Tuonti</Import>
+    <CSV language="fi">CSV</CSV>
+    <SQL language="fi">SQL</SQL>
+    <Export language="fi">Vienti</Export>
+    <HTML language="fi">HTML</HTML>
+    <Settings language="fi">Asetukset</Settings>
+    <Help language="fi">Apua</Help>
+    <About language="fi">Tietoja</About>
+    <Show_Help language="fi">Näytä ohje</Show_Help>
+    <Settings_Editor language="fi">Asetuksia editorilla</Settings_Editor>
+    <Toggle_Debug language="fi">Vaihda Debug</Toggle_Debug>
+    <Toggle_Transaction_Log language="fi">Vaihda tapahtumaloki</Toggle_Transaction_Log>
+    <Refresh language="fi">Päivitä</Refresh>
+    <Check_for_Updates language="fi">Tarkista päivitykset</Check_for_Updates>
+    <PXML language="fi">XML</PXML>
+    <PRGM_Start language="fi">Ohjelma alkoi</PRGM_Start>
+    <Application language="fi">Sovellus</Application>
+    <Failed_Save_Settings language="fi">Asetusten tallentaminen ei onnistu</Failed_Save_Settings>
+    <Error language="fi">Virhe</Error>
+    <Failed language="fi">Epäonnistui</Failed>
+    <Table language="fi">Taulukko</Table>
+    <Index language="fi">Indeksi</Index>
+    <View language="fi">Näkymä</View>
+    <Master_Table language="fi">Päätaulukon</Master_Table>
+    <Sort language="fi">Lajittele</Sort>
+    <Asc language="fi">Asccending</Asc>
+    <Desc language="fi">
+    </Desc>
+  </Language>
+</root>

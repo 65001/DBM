@@ -31,5 +31,8 @@
     <Index language="en">Index</Index>
     <View language="en">View</View>
     <Master_Table language="en">Master Table</Master_Table>
+    <Sort language="en">Sort</Sort>
+    <Asc language="en">Asccending</Asc>
+    <Desc language="en">Descending</Desc>
   </Language>
 </root>

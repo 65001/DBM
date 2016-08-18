@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="pl">
+    <File language="pl">Plik</File>
+    <New language="pl">Nowy</New>
+    <Open language="pl">Otwarte</Open>
+    <Edit language="pl">Edycja</Edit>
+    <View language="pl">Widok</View>
+    <Save language="pl">Zapisz</Save>
+    <Import language="pl">Importu</Import>
+    <CSV language="pl">CSV</CSV>
+    <SQL language="pl">SQL</SQL>
+    <Export language="pl">Eksport</Export>
+    <HTML language="pl">HTML</HTML>
+    <Settings language="pl">Ustawienia</Settings>
+    <Help language="pl">Pomoc</Help>
+    <About language="pl">O</About>
+    <Show_Help language="pl">Pokaż pomoc</Show_Help>
+    <Settings_Editor language="pl">Ustawienia edytora</Settings_Editor>
+    <Toggle_Debug language="pl">Przełącz debugowania</Toggle_Debug>
+    <Toggle_Transaction_Log language="pl">Dziennik transakcji przełączania</Toggle_Transaction_Log>
+    <Refresh language="pl">Odświeżania</Refresh>
+    <Check_for_Updates language="pl">Sprawdź aktualizacje</Check_for_Updates>
+    <PXML language="pl">XML</PXML>
+    <PRGM_Start language="pl">Program uruchomiony</PRGM_Start>
+    <Application language="pl">Aplikacji</Application>
+    <Failed_Save_Settings language="pl">Nie można zapisać ustawień</Failed_Save_Settings>
+    <Error language="pl">Błąd</Error>
+    <Failed language="pl">Nie powiodło się</Failed>
+    <Table language="pl">Stół</Table>
+    <Index language="pl">Indeks</Index>
+    <View language="pl">Widok</View>
+    <Master_Table language="pl">Główna tabela</Master_Table>
+    <Sort language="pl">Sortowanie</Sort>
+    <Asc language="pl">Asccending</Asc>
+    <Desc language="pl">
+    </Desc>
+  </Language>
+</root>

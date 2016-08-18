@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="ro">
+    <File language="ro">Fişier</File>
+    <New language="ro">Noi</New>
+    <Open language="ro">Deschis</Open>
+    <Edit language="ro">Editare</Edit>
+    <View language="ro">Vezi</View>
+    <Save language="ro">Salva</Save>
+    <Import language="ro">Import</Import>
+    <CSV language="ro">CSV</CSV>
+    <SQL language="ro">SQL</SQL>
+    <Export language="ro">Export</Export>
+    <HTML language="ro">HTML</HTML>
+    <Settings language="ro">Setări</Settings>
+    <Help language="ro">ajutor</Help>
+    <About language="ro">Despre</About>
+    <Show_Help language="ro">Arată Ajutor</Show_Help>
+    <Settings_Editor language="ro">Setările editorului</Settings_Editor>
+    <Toggle_Debug language="ro">Comutare depanare</Toggle_Debug>
+    <Toggle_Transaction_Log language="ro">Jurnal de tranzacţii comutare</Toggle_Transaction_Log>
+    <Refresh language="ro">Reîmprospătare</Refresh>
+    <Check_for_Updates language="ro">A verifica pentru Updates</Check_for_Updates>
+    <PXML language="ro">XML</PXML>
+    <PRGM_Start language="ro">Programul a început</PRGM_Start>
+    <Application language="ro">Cerere</Application>
+    <Failed_Save_Settings language="ro">Nu a salva setările</Failed_Save_Settings>
+    <Error language="ro">Eroare</Error>
+    <Failed language="ro">Nu a reușit</Failed>
+    <Table language="ro">Tabel</Table>
+    <Index language="ro">Index</Index>
+    <View language="ro">Vezi</View>
+    <Master_Table language="ro">Tabelul de Master</Master_Table>
+    <Sort language="ro">Sortare</Sort>
+    <Asc language="ro">Asccending</Asc>
+    <Desc language="ro">
+    </Desc>
+  </Language>
+</root>

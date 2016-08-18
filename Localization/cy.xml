@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Language language="cy">
+    <File language="cy">Ffeil</File>
+    <New language="cy">Newydd</New>
+    <Open language="cy">Agored</Open>
+    <Edit language="cy">Golygu</Edit>
+    <View language="cy">Barn</View>
+    <Save language="cy">Arbed</Save>
+    <Import language="cy">Mewngludo</Import>
+    <CSV language="cy">CSV</CSV>
+    <SQL language="cy">SQL</SQL>
+    <Export language="cy">Allforio</Export>
+    <HTML language="cy">HTML</HTML>
+    <Settings language="cy">Gosodiadau</Settings>
+    <Help language="cy">Helpu i</Help>
+    <About language="cy">Am</About>
+    <Show_Help language="cy">Dangos Help</Show_Help>
+    <Settings_Editor language="cy">Gosodiadau'r Golygydd</Settings_Editor>
+    <Toggle_Debug language="cy">Toglo difa chwilod</Toggle_Debug>
+    <Toggle_Transaction_Log language="cy">Log Trafodion Toglo</Toggle_Transaction_Log>
+    <Refresh language="cy">Adnewyddu</Refresh>
+    <Check_for_Updates language="cy">Chwilio am ddiweddariadau</Check_for_Updates>
+    <PXML language="cy">XML</PXML>
+    <PRGM_Start language="cy">Dechreuodd y rhaglen</PRGM_Start>
+    <Application language="cy">Cais</Application>
+    <Failed_Save_Settings language="cy">Wedi methu cadw'r gosodiadau</Failed_Save_Settings>
+    <Error language="cy">Gwall</Error>
+    <Failed language="cy">Wedi methu</Failed>
+    <Table language="cy">Tabl</Table>
+    <Index language="cy">Mynegai</Index>
+    <View language="cy">Barn</View>
+    <Master_Table language="cy">Tabl Meistr</Master_Table>
+    <Sort language="cy">Math</Sort>
+    <Asc language="cy">Asccending</Asc>
+    <Desc language="cy">
+    </Desc>
+  </Language>
+</root>
