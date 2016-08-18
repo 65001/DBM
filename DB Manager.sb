@@ -44,7 +44,6 @@
 'v1114
 ' Transaction DB Implemented (Default is OFF )
 '
-
 '______________________________________________________________________________
 '                                                                                                 To do
 '______________________________________________________________________________
@@ -53,7 +52,8 @@
 'Export Menu
 'Access Table 
 'Make the mastertable a view and remove the program only restrictions on it 
-'Mods ? 
+'Ability to load Mods ? 
+'Localizations ?
 
 GraphicsWindow.Show()
 MainWindowID =  LDWindows.CurrentID
@@ -74,7 +74,7 @@ LDUtilities.ShowFileErrors= "False"
 LDUtilities.ShowNoShapeErrors = "False"
 LDEvents.Error = ErrorHandler
 
-debug_mode = 0 '1=On;0=Off(Default)
+debug_mode = 1 '1=On;0=Off(Default)
 
 copyrightDate = 2016
 ProductID = "DBM"
@@ -689,7 +689,7 @@ Sub MainMenuHandler
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
     'Export_UI() ' Not Yet Implemtented //TO DO 
     LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,"Application")
-    GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton,"EXPORT")
+    ' GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton,"EXPORT")
   EndIf
 EndSub
 
@@ -966,7 +966,9 @@ Sub Export_CSV
 EndSub
 
 Sub Export_XML
+  debug_mode = 1 
   EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True","App","Export XML on behalf of " + LDFile.UserName )
+  TextWindow.WriteLine ( EXPORTDATA ) 
   XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
   File.DeleteFile(XML_Path)
   XML_Createment_Statement = "<?xml version=" +DoubleQuotesCharacter+ XML_Version_Number+DoubleQuotesCharacter+" encoding="+DoubleQuotesCharacter+ "UTF-8"+DoubleQuotesCharacter+" standalone="+DoubleQuotesCharacter+"yes" + DoubleQuotesCharacter +"?>"
@@ -1150,10 +1152,13 @@ EndSub
 Sub Query
   QueryArgs = args
   If database <> "" Then 
-    return =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
+    QueryArgs[3] = "True"
     If Text.IsSubText(QueryArgs[5] , "SCHEMA" ) <> "True" Then 
       LDCall.Function5( TransactionFunction, QueryArgs[4] , database , QueryArgs[1] , "Query" , QueryArgs[5] ) 
     EndIf
+    return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
+    
+    'return = QueryReturn 
   Else 
     LDCall.Function2(logfunction ,"Query Error : No Database has been loaded", "UI" ) 
     GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Query Error " ) 
