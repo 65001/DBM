@@ -3,7 +3,7 @@
   <Language language="sv">
     <File language="sv">Fil</File>
     <New language="sv">Nya</New>
-    <Open language="sv">Öppna</Open>
+    <Open language="sv">Öppen</Open>
     <Edit language="sv">Redigera</Edit>
     <View language="sv">Visa</View>
     <Save language="sv">Spara</Save>
@@ -16,7 +16,7 @@
     <Help language="sv">Hjälp</Help>
     <About language="sv">Om</About>
     <Show_Help language="sv">Visa hjälp</Show_Help>
-    <Settings_Editor language="sv">Inställningar för Editor</Settings_Editor>
+    <Settings_Editor language="sv">Inställningar Redaktör</Settings_Editor>
     <Toggle_Debug language="sv">Toggle Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="sv">Toggle transaktionsloggen</Toggle_Transaction_Log>
     <Refresh language="sv">Uppdatera</Refresh>
