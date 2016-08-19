@@ -34,5 +34,11 @@
     <Sort language="fr">Tri</Sort>
     <Asc language="fr">Ordre croissant</Asc>
     <Desc language="fr">Décroissant</Desc>
+    <Display_Settings language="fr">Paramètres d’affichage</Display_Settings>
+    <Sort_by language="fr">Trier par</Sort_by>
+    <Search_in language="fr">Cherchez à</Search_in>
+    <Search language="fr">Recherche</Search>
+    <Functions language="fr">Fonctions</Functions>
+    <Strict_Search language="fr">Recherche stricte</Strict_Search>
   </Language>
 </root>

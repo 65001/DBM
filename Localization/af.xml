@@ -34,5 +34,11 @@
     <Sort language="af">Rangskik</Sort>
     <Asc language="af">Stygende</Asc>
     <Desc language="af">Dalende</Desc>
+    <Display_Settings language="af">Wys opsies</Display_Settings>
+    <Sort_by language="af">Rangskik volgens</Sort_by>
+    <Search_in language="af">Soek In</Search_in>
+    <Search language="af">Soek</Search>
+    <Functions language="af">Funksies</Functions>
+    <Strict_Search language="af">Streng soek</Strict_Search>
   </Language>
 </root>

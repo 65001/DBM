@@ -34,5 +34,11 @@
     <Sort language="lv">Kārtot</Sort>
     <Asc language="lv">Augošā secībā</Asc>
     <Desc language="lv">Dilstošā secībā</Desc>
+    <Display_Settings language="lv">Displeja iestatījumi</Display_Settings>
+    <Sort_by language="lv">Kārtot pēc</Sort_by>
+    <Search_in language="lv">Meklēt</Search_in>
+    <Search language="lv">Meklēšana</Search>
+    <Functions language="lv">Funkcijas</Functions>
+    <Strict_Search language="lv">Stingri meklēšanas</Strict_Search>
   </Language>
 </root>

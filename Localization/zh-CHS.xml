@@ -34,5 +34,11 @@
     <Sort language="zh-CHS">排序</Sort>
     <Asc language="zh-CHS">升序</Asc>
     <Desc language="zh-CHS">降序</Desc>
+    <Display_Settings language="zh-CHS">显示设置</Display_Settings>
+    <Sort_by language="zh-CHS">按排序</Sort_by>
+    <Search_in language="zh-CHS">在中搜索</Search_in>
+    <Search language="zh-CHS">搜索</Search>
+    <Functions language="zh-CHS">功能</Functions>
+    <Strict_Search language="zh-CHS">严格搜索</Strict_Search>
   </Language>
 </root>

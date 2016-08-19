@@ -34,5 +34,11 @@
     <Sort language="yua">Bin yano'ob</Sort>
     <Asc language="yua">Ascendente</Asc>
     <Desc language="yua">Descendente</Desc>
+    <Display_Settings language="yua">Configuración le pantalla</Display_Settings>
+    <Sort_by language="yua">Ordenar tumen</Sort_by>
+    <Search_in language="yua">Kaxant ti'</Search_in>
+    <Search language="yua">Leti'ob u</Search>
+    <Functions language="yua">Noj</Functions>
+    <Strict_Search language="yua">Leti'ob estricta</Strict_Search>
   </Language>
 </root>

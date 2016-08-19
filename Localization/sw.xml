@@ -34,5 +34,11 @@
     <Sort language="sw">Panga</Sort>
     <Asc language="sw">A-z</Asc>
     <Desc language="sw">Kushuka</Desc>
+    <Display_Settings language="sw">Vipimo onyeshi</Display_Settings>
+    <Sort_by language="sw">Panga kwa</Sort_by>
+    <Search_in language="sw">Tafutiza katika</Search_in>
+    <Search language="sw">Utafutaji</Search>
+    <Functions language="sw">Kazi</Functions>
+    <Strict_Search language="sw">Utafutaji kali</Strict_Search>
   </Language>
 </root>

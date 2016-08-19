@@ -34,5 +34,11 @@
     <Sort language="ar">الفرز</Sort>
     <Asc language="ar">ترتيب تصاعدي</Asc>
     <Desc language="ar">تنازلي</Desc>
+    <Display_Settings language="ar">إعدادات العرض</Display_Settings>
+    <Sort_by language="ar">فرز حسب</Sort_by>
+    <Search_in language="ar">البحث في</Search_in>
+    <Search language="ar">البحث عن</Search>
+    <Functions language="ar">الوظائف</Functions>
+    <Strict_Search language="ar">البحث الدقيق</Strict_Search>
   </Language>
 </root>

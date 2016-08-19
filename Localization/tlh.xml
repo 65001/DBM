@@ -34,5 +34,11 @@
     <Sort language="tlh">Segh</Sort>
     <Asc language="tlh">nen</Asc>
     <Desc language="tlh">ghIr</Desc>
+    <Display_Settings language="tlh">Settings cha'</Display_Settings>
+    <Sort_by language="tlh">pong Segh</Sort_by>
+    <Search_in language="tlh">qaStaHvIS search</Search_in>
+    <Search language="tlh">search</Search>
+    <Functions language="tlh">Qap</Functions>
+    <Strict_Search language="tlh">strict Search</Strict_Search>
   </Language>
 </root>

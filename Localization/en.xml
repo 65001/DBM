@@ -34,5 +34,11 @@
     <Sort language="en">Sort</Sort>
     <Asc language="en">Ascending</Asc>
     <Desc language="en">Descending</Desc>
+    <Display_Settings language="en">Display Settings</Display_Settings>
+    <Sort_by language="en">Sort By</Sort_by>
+    <Search_in language="en">Search In</Search_in>
+    <Search language="en">Search</Search>
+    <Functions language="en">Functions</Functions>
+    <Strict_Search language="en">Strict Search</Strict_Search>
   </Language>
 </root>

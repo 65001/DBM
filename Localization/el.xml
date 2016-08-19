@@ -34,5 +34,11 @@
     <Sort language="el">Είδος</Sort>
     <Asc language="el">Αύξουσα</Asc>
     <Desc language="el">Φθίνουσα σειρά</Desc>
+    <Display_Settings language="el">Ρυθμίσεις οθόνης</Display_Settings>
+    <Sort_by language="el">Ταξινόμηση κατά</Sort_by>
+    <Search_in language="el">Ψάξτε σε</Search_in>
+    <Search language="el">Αναζήτηση</Search>
+    <Functions language="el">Λειτουργίες</Functions>
+    <Strict_Search language="el">Αυστηρή αναζήτησης</Strict_Search>
   </Language>
 </root>

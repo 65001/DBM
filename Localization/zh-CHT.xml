@@ -34,5 +34,11 @@
     <Sort language="zh-CHT">排序</Sort>
     <Asc language="zh-CHT">昇冪</Asc>
     <Desc language="zh-CHT">降冪</Desc>
+    <Display_Settings language="zh-CHT">顯示設定</Display_Settings>
+    <Sort_by language="zh-CHT">按排序</Sort_by>
+    <Search_in language="zh-CHT">在中搜索</Search_in>
+    <Search language="zh-CHT">搜索</Search>
+    <Functions language="zh-CHT">功能</Functions>
+    <Strict_Search language="zh-CHT">嚴格搜索</Strict_Search>
   </Language>
 </root>

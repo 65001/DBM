@@ -34,5 +34,11 @@
     <Sort language="pl">Sortowanie</Sort>
     <Asc language="pl">Rosnąco</Asc>
     <Desc language="pl">Malejąco</Desc>
+    <Display_Settings language="pl">Ustawienia wyświetlania</Display_Settings>
+    <Sort_by language="pl">Sortuj według</Sort_by>
+    <Search_in language="pl">Szukaj w</Search_in>
+    <Search language="pl">Szukaj</Search>
+    <Functions language="pl">Funkcje</Functions>
+    <Strict_Search language="pl">Wyszukiwanie ścisłe</Strict_Search>
   </Language>
 </root>

@@ -34,5 +34,11 @@
     <Sort language="id">Urutkan</Sort>
     <Asc language="id">Naik</Asc>
     <Desc language="id">Menurun</Desc>
+    <Display_Settings language="id">Pengaturan tampilan</Display_Settings>
+    <Sort_by language="id">Urutkan</Sort_by>
+    <Search_in language="id">Cari di</Search_in>
+    <Search language="id">Cari</Search>
+    <Functions language="id">Fungsi</Functions>
+    <Strict_Search language="id">Cari ketat</Strict_Search>
   </Language>
 </root>

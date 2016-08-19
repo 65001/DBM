@@ -34,5 +34,11 @@
     <Sort language="ms">Semacam</Sort>
     <Asc language="ms">Menaik</Asc>
     <Desc language="ms">Menurun</Desc>
+    <Display_Settings language="ms">Pengesetan paparan</Display_Settings>
+    <Sort_by language="ms">Susun mengikut</Sort_by>
+    <Search_in language="ms">Cari di</Search_in>
+    <Search language="ms">Cari</Search>
+    <Functions language="ms">Fungsi-fungsi</Functions>
+    <Strict_Search language="ms">Cari yang ketat</Strict_Search>
   </Language>
 </root>

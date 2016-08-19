@@ -34,5 +34,11 @@
     <Sort language="fa">مرتب کردن بر اساس</Sort>
     <Asc language="fa">صعودی</Asc>
     <Desc language="fa">نزولی</Desc>
+    <Display_Settings language="fa">تنظیمات نمایش</Display_Settings>
+    <Sort_by language="fa">مرتب سازی بر اساس</Sort_by>
+    <Search_in language="fa">جستجو در</Search_in>
+    <Search language="fa">جستجو</Search>
+    <Functions language="fa">توابع</Functions>
+    <Strict_Search language="fa">جستجوی دقیق</Strict_Search>
   </Language>
 </root>

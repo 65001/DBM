@@ -34,5 +34,11 @@
     <Sort language="fi">Lajittele</Sort>
     <Asc language="fi">Nouseva</Asc>
     <Desc language="fi">Laskeva</Desc>
+    <Display_Settings language="fi">Näyttöasetukset</Display_Settings>
+    <Sort_by language="fi">Lajittele</Sort_by>
+    <Search_in language="fi">Haku</Search_in>
+    <Search language="fi">Etsi</Search>
+    <Functions language="fi">Toiminnot</Functions>
+    <Strict_Search language="fi">Tiukka Etsi</Strict_Search>
   </Language>
 </root>

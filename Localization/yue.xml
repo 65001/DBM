@@ -34,5 +34,11 @@
     <Sort language="yue">排序</Sort>
     <Asc language="yue">升序</Asc>
     <Desc language="yue">降序</Desc>
+    <Display_Settings language="yue">顯示設置</Display_Settings>
+    <Sort_by language="yue">按排序</Sort_by>
+    <Search_in language="yue">在中搜索</Search_in>
+    <Search language="yue">搜尋</Search>
+    <Functions language="yue">功能</Functions>
+    <Strict_Search language="yue">嚴格搜索</Strict_Search>
   </Language>
 </root>

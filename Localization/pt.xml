@@ -34,5 +34,11 @@
     <Sort language="pt">Tipo</Sort>
     <Asc language="pt">Ascendente</Asc>
     <Desc language="pt">Decrescente</Desc>
+    <Display_Settings language="pt">Configurações de exibição</Display_Settings>
+    <Sort_by language="pt">Ordenar por</Sort_by>
+    <Search_in language="pt">Procurar em</Search_in>
+    <Search language="pt">Pesquisa</Search>
+    <Functions language="pt">Funções</Functions>
+    <Strict_Search language="pt">Pesquisa rigorosa</Strict_Search>
   </Language>
 </root>

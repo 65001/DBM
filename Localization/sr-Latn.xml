@@ -34,5 +34,11 @@
     <Sort language="sr-Latn">Sortiranje</Sort>
     <Asc language="sr-Latn">Rastućem</Asc>
     <Desc language="sr-Latn">Opadajućem</Desc>
+    <Display_Settings language="sr-Latn">Postavke prikaza</Display_Settings>
+    <Sort_by language="sr-Latn">Sortiraj po</Sort_by>
+    <Search_in language="sr-Latn">Pretraži u</Search_in>
+    <Search language="sr-Latn">Pretraga</Search>
+    <Functions language="sr-Latn">Funkcije</Functions>
+    <Strict_Search language="sr-Latn">Stroga pretrage</Strict_Search>
   </Language>
 </root>

@@ -34,5 +34,11 @@
     <Sort language="hu">Rendezés</Sort>
     <Asc language="hu">Növekvő</Asc>
     <Desc language="hu">Csökkenő</Desc>
+    <Display_Settings language="hu">Képernyő-beállítások</Display_Settings>
+    <Sort_by language="hu">Rendezés</Sort_by>
+    <Search_in language="hu">Hotel keresése</Search_in>
+    <Search language="hu">Szálláshelyek keresése</Search>
+    <Functions language="hu">Funkciók</Functions>
+    <Strict_Search language="hu">Szigorú keresés</Strict_Search>
   </Language>
 </root>

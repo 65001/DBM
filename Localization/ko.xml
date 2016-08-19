@@ -34,5 +34,11 @@
     <Sort language="ko">정렬</Sort>
     <Asc language="ko">오름차순</Asc>
     <Desc language="ko">내림차순</Desc>
+    <Display_Settings language="ko">디스플레이 설정</Display_Settings>
+    <Sort_by language="ko">정렬 기준</Sort_by>
+    <Search_in language="ko">검색</Search_in>
+    <Search language="ko">검색</Search>
+    <Functions language="ko">함수</Functions>
+    <Strict_Search language="ko">엄격한 검색</Strict_Search>
   </Language>
 </root>

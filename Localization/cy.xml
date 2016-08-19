@@ -34,5 +34,11 @@
     <Sort language="cy">Math</Sort>
     <Asc language="cy">O'r dechrau i'r diwedd</Asc>
     <Desc language="cy">O'r diwedd i'r dechrau</Desc>
+    <Display_Settings language="cy">Gosodiadau'r dangosydd</Display_Settings>
+    <Sort_by language="cy">Trefnu yn ôl</Sort_by>
+    <Search_in language="cy">Chwilio yn</Search_in>
+    <Search language="cy">Chwilio</Search>
+    <Functions language="cy">Swyddogaethau</Functions>
+    <Strict_Search language="cy">Chwilio llym</Strict_Search>
   </Language>
 </root>

@@ -34,5 +34,11 @@
     <Sort language="vi">Sắp xếp</Sort>
     <Asc language="vi">Tăng dần</Asc>
     <Desc language="vi">Giảm dần</Desc>
+    <Display_Settings language="vi">Thiết đặt hiển thị</Display_Settings>
+    <Sort_by language="vi">Sắp xếp theo</Sort_by>
+    <Search_in language="vi">Tìm trong</Search_in>
+    <Search language="vi">Tìm kiếm</Search>
+    <Functions language="vi">Chức năng</Functions>
+    <Strict_Search language="vi">Nghiêm ngặt tìm</Strict_Search>
   </Language>
 </root>

@@ -34,5 +34,11 @@
     <Sort language="tr">Sıralama</Sort>
     <Asc language="tr">Artan</Asc>
     <Desc language="tr">Azalan</Desc>
+    <Display_Settings language="tr">Görüntü ayarları</Display_Settings>
+    <Sort_by language="tr">Sıralama ölçütü</Sort_by>
+    <Search_in language="tr">İçinde arama</Search_in>
+    <Search language="tr">Arama</Search>
+    <Functions language="tr">İşlevleri</Functions>
+    <Strict_Search language="tr">Sıkı arama</Strict_Search>
   </Language>
 </root>

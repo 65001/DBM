@@ -34,5 +34,11 @@
     <Sort language="cs">Řazení</Sort>
     <Asc language="cs">Vzestupně</Asc>
     <Desc language="cs">Sestupně</Desc>
+    <Display_Settings language="cs">Nastavení zobrazení</Display_Settings>
+    <Sort_by language="cs">Seřadit podle</Sort_by>
+    <Search_in language="cs">Hledat v</Search_in>
+    <Search language="cs">Hledat</Search>
+    <Functions language="cs">Funkce</Functions>
+    <Strict_Search language="cs">Hledání přísné</Strict_Search>
   </Language>
 </root>

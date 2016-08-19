@@ -34,5 +34,11 @@
     <Sort language="bg">Сортиране</Sort>
     <Asc language="bg">Възходящо</Asc>
     <Desc language="bg">Низходящ</Desc>
+    <Display_Settings language="bg">Настройки на дисплея</Display_Settings>
+    <Sort_by language="bg">Сортиране по</Sort_by>
+    <Search_in language="bg">Търсене в</Search_in>
+    <Search language="bg">Търсене</Search>
+    <Functions language="bg">Функции</Functions>
+    <Strict_Search language="bg">Строг търсене</Strict_Search>
   </Language>
 </root>

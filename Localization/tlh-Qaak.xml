@@ -34,5 +34,11 @@
     <Sort language="tlh-Qaak"></Sort>
     <Asc language="tlh-Qaak"></Asc>
     <Desc language="tlh-Qaak"></Desc>
+    <Display_Settings language="tlh-Qaak"> </Display_Settings>
+    <Sort_by language="tlh-Qaak"> </Sort_by>
+    <Search_in language="tlh-Qaak"> </Search_in>
+    <Search language="tlh-Qaak"></Search>
+    <Functions language="tlh-Qaak"></Functions>
+    <Strict_Search language="tlh-Qaak"> </Strict_Search>
   </Language>
 </root>

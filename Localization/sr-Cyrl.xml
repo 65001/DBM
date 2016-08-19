@@ -34,5 +34,11 @@
     <Sort language="sr-Cyrl">Сортирање</Sort>
     <Asc language="sr-Cyrl">Растућем</Asc>
     <Desc language="sr-Cyrl">Опадајућем</Desc>
+    <Display_Settings language="sr-Cyrl">Поставке приказа</Display_Settings>
+    <Sort_by language="sr-Cyrl">Сортирај по</Sort_by>
+    <Search_in language="sr-Cyrl">Претражи у</Search_in>
+    <Search language="sr-Cyrl">Претрага</Search>
+    <Functions language="sr-Cyrl">Функције</Functions>
+    <Strict_Search language="sr-Cyrl">Строга претраге</Strict_Search>
   </Language>
 </root>

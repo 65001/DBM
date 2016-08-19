@@ -10,7 +10,7 @@
     <Import language="sk">Import</Import>
     <CSV language="sk">CSV</CSV>
     <SQL language="sk">SQL</SQL>
-    <Export language="sk">Vývoz</Export>
+    <Export language="sk">Export</Export>
     <HTML language="sk">HTML</HTML>
     <Settings language="sk">Nastavenia</Settings>
     <Help language="sk">pomoc</Help>
@@ -18,7 +18,7 @@
     <Show_Help language="sk">Zobraziť Pomocníka</Show_Help>
     <Settings_Editor language="sk">Nastavenie editora</Settings_Editor>
     <Toggle_Debug language="sk">Prepínač Debug</Toggle_Debug>
-    <Toggle_Transaction_Log language="sk">Prepínanie protokole transakcií</Toggle_Transaction_Log>
+    <Toggle_Transaction_Log language="sk">Prepínanie transakcie denníka</Toggle_Transaction_Log>
     <Refresh language="sk">Obnoviť</Refresh>
     <Check_for_Updates language="sk">Skontrolovať aktualizácie</Check_for_Updates>
     <PXML language="sk">XML</PXML>
@@ -34,5 +34,11 @@
     <Sort language="sk">Zoradiť</Sort>
     <Asc language="sk">Vzostupne</Asc>
     <Desc language="sk">Zostupne</Desc>
+    <Display_Settings language="sk">Nastavenia displeja</Display_Settings>
+    <Sort_by language="sk">Zoradiť podľa</Sort_by>
+    <Search_in language="sk">Hľadať v</Search_in>
+    <Search language="sk">Hľadať</Search>
+    <Functions language="sk">Funkcie</Functions>
+    <Strict_Search language="sk">Prísne Hľadať</Strict_Search>
   </Language>
 </root>

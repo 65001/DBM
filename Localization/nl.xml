@@ -34,5 +34,11 @@
     <Sort language="nl">Sorteren</Sort>
     <Asc language="nl">Oplopend</Asc>
     <Desc language="nl">Aflopend</Desc>
+    <Display_Settings language="nl">Weergave-instellingen</Display_Settings>
+    <Sort_by language="nl">Sorteren op</Sort_by>
+    <Search_in language="nl">Zoeken In</Search_in>
+    <Search language="nl">Zoek</Search>
+    <Functions language="nl">Functies</Functions>
+    <Strict_Search language="nl">Strikte zoeken</Strict_Search>
   </Language>
 </root>

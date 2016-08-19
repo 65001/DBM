@@ -34,5 +34,11 @@
     <Sort language="ru">Сортировка</Sort>
     <Asc language="ru">По возрастанию</Asc>
     <Desc language="ru">По убыванию</Desc>
+    <Display_Settings language="ru">Параметры дисплея</Display_Settings>
+    <Sort_by language="ru">Сортировать по</Sort_by>
+    <Search_in language="ru">Поиск в</Search_in>
+    <Search language="ru">Поиск</Search>
+    <Functions language="ru">Функции</Functions>
+    <Strict_Search language="ru">Строгий Поиск</Strict_Search>
   </Language>
 </root>

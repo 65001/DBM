@@ -34,5 +34,11 @@
     <Sort language="uk">Сортування</Sort>
     <Asc language="uk">За зростанням</Asc>
     <Desc language="uk">За спаданням</Desc>
+    <Display_Settings language="uk">Параметри дисплея</Display_Settings>
+    <Sort_by language="uk">Сортувати за</Sort_by>
+    <Search_in language="uk">Пошук у</Search_in>
+    <Search language="uk">Пошук</Search>
+    <Functions language="uk">Функції</Functions>
+    <Strict_Search language="uk">Строгий пошук</Strict_Search>
   </Language>
 </root>

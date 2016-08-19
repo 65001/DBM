@@ -34,5 +34,11 @@
     <Sort language="th">เรียงลำดับ</Sort>
     <Asc language="th">จากน้อยไปมาก</Asc>
     <Desc language="th">มากไปหาน้อย</Desc>
+    <Display_Settings language="th">แสดงการตั้งค่า</Display_Settings>
+    <Sort_by language="th">เรียงลำดับตาม</Sort_by>
+    <Search_in language="th">ค้นหาใน</Search_in>
+    <Search language="th">ค้นหา</Search>
+    <Functions language="th">ฟังก์ชัน</Functions>
+    <Strict_Search language="th">ค้นหาที่เข้มงวด</Strict_Search>
   </Language>
 </root>

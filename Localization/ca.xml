@@ -34,5 +34,11 @@
     <Sort language="ca">Mena</Sort>
     <Asc language="ca">Ascendent</Asc>
     <Desc language="ca">Descendent</Desc>
+    <Display_Settings language="ca">Escenes d'exhibició</Display_Settings>
+    <Sort_by language="ca">Ordena per</Sort_by>
+    <Search_in language="ca">Cerca en</Search_in>
+    <Search language="ca">Cerca</Search>
+    <Functions language="ca">Funcions</Functions>
+    <Strict_Search language="ca">Cerca estricte</Strict_Search>
   </Language>
 </root>

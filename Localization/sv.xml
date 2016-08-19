@@ -34,5 +34,11 @@
     <Sort language="sv">Sortera</Sort>
     <Asc language="sv">Stigande</Asc>
     <Desc language="sv">Fallande</Desc>
+    <Display_Settings language="sv">Bildskärmsinställningar</Display_Settings>
+    <Sort_by language="sv">Sortera efter</Sort_by>
+    <Search_in language="sv">Sök i</Search_in>
+    <Search language="sv">Sök</Search>
+    <Functions language="sv">Funktioner</Functions>
+    <Strict_Search language="sv">Strikt Sök</Strict_Search>
   </Language>
 </root>

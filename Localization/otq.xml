@@ -34,5 +34,11 @@
     <Sort language="otq">Ar klase</Sort>
     <Asc language="otq">Ascendente</Asc>
     <Desc language="otq">Descendente</Desc>
+    <Display_Settings language="otq">Configuración ar pantalla</Display_Settings>
+    <Sort_by language="otq">Ordenar nge</Sort_by>
+    <Search_in language="otq">Honi jar</Search_in>
+    <Search language="otq">Nthoni ar</Search>
+    <Functions language="otq">Ya 'befi</Functions>
+    <Strict_Search language="otq">Nthoni estricta</Strict_Search>
   </Language>
 </root>

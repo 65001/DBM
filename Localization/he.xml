@@ -34,5 +34,11 @@
     <Sort language="he">מיון</Sort>
     <Asc language="he">בסדר עולה</Asc>
     <Desc language="he">יורד</Desc>
+    <Display_Settings language="he">הגדרות התצוגה</Display_Settings>
+    <Sort_by language="he">מיין לפי</Sort_by>
+    <Search_in language="he">חפש ב</Search_in>
+    <Search language="he">חיפוש</Search>
+    <Functions language="he">פונקציות</Functions>
+    <Strict_Search language="he">חיפוש מדוקדק</Strict_Search>
   </Language>
 </root>

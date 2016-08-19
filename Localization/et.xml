@@ -34,5 +34,11 @@
     <Sort language="et">Sortimine</Sort>
     <Asc language="et">Tõusvas järjestuses</Asc>
     <Desc language="et">Laskuvas järjestuses</Desc>
+    <Display_Settings language="et">Ekraani seaded</Display_Settings>
+    <Sort_by language="et">Sorteeri</Sort_by>
+    <Search_in language="et">Otsing</Search_in>
+    <Search language="et">Otsi hotelle</Search>
+    <Functions language="et">Funktsioonid</Functions>
+    <Strict_Search language="et">Range Otsi</Strict_Search>
   </Language>
 </root>

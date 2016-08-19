@@ -34,5 +34,11 @@
     <Sort language="ja">並べ替え</Sort>
     <Asc language="ja">昇順</Asc>
     <Desc language="ja">降順</Desc>
+    <Display_Settings language="ja">ディスプレイの設定</Display_Settings>
+    <Sort_by language="ja">並べ替え</Sort_by>
+    <Search_in language="ja">内の検索します。</Search_in>
+    <Search language="ja">検索</Search>
+    <Functions language="ja">関数</Functions>
+    <Strict_Search language="ja">厳密な検索</Strict_Search>
   </Language>
 </root>

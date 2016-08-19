@@ -34,5 +34,11 @@
     <Sort language="ht">Kalite</Sort>
     <Asc language="ht">K'ap</Asc>
     <Desc language="ht">Desann</Desc>
+    <Display_Settings language="ht">Expoze nòmal</Display_Settings>
+    <Sort_by language="ht">Kalite ak</Sort_by>
+    <Search_in language="ht">Fouye nan</Search_in>
+    <Search language="ht">Rechèch</Search>
+    <Functions language="ht">Fonksyon</Functions>
+    <Strict_Search language="ht">Rechèch kè di</Strict_Search>
   </Language>
 </root>

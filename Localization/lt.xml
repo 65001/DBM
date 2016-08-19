@@ -34,5 +34,11 @@
     <Sort language="lt">Rūšiuoti</Sort>
     <Asc language="lt">Didėjimo tvarka</Asc>
     <Desc language="lt">Mažėjančia tvarka</Desc>
+    <Display_Settings language="lt">Ekrano parametrai</Display_Settings>
+    <Sort_by language="lt">Rūšiuoti pagal</Sort_by>
+    <Search_in language="lt">Paieška:</Search_in>
+    <Search language="lt">Paieška:</Search>
+    <Functions language="lt">Funkcijos</Functions>
+    <Strict_Search language="lt">Griežtas paieškos</Strict_Search>
   </Language>
 </root>

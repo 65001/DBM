@@ -34,5 +34,11 @@
     <Sort language="ro">Sortare</Sort>
     <Asc language="ro">Ascendent</Asc>
     <Desc language="ro">Descendentă</Desc>
+    <Display_Settings language="ro">Setările de afișare</Display_Settings>
+    <Sort_by language="ro">Sorteaza dupa</Sort_by>
+    <Search_in language="ro">Căutare în</Search_in>
+    <Search language="ro">Căutare</Search>
+    <Functions language="ro">Funcţii</Functions>
+    <Strict_Search language="ro">Căutare strictă</Strict_Search>
   </Language>
 </root>

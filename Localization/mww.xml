@@ -34,5 +34,11 @@
     <Sort language="mww">Tsi</Sort>
     <Asc language="mww">Ascending</Asc>
     <Desc language="mww">Nqis roob</Desc>
+    <Display_Settings language="mww">Tso saib tej chaw</Display_Settings>
+    <Sort_by language="mww">Tsi yog</Sort_by>
+    <Search_in language="mww">Nrhiav rau</Search_in>
+    <Search language="mww">Nrhiav</Search>
+    <Functions language="mww">Zog</Functions>
+    <Strict_Search language="mww">Nrhiav nruj</Strict_Search>
   </Language>
 </root>

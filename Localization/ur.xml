@@ -34,5 +34,11 @@
     <Sort language="ur">چھانٹیں</Sort>
     <Asc language="ur">صعودی</Asc>
     <Desc language="ur">نزولی</Desc>
+    <Display_Settings language="ur">ڈسپلے سیٹنگیں</Display_Settings>
+    <Sort_by language="ur">چھانٹیں بمطابق</Sort_by>
+    <Search_in language="ur">میں تلاش کریں</Search_in>
+    <Search language="ur">تلاش کریں</Search>
+    <Functions language="ur">افعال</Functions>
+    <Strict_Search language="ur">سخت تلاش</Strict_Search>
   </Language>
 </root>
