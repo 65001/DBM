@@ -40,5 +40,22 @@
     <Search language="cy">Chwilio</Search>
     <Functions language="cy">Swyddogaethau</Functions>
     <Strict_Search language="cy">Chwilio llym</Strict_Search>
+    <Run_Function language="cy">Swyddogaeth yn cael ei redeg</Run_Function>
+    <Query language="cy">Ymholiad</Query>
+    <Command language="cy">Gorchymyn</Command>
+    <Error_No_DB language="cy">Gwall: wedi oes cronfa ddata wedi cael ei lwytho</Error_No_DB>
+    <UI language="cy">RHYNGWYNEB DEFNYDDIWR</UI>
+    <Master_Table_Protected language="cy">Sqlite_mastertable neu 'Meistr tabl' Mae Tabl gwarchodedig. Chewch chi ddim golygu tabl hwn i warchod uniondeb y db</Master_Table_Protected>
+    <Access_Denied language="cy">Dim mynediad</Access_Denied>
+    <App language="cy">Ap</App>
+    <View_Function language="cy">Swyddogaeth barn</View_Function>
+    <User_Requested language="cy">Gofynnodd y defnyddiwr</User_Requested>
+    <Listview_Width language="cy">Lled gwedd rhestr</Listview_Width>
+    <Listview_Height language="cy">Uchder gwedd rhestr</Listview_Height>
+    <Extensions language="cy">Estyniadau</Extensions>
+    <Deliminator language="cy">Deliminator</Deliminator>
+    <Language language="cy">Iaith</Language>
+    <Save_and_Close language="cy">Cadw a chau</Save_and_Close>
+    <Close_wo_saving language="cy">Gau heb gadw</Close_wo_saving>
   </Language>
 </root>

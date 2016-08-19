@@ -40,5 +40,22 @@
     <Search language="nl">Zoek</Search>
     <Functions language="nl">Functies</Functions>
     <Strict_Search language="nl">Strikte zoeken</Strict_Search>
+    <Run_Function language="nl">Functie uitvoert</Run_Function>
+    <Query language="nl">Query</Query>
+    <Command language="nl">Opdracht</Command>
+    <Error_No_DB language="nl">Fout: Geen Database is geladen</Error_No_DB>
+    <UI language="nl">UI</UI>
+    <Master_Table_Protected language="nl">Sqlite_mastertable of 'Master Table' is een beschermde tafel. Ter bescherming van de integriteit van de db bewerken u deze tabel niet</Master_Table_Protected>
+    <Access_Denied language="nl">Toegang geweigerd</Access_Denied>
+    <App language="nl">App</App>
+    <View_Function language="nl">View functie</View_Function>
+    <User_Requested language="nl">Gebruiker gevraagd</User_Requested>
+    <Listview_Width language="nl">ListView breedte</Listview_Width>
+    <Listview_Height language="nl">ListView hoogte</Listview_Height>
+    <Extensions language="nl">Extensies</Extensions>
+    <Deliminator language="nl">Deliminator</Deliminator>
+    <Language language="nl">Taal</Language>
+    <Save_and_Close language="nl">Opslaan en sluiten</Save_and_Close>
+    <Close_wo_saving language="nl">Sluit zonder op te slaan</Close_wo_saving>
   </Language>
 </root>

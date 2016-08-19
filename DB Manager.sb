@@ -70,7 +70,6 @@ QueryFunction = "Query"
 CommandFunction = "Command" 
 TransactionFunction = "TransactionRecord"
 TrackDefaultTable = "TrackDefaultTable"
-LanguageBuildFunction = "LangBuildFunction" 
 
 LDUtilities.ShowErrors = "False"
 LDUtilities.ShowFileErrors= "False"
@@ -152,9 +151,6 @@ LoadedFile = 0
 SortByMode = 1 
 RestoreSettings = 0
 
-LanguageLookUptable = "Language_Lookup"
-LanguageValueTable  ="Language_Text"
-
 CLLF = Text.GetCharacter(10) '+ Text.GetCharacter(13) 
 TabKey = Text.GetCharacter(9) 
 args = ""
@@ -179,7 +175,7 @@ Startup()
 Sub Startup
   LoadSettings()
   Localization_XML()
-  LangListBuild()
+  ' LangListBuild()
   If Program.ArgumentCount  = 1  Then
     GetPath()
     Load_DB()
@@ -214,75 +210,83 @@ Sub Localization_XML
     LDCall.Function2( logfunction , "Localization XML Missing","Application") 'DO NOT LOCALIZE EVER! 
   EndIf 
   
-EndSub 
-
-Sub Localixation_XML_Private
-  If XML_Array[1]["language"] = Localization_lang Then 
-    LDList.Add(LanguageLookUptable,LDText.Replace( XML_Array[4] ,"_"," ") )
-    LDList.Add(LanguageValueTable , XML_Array[6] ) 
-  ElseIf debug_mode = 1 Then  
-    TextWindow.WriteLine ("Recjected: " +  XML_Array ) 
-  EndIf 
-EndSub
-
-Sub LangListBuild
-  LDCall.Function( LanguageBuildFunction , "File" )
-  LangList["File"] = LDCall.Function( LanguageBuildFunction ,"File" ) 
-  LangList["New"]  = LDCall.Function( LanguageBuildFunction ,"New") 
-  LangList["Open"] = LDCall.Function( LanguageBuildFunction ,"Open") 
-  LangList["Edit"] = LDCall.Function( LanguageBuildFunction ,"Edit") 
-  LangList["View"] = LDCall.Function( LanguageBuildFunction ,"View") 
-  LangList["Save"] = LDCall.Function( LanguageBuildFunction ,"Save") 
-  LangList["Import"] = LDCall.Function( LanguageBuildFunction ,"Import") 
-  LangList["CSV"] = LDCall.Function( LanguageBuildFunction ,"CSV") 
-  LangList["XML"] = LDCall.Function( LanguageBuildFunction ,"PXML")
-  LangList["SQL"] = LDCall.Function( LanguageBuildFunction ,"SQL") 
-  LangList["HTML"] = LDCall.Function( LanguageBuildFunction ,"HTML") 
-  LangList["Export"] = LDCall.Function( LanguageBuildFunction ,"Export") 
-  LangList["Settings"]= LDCall.Function( LanguageBuildFunction ,"Settings")  
-  LangList["Help"] = LDCall.Function( LanguageBuildFunction ,"Help")  
-  LangList["About"] = LDCall.Function( LanguageBuildFunction ,"About")  
-  LangList["Show Help"] = LDCall.Function( LanguageBuildFunction ,"Show Help")  
-  LangList["Settings Editor"] = LDCall.Function( LanguageBuildFunction ,"Settings Editor") 
-  LangList["Toggle Debug"]= LDCall.Function( LanguageBuildFunction ,"Toggle Debug") 
-  LangList["Toggle Transaction Log"]= LDCall.Function( LanguageBuildFunction ,"Toggle Transaction Log") 
-  
-  LangList["Refresh"]= LDCall.Function( LanguageBuildFunction ,"Refresh")  
-  LangList["Check for Updates"]= LDCall.Function( LanguageBuildFunction ,"Check for Updates")  
-  LangList["PRGM_Start"] = LDCall.Function( LanguageBuildFunction ,"PRGM Start")  
-  LangList["Application"] = LDCall.Function( LanguageBuildFunction ,"Application")  
-  LangList["Failed Save Settings"] = LDCall.Function( LanguageBuildFunction ,"Failed Save Settings") 
-  LangList["Error"] = LDCall.Function( LanguageBuildFunction ,"Error")  
-  LangList["Failed"] =   LDCall.Function( LanguageBuildFunction ,"Failed")  
-  LangList["Table"] =   LDCall.Function( LanguageBuildFunction ,"Table")  
-  LangList["Index"] = LDCall.Function( LanguageBuildFunction ,"Index")  
-  LangList["View"] = LDCall.Function( LanguageBuildFunction ,"View")  
-  LangList["Master Table"]  = LDCall.Function( LanguageBuildFunction ,"Master Table")  
-  LangList["Sort"]  = LDCall.Function( LanguageBuildFunction ,"Sort") 
-  LangList["Sort by"]  = LDCall.Function( LanguageBuildFunction ,"Sort by") 
-  LangList["Asc"]  = LDCall.Function( LanguageBuildFunction ,"Asc")  
-  LangList["Desc"]  = LDCall.Function( LanguageBuildFunction ,"Desc")  
-  LangList["Display Settings"] = LDCall.Function( LanguageBuildFunction ,"Display Settings")  
-  LangList["Search in"] = LDCall.Function( LanguageBuildFunction ,"Search in")  
-  LangList["Search"] = LDCall.Function( LanguageBuildFunction ,"Search")  
-  LangList["Functions"] =LDCall.Function( LanguageBuildFunction ,"Functions")  
-  LangList["Strict Search"] =LDCall.Function( LanguageBuildFunction ,"Strict Search")  
-  
-  'Put Into Localization Files ??  
   LDLanguages = LDTranslate.Languages() 
   For I = 1 To Array.GetItemCount( LocalizationsFilesArray  )
     MLanguages[I] =  LDFile.GetFile( LocalizationsFilesArray[I] )
     Localization_List[MLanguages[I]] =  LDLanguages[ MLanguages[I] ] + " " + LDTranslate.Translate(LDLanguages[ MLanguages[I] ],Localization_lang,MLanguages[I])
     LDList.Add("ISO_Lang", MLanguages[I] ) 
     LDList.Add("ISO_Text" , Localization_List[MLanguages[I]]  ) 
-  EndFor 
+  EndFor
+  ' TextWindow.WriteLine ( LangList )
 EndSub 
 
-Sub LangBuildFunction
-  Temp_List =  LDList.GetAt(LanguageValueTable, LDList.IndexOf(LanguageLookUptable,args[1] ) ) 
-  return = Temp_List
-  Temp_List = ""
+Sub Localixation_XML_Private
+  If XML_Array[1]["language"] = Localization_lang Then 
+    LangList[ LDText.Replace( XML_Array[4] ,"_"," ") ] = XML_Array[6] 
+  ElseIf debug_mode = 1 Then  
+    TextWindow.WriteLine ("Recjected: " +  XML_Array ) 
+  EndIf 
 EndSub
+
+'Sub LangListBuild
+'  LangList["File"] = LDCall.Function( LanguageBuildFunction ,"File" ) 
+'  LangList["New"]  = LDCall.Function( LanguageBuildFunction ,"New") 
+'  LangList["Open"] = LDCall.Function( LanguageBuildFunction ,"Open") 
+'  LangList["Edit"] = LDCall.Function( LanguageBuildFunction ,"Edit") 
+'  LangList["View"] = LDCall.Function( LanguageBuildFunction ,"View") 
+'  LangList["Save"] = LDCall.Function( LanguageBuildFunction ,"Save") 
+'  LangList["Import"] = LDCall.Function( LanguageBuildFunction ,"Import") 
+'  LangList["CSV"] = LDCall.Function( LanguageBuildFunction ,"CSV") 
+'  LangList["XML"] = LDCall.Function( LanguageBuildFunction ,"PXML")
+'  LangList["SQL"] = LDCall.Function( LanguageBuildFunction ,"SQL") 
+'  LangList["HTML"] = LDCall.Function( LanguageBuildFunction ,"HTML") 
+'  LangList["Export"] = LDCall.Function( LanguageBuildFunction ,"Export") 
+'  LangList["Settings"]= LDCall.Function( LanguageBuildFunction ,"Settings")  
+'  LangList["Help"] = LDCall.Function( LanguageBuildFunction ,"Help")  
+'  LangList["About"] = LDCall.Function( LanguageBuildFunction ,"About")  
+'  LangList["Show Help"] = LDCall.Function( LanguageBuildFunction ,"Show Help")  
+'  LangList["Settings Editor"] = LDCall.Function( LanguageBuildFunction ,"Settings Editor") 
+'  LangList["Toggle Debug"]= LDCall.Function( LanguageBuildFunction ,"Toggle Debug") 
+'  LangList["Toggle Transaction Log"]= LDCall.Function( LanguageBuildFunction ,"Toggle Transaction Log") 
+
+'  LangList["Refresh"]= LDCall.Function( LanguageBuildFunction ,"Refresh")  
+'  LangList["Check for Updates"]= LDCall.Function( LanguageBuildFunction ,"Check for Updates")  
+'  LangList["PRGM_Start"] = LDCall.Function( LanguageBuildFunction ,"PRGM Start")  
+'  LangList["Application"] = LDCall.Function( LanguageBuildFunction ,"Application")  
+'  LangList["Failed Save Settings"] = LDCall.Function( LanguageBuildFunction ,"Failed Save Settings") 
+'  LangList["Error"] = LDCall.Function( LanguageBuildFunction ,"Error")  
+'  LangList["Failed"] =   LDCall.Function( LanguageBuildFunction ,"Failed")  
+'  LangList["Table"] =   LDCall.Function( LanguageBuildFunction ,"Table")  
+'  LangList["Index"] = LDCall.Function( LanguageBuildFunction ,"Index")  
+'  LangList["View"] = LDCall.Function( LanguageBuildFunction ,"View")  
+'  LangList["Master Table"]  = LDCall.Function( LanguageBuildFunction ,"Master Table")  
+'  LangList["Sort"]  = LDCall.Function( LanguageBuildFunction ,"Sort") 
+'  LangList["Sort by"]  = LDCall.Function( LanguageBuildFunction ,"Sort by") 
+'  LangList["Asc"]  = LDCall.Function( LanguageBuildFunction ,"Asc")  
+'  LangList["Desc"]  = LDCall.Function( LanguageBuildFunction ,"Desc")  
+'  LangList["Display Settings"] = LDCall.Function( LanguageBuildFunction ,"Display Settings")  
+'  LangList["Search in"] = LDCall.Function( LanguageBuildFunction ,"Search in")  
+'  LangList["Search"] = LDCall.Function( LanguageBuildFunction ,"Search")  
+'  LangList["Functions"] =LDCall.Function( LanguageBuildFunction ,"Functions")  
+'  LangList["Strict Search"] =LDCall.Function( LanguageBuildFunction ,"Strict Search")  
+'  
+'Put Into Localization Files ??  
+'  Localization_List = "" 
+'  TextWindow.WriteLine ( LangList ) 
+'  LDLanguages = LDTranslate.Languages() 
+'  For I = 1 To Array.GetItemCount( LocalizationsFilesArray  )
+'    MLanguages[I] =  LDFile.GetFile( LocalizationsFilesArray[I] )
+'    Localization_List[MLanguages[I]] =  LDLanguages[ MLanguages[I] ] + " " + LDTranslate.Translate(LDLanguages[ MLanguages[I] ],Localization_lang,MLanguages[I])
+'    LDList.Add("ISO_Lang", MLanguages[I] ) 
+'    LDList.Add("ISO_Text" , Localization_List[MLanguages[I]]  ) 
+'  EndFor 
+'EndSub 
+
+'Sub LangBuildFunction
+'  Temp_List =  LDList.GetAt(LanguageValueTable, LDList.IndexOf(LanguageLookUptable,args[1] ) ) 
+'  return = Temp_List
+'  Temp_List = ""
+'EndSub
 
 Sub LoadSettings
   If RestoreSettings = 0 Then 
@@ -476,7 +480,7 @@ Sub MainMenuUI
   
   MenuList[LangList["CSV"] + " "] = LangList["Export"]
   MenuList[LangList["SQL"] +" "] = LangList["Export"]
-  MenuList[LangList["XML"] + " "] = LangList["Export"]
+  MenuList[LangList["PXML"] + " " ] = LangList["Export"]
   MenuList[LangList["HTML"] + " "] = LangList["Export"]
   MenuList["-"]= LangList["Export"]
   
@@ -500,7 +504,7 @@ Sub MainMenuUI
   ImportSQL_Button = LangList["SQL"]
   ExportCSV_Button = LangList["CSV"]+" "
   ExportSQL_Button = LangList["SQL"]+" "
-  ExportXML_Button = LangList["XML"]+" "
+  ExportXML_Button = LangList["PXML"] +" "
   ExportHTML_Button = LangList["HTML"]+" "
   SaveButton = LangList["Save"]
   SettingsButton = LangList["Settings Editor"]
@@ -539,7 +543,7 @@ Sub MainMenuUI
   Menu = LDControls.AddMenu(Desktop.Width,25,MenuList,"",CheckList) 
   LDControls.MenuClicked = MainMenuHandler
   
-  Shapes.Move( Shapes.AddText("Sort:") , 890 ,  1) '//Localize 
+  Shapes.Move( Shapes.AddText(LangList["Sort"] +":") , 890 ,  1) 
   
   GraphicsWindow.FontSize = Default_FontSize
   TableCB =  LDControls.AddComboBox(SCHEMA_TableList,100,100)
@@ -551,7 +555,7 @@ Sub MainMenuUI
   LastClickedButton = ViewDB_Button 'Acts like a Function Call  
   MainMenuHandler()
   
-  GraphicsWindow.Title = title + " Table: " + Default_Table '//Localize 
+  GraphicsWindow.Title = title + " " +LangList[ "Table" ] +": " + Default_Table 
   Ldcontrols.MenuClicked = MainMenuMenu
   LDControls.ComboBoxItemChanged = ComboBoxChanged
   Controls.ButtonClicked = MainMenuButton
@@ -627,8 +631,8 @@ Sub ComboBoxChanged
       
       GraphicsWindow.Title = title + " "+ TypesOfSorts[SortByMode] +": "  + Default_Table
     Else
-      LDCall.Function2(logfunction,"In the current database no "+ TypesOfSorts[SortByMode] +"s can be found.","UI") '//Localize  
-      GraphicsWindow.ShowMessage("In the current database no "+ TypesOfSorts[SortByMode] +"s can be found." , "Error" ) '//Localize 
+      LDCall.Function2(logfunction,"In the current database no "+LangList[ TypesOfSorts[SortByMode] ]+"s can be found.","UI") '//Localize  
+      GraphicsWindow.ShowMessage("In the current database no "+ LangList[ TypesOfSorts[SortByMode] ] +"s can be found." , "Error" ) '//Localize 
     EndIf 
     
     If debug_mode = 1 Then  
@@ -680,12 +684,12 @@ Sub MainMenuHandler
         LDDataBase.EditTable(database,Default_Table,CurrentControl)
         Hide_Display_Results()
       Else 
-        LDCall.Function2(logfunction ,"Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table","UI") '//Localize 
-        GraphicsWindow.ShowMessage("Error : Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table","Access Denied") '//Localize 
+        LDCall.Function2(logfunction ,LangList["Master Table Protected"] , LangList["UI"]) 
+        GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + LangList["Master Table Protected"] ,LangList["Access Denied"])
       EndIf 
     Else 
-      LDCall.Function2(logfunction ,"Error : No Database has been loaded" , "UI" ) '//Localize 
-      GraphicsWindow.ShowMessage("Error : No Database has been loaded","Error") '//Localize 
+      LDCall.Function2(logfunction ,LangList["Error No DB"]  , LangList["UI"])
+      GraphicsWindow.ShowMessage(LangList["Error No DB"] ,LangList[ "Error" ])
     EndIf
   ElseIf LastClickedButton = ViewDB_Button Then 'View Database
     Controls.HideControl(Dataview)
@@ -699,7 +703,7 @@ Sub MainMenuHandler
     EndIf
     CurrentControl = listview
     If Default_Table <> "" Then 
-      LDCall.Function5(QueryFunction,"SELECT * FROM " + Default_Table +";",CurrentControl,"False" ,"App","View Function") '//Localize 
+      LDCall.Function5(QueryFunction,"SELECT * FROM " + Default_Table +";",CurrentControl,"False" ,LangList["App"],LangList[ "View Function"])
     EndIf 
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
@@ -725,9 +729,9 @@ Sub MainMenuHandler
     Results_Search = 1
     GenerateQuery()
   ElseIF LastClickedButton = CustomQueryButton Then 'USER Custom Query SQL 
-    LDCall.Function5(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False",LDFile.UserName,"User Requested") '//Localize 
+    LDCall.Function5(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False",LDFile.UserName,LangList["User Requested"])
   ElseIf LastClickedButton = CommandButton Then 'User Custom Run SQL 
-    updated = LDCall.Function4(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) , LDFile.UserName,"User Requested" ) '//Localize 
+    updated = LDCall.Function4(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) , LDFile.UserName,LangList[ "User Requested" ]) 
     GraphicsWindow.ShowMessage(" " + updated + " number of rows were updated.","") '//Localize 
   ElseIf LastClickedButton = RunFunctionButton Then
     Results_Function = 1
@@ -776,7 +780,7 @@ Sub MainMenuHandler
       debug_mode = 1
     EndIf 
   ElseIf LastClickedButton = AboutButton Then 
-    GraphicsWindow.ShowMessage("DBM is a Database Mangement Program developed by Abhishek Sathiabalan. Copyright " + copyrightDate + ". All rights reserved." + CLLF + CLLF +"You are running : " + ProductID +" v" + VersionID ,"About") 
+    GraphicsWindow.ShowMessage("DBM is a Database Mangement Program developed by Abhishek Sathiabalan. Copyright " + copyrightDate + ". All rights reserved." + CLLF + CLLF +"You are running : " + ProductID +" v" + VersionID ,"About") 'DO NOT LOCALIZE 
   ElseIf LastClickedButton = ShowHelp Then
     LDProcess.Start(HelpPath,"") 
   ElseIf LastClickedButton = SettingsButton Then 
@@ -792,13 +796,14 @@ Sub MainMenuHandler
     LoadSettings()
     
     'Sets it up so the Language Info can be reset 
-    LDList.Clear( LanguageLookUptable ) 
-    LDList.Clear( LanguageValueTable ) 
+    'LDList.Clear( LanguageLookUptable ) 
+    'LDList.Clear( LanguageValueTable ) 
+    LDList.Clear("ISO_Lang") 
+    LDList.Clear("ISO_Text") 
     MenuList = ""
     CheckList= "" 
     
     Localization_XML() 
-    LangListBuild()
     LastClickedButton = Settings_Close 
     MainMenuHandler()
   ElseIf LastClickedButton = Settings_Close Then 
@@ -829,7 +834,7 @@ Sub MainMenuHandler
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
     'Export_UI() ' Not Yet Implemtented //TO DO 
     LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,LangList["Application"]) '//Localize 
-    GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton,"EXPORT") '//Localize  
+    GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton, LangList[ "Export"]) '//Localize  
   EndIf
 EndSub
 
@@ -849,11 +854,11 @@ EndSub
 Sub Show_Display_Results
   GraphicsWindow.DrawRectangle( UIx ,50 ,310 ,240)
   GraphicsWindow.FontSize = 15
-  GraphicsWindow.DrawText( UIx + 100 , 52 , "Display Settings") '//Localize 
-  GraphicsWindow.DrawText( UIx + 20 ,73 , "Sort by")'//Localize 
-  GraphicsWindow.DrawText( UIx + 100 , 150 , "Search Settings")'//Localize 
-  GraphicsWindow.DrawText( UIx + 20,180,"Search in")'//Localize 
-  GraphicsWindow.DrawText( UIx + 20,210,"Search:")'//Localize 
+  GraphicsWindow.DrawText( UIx + 100 , 52 ,LangList[ "Display Settings" ]) 
+  GraphicsWindow.DrawText( UIx + 20 ,73 ,LangList["Sort by"])
+  GraphicsWindow.DrawText( UIx + 100 , 150 , LangList["Search Settings"])
+  GraphicsWindow.DrawText( UIx + 20,180,LangList["Search in"])
+  GraphicsWindow.DrawText( UIx + 20,210,LangList["Search"] +":")
   For I = 1 To Array.GetItemCount(Display_Results_MasterControlsList)
     Controls.ShowControl(Display_Results_MasterControlsList[I] )
   EndFor
@@ -870,12 +875,12 @@ Sub Display_Results
   
   GraphicsWindow.DrawRectangle( UIx ,50 ,310 ,340)
   GraphicsWindow.FontSize = 15
-  GraphicsWindow.DrawText( UIx + 100 , 52 , LangList["Display Settings"])'//Localize 
-  GraphicsWindow.DrawText( UIx + 20 ,73 , LangList["Sort by"])'//Localize 
-  GraphicsWindow.DrawText( UIx + 100 , 150 , LangList["Search Settings"])'//Localize 
-  GraphicsWindow.DrawText( UIx + 20,180,LangList["Search in"])'//Localize 
-  GraphicsWindow.DrawText( UIx + 20,210,LangList["Search"] +":")'//Localize 
-  GraphicsWindow.DrawText( UIx + 127,290,LangList["Functions"] +":")'//Localize 
+  GraphicsWindow.DrawText( UIx + 100 , 52 , LangList["Display Settings"])
+  GraphicsWindow.DrawText( UIx + 20 ,73 , LangList["Sort by"])
+  GraphicsWindow.DrawText( UIx + 100 , 150 , LangList["Search Settings"])
+  GraphicsWindow.DrawText( UIx + 20,180,LangList["Search in"])
+  GraphicsWindow.DrawText( UIx + 20,210,LangList["Search"] +":")
+  GraphicsWindow.DrawText( UIx + 127,290,LangList["Functions"] +":")
   
   GraphicsWindow.FontSize = 13
   List = Text.ConvertToUpperCase( SchemaList )
@@ -894,8 +899,8 @@ Sub Display_Results
   'Search
   SearchByCB = LDControls.AddComboBox(List,200,120)
   SearchTextTB = Controls.AddTextBox(UIx + 100,210)
-  StrictSearchCheckBox = LDControls.AddCheckBox(LangList["Strict Search"])'//Localize 
-  SearchButton = Controls.AddButton(Text.ConvertToUpperCase( LangList["Search"] ),UIx +10,260) '//Localize 
+  StrictSearchCheckBox = LDControls.AddCheckBox(LangList["Strict Search"])
+  SearchButton = Controls.AddButton(Text.ConvertToUpperCase( LangList["Search"] ),UIx +10,260)
   Controls.SetSize(SearchTextTB, 200, 25)
   Controls.SetSize(SearchButton,290,25)
   Controls.Move(StrictSearchCheckBox,UIx+20,240)
@@ -907,15 +912,15 @@ Sub Display_Results
   ColumnListCB = LDControls.AddComboBox(List,135,100)
   Controls.Move( ColumnListCB , UIx + 160 , 310 )
   
-  RunFunctionButton = Controls.AddButton("RUN FUNCTION",UIx +10 , 340)'//Localize 
+  RunFunctionButton = Controls.AddButton(Text.ConvertToUpperCase( LangList["Run Function"] ),UIx +10 , 340)
   Controls.SetSize( RunFunctionButton, 290 , 25 )
   
   'Custom Query
   CustomQuery =  Controls.AddMultiLineTextBox(UIx,420)
   Controls.SetSize(CustomQuery,310, 150)
-  CustomQueryButton = Controls.AddButton("QUERY",UIx , 580) '//Localize  
+  CustomQueryButton = Controls.AddButton(Text.ConvertToUpperCase( LangList[ "Query" ] ),UIx , 580) 
   Controls.SetSize(CustomQueryButton, 310 ,25)
-  CommandButton =  Controls.AddButton("COMMAND",UIx, 580 +35)'//Localize 
+  CommandButton =  Controls.AddButton(Text.ConvertToUpperCase( LangList["Command"] ) ,UIx, 580 +35)
   Controls.SetSize(CommandButton, 310 ,25)
   
   Controls.SetTextBoxText(CustomQuery,"This Textbox allows you to use Custom" +CLLF+" SQL Queries. Remove this and type in an SQL"+CLLF+" statement."+CLLF+"You also use it to export data") '//Localize ??
@@ -964,36 +969,36 @@ EndSub
 
 Sub Settings_UI
   GraphicsWindow.Clear()
-  GraphicsWindow.Title = "Settings" '//Localize 
+  GraphicsWindow.Title = LangList["Settings"]  
   
   GraphicsWindow.CanResize = "False"
   LDGraphicsWindow.CancelClose = "True"
   LDGraphicsWindow.ExitOnClose = "False" 
   LDGraphicsWindow.Closing = Closing 
-  LDGraphicsWindow.ExitButtonMode("Settings","Disabled")
+  LDGraphicsWindow.ExitButtonMode(LangList["Settings"],"Disabled")
   
   GraphicsWindow.FontSize = 20
   
-  GraphicsWindow.DrawText(10,30,"Listview Width") '//Localize 
+  GraphicsWindow.DrawText(10,30, LangList["Listview Width"]) 
   Settings_WidthTB = Controls.AddTextBox(200,25)
   
-  GraphicsWindow.DrawText(10,65,"Listview Height") '//Localize  
+  GraphicsWindow.DrawText(10,65,LangList["Listview Height"]) 
   Settings_HeigthTB = Controls.AddTextBox(200, 60)
   
-  GraphicsWindow.DrawText(10,100,"Extensions")'//Localize 
+  GraphicsWindow.DrawText(10,100,LangList["Extensions"])
   Settings_ExtensionsTB = Controls.AddTextBox(200,95)
   
-  GraphicsWindow.DrawText(10,135,"Deliminator") '//Localize  
+  GraphicsWindow.DrawText(10,135,LangList["Deliminator"]) 
   Settings_DeliminatorTB = Controls.AddTextBox(200,130)
   
-  GraphicsWindow.DrawText(10,165,"Language") 
+  GraphicsWindow.DrawText(10,165,LangList["Language"])
   
   Language_LB = LDControls.AddComboBox(LDList.ToArray("ISO_Text") , 200,120 ) 
   LDControls.ComboBoxSelect( Language_LB , LDList.IndexOf("ISO_Lang", Localization_lang )  ) 
   Controls.Move( Language_LB , 200 , 165 )
   
-  Setting_Save = Controls.AddButton("Save and Close",50,220) '//Localize 
-  Settings_Close = Controls.AddButton("Close without Saving" , 50, 270 ) '//Localize 
+  Setting_Save = Controls.AddButton(LangList[ "Save and Close"],50,220) 
+  Settings_Close = Controls.AddButton(LangList["Close wo saving"] , 50, 270 )
   
   Controls.SetSize ( Setting_Save , 280 , 35 )
   Controls.SetSize ( Settings_Close , 280 , 35 )
@@ -1041,14 +1046,14 @@ Sub GenerateQuery
     CMD = CMD + "DESC;"
   EndIf
   
-  LDCall.Function5(QueryFunction,CMD,CurrentControl,"False","App","Auto Generated Query on behalf of " + LDFile.UserName) '//Localize 
+  LDCall.Function5(QueryFunction,CMD,CurrentControl,"False",LangList["App"],"Auto Generated Query on behalf of " + LDFile.UserName) '//Localize 
 EndSub
 
 Sub Get_SCHEMA
   If database <> "" Then 'Prevents Application from querying a nonexistent db 
-    TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='table';","","True","App","SCHEMA")
-    ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='view';","","True","App","SCHEMA")
-    IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='index';","","True","App","SCHEMA")
+    TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='table';","","True",LangList["App"],"SCHEMA")
+    ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='view';","","True",LangList["App"],"SCHEMA")
+    IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='index';","","True",LangList["App"],"SCHEMA")
     
     For I = 1 To Array.GetItemCount(TableList)
       SCHEMA_TableList[I] = TableList[I]["tbl_name"]
@@ -1071,7 +1076,7 @@ EndSub
 Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View 
   SchemaList = ""
   LDList.Clear("SCHEMA")
-  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True","App","SCHEMA-PRIVATE") '//Localize 
+  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],"SCHEMA-PRIVATE") '//Localize 
   For Get_SCHEMA_I = 1 To Array.GetItemCount(SCHEMA)
     LDList.Add("SCHEMA",SCHEMA[Get_SCHEMA_I]["name"] )
   EndFor
@@ -1090,7 +1095,7 @@ Sub Export_CSV
     LDUtilities.CSVDeliminator = deliminator
   EndIf
   
-  return =  LDCall.Function5(QueryFunction,querycmd,"","True","App","EXPORT CSV ON BEHALF OF " + LDFile.UserName) '//Localize 
+  return =  LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],"EXPORT CSV ON BEHALF OF " + LDFile.UserName) '//Localize 
   csvdata = return 
   
   return2 = Array.GetAllIndices(return)
@@ -1114,7 +1119,7 @@ EndSub
 
 Sub Export_XML
   debug_mode = 1 
-  EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True","App","Export XML on behalf of " + LDFile.UserName ) '//Localize 
+  EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],"Export XML on behalf of " + LDFile.UserName ) '//Localize 
   TextWindow.WriteLine ( EXPORTDATA ) 
   XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
   File.DeleteFile(XML_Path)
@@ -1163,8 +1168,8 @@ EndSub
 
 Sub Export_SQL_Dump_Fetch
   LDList.Clear("EXPORT_SQL")
-  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True","App","Export SQL - SCHEMA - On behalf of " + LDFile.UserName) '//Localize 
-  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True","App","Export SQL - SQL - On behalf of " + LDFile.UserName)'//Localize 
+  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],"Export SQL - SCHEMA - On behalf of " + LDFile.UserName) '//Localize 
+  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],"Export SQL - SQL - On behalf of " + LDFile.UserName)'//Localize 
   EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
   
   For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
@@ -1199,8 +1204,8 @@ Sub Export_SQL_DUMP_WRITE
 EndSub
 
 Sub Export_HTML
-  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True","App","Export HTML SCHEMA on behalf of " + LDFile.UserName) '//Localize 
-  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True","App","Export HTML DATA on behalf of " + LDFile.UserName ) '//Localize 
+  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],"Export HTML SCHEMA on behalf of " + LDFile.UserName) '//Localize 
+  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],"Export HTML DATA on behalf of " + LDFile.UserName ) '//Localize 
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
   
   HTML_Statement = "" 
@@ -1305,7 +1310,7 @@ Sub Query
     EndIf
     return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
   Else 
-    LDCall.Function2(logfunction ,"Query Error : No Database has been loaded", "UI" ) '//Localize 
+    LDCall.Function2(logfunction ,"Query Error : No Database has been loaded", LangList["UI"] ) '//Localize 
     GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Query Error " ) '//Localize 
   EndIf 
 EndSub
@@ -1320,8 +1325,8 @@ Sub Command 'Runs A Command Function
     LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
     return = LDDataBase.Command(CommandArgs[1] ,LDText.Trim( CommandArgs[2] ) )
   Else 
-    LDCall.Function2(logfunction ,"Command Error : No Database has been loaded", "UI" ) '//Localize 
-    GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Command Error " ) '//Localize 
+    LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
+    GraphicsWindow.ShowMessage("Error : No Database has been loaded" , LangList["Command"] + " " + LangList["Error"] ) '//Localize 
   EndIf
 EndSub
 

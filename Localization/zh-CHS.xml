@@ -40,5 +40,22 @@
     <Search language="zh-CHS">搜索</Search>
     <Functions language="zh-CHS">功能</Functions>
     <Strict_Search language="zh-CHS">严格搜索</Strict_Search>
+    <Run_Function language="zh-CHS">运行函数</Run_Function>
+    <Query language="zh-CHS">查询</Query>
+    <Command language="zh-CHS">命令</Command>
+    <Error_No_DB language="zh-CHS">错误︰ 没有数据库已加载</Error_No_DB>
+    <UI language="zh-CHS">用户界面</UI>
+    <Master_Table_Protected language="zh-CHS">Sqlite_mastertable 或主表是受保护的表。保护数据库的完整性，您不能编辑此表</Master_Table_Protected>
+    <Access_Denied language="zh-CHS">访问被拒绝</Access_Denied>
+    <App language="zh-CHS">应用程序</App>
+    <View_Function language="zh-CHS">视图功能</View_Function>
+    <User_Requested language="zh-CHS">用户请求</User_Requested>
+    <Listview_Width language="zh-CHS">Listview 宽度</Listview_Width>
+    <Listview_Height language="zh-CHS">Listview 高度</Listview_Height>
+    <Extensions language="zh-CHS">扩展</Extensions>
+    <Deliminator language="zh-CHS">Deliminator</Deliminator>
+    <Language language="zh-CHS">语言</Language>
+    <Save_and_Close language="zh-CHS">保存并关闭</Save_and_Close>
+    <Close_wo_saving language="zh-CHS">关闭但不保存</Close_wo_saving>
   </Language>
 </root>

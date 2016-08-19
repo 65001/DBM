@@ -40,5 +40,22 @@
     <Search language="ca">Cerca</Search>
     <Functions language="ca">Funcions</Functions>
     <Strict_Search language="ca">Cerca estricte</Strict_Search>
+    <Run_Function language="ca">Funció d'execució</Run_Function>
+    <Query language="ca">Consulta</Query>
+    <Command language="ca">Comanda</Command>
+    <Error_No_DB language="ca">Error: No hi ha base de dades ha estat carregat</Error_No_DB>
+    <UI language="ca">INTERFÍCIE D'USUARI</UI>
+    <Master_Table_Protected language="ca">Sqlite_mastertable o 'Taula de mestre' és una taula protegit. Per protegir la integritat de la db no podeu editar aquesta taula</Master_Table_Protected>
+    <Access_Denied language="ca">Accés negat</Access_Denied>
+    <App language="ca">App</App>
+    <View_Function language="ca">Funció de vista</View_Function>
+    <User_Requested language="ca">L'usuari sol·licitat</User_Requested>
+    <Listview_Width language="ca">Amplada Listview</Listview_Width>
+    <Listview_Height language="ca">Alçada Listview</Listview_Height>
+    <Extensions language="ca">Extensions</Extensions>
+    <Deliminator language="ca">Deliminator</Deliminator>
+    <Language language="ca">Llengua</Language>
+    <Save_and_Close language="ca">Desa i tanca</Save_and_Close>
+    <Close_wo_saving language="ca">Tancar sense estalvi</Close_wo_saving>
   </Language>
 </root>

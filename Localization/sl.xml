@@ -40,5 +40,22 @@
     <Search language="sl">Išči</Search>
     <Functions language="sl">Funkcije</Functions>
     <Strict_Search language="sl">Strogo Išči</Strict_Search>
+    <Run_Function language="sl">Funkcijo</Run_Function>
+    <Query language="sl">Poizvedbe</Query>
+    <Command language="sl">Ukaz</Command>
+    <Error_No_DB language="sl">Zmota: Nobene zbirke podatkov je bil naložen</Error_No_DB>
+    <UI language="sl">UI</UI>
+    <Master_Table_Protected language="sl">Sqlite_mastertable ali "Master tabele" je zaščitenih tabelo. Za zaščito integritete db ne morete urejati v tabeli</Master_Table_Protected>
+    <Access_Denied language="sl">Dostop zavrnjen</Access_Denied>
+    <App language="sl">App</App>
+    <View_Function language="sl">Funkcijo pogled</View_Function>
+    <User_Requested language="sl">Zahteva uporabnika</User_Requested>
+    <Listview_Width language="sl">Listview širina</Listview_Width>
+    <Listview_Height language="sl">Listview višina</Listview_Height>
+    <Extensions language="sl">Razširitve</Extensions>
+    <Deliminator language="sl">Deliminator</Deliminator>
+    <Language language="sl">Jezik</Language>
+    <Save_and_Close language="sl">Shrani in zapri</Save_and_Close>
+    <Close_wo_saving language="sl">Zapreti brez shranjevanja</Close_wo_saving>
   </Language>
 </root>

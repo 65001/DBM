@@ -40,5 +40,22 @@
     <Search language="fi">Etsi</Search>
     <Functions language="fi">Toiminnot</Functions>
     <Strict_Search language="fi">Tiukka Etsi</Strict_Search>
+    <Run_Function language="fi">Toiminto suoritetaan</Run_Function>
+    <Query language="fi">Kysely</Query>
+    <Command language="fi">Komento</Command>
+    <Error_No_DB language="fi">Virhe: Tietokantaa ei ladattu</Error_No_DB>
+    <UI language="fi">UI</UI>
+    <Master_Table_Protected language="fi">Sqlite_mastertable tai Master taulukko on suojattu taulukko. Suojatakseen DB ei voi muokata tätä taulukkoa</Master_Table_Protected>
+    <Access_Denied language="fi">Käyttö estetty</Access_Denied>
+    <App language="fi">App</App>
+    <View_Function language="fi">Toiminnon</View_Function>
+    <User_Requested language="fi">Käyttäjä</User_Requested>
+    <Listview_Width language="fi">ListView leveys</Listview_Width>
+    <Listview_Height language="fi">ListView korkeus</Listview_Height>
+    <Extensions language="fi">Laajennukset</Extensions>
+    <Deliminator language="fi">Deliminator</Deliminator>
+    <Language language="fi">Kieli</Language>
+    <Save_and_Close language="fi">Tallenna ja sulje</Save_and_Close>
+    <Close_wo_saving language="fi">Sulje tallentamatta</Close_wo_saving>
   </Language>
 </root>

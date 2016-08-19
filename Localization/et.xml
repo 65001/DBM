@@ -40,5 +40,22 @@
     <Search language="et">Otsi hotelle</Search>
     <Functions language="et">Funktsioonid</Functions>
     <Strict_Search language="et">Range Otsi</Strict_Search>
+    <Run_Function language="et">Kui käivitate</Run_Function>
+    <Query language="et">Päring</Query>
+    <Command language="et">Käsk</Command>
+    <Error_No_DB language="et">Tõrge: Andmebaasi ei ole laadimist</Error_No_DB>
+    <UI language="et">UI</UI>
+    <Master_Table_Protected language="et">Sqlite_mastertable või "Master tabelis" on kaitstud tabel. Db terviklikkust ei saa redigeerida selles tabelis</Master_Table_Protected>
+    <Access_Denied language="et">Juurdepääs keelatud</Access_Denied>
+    <App language="et">App</App>
+    <View_Function language="et">View funktsioon</View_Function>
+    <User_Requested language="et">Kasutaja soovis</User_Requested>
+    <Listview_Width language="et">Loendivaade laius</Listview_Width>
+    <Listview_Height language="et">Loendivaade kõrgus</Listview_Height>
+    <Extensions language="et">Laiendused</Extensions>
+    <Deliminator language="et">Deliminator</Deliminator>
+    <Language language="et">Keel</Language>
+    <Save_and_Close language="et">Salvesta ja Sule</Save_and_Close>
+    <Close_wo_saving language="et">Sule ilma salvestamata</Close_wo_saving>
   </Language>
 </root>

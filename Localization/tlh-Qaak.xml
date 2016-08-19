@@ -40,5 +40,22 @@
     <Search language="tlh-Qaak"></Search>
     <Functions language="tlh-Qaak"></Functions>
     <Strict_Search language="tlh-Qaak"> </Strict_Search>
+    <Run_Function language="tlh-Qaak"> </Run_Function>
+    <Query language="tlh-Qaak"></Query>
+    <Command language="tlh-Qaak"></Command>
+    <Error_No_DB language="tlh-Qaak">:   </Error_No_DB>
+    <UI language="tlh-Qaak"></UI>
+    <Master_Table_Protected language="tlh-Qaak">_             </Master_Table_Protected>
+    <Access_Denied language="tlh-Qaak"> </Access_Denied>
+    <App language="tlh-Qaak"></App>
+    <View_Function language="tlh-Qaak"> </View_Function>
+    <User_Requested language="tlh-Qaak"> </User_Requested>
+    <Listview_Width language="tlh-Qaak"> </Listview_Width>
+    <Listview_Height language="tlh-Qaak"> </Listview_Height>
+    <Extensions language="tlh-Qaak"></Extensions>
+    <Deliminator language="tlh-Qaak"></Deliminator>
+    <Language language="tlh-Qaak"></Language>
+    <Save_and_Close language="tlh-Qaak"> </Save_and_Close>
+    <Close_wo_saving language="tlh-Qaak">  </Close_wo_saving>
   </Language>
 </root>

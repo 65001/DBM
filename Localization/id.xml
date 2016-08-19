@@ -40,5 +40,22 @@
     <Search language="id">Cari</Search>
     <Functions language="id">Fungsi</Functions>
     <Strict_Search language="id">Cari ketat</Strict_Search>
+    <Run_Function language="id">Menjalankan fungsi</Run_Function>
+    <Query language="id">Query</Query>
+    <Command language="id">Perintah</Command>
+    <Error_No_DB language="id">Kesalahan: Tidak ada Database telah dimuat</Error_No_DB>
+    <UI language="id">UI</UI>
+    <Master_Table_Protected language="id">Sqlite_mastertable atau 'Master tabel' adalah meja dilindungi. Untuk melindungi integritas db Anda tidak dapat mengedit tabel ini</Master_Table_Protected>
+    <Access_Denied language="id">Akses ditolak</Access_Denied>
+    <App language="id">App</App>
+    <View_Function language="id">Lihat fungsi</View_Function>
+    <User_Requested language="id">Pengguna diminta</User_Requested>
+    <Listview_Width language="id">ListView lebar</Listview_Width>
+    <Listview_Height language="id">ListView tinggi</Listview_Height>
+    <Extensions language="id">Ekstensi</Extensions>
+    <Deliminator language="id">Deliminator</Deliminator>
+    <Language language="id">Bahasa</Language>
+    <Save_and_Close language="id">Simpan dan tutup</Save_and_Close>
+    <Close_wo_saving language="id">Tutup tanpa menyimpan</Close_wo_saving>
   </Language>
 </root>

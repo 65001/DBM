@@ -40,5 +40,22 @@
     <Search language="bs-Latn">Pretraživanje</Search>
     <Functions language="bs-Latn">Funkcije</Functions>
     <Strict_Search language="bs-Latn">Stroga traži</Strict_Search>
+    <Run_Function language="bs-Latn">Pokrenite funkciju</Run_Function>
+    <Query language="bs-Latn">Upit</Query>
+    <Command language="bs-Latn">Naredba</Command>
+    <Error_No_DB language="bs-Latn">Greška: Nema podataka je učitan</Error_No_DB>
+    <UI language="bs-Latn">UI</UI>
+    <Master_Table_Protected language="bs-Latn">Sqlite_mastertable ili 'Gospodar stol' je zaštićena stol. Kako bi zaštitili integritet db nije moguće uređivati ovu tablicu</Master_Table_Protected>
+    <Access_Denied language="bs-Latn">Pristup odbijen</Access_Denied>
+    <App language="bs-Latn">Aplikacija</App>
+    <View_Function language="bs-Latn">Prikaz funkcija</View_Function>
+    <User_Requested language="bs-Latn">Korisnik je zatražio</User_Requested>
+    <Listview_Width language="bs-Latn">Prikaz popisa širina</Listview_Width>
+    <Listview_Height language="bs-Latn">Prikaz popisa visina</Listview_Height>
+    <Extensions language="bs-Latn">Proširenja</Extensions>
+    <Deliminator language="bs-Latn">Deliminator</Deliminator>
+    <Language language="bs-Latn">Jezik</Language>
+    <Save_and_Close language="bs-Latn">Sačuvaj i zatvori</Save_and_Close>
+    <Close_wo_saving language="bs-Latn">Zatvorite bez spremanja</Close_wo_saving>
   </Language>
 </root>

@@ -40,5 +40,22 @@
     <Search language="ja">検索</Search>
     <Functions language="ja">関数</Functions>
     <Strict_Search language="ja">厳密な検索</Strict_Search>
+    <Run_Function language="ja">関数を実行します。</Run_Function>
+    <Query language="ja">クエリ</Query>
+    <Command language="ja">コマンド</Command>
+    <Error_No_DB language="ja">エラー: データベースが読み込まれていません</Error_No_DB>
+    <UI language="ja">UI</UI>
+    <Master_Table_Protected language="ja">Sqlite_mastertable または「マスター表」は、保護されたテーブルです。Db の整合性を保護するためにこのテーブルを編集できません。</Master_Table_Protected>
+    <Access_Denied language="ja">アクセスが拒否されました</Access_Denied>
+    <App language="ja">アプリ</App>
+    <View_Function language="ja">ビュー機能</View_Function>
+    <User_Requested language="ja">ユーザー要求</User_Requested>
+    <Listview_Width language="ja">Listview の幅</Listview_Width>
+    <Listview_Height language="ja">Listview の高さ</Listview_Height>
+    <Extensions language="ja">拡張機能</Extensions>
+    <Deliminator language="ja">よう</Deliminator>
+    <Language language="ja">言語</Language>
+    <Save_and_Close language="ja">保存して閉じる</Save_and_Close>
+    <Close_wo_saving language="ja">保存しないで閉じる</Close_wo_saving>
   </Language>
 </root>

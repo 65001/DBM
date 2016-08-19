@@ -40,5 +40,22 @@
     <Search language="fa">جستجو</Search>
     <Functions language="fa">توابع</Functions>
     <Strict_Search language="fa">جستجوی دقیق</Strict_Search>
+    <Run_Function language="fa">اجرای تابع</Run_Function>
+    <Query language="fa">پرس و جو</Query>
+    <Command language="fa">فرمان</Command>
+    <Error_No_DB language="fa">خطا: هیچ پایگاه داده لود شده</Error_No_DB>
+    <UI language="fa">رابط کاربر</UI>
+    <Master_Table_Protected language="fa">Sqlite_mastertable یا میز کارشناسی ارشد جدول محافظت شده است. برای حفاظت از یکپارچگی دسی بل این جدول ویرایش نمی باشد</Master_Table_Protected>
+    <Access_Denied language="fa">دسترسی رد شد</Access_Denied>
+    <App language="fa">نرم افزار</App>
+    <View_Function language="fa">تابع های مشاهده</View_Function>
+    <User_Requested language="fa">کاربر درخواست شده</User_Requested>
+    <Listview_Width language="fa">عرض "نمای لیست"</Listview_Width>
+    <Listview_Height language="fa">ارتفاع "نمای لیست"</Listview_Height>
+    <Extensions language="fa">برنامه های افزودنی</Extensions>
+    <Deliminator language="fa">Deliminator</Deliminator>
+    <Language language="fa">زبان</Language>
+    <Save_and_Close language="fa">ذخیره و بستن</Save_and_Close>
+    <Close_wo_saving language="fa">بستن بدون ذخیره</Close_wo_saving>
   </Language>
 </root>

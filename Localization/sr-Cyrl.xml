@@ -40,5 +40,22 @@
     <Search language="sr-Cyrl">Претрага</Search>
     <Functions language="sr-Cyrl">Функције</Functions>
     <Strict_Search language="sr-Cyrl">Строга претраге</Strict_Search>
+    <Run_Function language="sr-Cyrl">Покрени функцију</Run_Function>
+    <Query language="sr-Cyrl">Упит</Query>
+    <Command language="sr-Cyrl">Команда</Command>
+    <Error_No_DB language="sr-Cyrl">Грешка : Нема базе података је учитана</Error_No_DB>
+    <UI language="sr-Cyrl">КОРИСНИЧКИ ИНТЕРФЕЈС</UI>
+    <Master_Table_Protected language="sr-Cyrl">Сqлите_мастертабле или 'Господар табела' је заштићена сто. Да заштити интегритет у дб није могуће уређивати у овој табели</Master_Table_Protected>
+    <Access_Denied language="sr-Cyrl">Приступ одбијен</Access_Denied>
+    <App language="sr-Cyrl">Апп</App>
+    <View_Function language="sr-Cyrl">Приказ функција</View_Function>
+    <User_Requested language="sr-Cyrl">Корисник је тражио</User_Requested>
+    <Listview_Width language="sr-Cyrl">ЛистВиеw ширина</Listview_Width>
+    <Listview_Height language="sr-Cyrl">ЛистВиеw висина</Listview_Height>
+    <Extensions language="sr-Cyrl">Проширења</Extensions>
+    <Deliminator language="sr-Cyrl">Делиминатор</Deliminator>
+    <Language language="sr-Cyrl">Језик</Language>
+    <Save_and_Close language="sr-Cyrl">Сачувај и затвори</Save_and_Close>
+    <Close_wo_saving language="sr-Cyrl">Затворили без чувања</Close_wo_saving>
   </Language>
 </root>

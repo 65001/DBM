@@ -40,5 +40,22 @@
     <Search language="el">Αναζήτηση</Search>
     <Functions language="el">Λειτουργίες</Functions>
     <Strict_Search language="el">Αυστηρή αναζήτησης</Strict_Search>
+    <Run_Function language="el">Εκτέλεση συνάρτησης</Run_Function>
+    <Query language="el">Ερώτημα</Query>
+    <Command language="el">Η εντολή</Command>
+    <Error_No_DB language="el">Σφάλμα: Δεν υπάρχει βάση δεδομένων έχει φορτωθεί</Error_No_DB>
+    <UI language="el">UI</UI>
+    <Master_Table_Protected language="el">Sqlite_mastertable ή «Master πίνακας» είναι ένα προστατευόμενο τραπέζι. Για την προστασία της ακεραιότητας της db δεν μπορείτε να επεξεργαστείτε αυτόν τον πίνακα</Master_Table_Protected>
+    <Access_Denied language="el">Δεν επιτρέπεται η πρόσβαση</Access_Denied>
+    <App language="el">App</App>
+    <View_Function language="el">Λειτουργία προβολής</View_Function>
+    <User_Requested language="el">Χρήστη που ζητούνται</User_Requested>
+    <Listview_Width language="el">Πλάτος ListView</Listview_Width>
+    <Listview_Height language="el">Ύψος ListView</Listview_Height>
+    <Extensions language="el">Επεκτάσεις</Extensions>
+    <Deliminator language="el">Deliminator</Deliminator>
+    <Language language="el">Γλώσσα</Language>
+    <Save_and_Close language="el">Αποθήκευση και κλείσιμο</Save_and_Close>
+    <Close_wo_saving language="el">Κλείστε χωρίς Αποθήκευση</Close_wo_saving>
   </Language>
 </root>

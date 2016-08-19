@@ -40,5 +40,22 @@
     <Search language="sv">Sök</Search>
     <Functions language="sv">Funktioner</Functions>
     <Strict_Search language="sv">Strikt Sök</Strict_Search>
+    <Run_Function language="sv">Kör funktionen</Run_Function>
+    <Query language="sv">Fråga</Query>
+    <Command language="sv">Kommandot</Command>
+    <Error_No_DB language="sv">Fel: Ingen databas har lästs</Error_No_DB>
+    <UI language="sv">UI</UI>
+    <Master_Table_Protected language="sv">Sqlite_mastertable eller 'Master bord' är en skyddad tabell. För att skydda integriteten hos db kan du inte redigera den här tabellen</Master_Table_Protected>
+    <Access_Denied language="sv">Åtkomst nekad</Access_Denied>
+    <App language="sv">App</App>
+    <View_Function language="sv">View-funktionen</View_Function>
+    <User_Requested language="sv">Användaren som begärde</User_Requested>
+    <Listview_Width language="sv">ListView bredd</Listview_Width>
+    <Listview_Height language="sv">ListView höjd</Listview_Height>
+    <Extensions language="sv">Tillägg</Extensions>
+    <Deliminator language="sv">Deliminator</Deliminator>
+    <Language language="sv">Språk</Language>
+    <Save_and_Close language="sv">Spara och Stäng</Save_and_Close>
+    <Close_wo_saving language="sv">Stäng utan att spara</Close_wo_saving>
   </Language>
 </root>

@@ -40,5 +40,22 @@
     <Search language="hi">खोज</Search>
     <Functions language="hi">फ़ंक्शंस</Functions>
     <Strict_Search language="hi">सख्त खोज</Strict_Search>
+    <Run_Function language="hi">फ़ंक्शन चलाएँ</Run_Function>
+    <Query language="hi">क्वेरी</Query>
+    <Command language="hi">आदेश</Command>
+    <Error_No_DB language="hi">त्रुटि: कोई डेटाबेस लोड नहीं किया गया है</Error_No_DB>
+    <UI language="hi">UI</UI>
+    <Master_Table_Protected language="hi">Sqlite_mastertable या 'मास्टर तालिका' एक सुरक्षित तालिका है। Db की अखंडता की रक्षा करने के लिए आप इस तालिका को संपादित नहीं कर सकता</Master_Table_Protected>
+    <Access_Denied language="hi">प्रवेश निषेध</Access_Denied>
+    <App language="hi">App</App>
+    <View_Function language="hi">दृश्य समारोह</View_Function>
+    <User_Requested language="hi">उपयोगकर्ता का अनुरोध किया</User_Requested>
+    <Listview_Width language="hi">Listview चौड़ाई</Listview_Width>
+    <Listview_Height language="hi">Listview ऊँचाई</Listview_Height>
+    <Extensions language="hi">एक्सटेंशन</Extensions>
+    <Deliminator language="hi">Deliminator</Deliminator>
+    <Language language="hi">भाषा</Language>
+    <Save_and_Close language="hi">सहेजें और बंद करें</Save_and_Close>
+    <Close_wo_saving language="hi">बिना सहेजे बंद करें</Close_wo_saving>
   </Language>
 </root>

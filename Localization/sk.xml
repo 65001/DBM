@@ -40,5 +40,22 @@
     <Search language="sk">Hľadať</Search>
     <Functions language="sk">Funkcie</Functions>
     <Strict_Search language="sk">Prísne Hľadať</Strict_Search>
+    <Run_Function language="sk">Spustiť funkciu</Run_Function>
+    <Query language="sk">Dotaz</Query>
+    <Command language="sk">Príkaz</Command>
+    <Error_No_DB language="sk">Chyba: Žiadne databázy bolo naložené</Error_No_DB>
+    <UI language="sk">UI</UI>
+    <Master_Table_Protected language="sk">Sqlite_mastertable alebo Hlavná tabuľka je chránená tabuľka. Chrániť integritu DB nemôžete upraviť túto tabuľku</Master_Table_Protected>
+    <Access_Denied language="sk">Prístup bol odmietnutý</Access_Denied>
+    <App language="sk">Aplikácia</App>
+    <View_Function language="sk">Zobraziť funkcie</View_Function>
+    <User_Requested language="sk">Požadované používateľom</User_Requested>
+    <Listview_Width language="sk">ListView šírka</Listview_Width>
+    <Listview_Height language="sk">ListView výška</Listview_Height>
+    <Extensions language="sk">Rozšírenia</Extensions>
+    <Deliminator language="sk">Deliminator</Deliminator>
+    <Language language="sk">Jazyk</Language>
+    <Save_and_Close language="sk">Uložiť a zavrieť</Save_and_Close>
+    <Close_wo_saving language="sk">Zavrieť bez uloženia</Close_wo_saving>
   </Language>
 </root>

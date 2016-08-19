@@ -40,5 +40,22 @@
     <Search language="hu">Szálláshelyek keresése</Search>
     <Functions language="hu">Funkciók</Functions>
     <Strict_Search language="hu">Szigorú keresés</Strict_Search>
+    <Run_Function language="hu">Fuss függvény</Run_Function>
+    <Query language="hu">Lekérdezés</Query>
+    <Command language="hu">Parancs</Command>
+    <Error_No_DB language="hu">Hiba: Nincs adatbázis betöltése</Error_No_DB>
+    <UI language="hu">FELHASZNÁLÓI FELÜLET</UI>
+    <Master_Table_Protected language="hu">Sqlite_mastertable vagy "Master asztal" egy olyan védett táblázat. A db sérthetetlenségének védelme érdekében ez a táblázat nem módosítható</Master_Table_Protected>
+    <Access_Denied language="hu">Hozzáférés megtagadva</Access_Denied>
+    <App language="hu">App</App>
+    <View_Function language="hu">Nézet funkció</View_Function>
+    <User_Requested language="hu">A kért felhasználói</User_Requested>
+    <Listview_Width language="hu">ListView szélessége</Listview_Width>
+    <Listview_Height language="hu">ListView magasság</Listview_Height>
+    <Extensions language="hu">Kiterjesztések</Extensions>
+    <Deliminator language="hu">Deliminator</Deliminator>
+    <Language language="hu">Nyelv</Language>
+    <Save_and_Close language="hu">Mentés és bezárás</Save_and_Close>
+    <Close_wo_saving language="hu">Zárja be mentés nélkül</Close_wo_saving>
   </Language>
 </root>

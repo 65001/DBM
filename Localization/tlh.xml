@@ -40,5 +40,22 @@
     <Search language="tlh">search</Search>
     <Functions language="tlh">Qap</Functions>
     <Strict_Search language="tlh">strict Search</Strict_Search>
+    <Run_Function language="tlh">Qap qet</Run_Function>
+    <Query language="tlh">query</Query>
+    <Command language="tlh">naD</Command>
+    <Error_No_DB language="tlh">Qagh: loaded pagh Database</Error_No_DB>
+    <UI language="tlh">UI</UI>
+    <Master_Table_Protected language="tlh">sqlite_mastertable pIn'a' raS pagh SuvwI' QaD raS. integrity db QaD raS pagh edit SoH</Master_Table_Protected>
+    <Access_Denied language="tlh">naw' tem</Access_Denied>
+    <App language="tlh">app</App>
+    <View_Function language="tlh">jIH Qap</View_Function>
+    <User_Requested language="tlh">user Requested</User_Requested>
+    <Listview_Width language="tlh">listview Width</Listview_Width>
+    <Listview_Height language="tlh">listview 'ab</Listview_Height>
+    <Extensions language="tlh">extension</Extensions>
+    <Deliminator language="tlh">deliminator</Deliminator>
+    <Language language="tlh">Hol</Language>
+    <Save_and_Close language="tlh">toD 'ej</Save_and_Close>
+    <Close_wo_saving language="tlh">HurDaq Saving SoQ</Close_wo_saving>
   </Language>
 </root>

@@ -40,5 +40,22 @@
     <Search language="pl">Szukaj</Search>
     <Functions language="pl">Funkcje</Functions>
     <Strict_Search language="pl">Wyszukiwanie ścisłe</Strict_Search>
+    <Run_Function language="pl">Uruchamianie funkcji</Run_Function>
+    <Query language="pl">Zapytanie</Query>
+    <Command language="pl">Polecenia</Command>
+    <Error_No_DB language="pl">Błąd: Baza danych nie został załadowany</Error_No_DB>
+    <UI language="pl">INTERFEJSU UŻYTKOWNIKA</UI>
+    <Master_Table_Protected language="pl">Sqlite_mastertable lub 'Master tabeli' jest chroniony tabeli. Aby chronić integralność bazy danych nie można edytować tej tabeli</Master_Table_Protected>
+    <Access_Denied language="pl">Odmowa dostępu</Access_Denied>
+    <App language="pl">Aplikacja</App>
+    <View_Function language="pl">Funkcja View</View_Function>
+    <User_Requested language="pl">Żądanie użytkownika</User_Requested>
+    <Listview_Width language="pl">Szerokość ListView</Listview_Width>
+    <Listview_Height language="pl">Wysokość ListView</Listview_Height>
+    <Extensions language="pl">Rozszerzenie</Extensions>
+    <Deliminator language="pl">Deliminator</Deliminator>
+    <Language language="pl">Język</Language>
+    <Save_and_Close language="pl">Zapisz i Zamknij</Save_and_Close>
+    <Close_wo_saving language="pl">Zamknąć bez zapisywania</Close_wo_saving>
   </Language>
 </root>

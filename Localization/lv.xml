@@ -40,5 +40,22 @@
     <Search language="lv">Meklēšana</Search>
     <Functions language="lv">Funkcijas</Functions>
     <Strict_Search language="lv">Stingri meklēšanas</Strict_Search>
+    <Run_Function language="lv">Palaist funkciju</Run_Function>
+    <Query language="lv">Vaicājums</Query>
+    <Command language="lv">Komanda</Command>
+    <Error_No_DB language="lv">Kļūda: Nav datu bāzes ir ielādēts</Error_No_DB>
+    <UI language="lv">LIETOTĀJA INTERFEISA</UI>
+    <Master_Table_Protected language="lv">Aizsargāta satura ir Sqlite_mastertable vai "Master galds". Lai aizsargātu stiprību db nevar rediģēt šajā tabulā</Master_Table_Protected>
+    <Access_Denied language="lv">Piekļuve liegta</Access_Denied>
+    <App language="lv">App</App>
+    <View_Function language="lv">Skata funkcija</View_Function>
+    <User_Requested language="lv">Pieprasīts lietotāja</User_Requested>
+    <Listview_Width language="lv">ListView platums</Listview_Width>
+    <Listview_Height language="lv">ListView augstums</Listview_Height>
+    <Extensions language="lv">Paplašinājumi</Extensions>
+    <Deliminator language="lv">Deliminator</Deliminator>
+    <Language language="lv">Valodas</Language>
+    <Save_and_Close language="lv">Saglabājiet un aizveriet</Save_and_Close>
+    <Close_wo_saving language="lv">Aizvērt, nesaglabājot</Close_wo_saving>
   </Language>
 </root>

@@ -40,5 +40,22 @@
     <Search language="ar">البحث عن</Search>
     <Functions language="ar">الوظائف</Functions>
     <Strict_Search language="ar">البحث الدقيق</Strict_Search>
+    <Run_Function language="ar">تشغيل الدالة</Run_Function>
+    <Query language="ar">الاستعلام</Query>
+    <Command language="ar">الأمر</Command>
+    <Error_No_DB language="ar">خطأ: تم تحميل لا قاعدة بيانات</Error_No_DB>
+    <UI language="ar">واجهة المستخدم</UI>
+    <Master_Table_Protected language="ar">Sqlite_mastertable أو 'الجدول الرئيسي' جدول محمية. لا يمكنك تحرير هذا الجدول حماية سلامة الديسيبل</Master_Table_Protected>
+    <Access_Denied language="ar">تم رفض الوصول</Access_Denied>
+    <App language="ar">التطبيق</App>
+    <View_Function language="ar">عرض وظيفة</View_Function>
+    <User_Requested language="ar">طلب المستخدم</User_Requested>
+    <Listview_Width language="ar">عرض Listview</Listview_Width>
+    <Listview_Height language="ar">ارتفاع Listview</Listview_Height>
+    <Extensions language="ar">ملحقات</Extensions>
+    <Deliminator language="ar">ديليميناتور</Deliminator>
+    <Language language="ar">اللغة</Language>
+    <Save_and_Close language="ar">حفظ وإغلاق</Save_and_Close>
+    <Close_wo_saving language="ar">إغلاق بدون حفظ</Close_wo_saving>
   </Language>
 </root>

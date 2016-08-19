@@ -40,5 +40,22 @@
     <Search language="fr">Recherche</Search>
     <Functions language="fr">Fonctions</Functions>
     <Strict_Search language="fr">Recherche stricte</Strict_Search>
+    <Run_Function language="fr">Exécuter une fonction</Run_Function>
+    <Query language="fr">Requête</Query>
+    <Command language="fr">Commande</Command>
+    <Error_No_DB language="fr">Erreur : Aucune base de données n’a été chargé.</Error_No_DB>
+    <UI language="fr">INTERFACE UTILISATEUR</UI>
+    <Master_Table_Protected language="fr">Sqlite_mastertable ou « Master Table » est une table protégée. Pour protéger l’intégrité de la db, vous ne pouvez pas modifier ce tableau</Master_Table_Protected>
+    <Access_Denied language="fr">Accès refusé</Access_Denied>
+    <App language="fr">App</App>
+    <View_Function language="fr">Fonction de visualisation</View_Function>
+    <User_Requested language="fr">Demandée par utilisateur</User_Requested>
+    <Listview_Width language="fr">Largeur de ListView</Listview_Width>
+    <Listview_Height language="fr">Hauteur de ListView</Listview_Height>
+    <Extensions language="fr">Extensions</Extensions>
+    <Deliminator language="fr">Persistante</Deliminator>
+    <Language language="fr">Langue</Language>
+    <Save_and_Close language="fr">Enregistrez et fermez</Save_and_Close>
+    <Close_wo_saving language="fr">Fermer sans enregistrer les modifications</Close_wo_saving>
   </Language>
 </root>

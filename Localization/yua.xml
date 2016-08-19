@@ -40,5 +40,22 @@
     <Search language="yua">Leti'ob u</Search>
     <Functions language="yua">Noj</Functions>
     <Strict_Search language="yua">Leti'ob estricta</Strict_Search>
+    <Run_Function language="yua">Ejecutar le función</Run_Function>
+    <Query language="yua">Consulta</Query>
+    <Command language="yua">Comando</Command>
+    <Error_No_DB language="yua">Ba'alo': Jump'éel k'oja'ano'obo' datos ku yaantal cargado</Error_No_DB>
+    <UI language="yua">INTERFAZ USUARIO</UI>
+    <Master_Table_Protected language="yua">Sqlite_mastertable wa. Master Table' jach jump'éel tabla protegida. Utia'al wáaj u integridad le BD ma' u editar le tabla</Master_Table_Protected>
+    <Access_Denied language="yua">Muuk' denegado</Access_Denied>
+    <App language="yua">Ka'anatako'ob</App>
+    <View_Function language="yua">Función sáasil</View_Function>
+    <User_Requested language="yua">Usuario solicitado</User_Requested>
+    <Listview_Width language="yua">Anchura u ListView</Listview_Width>
+    <Listview_Height language="yua">Ka'anilo' u ListView</Listview_Height>
+    <Extensions language="yua">Extensiones</Extensions>
+    <Deliminator language="yua">Deliminator</Deliminator>
+    <Language language="yua">T'aano'</Language>
+    <Save_and_Close language="yua">Ooks yéetel muts'ik in</Save_and_Close>
+    <Close_wo_saving language="yua">Muts'ik in xma' ooks le cambios</Close_wo_saving>
   </Language>
 </root>

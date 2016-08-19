@@ -40,5 +40,22 @@
     <Search language="yue">搜尋</Search>
     <Functions language="yue">功能</Functions>
     <Strict_Search language="yue">嚴格搜索</Strict_Search>
+    <Run_Function language="yue">運行函數</Run_Function>
+    <Query language="yue">查詢</Query>
+    <Command language="yue">命令</Command>
+    <Error_No_DB language="yue">錯誤︰冇數據庫已經加载</Error_No_DB>
+    <UI language="yue">用戶界面</UI>
+    <Master_Table_Protected language="yue">sqlite_mastertable 或主表係受保護嘅錶。 保護數據庫的完整性, 你唔可以編輯此表</Master_Table_Protected>
+    <Access_Denied language="yue">訪問食檸檬</Access_Denied>
+    <App language="yue">應用程序</App>
+    <View_Function language="yue">视图功能</View_Function>
+    <User_Requested language="yue">用戶請求</User_Requested>
+    <Listview_Width language="yue">listview 寬度</Listview_Width>
+    <Listview_Height language="yue">Listview 高度</Listview_Height>
+    <Extensions language="yue">擴展</Extensions>
+    <Deliminator language="yue">Deliminator</Deliminator>
+    <Language language="yue">語言</Language>
+    <Save_and_Close language="yue">保存並關閉</Save_and_Close>
+    <Close_wo_saving language="yue">關閉但唔 keep</Close_wo_saving>
   </Language>
 </root>

@@ -40,5 +40,22 @@
     <Search language="otq">Nthoni ar</Search>
     <Functions language="otq">Ya 'befi</Functions>
     <Strict_Search language="otq">Nthoni estricta</Strict_Search>
+    <Run_Function language="otq">Ejecutar ar función</Run_Function>
+    <Query language="otq">Consulta</Query>
+    <Command language="otq">Ts'edi</Command>
+    <Error_No_DB language="otq">Error: 'nar base ar datos ar xi cargado</Error_No_DB>
+    <UI language="otq">INTERFAZ USUARIO</UI>
+    <Master_Table_Protected language="otq">Sqlite_mastertable wa 'Master Table' ge 'nar tabla protegida. Pa proteger ntheki 'mui ar BD Hindi tsa̲ da editar nuna ar tabla</Master_Table_Protected>
+    <Access_Denied language="otq">Nthogi denegado</Access_Denied>
+    <App language="otq">Nt'ot'e</App>
+    <View_Function language="otq">Función thandi</View_Function>
+    <User_Requested language="otq">Usuario solicitado</User_Requested>
+    <Listview_Width language="otq">Anchura ListView</Listview_Width>
+    <Listview_Height language="otq">Altura ListView</Listview_Height>
+    <Extensions language="otq">Extensiones</Extensions>
+    <Deliminator language="otq">Deliminator</Deliminator>
+    <Language language="otq">Ar hñä</Language>
+    <Save_and_Close language="otq">Guardar ne cerrar</Save_and_Close>
+    <Close_wo_saving language="otq">Cerrar hinda guardar ar tse̲ yá mpa̲ti</Close_wo_saving>
   </Language>
 </root>

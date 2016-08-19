@@ -40,5 +40,22 @@
     <Search language="sw">Utafutaji</Search>
     <Functions language="sw">Kazi</Functions>
     <Strict_Search language="sw">Utafutaji kali</Strict_Search>
+    <Run_Function language="sw">Kuendesha kazi</Run_Function>
+    <Query language="sw">Ulizo</Query>
+    <Command language="sw">Amri</Command>
+    <Error_No_DB language="sw">Kosa: Hakuna hazina data ina haija pakiwa</Error_No_DB>
+    <UI language="sw">UI</UI>
+    <Master_Table_Protected language="sw">Sqlite_mastertable au 'Mama Jedwali' ni Jedwali Lindwa. Ili kulinda uadilifu wa db ya Huwezi kuhariri Jedwali hili</Master_Table_Protected>
+    <Access_Denied language="sw">Ufikivu umekataliwa</Access_Denied>
+    <App language="sw">Programu</App>
+    <View_Function language="sw">Kazi ya Mwoneko</View_Function>
+    <User_Requested language="sw">Mtumiaji aliomba</User_Requested>
+    <Listview_Width language="sw">Upana wa OrodhaMwoneko</Listview_Width>
+    <Listview_Height language="sw">Urefu wa OrodhaMwoneko</Listview_Height>
+    <Extensions language="sw">Virefusho vya</Extensions>
+    <Deliminator language="sw">Deliminator</Deliminator>
+    <Language language="sw">Lugha</Language>
+    <Save_and_Close language="sw">Hifadhi na Funga</Save_and_Close>
+    <Close_wo_saving language="sw">Kufunga bila ya kuhifadhi</Close_wo_saving>
   </Language>
 </root>

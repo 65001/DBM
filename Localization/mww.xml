@@ -40,5 +40,22 @@
     <Search language="mww">Nrhiav</Search>
     <Functions language="mww">Zog</Functions>
     <Strict_Search language="mww">Nrhiav nruj</Strict_Search>
+    <Run_Function language="mww">Cav muaj nuj nqi</Run_Function>
+    <Query language="mww">Lus nug</Query>
+    <Command language="mww">Hais kom ua</Command>
+    <Error_No_DB language="mww">Yuam kev: Tsis muaj Database muaj tau loaded</Error_No_DB>
+    <UI language="mww">POVHWM POOB HAUJLWM</UI>
+    <Master_Table_Protected language="mww">Sqlite_mastertable 'Tswv rooj' yog ib cov lus tiv thaiv. Tiv thaiv lub sam xeeb txog qhov uas cov db koj tsis tau hloov cov lus no</Master_Table_Protected>
+    <Access_Denied language="mww">Ntawv tsis pom zoo</Access_Denied>
+    <App language="mww">APP</App>
+    <View_Function language="mww">Saib muaj nuj nqi</View_Function>
+    <User_Requested language="mww">Neeg thov</User_Requested>
+    <Listview_Width language="mww">Listview dav</Listview_Width>
+    <Listview_Height language="mww">Qhov siab Listview</Listview_Height>
+    <Extensions language="mww">Extensions</Extensions>
+    <Deliminator language="mww">Deliminator</Deliminator>
+    <Language language="mww">Lus</Language>
+    <Save_and_Close language="mww">Txuag thiab kaw</Save_and_Close>
+    <Close_wo_saving language="mww">Kaw tsis txuag</Close_wo_saving>
   </Language>
 </root>

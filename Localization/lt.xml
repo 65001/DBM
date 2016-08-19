@@ -40,5 +40,22 @@
     <Search language="lt">Paieška:</Search>
     <Functions language="lt">Funkcijos</Functions>
     <Strict_Search language="lt">Griežtas paieškos</Strict_Search>
+    <Run_Function language="lt">Naudokite funkciją</Run_Function>
+    <Query language="lt">Užklausa</Query>
+    <Command language="lt">Komanda</Command>
+    <Error_No_DB language="lt">Klaida: Nėra duomenų bazę buvo įkelta</Error_No_DB>
+    <UI language="lt">VARTOTOJO SĄSAJA</UI>
+    <Master_Table_Protected language="lt">Sqlite_mastertable arba "Master lentelėje" yra saugomas lentelėje. Db vientisumui apsaugoti negalite redaguoti šią lentelę</Master_Table_Protected>
+    <Access_Denied language="lt">Prieiga uždrausta</Access_Denied>
+    <App language="lt">App</App>
+    <View_Function language="lt">View funkcija</View_Function>
+    <User_Requested language="lt">Vartotojo prašoma</User_Requested>
+    <Listview_Width language="lt">Sąrašo rodinys Plotis</Listview_Width>
+    <Listview_Height language="lt">Sąrašo rodinys aukštis</Listview_Height>
+    <Extensions language="lt">Plėtiniai</Extensions>
+    <Deliminator language="lt">Deliminator</Deliminator>
+    <Language language="lt">Kalba</Language>
+    <Save_and_Close language="lt">Įrašyti ir uždaryti</Save_and_Close>
+    <Close_wo_saving language="lt">Neįrašęs</Close_wo_saving>
   </Language>
 </root>

@@ -40,5 +40,22 @@
     <Search language="no">Søk</Search>
     <Functions language="no">Funksjoner</Functions>
     <Strict_Search language="no">Strenge søk</Strict_Search>
+    <Run_Function language="no">Kjøre funksjon</Run_Function>
+    <Query language="no">Spørring</Query>
+    <Command language="no">Kommandoen</Command>
+    <Error_No_DB language="no">Feil: Ingen Database er lastet</Error_No_DB>
+    <UI language="no">UI</UI>
+    <Master_Table_Protected language="no">Sqlite_mastertable eller "Master tabell" er en beskyttet tabell. Du kan ikke redigere denne tabellen for å beskytte integriteten til db</Master_Table_Protected>
+    <Access_Denied language="no">Ingen tilgang</Access_Denied>
+    <App language="no">App</App>
+    <View_Function language="no">Funksjon</View_Function>
+    <User_Requested language="no">Brukeren</User_Requested>
+    <Listview_Width language="no">ListView bredde</Listview_Width>
+    <Listview_Height language="no">ListView høyde</Listview_Height>
+    <Extensions language="no">Utvidelser</Extensions>
+    <Deliminator language="no">Deliminator</Deliminator>
+    <Language language="no">Språk</Language>
+    <Save_and_Close language="no">Lagre og Lukk</Save_and_Close>
+    <Close_wo_saving language="no">Lukk uten å lagre</Close_wo_saving>
   </Language>
 </root>

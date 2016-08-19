@@ -40,5 +40,22 @@
     <Search language="cs">Hledat</Search>
     <Functions language="cs">Funkce</Functions>
     <Strict_Search language="cs">Hledání přísné</Strict_Search>
+    <Run_Function language="cs">Spuštění funkce</Run_Function>
+    <Query language="cs">Dotaz</Query>
+    <Command language="cs">Příkaz</Command>
+    <Error_No_DB language="cs">Chyba: Byla načtena žádná databáze</Error_No_DB>
+    <UI language="cs">UI</UI>
+    <Master_Table_Protected language="cs">Sqlite_mastertable nebo "Hlavní tabulka" je chráněná tabulka. K ochraně integrity databáze nelze upravovat v této tabulce</Master_Table_Protected>
+    <Access_Denied language="cs">Přístup byl odepřen</Access_Denied>
+    <App language="cs">Aplikace</App>
+    <View_Function language="cs">Pohled zezadu funkce</View_Function>
+    <User_Requested language="cs">Uživatel požaduje</User_Requested>
+    <Listview_Width language="cs">Šířka ListView</Listview_Width>
+    <Listview_Height language="cs">Výška ListView</Listview_Height>
+    <Extensions language="cs">Rozšíření</Extensions>
+    <Deliminator language="cs">Deliminator</Deliminator>
+    <Language language="cs">Jazyk</Language>
+    <Save_and_Close language="cs">Uložit a zavřít</Save_and_Close>
+    <Close_wo_saving language="cs">Zavřít bez uložení</Close_wo_saving>
   </Language>
 </root>

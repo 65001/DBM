@@ -40,5 +40,22 @@
     <Search language="uk">Пошук</Search>
     <Functions language="uk">Функції</Functions>
     <Strict_Search language="uk">Строгий пошук</Strict_Search>
+    <Run_Function language="uk">Запустіть функцію</Run_Function>
+    <Query language="uk">Запит</Query>
+    <Command language="uk">Команда</Command>
+    <Error_No_DB language="uk">Помилка: База даних не була завантажена</Error_No_DB>
+    <UI language="uk">ІНТЕРФЕЙС КОРИСТУВАЧА</UI>
+    <Master_Table_Protected language="uk">Sqlite_mastertable або 'Майстри стіл' це захищений таблиці. Для забезпечення цілісності БД не можна редагувати цю таблицю</Master_Table_Protected>
+    <Access_Denied language="uk">Доступ заборонений</Access_Denied>
+    <App language="uk">App</App>
+    <View_Function language="uk">Перегляд функція</View_Function>
+    <User_Requested language="uk">Запитано користувачем</User_Requested>
+    <Listview_Width language="uk">Відображення списків ширини</Listview_Width>
+    <Listview_Height language="uk">Відображення списків висота</Listview_Height>
+    <Extensions language="uk">Розширення</Extensions>
+    <Deliminator language="uk">Deliminator</Deliminator>
+    <Language language="uk">Мова</Language>
+    <Save_and_Close language="uk">Зберегти та закрити</Save_and_Close>
+    <Close_wo_saving language="uk">Закриття без збереження</Close_wo_saving>
   </Language>
 </root>
