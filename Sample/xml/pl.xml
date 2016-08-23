@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="pl">Dziennik transakcji przełączania</Toggle_Transaction_Log>
     <Refresh language="pl">Odświeżania</Refresh>
     <Check_for_Updates language="pl">Sprawdź aktualizacje</Check_for_Updates>
-    <PXML language="pl">
-    </PXML>
+    <PXML language="pl">XML</PXML>
+    <PRGM_Start language="pl">Program uruchomiony</PRGM_Start>
+    <Application language="pl">Aplikacji</Application>
+    <Failed_Save_Settings language="pl">Nie można zapisać ustawień</Failed_Save_Settings>
+    <Error language="pl">Błąd</Error>
+    <Failed language="pl">Nie powiodło się</Failed>
+    <Table language="pl">Stół</Table>
+    <Index language="pl">Indeks</Index>
+    <View language="pl">Widok</View>
+    <Master_Table language="pl">Główna tabela</Master_Table>
+    <Sort language="pl">Sortowanie</Sort>
+    <Asc language="pl">Rosnąco</Asc>
+    <Desc language="pl">Malejąco</Desc>
+    <Display_Settings language="pl">Ustawienia wyświetlania</Display_Settings>
+    <Sort_by language="pl">Sortuj według</Sort_by>
+    <Search_in language="pl">Szukaj w</Search_in>
+    <Search language="pl">Szukaj</Search>
+    <Functions language="pl">Funkcje</Functions>
+    <Strict_Search language="pl">Wyszukiwanie ścisłe</Strict_Search>
+    <Run_Function language="pl">Uruchamianie funkcji</Run_Function>
+    <Query language="pl">Zapytanie</Query>
+    <Command language="pl">Polecenia</Command>
+    <Error_No_DB language="pl">Błąd: Baza danych nie został załadowany</Error_No_DB>
+    <UI language="pl">INTERFEJSU UŻYTKOWNIKA</UI>
+    <Master_Table_Protected language="pl">Sqlite_mastertable lub 'Master tabeli' jest chroniony tabeli. Aby chronić integralność bazy danych nie można edytować tej tabeli</Master_Table_Protected>
+    <Access_Denied language="pl">Odmowa dostępu</Access_Denied>
+    <App language="pl">Aplikacja</App>
+    <View_Function language="pl">Funkcja View</View_Function>
+    <User_Requested language="pl">Żądanie użytkownika</User_Requested>
+    <Listview_Width language="pl">Szerokość ListView</Listview_Width>
+    <Listview_Height language="pl">Wysokość ListView</Listview_Height>
+    <Extensions language="pl">Rozszerzenie</Extensions>
+    <Deliminator language="pl">Deliminator</Deliminator>
+    <Language language="pl">Język</Language>
+    <Save_and_Close language="pl">Zapisz i Zamknij</Save_and_Close>
+    <Close_wo_saving language="pl">Zamknąć bez zapisywania</Close_wo_saving>
+    <Failed_Load_Online_EULA language="pl">Nie można załadować online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="pl">Auto Log</Auto_Log>
   </Language>
 </root>

@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="sw">Togoa shughuli logi</Toggle_Transaction_Log>
     <Refresh language="sw">Onyesha upya</Refresh>
     <Check_for_Updates language="sw">Kagua sasishi</Check_for_Updates>
-    <PXML language="sw">
-    </PXML>
+    <PXML language="sw">XML</PXML>
+    <PRGM_Start language="sw">Programu kuanza</PRGM_Start>
+    <Application language="sw">Programu tumizi</Application>
+    <Failed_Save_Settings language="sw">Imeshindwa kuhifadhi vipimo</Failed_Save_Settings>
+    <Error language="sw">Kosa</Error>
+    <Failed language="sw">Imeshindwa</Failed>
+    <Table language="sw">Jedwali</Table>
+    <Index language="sw">Kielezo</Index>
+    <View language="sw">Mwoneko</View>
+    <Master_Table language="sw">Meza ya Bwana</Master_Table>
+    <Sort language="sw">Panga</Sort>
+    <Asc language="sw">A-z</Asc>
+    <Desc language="sw">Kushuka</Desc>
+    <Display_Settings language="sw">Vipimo onyeshi</Display_Settings>
+    <Sort_by language="sw">Panga kwa</Sort_by>
+    <Search_in language="sw">Tafutiza katika</Search_in>
+    <Search language="sw">Utafutaji</Search>
+    <Functions language="sw">Kazi</Functions>
+    <Strict_Search language="sw">Utafutaji kali</Strict_Search>
+    <Run_Function language="sw">Kuendesha kazi</Run_Function>
+    <Query language="sw">Ulizo</Query>
+    <Command language="sw">Amri</Command>
+    <Error_No_DB language="sw">Kosa: Hakuna hazina data ina haija pakiwa</Error_No_DB>
+    <UI language="sw">UI</UI>
+    <Master_Table_Protected language="sw">Sqlite_mastertable au 'Mama Jedwali' ni Jedwali Lindwa. Ili kulinda uadilifu wa db ya Huwezi kuhariri Jedwali hili</Master_Table_Protected>
+    <Access_Denied language="sw">Ufikivu umekataliwa</Access_Denied>
+    <App language="sw">Programu</App>
+    <View_Function language="sw">Kazi ya Mwoneko</View_Function>
+    <User_Requested language="sw">Mtumiaji aliomba</User_Requested>
+    <Listview_Width language="sw">Upana wa OrodhaMwoneko</Listview_Width>
+    <Listview_Height language="sw">Urefu wa OrodhaMwoneko</Listview_Height>
+    <Extensions language="sw">Virefusho vya</Extensions>
+    <Deliminator language="sw">Deliminator</Deliminator>
+    <Language language="sw">Lugha</Language>
+    <Save_and_Close language="sw">Hifadhi na Funga</Save_and_Close>
+    <Close_wo_saving language="sw">Kufunga bila ya kuhifadhi</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sw">Imeshindwa kupakia EULA mtandaoni</Failed_Load_Online_EULA>
+    <Auto_Log language="sw">Logi ya otomatiki</Auto_Log>
   </Language>
 </root>

@@ -44,7 +44,10 @@
 'v1114
 ' Transaction DB Implemented (Default is OFF )
 'Partial Localization Implemtented . 
-'     53 Languages are computer translated. English is the only verified and vetted Language currently 
+' 53 Languages are computer translated. English is the only verified and vetted Language currently 
+
+'v1115
+'Added Localization/Lang Folder which enables switching between languages to be nearly instant 
 
 '______________________________________________________________________________
 '                                                                                                 To do
@@ -76,11 +79,11 @@ LDUtilities.ShowFileErrors= "False"
 LDUtilities.ShowNoShapeErrors = "False"
 LDEvents.Error = ErrorHandler
 
-debug_mode = 1 '1=On;0=Off(Default)
+debug_mode = 0 '1=On;0=Off(Default)
 
 copyrightDate = 2016
 ProductID = "DBM"
-PrgmVersionID = 1114
+PrgmVersionID = 1115
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
 Self = Program.Directory +"\DB Manager Test.exe"
 
@@ -112,6 +115,7 @@ settingspath = AssetPath+"setting.txt"
 ModPath = AssetPath +"Mod\"
 HelpPath = AssetPath +"HELP Table.html" 
 LocalizationsFolder = Program.Directory +"\Localization\"
+LocalizationsLangFolder = Program.Directory +"\Localization\Lang\"
 LocalizationsFilesArray  =  File.GetFiles ( LocalizationsFolder ) 
 
 IF LDFile.Exists(AssetPath) = "FALSE" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
@@ -175,7 +179,6 @@ Startup()
 Sub Startup
   LoadSettings()
   Localization_XML()
-  ' LangListBuild()
   If Program.ArgumentCount  = 1  Then
     GetPath()
     Load_DB()
@@ -211,13 +214,13 @@ Sub Localization_XML
   EndIf 
   
   LDLanguages = LDTranslate.Languages() 
+  Localization_Temp = File.ReadContents( LocalizationsLangFolder +Localization_lang+".txt" ) 
   For I = 1 To Array.GetItemCount( LocalizationsFilesArray  )
     MLanguages[I] =  LDFile.GetFile( LocalizationsFilesArray[I] )
-    Localization_List[MLanguages[I]] =  LDLanguages[ MLanguages[I] ] + " " + LDTranslate.Translate(LDLanguages[ MLanguages[I] ],Localization_lang,MLanguages[I])
+    Localization_List[ MLanguages[I] ]  = Localization_Temp[MLanguages[I]]
     LDList.Add("ISO_Lang", MLanguages[I] ) 
-    LDList.Add("ISO_Text" , Localization_List[MLanguages[I]]  ) 
+    LDList.Add("ISO_Text" , Localization_List[ MLanguages[I] ] ) 
   EndFor
-  ' TextWindow.WriteLine ( LangList )
 EndSub 
 
 Sub Localixation_XML_Private
@@ -227,66 +230,6 @@ Sub Localixation_XML_Private
     TextWindow.WriteLine ("Recjected: " +  XML_Array ) 
   EndIf 
 EndSub
-
-'Sub LangListBuild
-'  LangList["File"] = LDCall.Function( LanguageBuildFunction ,"File" ) 
-'  LangList["New"]  = LDCall.Function( LanguageBuildFunction ,"New") 
-'  LangList["Open"] = LDCall.Function( LanguageBuildFunction ,"Open") 
-'  LangList["Edit"] = LDCall.Function( LanguageBuildFunction ,"Edit") 
-'  LangList["View"] = LDCall.Function( LanguageBuildFunction ,"View") 
-'  LangList["Save"] = LDCall.Function( LanguageBuildFunction ,"Save") 
-'  LangList["Import"] = LDCall.Function( LanguageBuildFunction ,"Import") 
-'  LangList["CSV"] = LDCall.Function( LanguageBuildFunction ,"CSV") 
-'  LangList["XML"] = LDCall.Function( LanguageBuildFunction ,"PXML")
-'  LangList["SQL"] = LDCall.Function( LanguageBuildFunction ,"SQL") 
-'  LangList["HTML"] = LDCall.Function( LanguageBuildFunction ,"HTML") 
-'  LangList["Export"] = LDCall.Function( LanguageBuildFunction ,"Export") 
-'  LangList["Settings"]= LDCall.Function( LanguageBuildFunction ,"Settings")  
-'  LangList["Help"] = LDCall.Function( LanguageBuildFunction ,"Help")  
-'  LangList["About"] = LDCall.Function( LanguageBuildFunction ,"About")  
-'  LangList["Show Help"] = LDCall.Function( LanguageBuildFunction ,"Show Help")  
-'  LangList["Settings Editor"] = LDCall.Function( LanguageBuildFunction ,"Settings Editor") 
-'  LangList["Toggle Debug"]= LDCall.Function( LanguageBuildFunction ,"Toggle Debug") 
-'  LangList["Toggle Transaction Log"]= LDCall.Function( LanguageBuildFunction ,"Toggle Transaction Log") 
-
-'  LangList["Refresh"]= LDCall.Function( LanguageBuildFunction ,"Refresh")  
-'  LangList["Check for Updates"]= LDCall.Function( LanguageBuildFunction ,"Check for Updates")  
-'  LangList["PRGM_Start"] = LDCall.Function( LanguageBuildFunction ,"PRGM Start")  
-'  LangList["Application"] = LDCall.Function( LanguageBuildFunction ,"Application")  
-'  LangList["Failed Save Settings"] = LDCall.Function( LanguageBuildFunction ,"Failed Save Settings") 
-'  LangList["Error"] = LDCall.Function( LanguageBuildFunction ,"Error")  
-'  LangList["Failed"] =   LDCall.Function( LanguageBuildFunction ,"Failed")  
-'  LangList["Table"] =   LDCall.Function( LanguageBuildFunction ,"Table")  
-'  LangList["Index"] = LDCall.Function( LanguageBuildFunction ,"Index")  
-'  LangList["View"] = LDCall.Function( LanguageBuildFunction ,"View")  
-'  LangList["Master Table"]  = LDCall.Function( LanguageBuildFunction ,"Master Table")  
-'  LangList["Sort"]  = LDCall.Function( LanguageBuildFunction ,"Sort") 
-'  LangList["Sort by"]  = LDCall.Function( LanguageBuildFunction ,"Sort by") 
-'  LangList["Asc"]  = LDCall.Function( LanguageBuildFunction ,"Asc")  
-'  LangList["Desc"]  = LDCall.Function( LanguageBuildFunction ,"Desc")  
-'  LangList["Display Settings"] = LDCall.Function( LanguageBuildFunction ,"Display Settings")  
-'  LangList["Search in"] = LDCall.Function( LanguageBuildFunction ,"Search in")  
-'  LangList["Search"] = LDCall.Function( LanguageBuildFunction ,"Search")  
-'  LangList["Functions"] =LDCall.Function( LanguageBuildFunction ,"Functions")  
-'  LangList["Strict Search"] =LDCall.Function( LanguageBuildFunction ,"Strict Search")  
-'  
-'Put Into Localization Files ??  
-'  Localization_List = "" 
-'  TextWindow.WriteLine ( LangList ) 
-'  LDLanguages = LDTranslate.Languages() 
-'  For I = 1 To Array.GetItemCount( LocalizationsFilesArray  )
-'    MLanguages[I] =  LDFile.GetFile( LocalizationsFilesArray[I] )
-'    Localization_List[MLanguages[I]] =  LDLanguages[ MLanguages[I] ] + " " + LDTranslate.Translate(LDLanguages[ MLanguages[I] ],Localization_lang,MLanguages[I])
-'    LDList.Add("ISO_Lang", MLanguages[I] ) 
-'    LDList.Add("ISO_Text" , Localization_List[MLanguages[I]]  ) 
-'  EndFor 
-'EndSub 
-
-'Sub LangBuildFunction
-'  Temp_List =  LDList.GetAt(LanguageValueTable, LDList.IndexOf(LanguageLookUptable,args[1] ) ) 
-'  return = Temp_List
-'  Temp_List = ""
-'EndSub
 
 Sub LoadSettings
   If RestoreSettings = 0 Then 
@@ -408,8 +351,8 @@ Sub EULA_UI
   OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
   
   If OnlineEULACnts = "" Then
-    LDCall.Function2( logfunction , "Failed to load online EULA","UI") '//Localize 
-    GraphicsWindow.ShowMessage("Failed to load online EULA","Error") '//Localize 
+    LDCall.Function2( logfunction ,LangList["Failed Load Online EULA"],LangList["UI"])
+    GraphicsWindow.ShowMessage(LangList["Failed Load Online EULA"],LangList["Error"])
     EULAContents = Text.Append("This is the EULA that came with this program. This may not be the most latest EULA. Subject to General Part F the most latest EULA can be found here:" +Text.GetCharacter(10) + OnlineEULaPath ,File.ReadContents(EULAFile) )
   Else
     EULAContents = OnlineEULACnts

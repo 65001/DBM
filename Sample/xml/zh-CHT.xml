@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="zh-CHT">切換事務日誌</Toggle_Transaction_Log>
     <Refresh language="zh-CHT">刷新</Refresh>
     <Check_for_Updates language="zh-CHT">檢查更新</Check_for_Updates>
-    <PXML language="zh-CHT">
-    </PXML>
+    <PXML language="zh-CHT">XML</PXML>
+    <PRGM_Start language="zh-CHT">啟動的程式</PRGM_Start>
+    <Application language="zh-CHT">應用程式</Application>
+    <Failed_Save_Settings language="zh-CHT">未能保存設置</Failed_Save_Settings>
+    <Error language="zh-CHT">錯誤</Error>
+    <Failed language="zh-CHT">失敗</Failed>
+    <Table language="zh-CHT">表</Table>
+    <Index language="zh-CHT">索引</Index>
+    <View language="zh-CHT">視圖</View>
+    <Master_Table language="zh-CHT">主表</Master_Table>
+    <Sort language="zh-CHT">排序</Sort>
+    <Asc language="zh-CHT">昇冪</Asc>
+    <Desc language="zh-CHT">降冪</Desc>
+    <Display_Settings language="zh-CHT">顯示設定</Display_Settings>
+    <Sort_by language="zh-CHT">按排序</Sort_by>
+    <Search_in language="zh-CHT">在中搜索</Search_in>
+    <Search language="zh-CHT">搜索</Search>
+    <Functions language="zh-CHT">功能</Functions>
+    <Strict_Search language="zh-CHT">嚴格搜索</Strict_Search>
+    <Run_Function language="zh-CHT">運行函數</Run_Function>
+    <Query language="zh-CHT">查詢</Query>
+    <Command language="zh-CHT">命令</Command>
+    <Error_No_DB language="zh-CHT">錯誤︰ 沒有資料庫已載入</Error_No_DB>
+    <UI language="zh-CHT">使用者介面</UI>
+    <Master_Table_Protected language="zh-CHT">Sqlite_mastertable 或主表是受保護的表。保護資料庫的完整性，您不能編輯此表</Master_Table_Protected>
+    <Access_Denied language="zh-CHT">訪問被拒絕</Access_Denied>
+    <App language="zh-CHT">應用程式</App>
+    <View_Function language="zh-CHT">視圖功能</View_Function>
+    <User_Requested language="zh-CHT">使用者請求</User_Requested>
+    <Listview_Width language="zh-CHT">Listview 寬度</Listview_Width>
+    <Listview_Height language="zh-CHT">Listview 高度</Listview_Height>
+    <Extensions language="zh-CHT">擴展</Extensions>
+    <Deliminator language="zh-CHT">Deliminator</Deliminator>
+    <Language language="zh-CHT">語言</Language>
+    <Save_and_Close language="zh-CHT">保存並關閉</Save_and_Close>
+    <Close_wo_saving language="zh-CHT">關閉但不保存</Close_wo_saving>
+    <Failed_Load_Online_EULA language="zh-CHT">未能載入線上使用者授權合約</Failed_Load_Online_EULA>
+    <Auto_Log language="zh-CHT">自動日誌</Auto_Log>
   </Language>
 </root>

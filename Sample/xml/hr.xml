@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="hr">Uključivanje/isključivanje transakcijski zapisnik</Toggle_Transaction_Log>
     <Refresh language="hr">Osvježi</Refresh>
     <Check_for_Updates language="hr">Provjeri ažuriranja</Check_for_Updates>
-    <PXML language="hr">
-    </PXML>
+    <PXML language="hr">XML</PXML>
+    <PRGM_Start language="hr">Program je započeo</PRGM_Start>
+    <Application language="hr">Aplikacija</Application>
+    <Failed_Save_Settings language="hr">Nije uspjelo spremanje postavki</Failed_Save_Settings>
+    <Error language="hr">Pogreška</Error>
+    <Failed language="hr">Nije uspjelo</Failed>
+    <Table language="hr">Tablica</Table>
+    <Index language="hr">Indeks</Index>
+    <View language="hr">Prikaz</View>
+    <Master_Table language="hr">Master tablice</Master_Table>
+    <Sort language="hr">Sortiranje</Sort>
+    <Asc language="hr">Uzlazno</Asc>
+    <Desc language="hr">Silazno</Desc>
+    <Display_Settings language="hr">Postavke prikaza</Display_Settings>
+    <Sort_by language="hr">Složi po</Sort_by>
+    <Search_in language="hr">Pretraživanje u</Search_in>
+    <Search language="hr">Pretraživanje</Search>
+    <Functions language="hr">Funkcije</Functions>
+    <Strict_Search language="hr">Stroga traži</Strict_Search>
+    <Run_Function language="hr">Izvršiti funkciju</Run_Function>
+    <Query language="hr">Upit</Query>
+    <Command language="hr">Naredba</Command>
+    <Error_No_DB language="hr">Pogreška: Nema podataka je učitan</Error_No_DB>
+    <UI language="hr">UI</UI>
+    <Master_Table_Protected language="hr">Sqlite_mastertable ili 'Gospodar stol' je zaštićena stol. Kako bi zaštitili integritet db nije moguće uređivati ovu tablicu</Master_Table_Protected>
+    <Access_Denied language="hr">Pristup odbijen</Access_Denied>
+    <App language="hr">Aplikacija</App>
+    <View_Function language="hr">Prikaz funkcija</View_Function>
+    <User_Requested language="hr">Korisnik je zatražio</User_Requested>
+    <Listview_Width language="hr">Prikaz popisa širina</Listview_Width>
+    <Listview_Height language="hr">Prikaz popisa visina</Listview_Height>
+    <Extensions language="hr">Proširenja</Extensions>
+    <Deliminator language="hr">Deliminator</Deliminator>
+    <Language language="hr">Jezik</Language>
+    <Save_and_Close language="hr">Sačuvaj i Zatvori</Save_and_Close>
+    <Close_wo_saving language="hr">Zatvorite bez spremanja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="hr">Nije uspjelo učitavanje online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="hr">Automatska prijava</Auto_Log>
   </Language>
 </root>

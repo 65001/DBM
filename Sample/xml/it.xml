@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="it">Log delle transazioni attiva/disattiva</Toggle_Transaction_Log>
     <Refresh language="it">Aggiornamento</Refresh>
     <Check_for_Updates language="it">Controlla aggiornamenti</Check_for_Updates>
-    <PXML language="it">
-    </PXML>
+    <PXML language="it">XML</PXML>
+    <PRGM_Start language="it">Programma di avvio</PRGM_Start>
+    <Application language="it">Applicazione</Application>
+    <Failed_Save_Settings language="it">Impossibile salvare le impostazioni</Failed_Save_Settings>
+    <Error language="it">Errore</Error>
+    <Failed language="it">Non riuscita</Failed>
+    <Table language="it">tavolo</Table>
+    <Index language="it">Indice</Index>
+    <View language="it">Vista</View>
+    <Master_Table language="it">Tabella master</Master_Table>
+    <Sort language="it">Ordinamento</Sort>
+    <Asc language="it">Ascendente</Asc>
+    <Desc language="it">Discendente</Desc>
+    <Display_Settings language="it">Impostazioni di visualizzazione</Display_Settings>
+    <Sort_by language="it">Ordina per</Sort_by>
+    <Search_in language="it">Cerca In</Search_in>
+    <Search language="it">Ricerca</Search>
+    <Functions language="it">Funzioni</Functions>
+    <Strict_Search language="it">Ricerca rigorosa</Strict_Search>
+    <Run_Function language="it">Eseguire la funzione</Run_Function>
+    <Query language="it">Query</Query>
+    <Command language="it">Comando</Command>
+    <Error_No_DB language="it">Errore: Nessun Database è stato caricato</Error_No_DB>
+    <UI language="it">INTERFACCIA UTENTE</UI>
+    <Master_Table_Protected language="it">Sqlite_mastertable o 'Master tabella' è una tabella protetta. Per proteggere l'integrità del db non è possibile modificare questa tabella</Master_Table_Protected>
+    <Access_Denied language="it">Accesso negato</Access_Denied>
+    <App language="it">App</App>
+    <View_Function language="it">Funzione di visualizzazione</View_Function>
+    <User_Requested language="it">Richiesta utente</User_Requested>
+    <Listview_Width language="it">Larghezza di ListView</Listview_Width>
+    <Listview_Height language="it">Altezza di ListView</Listview_Height>
+    <Extensions language="it">Estensioni</Extensions>
+    <Deliminator language="it">Deliminator</Deliminator>
+    <Language language="it">Lingua</Language>
+    <Save_and_Close language="it">Salva e Chiudi</Save_and_Close>
+    <Close_wo_saving language="it">Chiudere senza salvare</Close_wo_saving>
+    <Failed_Load_Online_EULA language="it">Impossibile caricare online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="it">Registro auto</Auto_Log>
   </Language>
 </root>

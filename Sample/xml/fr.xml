@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="fr">Activer/désactiver des transactions</Toggle_Transaction_Log>
     <Refresh language="fr">Actualisation</Refresh>
     <Check_for_Updates language="fr">Check for Updates</Check_for_Updates>
-    <PXML language="fr">
-    </PXML>
+    <PXML language="fr">XML</PXML>
+    <PRGM_Start language="fr">Débuté du programme</PRGM_Start>
+    <Application language="fr">Application</Application>
+    <Failed_Save_Settings language="fr">Impossible d’enregistrer les paramètres</Failed_Save_Settings>
+    <Error language="fr">Erreur</Error>
+    <Failed language="fr">A échoué</Failed>
+    <Table language="fr">Tableau</Table>
+    <Index language="fr">Index</Index>
+    <View language="fr">Vue</View>
+    <Master_Table language="fr">Tableau de maître</Master_Table>
+    <Sort language="fr">Tri</Sort>
+    <Asc language="fr">Ordre croissant</Asc>
+    <Desc language="fr">Décroissant</Desc>
+    <Display_Settings language="fr">Paramètres d’affichage</Display_Settings>
+    <Sort_by language="fr">Trier par</Sort_by>
+    <Search_in language="fr">Cherchez à</Search_in>
+    <Search language="fr">Recherche</Search>
+    <Functions language="fr">Fonctions</Functions>
+    <Strict_Search language="fr">Recherche stricte</Strict_Search>
+    <Run_Function language="fr">Exécuter une fonction</Run_Function>
+    <Query language="fr">Requête</Query>
+    <Command language="fr">Commande</Command>
+    <Error_No_DB language="fr">Erreur : Aucune base de données n’a été chargé.</Error_No_DB>
+    <UI language="fr">INTERFACE UTILISATEUR</UI>
+    <Master_Table_Protected language="fr">Sqlite_mastertable ou « Master Table » est une table protégée. Pour protéger l’intégrité de la db, vous ne pouvez pas modifier ce tableau</Master_Table_Protected>
+    <Access_Denied language="fr">Accès refusé</Access_Denied>
+    <App language="fr">App</App>
+    <View_Function language="fr">Fonction de visualisation</View_Function>
+    <User_Requested language="fr">Demandée par utilisateur</User_Requested>
+    <Listview_Width language="fr">Largeur de ListView</Listview_Width>
+    <Listview_Height language="fr">Hauteur de ListView</Listview_Height>
+    <Extensions language="fr">Extensions</Extensions>
+    <Deliminator language="fr">Persistante</Deliminator>
+    <Language language="fr">Langue</Language>
+    <Save_and_Close language="fr">Enregistrez et fermez</Save_and_Close>
+    <Close_wo_saving language="fr">Fermer sans enregistrer les modifications</Close_wo_saving>
+    <Failed_Load_Online_EULA language="fr">Impossible de charger le CLUF en ligne</Failed_Load_Online_EULA>
+    <Auto_Log language="fr">Auto Journal</Auto_Log>
   </Language>
 </root>

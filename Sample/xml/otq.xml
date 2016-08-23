@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="otq">Registro transacciones palanca</Toggle_Transaction_Log>
     <Refresh language="otq">Actualización</Refresh>
     <Check_for_Updates language="otq">Honi actualizaciones</Check_for_Updates>
-    <PXML language="otq">
-    </PXML>
+    <PXML language="otq">XML</PXML>
+    <PRGM_Start language="otq">Programa iniciado</PRGM_Start>
+    <Application language="otq">Nt'ot'e</Application>
+    <Failed_Save_Settings language="otq">Hingi ar himbí guardar ar configuración</Failed_Save_Settings>
+    <Error language="otq">Error</Error>
+    <Failed language="otq">Ar himbí pwede</Failed>
+    <Table language="otq">Tabla</Table>
+    <Index language="otq">Índice</Index>
+    <View language="otq">Di nu'i</View>
+    <Master_Table language="otq">Tabla maestra</Master_Table>
+    <Sort language="otq">Ar klase</Sort>
+    <Asc language="otq">Ascendente</Asc>
+    <Desc language="otq">Descendente</Desc>
+    <Display_Settings language="otq">Configuración ar pantalla</Display_Settings>
+    <Sort_by language="otq">Ordenar nge</Sort_by>
+    <Search_in language="otq">Honi jar</Search_in>
+    <Search language="otq">Nthoni ar</Search>
+    <Functions language="otq">Ya 'befi</Functions>
+    <Strict_Search language="otq">Nthoni estricta</Strict_Search>
+    <Run_Function language="otq">Ejecutar ar función</Run_Function>
+    <Query language="otq">Consulta</Query>
+    <Command language="otq">Ts'edi</Command>
+    <Error_No_DB language="otq">Error: 'nar base ar datos ar xi cargado</Error_No_DB>
+    <UI language="otq">INTERFAZ USUARIO</UI>
+    <Master_Table_Protected language="otq">Sqlite_mastertable wa 'Master Table' ge 'nar tabla protegida. Pa proteger ntheki 'mui ar BD Hindi tsa̲ da editar nuna ar tabla</Master_Table_Protected>
+    <Access_Denied language="otq">Nthogi denegado</Access_Denied>
+    <App language="otq">Nt'ot'e</App>
+    <View_Function language="otq">Función thandi</View_Function>
+    <User_Requested language="otq">Usuario solicitado</User_Requested>
+    <Listview_Width language="otq">Anchura ListView</Listview_Width>
+    <Listview_Height language="otq">Altura ListView</Listview_Height>
+    <Extensions language="otq">Extensiones</Extensions>
+    <Deliminator language="otq">Deliminator</Deliminator>
+    <Language language="otq">Ar hñä</Language>
+    <Save_and_Close language="otq">Guardar ne cerrar</Save_and_Close>
+    <Close_wo_saving language="otq">Cerrar hinda guardar ar tse̲ yá mpa̲ti</Close_wo_saving>
+    <Failed_Load_Online_EULA language="otq">Hingi ar himbí cargar da EULA jar 'ñu</Failed_Load_Online_EULA>
+    <Auto_Log language="otq">Registro auto</Auto_Log>
   </Language>
 </root>

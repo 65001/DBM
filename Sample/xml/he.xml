@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="he">יומן הטרנזקציות של דו-מצבי</Toggle_Transaction_Log>
     <Refresh language="he">רענון</Refresh>
     <Check_for_Updates language="he">בדוק אם קיימים עדכונים</Check_for_Updates>
-    <PXML language="he">
-    </PXML>
+    <PXML language="he">XML</PXML>
+    <PRGM_Start language="he">התוכנית החלה</PRGM_Start>
+    <Application language="he">יישום</Application>
+    <Failed_Save_Settings language="he">שמירת הגדרות נכשלה</Failed_Save_Settings>
+    <Error language="he">שגיאה</Error>
+    <Failed language="he">נכשל</Failed>
+    <Table language="he">טבלה</Table>
+    <Index language="he">אינדקס</Index>
+    <View language="he">תצוגה</View>
+    <Master_Table language="he">טבלת מאסטר</Master_Table>
+    <Sort language="he">מיון</Sort>
+    <Asc language="he">בסדר עולה</Asc>
+    <Desc language="he">יורד</Desc>
+    <Display_Settings language="he">הגדרות התצוגה</Display_Settings>
+    <Sort_by language="he">מיין לפי</Sort_by>
+    <Search_in language="he">חפש ב</Search_in>
+    <Search language="he">חיפוש</Search>
+    <Functions language="he">פונקציות</Functions>
+    <Strict_Search language="he">חיפוש מדוקדק</Strict_Search>
+    <Run_Function language="he">להפעיל את הפונקציה</Run_Function>
+    <Query language="he">שאילתה</Query>
+    <Command language="he">הפקודה</Command>
+    <Error_No_DB language="he">שגיאה: אין נתונים נטענה</Error_No_DB>
+    <UI language="he">ממשק משתמש</UI>
+    <Master_Table_Protected language="he">Sqlite_mastertable או 'מאסטר טבלה' הוא טבלה מוגן. כדי להגן על שלמות במסד הנתונים לא ניתן לערוך את השולחן הזה</Master_Table_Protected>
+    <Access_Denied language="he">הגישה נדחתה</Access_Denied>
+    <App language="he">App</App>
+    <View_Function language="he">הפונקציה תצוגה</View_Function>
+    <User_Requested language="he">המשתמש המבוקש</User_Requested>
+    <Listview_Width language="he">רוחב Listview</Listview_Width>
+    <Listview_Height language="he">גובה Listview</Listview_Height>
+    <Extensions language="he">הרחבות</Extensions>
+    <Deliminator language="he">Deliminator</Deliminator>
+    <Language language="he">שפה</Language>
+    <Save_and_Close language="he">שמור ולסגור</Save_and_Close>
+    <Close_wo_saving language="he">סגור ללא שמירה</Close_wo_saving>
+    <Failed_Load_Online_EULA language="he">נכשל בטעינת EULA באינטרנט</Failed_Load_Online_EULA>
+    <Auto_Log language="he">כניסה אוטומטית</Auto_Log>
   </Language>
 </root>

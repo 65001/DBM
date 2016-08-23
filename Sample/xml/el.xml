@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="el">Εναλλαγή καταγραφής συναλλαγών</Toggle_Transaction_Log>
     <Refresh language="el">Ανανέωση</Refresh>
     <Check_for_Updates language="el">Έλεγχος για ενημερωμένες εκδόσεις</Check_for_Updates>
-    <PXML language="el">
-    </PXML>
+    <PXML language="el">XML</PXML>
+    <PRGM_Start language="el">Ξεκίνησε το πρόγραμμα</PRGM_Start>
+    <Application language="el">Εφαρμογή</Application>
+    <Failed_Save_Settings language="el">Απέτυχε η Αποθήκευση ρυθμίσεων</Failed_Save_Settings>
+    <Error language="el">Σφάλμα</Error>
+    <Failed language="el">Απέτυχε</Failed>
+    <Table language="el">Πίνακας</Table>
+    <Index language="el">Ευρετήριο</Index>
+    <View language="el">Προβολή</View>
+    <Master_Table language="el">Πίνακας κύριων</Master_Table>
+    <Sort language="el">Είδος</Sort>
+    <Asc language="el">Αύξουσα</Asc>
+    <Desc language="el">Φθίνουσα σειρά</Desc>
+    <Display_Settings language="el">Ρυθμίσεις οθόνης</Display_Settings>
+    <Sort_by language="el">Ταξινόμηση κατά</Sort_by>
+    <Search_in language="el">Ψάξτε σε</Search_in>
+    <Search language="el">Αναζήτηση</Search>
+    <Functions language="el">Λειτουργίες</Functions>
+    <Strict_Search language="el">Αυστηρή αναζήτησης</Strict_Search>
+    <Run_Function language="el">Εκτέλεση συνάρτησης</Run_Function>
+    <Query language="el">Ερώτημα</Query>
+    <Command language="el">Η εντολή</Command>
+    <Error_No_DB language="el">Σφάλμα: Δεν υπάρχει βάση δεδομένων έχει φορτωθεί</Error_No_DB>
+    <UI language="el">UI</UI>
+    <Master_Table_Protected language="el">Sqlite_mastertable ή «Master πίνακας» είναι ένα προστατευόμενο τραπέζι. Για την προστασία της ακεραιότητας της db δεν μπορείτε να επεξεργαστείτε αυτόν τον πίνακα</Master_Table_Protected>
+    <Access_Denied language="el">Δεν επιτρέπεται η πρόσβαση</Access_Denied>
+    <App language="el">App</App>
+    <View_Function language="el">Λειτουργία προβολής</View_Function>
+    <User_Requested language="el">Χρήστη που ζητούνται</User_Requested>
+    <Listview_Width language="el">Πλάτος ListView</Listview_Width>
+    <Listview_Height language="el">Ύψος ListView</Listview_Height>
+    <Extensions language="el">Επεκτάσεις</Extensions>
+    <Deliminator language="el">Deliminator</Deliminator>
+    <Language language="el">Γλώσσα</Language>
+    <Save_and_Close language="el">Αποθήκευση και κλείσιμο</Save_and_Close>
+    <Close_wo_saving language="el">Κλείστε χωρίς Αποθήκευση</Close_wo_saving>
+    <Failed_Load_Online_EULA language="el">Απέτυχε η φόρτωση ηλεκτρονική άδεια χρήσης τελικού χρήστη</Failed_Load_Online_EULA>
+    <Auto_Log language="el">Auto Log</Auto_Log>
   </Language>
 </root>

@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="mww">Toggle lw cav</Toggle_Transaction_Log>
     <Refresh language="mww">Kho kom tshiab</Refresh>
     <Check_for_Updates language="mww">Tshev tshiab</Check_for_Updates>
-    <PXML language="mww">
-    </PXML>
+    <PXML language="mww">XML</PXML>
+    <PRGM_Start language="mww">Kev pib</PRGM_Start>
+    <Application language="mww">Daim ntawv</Application>
+    <Failed_Save_Settings language="mww">Tejyam uas muaj tseg tau tej chaw</Failed_Save_Settings>
+    <Error language="mww">Yuam kev</Error>
+    <Failed language="mww">Ua tsis tau tejyam</Failed>
+    <Table language="mww">Cov lus</Table>
+    <Index language="mww">Index</Index>
+    <View language="mww">Saib</View>
+    <Master_Table language="mww">Siv cov lus</Master_Table>
+    <Sort language="mww">Tsi</Sort>
+    <Asc language="mww">Ascending</Asc>
+    <Desc language="mww">Nqis roob</Desc>
+    <Display_Settings language="mww">Tso saib tej chaw</Display_Settings>
+    <Sort_by language="mww">Tsi yog</Sort_by>
+    <Search_in language="mww">Nrhiav rau</Search_in>
+    <Search language="mww">Nrhiav</Search>
+    <Functions language="mww">Zog</Functions>
+    <Strict_Search language="mww">Nrhiav nruj</Strict_Search>
+    <Run_Function language="mww">Cav muaj nuj nqi</Run_Function>
+    <Query language="mww">Lus nug</Query>
+    <Command language="mww">Hais kom ua</Command>
+    <Error_No_DB language="mww">Yuam kev: Tsis muaj Database muaj tau loaded</Error_No_DB>
+    <UI language="mww">POVHWM POOB HAUJLWM</UI>
+    <Master_Table_Protected language="mww">Sqlite_mastertable 'Tswv rooj' yog ib cov lus tiv thaiv. Tiv thaiv lub sam xeeb txog qhov uas cov db koj tsis tau hloov cov lus no</Master_Table_Protected>
+    <Access_Denied language="mww">Ntawv tsis pom zoo</Access_Denied>
+    <App language="mww">APP</App>
+    <View_Function language="mww">Saib muaj nuj nqi</View_Function>
+    <User_Requested language="mww">Neeg thov</User_Requested>
+    <Listview_Width language="mww">Listview dav</Listview_Width>
+    <Listview_Height language="mww">Qhov siab Listview</Listview_Height>
+    <Extensions language="mww">Extensions</Extensions>
+    <Deliminator language="mww">Deliminator</Deliminator>
+    <Language language="mww">Lus</Language>
+    <Save_and_Close language="mww">Txuag thiab kaw</Save_and_Close>
+    <Close_wo_saving language="mww">Kaw tsis txuag</Close_wo_saving>
+    <Failed_Load_Online_EULA language="mww">Tejyam uas ntsaws hauv internet EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="mww">Nws pib cav</Auto_Log>
   </Language>
 </root>

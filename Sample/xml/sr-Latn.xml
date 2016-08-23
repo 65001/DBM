@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="sr-Latn">Uključi/isključi evidencije transakcija</Toggle_Transaction_Log>
     <Refresh language="sr-Latn">Osvježi</Refresh>
     <Check_for_Updates language="sr-Latn">Proverite da li</Check_for_Updates>
-    <PXML language="sr-Latn">
-    </PXML>
+    <PXML language="sr-Latn">XML</PXML>
+    <PRGM_Start language="sr-Latn">Program je počeo</PRGM_Start>
+    <Application language="sr-Latn">Aplikacija</Application>
+    <Failed_Save_Settings language="sr-Latn">Sačuvaj postavke nije uspjelo</Failed_Save_Settings>
+    <Error language="sr-Latn">Greška</Error>
+    <Failed language="sr-Latn">Nije uspelo</Failed>
+    <Table language="sr-Latn">Tabela</Table>
+    <Index language="sr-Latn">Indeks</Index>
+    <View language="sr-Latn">Prikaz</View>
+    <Master_Table language="sr-Latn">Gospodar tabele</Master_Table>
+    <Sort language="sr-Latn">Sortiranje</Sort>
+    <Asc language="sr-Latn">Rastućem</Asc>
+    <Desc language="sr-Latn">Opadajućem</Desc>
+    <Display_Settings language="sr-Latn">Postavke prikaza</Display_Settings>
+    <Sort_by language="sr-Latn">Sortiraj po</Sort_by>
+    <Search_in language="sr-Latn">Pretraži u</Search_in>
+    <Search language="sr-Latn">Pretraga</Search>
+    <Functions language="sr-Latn">Funkcije</Functions>
+    <Strict_Search language="sr-Latn">Stroga pretrage</Strict_Search>
+    <Run_Function language="sr-Latn">Pokreni funkciju</Run_Function>
+    <Query language="sr-Latn">Upit</Query>
+    <Command language="sr-Latn">Komanda</Command>
+    <Error_No_DB language="sr-Latn">Greška: Nema baze podataka je učitana</Error_No_DB>
+    <UI language="sr-Latn">KORISNIČKI INTERFEJS</UI>
+    <Master_Table_Protected language="sr-Latn">Sqlite_mastertable ili 'Gospodar tabela' je zaštićena sto. Da zaštiti integritet u db nije moguće uređivati u ovoj tabeli</Master_Table_Protected>
+    <Access_Denied language="sr-Latn">Pristup odbijen</Access_Denied>
+    <App language="sr-Latn">App</App>
+    <View_Function language="sr-Latn">Prikaz funkcija</View_Function>
+    <User_Requested language="sr-Latn">Korisnik je tražio</User_Requested>
+    <Listview_Width language="sr-Latn">ListView širina</Listview_Width>
+    <Listview_Height language="sr-Latn">ListView visina</Listview_Height>
+    <Extensions language="sr-Latn">Proširenja</Extensions>
+    <Deliminator language="sr-Latn">Deliminator</Deliminator>
+    <Language language="sr-Latn">Jezik</Language>
+    <Save_and_Close language="sr-Latn">Sačuvaj i zatvori</Save_and_Close>
+    <Close_wo_saving language="sr-Latn">Zatvorili bez čuvanja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sr-Latn">Online ugovora EULA nije uspelo</Failed_Load_Online_EULA>
+    <Auto_Log language="sr-Latn">Automatske evidencije</Auto_Log>
   </Language>
 </root>

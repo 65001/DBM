@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="sl">Preklop dnevnikom</Toggle_Transaction_Log>
     <Refresh language="sl">Osveži</Refresh>
     <Check_for_Updates language="sl">Preveri za posodobitve</Check_for_Updates>
-    <PXML language="sl">
-    </PXML>
+    <PXML language="sl">XML</PXML>
+    <PRGM_Start language="sl">Program se je začel</PRGM_Start>
+    <Application language="sl">Uporaba</Application>
+    <Failed_Save_Settings language="sl">Ni bilo mogoče shraniti nastavitve</Failed_Save_Settings>
+    <Error language="sl">Napaka</Error>
+    <Failed language="sl">Ni uspelo</Failed>
+    <Table language="sl">Tabela</Table>
+    <Index language="sl">Indeks</Index>
+    <View language="sl">Pogled</View>
+    <Master_Table language="sl">Mojster tabela</Master_Table>
+    <Sort language="sl">Razvrščanje</Sort>
+    <Asc language="sl">Naraščajoče</Asc>
+    <Desc language="sl">Padajoče</Desc>
+    <Display_Settings language="sl">Nastavitve zaslona</Display_Settings>
+    <Sort_by language="sl">Razvrsti po</Sort_by>
+    <Search_in language="sl">Iskanje v</Search_in>
+    <Search language="sl">Išči</Search>
+    <Functions language="sl">Funkcije</Functions>
+    <Strict_Search language="sl">Strogo Išči</Strict_Search>
+    <Run_Function language="sl">Funkcijo</Run_Function>
+    <Query language="sl">Poizvedbe</Query>
+    <Command language="sl">Ukaz</Command>
+    <Error_No_DB language="sl">Zmota: Nobene zbirke podatkov je bil naložen</Error_No_DB>
+    <UI language="sl">UI</UI>
+    <Master_Table_Protected language="sl">Sqlite_mastertable ali "Master tabele" je zaščitenih tabelo. Za zaščito integritete db ne morete urejati v tabeli</Master_Table_Protected>
+    <Access_Denied language="sl">Dostop zavrnjen</Access_Denied>
+    <App language="sl">App</App>
+    <View_Function language="sl">Funkcijo pogled</View_Function>
+    <User_Requested language="sl">Zahteva uporabnika</User_Requested>
+    <Listview_Width language="sl">Listview širina</Listview_Width>
+    <Listview_Height language="sl">Listview višina</Listview_Height>
+    <Extensions language="sl">Razširitve</Extensions>
+    <Deliminator language="sl">Deliminator</Deliminator>
+    <Language language="sl">Jezik</Language>
+    <Save_and_Close language="sl">Shrani in zapri</Save_and_Close>
+    <Close_wo_saving language="sl">Zapreti brez shranjevanja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sl">Pri nalaganju online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="sl">Auto Log</Auto_Log>
   </Language>
 </root>

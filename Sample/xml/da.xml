@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="da">Skifte transaktionsjournal</Toggle_Transaction_Log>
     <Refresh language="da">Opdater</Refresh>
     <Check_for_Updates language="da">Check for opdateringer</Check_for_Updates>
-    <PXML language="da">
-    </PXML>
+    <PXML language="da">XML</PXML>
+    <PRGM_Start language="da">Programmet er startet</PRGM_Start>
+    <Application language="da">Ansøgning</Application>
+    <Failed_Save_Settings language="da">Kunne ikke gemme indstillinger</Failed_Save_Settings>
+    <Error language="da">Fejl</Error>
+    <Failed language="da">Mislykkedes</Failed>
+    <Table language="da">Tabel</Table>
+    <Index language="da">Indeks</Index>
+    <View language="da">Se</View>
+    <Master_Table language="da">Master tabel</Master_Table>
+    <Sort language="da">Sorter</Sort>
+    <Asc language="da">Stigende</Asc>
+    <Desc language="da">Faldende</Desc>
+    <Display_Settings language="da">Skærmindstillinger</Display_Settings>
+    <Sort_by language="da">Sorter efter</Sort_by>
+    <Search_in language="da">Søg i</Search_in>
+    <Search language="da">Søg</Search>
+    <Functions language="da">Funktioner</Functions>
+    <Strict_Search language="da">Streng Søg</Strict_Search>
+    <Run_Function language="da">Kør funktionen</Run_Function>
+    <Query language="da">Forespørgsel</Query>
+    <Command language="da">Kommando</Command>
+    <Error_No_DB language="da">Fejl: Ingen Database er blevet indlæst</Error_No_DB>
+    <UI language="da">UI</UI>
+    <Master_Table_Protected language="da">Sqlite_mastertable eller 'Master Table' er en beskyttet tabel. For at beskytte integriteten af db kan du ikke redigere denne tabel</Master_Table_Protected>
+    <Access_Denied language="da">Adgang nægtet</Access_Denied>
+    <App language="da">App</App>
+    <View_Function language="da">View-funktion</View_Function>
+    <User_Requested language="da">Brugeren anmodes om</User_Requested>
+    <Listview_Width language="da">ListView bredde</Listview_Width>
+    <Listview_Height language="da">ListView højde</Listview_Height>
+    <Extensions language="da">Extensions</Extensions>
+    <Deliminator language="da">Deliminator</Deliminator>
+    <Language language="da">Sprog</Language>
+    <Save_and_Close language="da">Gem og luk</Save_and_Close>
+    <Close_wo_saving language="da">Luk uden at gemme</Close_wo_saving>
+    <Failed_Load_Online_EULA language="da">Kunne ikke indlæse online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="da">Auto Log</Auto_Log>
   </Language>
 </root>
