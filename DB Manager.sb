@@ -1153,13 +1153,15 @@ Sub Export_HTML
   
   HTML_Statement = "" 
   HTML_Statement = "<!DOCTYPE html>"+CLLF+"<html>"+CLLF+TabKey+"<title>" + Default_Table +" Exported</title>" +CLLF + CLLF
-  HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}table {border-collapse: collapse; width: 100%;}th, td {padding: 15px;}tr:hover{background-color:#f5f5f5}"
+  HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}" +CLLF+TabKey+TabKey+TabKey+"table {border-collapse: collapse; width: 100%;}" +CLLF+TabKey+TabKey+TabKey+"th,td {padding: 15px;}" 
+  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}"
   HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
   HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
   HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->" + CLLF 
   HTML_Statement = HTML_Statement + TabKey +"</head>" + CLLF + CLLF  
-  HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"+CLLF + TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF
-  
+  HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"
+  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr> "  +CLLF + TabKey+TabKey+Tabkey+Tabkey+ TabKey + "<td id = " +DoubleQuotesCharacter +"Main"+ DoubleQuotesCharacter +" + colspan = " + DoubleQuotesCharacter + Array.GetItemCount(Export_HTML_SCHEMA ) + DoubleQuotesCharacter +">" + Default_Table +"</td>"
+  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+"</tr>" +CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr>"+CLLF 
   
   For EXPORT_HTML_I = 1 To  Array.GetItemCount(Export_HTML_SCHEMA)
     HTML_Statement = HTML_Statement + TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I]["name"] +"</th>" + CLLF

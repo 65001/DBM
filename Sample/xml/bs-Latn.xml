@@ -21,7 +21,43 @@
     <Toggle_Transaction_Log language="bs-Latn">Uključi/isključi Transakcijski zapisnik</Toggle_Transaction_Log>
     <Refresh language="bs-Latn">Osvježi</Refresh>
     <Check_for_Updates language="bs-Latn">Provjeri ima li ažuriranja</Check_for_Updates>
-    <PXML language="bs-Latn">
-    </PXML>
+    <PXML language="bs-Latn">XML</PXML>
+    <PRGM_Start language="bs-Latn">Program je započeo</PRGM_Start>
+    <Application language="bs-Latn">Aplikacija</Application>
+    <Failed_Save_Settings language="bs-Latn">Neuspjelo spremanje postavki</Failed_Save_Settings>
+    <Error language="bs-Latn">Pogreška</Error>
+    <Failed language="bs-Latn">Nije uspjelo</Failed>
+    <Table language="bs-Latn">Tablica</Table>
+    <Index language="bs-Latn">Indeks</Index>
+    <View language="bs-Latn">Prikaz</View>
+    <Master_Table language="bs-Latn">Master tablice</Master_Table>
+    <Sort language="bs-Latn">Sortiraj</Sort>
+    <Asc language="bs-Latn">Uzlazno</Asc>
+    <Desc language="bs-Latn">Silazno</Desc>
+    <Display_Settings language="bs-Latn">Postavke prikaza</Display_Settings>
+    <Sort_by language="bs-Latn">Složi po</Sort_by>
+    <Search_in language="bs-Latn">Traži U:</Search_in>
+    <Search language="bs-Latn">Pretraživanje</Search>
+    <Functions language="bs-Latn">Funkcije</Functions>
+    <Strict_Search language="bs-Latn">Stroga traži</Strict_Search>
+    <Run_Function language="bs-Latn">Pokrenite funkciju</Run_Function>
+    <Query language="bs-Latn">Upit</Query>
+    <Command language="bs-Latn">Naredba</Command>
+    <Error_No_DB language="bs-Latn">Greška: Nema podataka je učitan</Error_No_DB>
+    <UI language="bs-Latn">UI</UI>
+    <Master_Table_Protected language="bs-Latn">Sqlite_mastertable ili 'Gospodar stol' je zaštićena stol. Kako bi zaštitili integritet db nije moguće uređivati ovu tablicu</Master_Table_Protected>
+    <Access_Denied language="bs-Latn">Pristup odbijen</Access_Denied>
+    <App language="bs-Latn">Aplikacija</App>
+    <View_Function language="bs-Latn">Prikaz funkcija</View_Function>
+    <User_Requested language="bs-Latn">Korisnik je zatražio</User_Requested>
+    <Listview_Width language="bs-Latn">Prikaz popisa širina</Listview_Width>
+    <Listview_Height language="bs-Latn">Prikaz popisa visina</Listview_Height>
+    <Extensions language="bs-Latn">Proširenja</Extensions>
+    <Deliminator language="bs-Latn">Deliminator</Deliminator>
+    <Language language="bs-Latn">Jezik</Language>
+    <Save_and_Close language="bs-Latn">Sačuvaj i zatvori</Save_and_Close>
+    <Close_wo_saving language="bs-Latn">Zatvorite bez spremanja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="bs-Latn">Nije uspjelo Učitavanje on-line EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="bs-Latn">Automatska prijava</Auto_Log>
   </Language>
 </root>
