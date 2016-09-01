@@ -57,5 +57,16 @@
     <Language language="ro">Limba</Language>
     <Save_and_Close language="ro">Salvare şi închidere</Save_and_Close>
     <Close_wo_saving language="ro">Închide fără salvare</Close_wo_saving>
+    <Failed_Load_Online_EULA language="ro">Failed la spre load online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="ro">Auto jurnal</Auto_Log>
+    <Export_HTML_Schema language="ro">Export HTML schemă în numele </Export_HTML_Schema>
+    <Export_HTML_Data language="ro">Export date HTML în numele </Export_HTML_Data>
+    <Check_Log language="ro">Eroare: Vă rugăm să verificaţi jurnalul pentru detalii</Check_Log>
+    <Query_Error language="ro">Eroare de interogare</Query_Error>
+    <Export_CSV language="ro">CSV ÎN NUMELE DE EXPORT </Export_CSV>
+    <Export_SQL_SCHEMA language="ro">Export SQL - SCHEMA - în numele </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="ro">Export SQL - SQL - în numele </Export_SQL_SQL>
+    <Export_XML language="ro">EXPORT XML ÎN NUMELE</Export_XML>
+    <System language="ro">Sistem</System>
   </Language>
 </root>

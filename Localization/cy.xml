@@ -57,5 +57,16 @@
     <Language language="cy">Iaith</Language>
     <Save_and_Close language="cy">Cadw a chau</Save_and_Close>
     <Close_wo_saving language="cy">Gau heb gadw</Close_wo_saving>
+    <Failed_Load_Online_EULA language="cy">Wedi methu llwytho EULA ar-lein</Failed_Load_Online_EULA>
+    <Auto_Log language="cy">Cofnod Awto</Auto_Log>
+    <Export_HTML_Schema language="cy">Allforio SGEMA HTML ar ran y </Export_HTML_Schema>
+    <Export_HTML_Data language="cy">Allforio DATA HTML ar ran y </Export_HTML_Data>
+    <Check_Log language="cy">Gwall: Os gwelwch yn dda edrychwch yn y log ar gyfer manylion</Check_Log>
+    <Query_Error language="cy">Gwall ymholiad</Query_Error>
+    <Export_CSV language="cy">CSV ALLFORIO AR RAN Y </Export_CSV>
+    <Export_SQL_SCHEMA language="cy">Allforio SQL-SGEMA-ar ran y </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="cy">Allforio SQL-SQL-ar ran y </Export_SQL_SQL>
+    <Export_XML language="cy">ALLGLUDO XML AR RAN Y</Export_XML>
+    <System language="cy">System</System>
   </Language>
 </root>

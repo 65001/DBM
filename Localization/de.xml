@@ -57,5 +57,16 @@
     <Language language="de">Sprache</Language>
     <Save_and_Close language="de">Speichern und schließen</Save_and_Close>
     <Close_wo_saving language="de">Schließen ohne speichern</Close_wo_saving>
+    <Failed_Load_Online_EULA language="de">Fehler beim Laden von Online-EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="de">Auto Login</Auto_Log>
+    <Export_HTML_Schema language="de">HTML-SCHEMA für Export </Export_HTML_Schema>
+    <Export_HTML_Data language="de">Export von HTML-Daten im Auftrag von </Export_HTML_Data>
+    <Check_Log language="de">Fehler: Bitte überprüfen Sie das Protokoll für details</Check_Log>
+    <Query_Error language="de">Abfragefehler</Query_Error>
+    <Export_CSV language="de">EXPORT-CSV IM AUFTRAG VON </Export_CSV>
+    <Export_SQL_SCHEMA language="de">SQL - SCHEMA - für Export </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="de">SQL - SQL - für Export </Export_SQL_SQL>
+    <Export_XML language="de">EXPORT XML IM AUFTRAG VON</Export_XML>
+    <System language="de">System</System>
   </Language>
 </root>

@@ -57,5 +57,16 @@
     <Language language="tr">Dil</Language>
     <Save_and_Close language="tr">Kaydet ve Kapat</Save_and_Close>
     <Close_wo_saving language="tr">Kaydetmeden kapatın</Close_wo_saving>
+    <Failed_Load_Online_EULA language="tr">Online EULA yüklenemedi</Failed_Load_Online_EULA>
+    <Auto_Log language="tr">Otomatik günlük</Auto_Log>
+    <Export_HTML_Schema language="tr">İhracat HTML şema adına </Export_HTML_Schema>
+    <Export_HTML_Data language="tr">İhracat HTML veri adına </Export_HTML_Data>
+    <Check_Log language="tr">Hata: Lütfen ayrıntılar için günlüğünü denetleyin</Check_Log>
+    <Query_Error language="tr">Sorgu hatası</Query_Error>
+    <Export_CSV language="tr">ADINA CSV VERME </Export_CSV>
+    <Export_SQL_SCHEMA language="tr">Adına SQL - şema - ihracat </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="tr">Adına SQL - SQL - ihracat </Export_SQL_SQL>
+    <Export_XML language="tr">ADINA XML VERME</Export_XML>
+    <System language="tr">Sistem</System>
   </Language>
 </root>

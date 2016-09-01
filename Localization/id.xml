@@ -57,5 +57,16 @@
     <Language language="id">Bahasa</Language>
     <Save_and_Close language="id">Simpan dan tutup</Save_and_Close>
     <Close_wo_saving language="id">Tutup tanpa menyimpan</Close_wo_saving>
+    <Failed_Load_Online_EULA language="id">Gagal memuat online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="id">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="id">SKEMA HTML ekspor bertindak untuk </Export_HTML_Schema>
+    <Export_HTML_Data language="id">Ekspor DATA HTML bertindak untuk </Export_HTML_Data>
+    <Check_Log language="id">Kesalahan: Silakan periksa log untuk rincian</Check_Log>
+    <Query_Error language="id">Permintaan kesalahan</Query_Error>
+    <Export_CSV language="id">CSV EKSPOR BERTINDAK UNTUK </Export_CSV>
+    <Export_SQL_SCHEMA language="id">Ekspor SQL - skema - bertindak untuk </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="id">Ekspor SQL - SQL - bertindak untuk </Export_SQL_SQL>
+    <Export_XML language="id">EKSPOR XML BERTINDAK UNTUK</Export_XML>
+    <System language="id">Sistem</System>
   </Language>
 </root>

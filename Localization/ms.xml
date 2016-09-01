@@ -57,5 +57,16 @@
     <Language language="ms">Bahasa</Language>
     <Save_and_Close language="ms">Simpan dan tutup</Save_and_Close>
     <Close_wo_saving language="ms">Tutup tanpa Simpan</Close_wo_saving>
+    <Failed_Load_Online_EULA language="ms">Gagal untuk memuatkan EULA dalam talian</Failed_Load_Online_EULA>
+    <Auto_Log language="ms">Log masuk automatik</Auto_Log>
+    <Export_HTML_Schema language="ms">SKEMA HTML eksport bagi pihak </Export_HTML_Schema>
+    <Export_HTML_Data language="ms">Mengeksport DATA HTML bagi pihak </Export_HTML_Data>
+    <Check_Log language="ms">Ralat: Sila periksa log untuk mendapatkan butiran</Check_Log>
+    <Query_Error language="ms">Ralat pertanyaan</Query_Error>
+    <Export_CSV language="ms">CSV EKSPORT BAGI PIHAK </Export_CSV>
+    <Export_SQL_SCHEMA language="ms">Eksport SQL - SKEMA - bagi pihak </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="ms">Eksport SQL - SQL - bagi pihak </Export_SQL_SQL>
+    <Export_XML language="ms">XML EKSPORT BAGI PIHAK</Export_XML>
+    <System language="ms">Sistem</System>
   </Language>
 </root>

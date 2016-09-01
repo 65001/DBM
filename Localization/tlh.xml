@@ -57,5 +57,16 @@
     <Language language="tlh">Hol</Language>
     <Save_and_Close language="tlh">toD 'ej</Save_and_Close>
     <Close_wo_saving language="tlh">HurDaq Saving SoQ</Close_wo_saving>
+    <Failed_Load_Online_EULA language="tlh">online eula load luj</Failed_Load_Online_EULA>
+    <Auto_Log language="tlh">auto QonoS</Auto_Log>
+    <Export_HTML_Schema language="tlh">export HTML SCHEMA behalf </Export_HTML_Schema>
+    <Export_HTML_Data language="tlh">HTML De' behalf export </Export_HTML_Data>
+    <Check_Log language="tlh">Qagh: DubelmoHchugh details QonoS check</Check_Log>
+    <Query_Error language="tlh">query Qagh</Query_Error>
+    <Export_CSV language="tlh">EXPORT CSV BEHALF </Export_CSV>
+    <Export_SQL_SCHEMA language="tlh">sql-SCHEMA-export behalf </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="tlh">sql-sql-export behalf </Export_SQL_SQL>
+    <Export_XML language="tlh">EXPORT XML BEHALF</Export_XML>
+    <System language="tlh">pat</System>
   </Language>
 </root>

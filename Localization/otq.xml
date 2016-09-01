@@ -57,5 +57,16 @@
     <Language language="otq">Ar hñä</Language>
     <Save_and_Close language="otq">Guardar ne cerrar</Save_and_Close>
     <Close_wo_saving language="otq">Cerrar hinda guardar ar tse̲ yá mpa̲ti</Close_wo_saving>
+    <Failed_Load_Online_EULA language="otq">Hingi ar himbí cargar da EULA jar 'ñu</Failed_Load_Online_EULA>
+    <Auto_Log language="otq">Registro auto</Auto_Log>
+    <Export_HTML_Schema language="otq">Exportación HTML esquema jar thuhuu ar </Export_HTML_Schema>
+    <Export_HTML_Data language="otq">Exportación datos HTML jar thuhuu ar </Export_HTML_Data>
+    <Check_Log language="otq">Error: Jaki ar mäte, compruebe registro pa mäs detalles</Check_Log>
+    <Query_Error language="otq">Consulta Error</Query_Error>
+    <Export_CSV language="otq">EXPORTAR CSV A NOMBRE AR </Export_CSV>
+    <Export_SQL_SCHEMA language="otq">Exportar SQL — esquema — jar thuhuu ar </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="otq">Exportar da SQL — SQL — jar thuhuu ar </Export_SQL_SQL>
+    <Export_XML language="otq">EXPORTACIÓN XML JAR THUHUU AR</Export_XML>
+    <System language="otq">Ko ar</System>
   </Language>
 </root>

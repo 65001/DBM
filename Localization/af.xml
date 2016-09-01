@@ -57,5 +57,16 @@
     <Language language="af">Taal</Language>
     <Save_and_Close language="af">Stoor en sluit</Save_and_Close>
     <Close_wo_saving language="af">Sonder om te stoor sluit</Close_wo_saving>
+    <Failed_Load_Online_EULA language="af">Kon nie laai nie aanlyn EINDGEBRUIKERLISENSIEOOREENKOMS</Failed_Load_Online_EULA>
+    <Auto_Log language="af">Outomatiese aanteken</Auto_Log>
+    <Export_HTML_Schema language="af">Uitvoer HTML skema valideer nie namens </Export_HTML_Schema>
+    <Export_HTML_Data language="af">HTML DATA namens uitvoer </Export_HTML_Data>
+    <Check_Log language="af">Fout: Kyk asseblief die teken vir besonderhede</Check_Log>
+    <Query_Error language="af">Navraag fout</Query_Error>
+    <Export_CSV language="af">UITVOER CSV NAMENS </Export_CSV>
+    <Export_SQL_SCHEMA language="af">SQL - skema valideer nie - uitvoer namens </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="af">SQL - SQL - uitvoer namens </Export_SQL_SQL>
+    <Export_XML language="af">UITVOER XML NAMENS</Export_XML>
+    <System language="af">Stelsel</System>
   </Language>
 </root>

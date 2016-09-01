@@ -57,5 +57,16 @@
     <Language language="mww">Lus</Language>
     <Save_and_Close language="mww">Txuag thiab kaw</Save_and_Close>
     <Close_wo_saving language="mww">Kaw tsis txuag</Close_wo_saving>
+    <Failed_Load_Online_EULA language="mww">Tejyam uas ntsaws hauv internet EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="mww">Nws pib cav</Auto_Log>
+    <Export_HTML_Schema language="mww">Export HTML SCHEMA fill </Export_HTML_Schema>
+    <Export_HTML_Data language="mww">Cov ntaub ntawv HTML export fill </Export_HTML_Data>
+    <Check_Log language="mww">Yuam kev: Thov kos lub cav kom paub meej</Check_Log>
+    <Query_Error language="mww">Lus nug yuam kev</Query_Error>
+    <Export_CSV language="mww">EXPORT CSV FILL </Export_CSV>
+    <Export_SQL_SCHEMA language="mww">Export - SCHEMA - SQL fill </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="mww">Export - SQL - SQL fill </Export_SQL_SQL>
+    <Export_XML language="mww">EXPORT XML FILL</Export_XML>
+    <System language="mww">Lawv</System>
   </Language>
 </root>

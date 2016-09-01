@@ -57,5 +57,16 @@
     <Language language="cs">Jazyk</Language>
     <Save_and_Close language="cs">Uložit a zavřít</Save_and_Close>
     <Close_wo_saving language="cs">Zavřít bez uložení</Close_wo_saving>
+    <Failed_Load_Online_EULA language="cs">Nepodařilo se načíst online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="cs">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="cs">Exportovat schéma HTML jménem </Export_HTML_Schema>
+    <Export_HTML_Data language="cs">Exportovat DATA HTML jménem </Export_HTML_Data>
+    <Check_Log language="cs">Chyba: Zkontrolujte podrobnosti v protokolu</Check_Log>
+    <Query_Error language="cs">Chyba dotazu</Query_Error>
+    <Export_CSV language="cs">EXPORTOVAT CSV JMÉNEM </Export_CSV>
+    <Export_SQL_SCHEMA language="cs">Exportovat SQL - schématu - jménem </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="cs">Exportovat SQL - SQL - jménem </Export_SQL_SQL>
+    <Export_XML language="cs">EXPORTOVAT XML JMÉNEM</Export_XML>
+    <System language="cs">Systém</System>
   </Language>
 </root>

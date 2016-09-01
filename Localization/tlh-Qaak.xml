@@ -57,5 +57,16 @@
     <Language language="tlh-Qaak"></Language>
     <Save_and_Close language="tlh-Qaak"> </Save_and_Close>
     <Close_wo_saving language="tlh-Qaak">  </Close_wo_saving>
+    <Failed_Load_Online_EULA language="tlh-Qaak">   </Failed_Load_Online_EULA>
+    <Auto_Log language="tlh-Qaak"> </Auto_Log>
+    <Export_HTML_Schema language="tlh-Qaak">    </Export_HTML_Schema>
+    <Export_HTML_Data language="tlh-Qaak">    </Export_HTML_Data>
+    <Check_Log language="tlh-Qaak">:    </Check_Log>
+    <Query_Error language="tlh-Qaak"> </Query_Error>
+    <Export_CSV language="tlh-Qaak">   </Export_CSV>
+    <Export_SQL_SCHEMA language="tlh-Qaak">--  </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="tlh-Qaak">--  </Export_SQL_SQL>
+    <Export_XML language="tlh-Qaak">  </Export_XML>
+    <System language="tlh-Qaak"></System>
   </Language>
 </root>

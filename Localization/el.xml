@@ -57,5 +57,16 @@
     <Language language="el">Γλώσσα</Language>
     <Save_and_Close language="el">Αποθήκευση και κλείσιμο</Save_and_Close>
     <Close_wo_saving language="el">Κλείστε χωρίς Αποθήκευση</Close_wo_saving>
+    <Failed_Load_Online_EULA language="el">Απέτυχε η φόρτωση ηλεκτρονική άδεια χρήσης τελικού χρήστη</Failed_Load_Online_EULA>
+    <Auto_Log language="el">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="el">Εξαγωγή HTML ΣΧΉΜΑΤΟΣ εκ μέρους του </Export_HTML_Schema>
+    <Export_HTML_Data language="el">Εξαγωγή δεδομένων HTML εκ μέρους του </Export_HTML_Data>
+    <Check_Log language="el">Σφάλμα: Παρακαλώ ελέγξτε το αρχείο καταγραφής για λεπτομέρειες</Check_Log>
+    <Query_Error language="el">Σφάλμα ερωτήματος</Query_Error>
+    <Export_CSV language="el">ΕΞΑΓΩΓΙΚΈΣ CSV ΕΚ ΜΈΡΟΥΣ ΤΟΥ </Export_CSV>
+    <Export_SQL_SCHEMA language="el">Εξαγωγή SQL - σχήμα - εκ μέρους του </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="el">Εξαγωγή SQL - SQL - εκ μέρους του </Export_SQL_SQL>
+    <Export_XML language="el">ΕΞΑΓΩΓΉ XML ΕΚ ΜΈΡΟΥΣ ΤΟΥ</Export_XML>
+    <System language="el">Σύστημα</System>
   </Language>
 </root>

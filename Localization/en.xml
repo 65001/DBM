@@ -57,5 +57,16 @@
     <Language language="en">Language</Language>
     <Save_and_Close language="en">Save and Close</Save_and_Close>
     <Close_wo_saving language="en">Close without Saving</Close_wo_saving>
+    <Failed_Load_Online_EULA language="en">Failed to load online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="en">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="en">Export HTML SCHEMA on behalf of </Export_HTML_Schema>
+    <Export_HTML_Data language="en">Export HTML DATA on behalf of </Export_HTML_Data>
+    <Check_Log language="en">Error : Please check the log for details</Check_Log>
+    <Query_Error language="en">Query Error</Query_Error>
+    <Export_CSV language="en">EXPORT CSV ON BEHALF OF </Export_CSV>
+    <Export_SQL_SCHEMA language="en">Export SQL - SCHEMA - On behalf of </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="en">Export SQL - SQL - On behalf of </Export_SQL_SQL>
+    <Export_XML language="en">EXPORT XML ON BEHALF OF</Export_XML>
+    <System language="en">System</System>
   </Language>
 </root>

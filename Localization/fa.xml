@@ -57,5 +57,16 @@
     <Language language="fa">زبان</Language>
     <Save_and_Close language="fa">ذخیره و بستن</Save_and_Close>
     <Close_wo_saving language="fa">بستن بدون ذخیره</Close_wo_saving>
+    <Failed_Load_Online_EULA language="fa">آنلاین EULA بارگیری نشد</Failed_Load_Online_EULA>
+    <Auto_Log language="fa">ورود به سیستم خودکار</Auto_Log>
+    <Export_HTML_Schema language="fa">طرح کلی اچ صادرات از طرف </Export_HTML_Schema>
+    <Export_HTML_Data language="fa">صادرات داده های متنی از طرف </Export_HTML_Data>
+    <Check_Log language="fa">خطا: ورود به سیستم برای اطلاعات بیشتر لطفا</Check_Log>
+    <Query_Error language="fa">پرس و جو خطا</Query_Error>
+    <Export_CSV language="fa">صادرات CSV از طرف </Export_CSV>
+    <Export_SQL_SCHEMA language="fa">صادرات SQL - طرح - از طرف </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="fa">صادرات SQL - SQL - از طرف </Export_SQL_SQL>
+    <Export_XML language="fa">صادرات XML از طرف</Export_XML>
+    <System language="fa">سیستم</System>
   </Language>
 </root>

@@ -57,5 +57,16 @@
     <Language language="ur">زبان</Language>
     <Save_and_Close language="ur">محفوظ کریں اور بند کریں</Save_and_Close>
     <Close_wo_saving language="ur">محفوظ کیے بغیر بند کریں</Close_wo_saving>
+    <Failed_Load_Online_EULA language="ur">آن لائن یولہ لوڈ نہیں کر سکا</Failed_Load_Online_EULA>
+    <Auto_Log language="ur">آٹو لاگ ان کریں</Auto_Log>
+    <Export_HTML_Schema language="ur">HTML شجرہ کے ایما پر برآمد کریں </Export_HTML_Schema>
+    <Export_HTML_Data language="ur">کے ایما پر HTML کوائف برآمد کریں </Export_HTML_Data>
+    <Check_Log language="ur">نقص: براہ مہربانی تفصیلات کے لیے لاگ کی پڑتال کریں</Check_Log>
+    <Query_Error language="ur">طلب نقص</Query_Error>
+    <Export_CSV language="ur">کے ایما پر CSV برآمد کریں </Export_CSV>
+    <Export_SQL_SCHEMA language="ur">کے ایما پر SQL - شجرہ - برآمد کریں </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="ur">کے ایما پر SQL - SQL - برآمد کریں </Export_SQL_SQL>
+    <Export_XML language="ur">XML کے ایما پر برآمد کریں</Export_XML>
+    <System language="ur">نظام</System>
   </Language>
 </root>

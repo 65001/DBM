@@ -57,5 +57,16 @@
     <Language language="it">Lingua</Language>
     <Save_and_Close language="it">Salva e Chiudi</Save_and_Close>
     <Close_wo_saving language="it">Chiudere senza salvare</Close_wo_saving>
+    <Failed_Load_Online_EULA language="it">Impossibile caricare online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="it">Registro auto</Auto_Log>
+    <Export_HTML_Schema language="it">Esportazione HTML SCHEMA per conto di </Export_HTML_Schema>
+    <Export_HTML_Data language="it">Esportazione HTML dati per conto di </Export_HTML_Data>
+    <Check_Log language="it">Errore: Si prega di controllare il registro per i dettagli</Check_Log>
+    <Query_Error language="it">Errore di query</Query_Error>
+    <Export_CSV language="it">ESPORTAZIONE CSV PER CONTO DI </Export_CSV>
+    <Export_SQL_SCHEMA language="it">Esportare SQL - SCHEMA - per conto di </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="it">Esportazione di SQL - SQL - per conto di </Export_SQL_SQL>
+    <Export_XML language="it">ESPORTAZIONE XML PER CONTO DI</Export_XML>
+    <System language="it">Sistema</System>
   </Language>
 </root>

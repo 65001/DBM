@@ -57,5 +57,16 @@
     <Language language="ht">Lang</Language>
     <Save_and_Close language="ht">Save ak fèmen</Save_and_Close>
     <Close_wo_saving language="ht">Fèmen san benefis</Close_wo_saving>
+    <Failed_Load_Online_EULA language="ht">Te tonbe pou chaje LICENCE online</Failed_Load_Online_EULA>
+    <Auto_Log language="ht">Log oto</Auto_Log>
+    <Export_HTML_Schema language="ht">Ekspòtasyon HTML SCHÉMA sou nom de </Export_HTML_Schema>
+    <Export_HTML_Data language="ht">Ekspòtasyon HTML enfòmasyon sou au </Export_HTML_Data>
+    <Check_Log language="ht">Manti: Tanpri, tchyeke ak demi lit pou plis detay</Check_Log>
+    <Query_Error language="ht">Requête erè</Query_Error>
+    <Export_CSV language="ht">EKSPÒTASYON CSV SOU NOM DE </Export_CSV>
+    <Export_SQL_SCHEMA language="ht">Ekspòtasyon SQL - SCHÉMA - sou nom de </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="ht">Ekspòtasyon SQL - SQL - sou nom de </Export_SQL_SQL>
+    <Export_XML language="ht">EKSPÒTASYON XML SOU NOM DE</Export_XML>
+    <System language="ht">Sistèm</System>
   </Language>
 </root>

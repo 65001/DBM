@@ -3,7 +3,7 @@
   <Language language="ru">
     <File language="ru">Файл</File>
     <New language="ru">Новые функции</New>
-    <Open language="ru">Открытые</Open>
+    <Open language="ru">Открыть</Open>
     <Edit language="ru">Правка</Edit>
     <View language="ru">Вид</View>
     <Save language="ru">Сохранить</Save>
@@ -57,5 +57,16 @@
     <Language language="ru">Язык</Language>
     <Save_and_Close language="ru">Сохранить и закрыть</Save_and_Close>
     <Close_wo_saving language="ru">Закрыть без сохранения</Close_wo_saving>
+    <Failed_Load_Online_EULA language="ru">Не удалось загрузить онлайн EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="ru">Журнал авто</Auto_Log>
+    <Export_HTML_Schema language="ru">Экспорт HTML схемы от имени </Export_HTML_Schema>
+    <Export_HTML_Data language="ru">Экспорт HTML-данные от </Export_HTML_Data>
+    <Check_Log language="ru">Ошибка: Пожалуйста, проверьте подробности в журнале</Check_Log>
+    <Query_Error language="ru">Ошибка запроса</Query_Error>
+    <Export_CSV language="ru">CSV ЭКСПОРТ ИМЕНИ </Export_CSV>
+    <Export_SQL_SCHEMA language="ru">Экспорт SQL - схемы - от имени </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="ru">Экспорт SQL - SQL - от имени </Export_SQL_SQL>
+    <Export_XML language="ru">ЭКСПОРТ XML ОТ ИМЕНИ</Export_XML>
+    <System language="ru">Система</System>
   </Language>
 </root>

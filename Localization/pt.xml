@@ -57,5 +57,16 @@
     <Language language="pt">Língua</Language>
     <Save_and_Close language="pt">Salve e feche</Save_and_Close>
     <Close_wo_saving language="pt">Feche sem salvar</Close_wo_saving>
+    <Failed_Load_Online_EULA language="pt">Falha ao carregar o EULA on-line</Failed_Load_Online_EULA>
+    <Auto_Log language="pt">Log de auto</Auto_Log>
+    <Export_HTML_Schema language="pt">Exportar HTML esquema em nome do </Export_HTML_Schema>
+    <Export_HTML_Data language="pt">Exportar dados de HTML em nome de </Export_HTML_Data>
+    <Check_Log language="pt">Erro: Por favor, verifique o log para detalhes</Check_Log>
+    <Query_Error language="pt">Erro de consulta</Query_Error>
+    <Export_CSV language="pt">EXPORTAÇÃO CSV EM NOME DE </Export_CSV>
+    <Export_SQL_SCHEMA language="pt">Exportação SQL - esquema - em nome de </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="pt">Exportação SQL - SQL - em nome de </Export_SQL_SQL>
+    <Export_XML language="pt">XML DE EXPORTAÇÃO EM NOME DO</Export_XML>
+    <System language="pt">Sistema</System>
   </Language>
 </root>

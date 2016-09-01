@@ -57,5 +57,16 @@
     <Language language="hu">Nyelv</Language>
     <Save_and_Close language="hu">Mentés és bezárás</Save_and_Close>
     <Close_wo_saving language="hu">Zárja be mentés nélkül</Close_wo_saving>
+    <Failed_Load_Online_EULA language="hu">Nem sikerült betölteni az online végfelhasználói licencszerződés</Failed_Load_Online_EULA>
+    <Auto_Log language="hu">Automatikus bejelentkezés</Auto_Log>
+    <Export_HTML_Schema language="hu">Exportálás HTML SÉMÁBAN nevében </Export_HTML_Schema>
+    <Export_HTML_Data language="hu">HTML-adatok exportálása nevében </Export_HTML_Data>
+    <Check_Log language="hu">Hiba: Ellenőrizze a naplóban</Check_Log>
+    <Query_Error language="hu">Lekérdezés hiba</Query_Error>
+    <Export_CSV language="hu">EXPORTÁLÁS CSV-NEVÉBEN </Export_CSV>
+    <Export_SQL_SCHEMA language="hu">Exportálás SQL - séma - nevében </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="hu">Exportálás SQL - SQL - nevében </Export_SQL_SQL>
+    <Export_XML language="hu">EXPORTÁLÁS XML NEVÉBEN</Export_XML>
+    <System language="hu">Rendszer</System>
   </Language>
 </root>

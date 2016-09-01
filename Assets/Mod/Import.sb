@@ -1,0 +1,70 @@
+Sub VOID
+  CommandFunction = CommandFunction 
+  database = database 
+  logfunction = logfunction 
+  databasepath = databasepath 
+  LangList = LangList 
+EndSub
+
+Sub CSV
+  Import_CSV_Path = LDDialogs.OpenFile("csv","")
+  I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
+  I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
+  For I = 1 to Array.GetItemCount(I_CSV_Array[1])
+    I_CSV_Int_Array[I] = 1  
+  EndFor 
+  
+  CSV_TO_SQL()
+  CSV_Headers()
+  
+  records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV") '//Localize  
+  LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file",LangList["Application"])'//Localize 
+  File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+EndSub 
+
+Sub CSV_TO_SQL
+  Import_CSV_SQL = "" 
+  For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
+    Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + I_CSV_Name + " VALUES ('"
+    CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[I] )
+    For II = 1 To Array.GetItemCount(I_CSV_Array[I])
+      CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
+      CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
+      debug_mode = 1 
+      TextWindow.WriteLine( CSV_Array_Temp ) 
+      Import_CSV_SQL =  Import_CSV_SQL+ CSV_Array_Temp
+      
+      If CSV_Array_Temp <> 0 And Math.SquareRoot(CSV_Array_Temp) = 0 Then
+        CSV_Int_Array[II] = 0 
+      EndIf 
+      
+      If II < Array.GetItemCount(I_CSV_Array[i]) Then 
+        Import_CSV_SQL = Import_CSV_SQL + "','"
+      EndIf
+      
+    EndFor
+    
+    Import_CSV_SQL = Import_CSV_SQL + "');" + Text.GetCharacter(10)
+  EndFor
+EndSub
+
+Sub CSV_Headers
+  Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + I_CSV_Name +" ("
+  Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
+  
+  For I = 1 To Array.GetItemCount(I_CSV_Array[1])
+    Import_CSV_HSQL = Import_CSV_HSQL +I_CSV_Array[1][I] + " " 
+    If CSV_Int_Array[I] = 1 Then 
+      Import_CSV_HSQL = Import_CSV_HSQL +"INTEGER"
+    Else 
+      Import_CSV_HSQL = Import_CSV_HSQL +"TEXT"
+    EndIf 
+    
+    If I < Array.GetItemCount(I_CSV_Array[1]) Then 
+      Import_CSV_HSQL = Import_CSV_HSQL + ","
+    EndIf
+    
+  EndFor
+  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
+  Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
+EndSub

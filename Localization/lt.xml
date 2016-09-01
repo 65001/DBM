@@ -57,5 +57,16 @@
     <Language language="lt">Kalba</Language>
     <Save_and_Close language="lt">Įrašyti ir uždaryti</Save_and_Close>
     <Close_wo_saving language="lt">Neįrašęs</Close_wo_saving>
+    <Failed_Load_Online_EULA language="lt">Nepavyko įkelti interneto GVLS</Failed_Load_Online_EULA>
+    <Auto_Log language="lt">Automatinio žurnalo</Auto_Log>
+    <Export_HTML_Schema language="lt">Eksporto HTML schemos vardu </Export_HTML_Schema>
+    <Export_HTML_Data language="lt">EKSPORTUOKITE HTML vardu </Export_HTML_Data>
+    <Check_Log language="lt">Klaida: Patikrinkite žurnalą daugiau informacijos</Check_Log>
+    <Query_Error language="lt">Užklausos klaida</Query_Error>
+    <Export_CSV language="lt">EKSPORTUOTI CSV VARDU </Export_CSV>
+    <Export_SQL_SCHEMA language="lt">Eksporto SQL - SCHEMA - vardu </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="lt">Eksporto SQL - SQL - vardu </Export_SQL_SQL>
+    <Export_XML language="lt">EKSPORTUOTI XML VARDU</Export_XML>
+    <System language="lt">Sistemos</System>
   </Language>
 </root>

@@ -17,7 +17,7 @@
     <About language="hi">के बारे में</About>
     <Show_Help language="hi">मदद दिखाएँ</Show_Help>
     <Settings_Editor language="hi">सेटिंग्स संपादक</Settings_Editor>
-    <Toggle_Debug language="hi">टॉगल डीबग</Toggle_Debug>
+    <Toggle_Debug language="hi">टॉगल करें डीबग</Toggle_Debug>
     <Toggle_Transaction_Log language="hi">टॉगल करें हस्तांतरण लॉग</Toggle_Transaction_Log>
     <Refresh language="hi">ताज़ा करें</Refresh>
     <Check_for_Updates language="hi">अद्यतनों के लिए जाँचें</Check_for_Updates>
@@ -57,5 +57,16 @@
     <Language language="hi">भाषा</Language>
     <Save_and_Close language="hi">सहेजें और बंद करें</Save_and_Close>
     <Close_wo_saving language="hi">बिना सहेजे बंद करें</Close_wo_saving>
+    <Failed_Load_Online_EULA language="hi">ऑनलाइन EULA को लोड करने में विफल रहा</Failed_Load_Online_EULA>
+    <Auto_Log language="hi">स्वत: लॉग</Auto_Log>
+    <Export_HTML_Schema language="hi">HTML स्कीमा की ओर से निर्यात करें </Export_HTML_Schema>
+    <Export_HTML_Data language="hi">की ओर से HTML डेटा निर्यात करें </Export_HTML_Data>
+    <Check_Log language="hi">त्रुटि: कृपया विवरण के लिए लॉग की जाँच करें</Check_Log>
+    <Query_Error language="hi">क्वेरी त्रुटि</Query_Error>
+    <Export_CSV language="hi">की ओर से निर्यात CSV </Export_CSV>
+    <Export_SQL_SCHEMA language="hi">SQL - स्कीमा - की ओर से निर्यात </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="hi">की ओर से SQL - SQL - निर्यात </Export_SQL_SQL>
+    <Export_XML language="hi">की ओर से XML निर्यात करें</Export_XML>
+    <System language="hi">सिस्टम</System>
   </Language>
 </root>

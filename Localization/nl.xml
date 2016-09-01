@@ -57,5 +57,16 @@
     <Language language="nl">Taal</Language>
     <Save_and_Close language="nl">Opslaan en sluiten</Save_and_Close>
     <Close_wo_saving language="nl">Sluit zonder op te slaan</Close_wo_saving>
+    <Failed_Load_Online_EULA language="nl">Fout bij het laden van de on line Gebruiksrechtovereenkomst</Failed_Load_Online_EULA>
+    <Auto_Log language="nl">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="nl">HTML-SCHEMA namens exporteren </Export_HTML_Schema>
+    <Export_HTML_Data language="nl">Exporteren van HTML-gegevens namens </Export_HTML_Data>
+    <Check_Log language="nl">Fout: Controleer het logboek voor meer informatie</Check_Log>
+    <Query_Error language="nl">Fout in de query</Query_Error>
+    <Export_CSV language="nl">EXPORTEREN VAN CSV NAMENS </Export_CSV>
+    <Export_SQL_SCHEMA language="nl">Exporteren van SQL - SCHEMA - namens </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="nl">Exporteren van SQL - SQL - namens </Export_SQL_SQL>
+    <Export_XML language="nl">XML NAMENS EXPORTEREN</Export_XML>
+    <System language="nl">Systeem</System>
   </Language>
 </root>

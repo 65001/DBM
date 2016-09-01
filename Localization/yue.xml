@@ -57,5 +57,16 @@
     <Language language="yue">語言</Language>
     <Save_and_Close language="yue">保存並關閉</Save_and_Close>
     <Close_wo_saving language="yue">關閉但唔 keep</Close_wo_saving>
+    <Failed_Load_Online_EULA language="yue">未能加载在線最終用戶許可協議</Failed_Load_Online_EULA>
+    <Auto_Log language="yue">自動日誌</Auto_Log>
+    <Export_HTML_Schema language="yue">導出 html 架構嘅名義 </Export_HTML_Schema>
+    <Export_HTML_Data language="yue">導出 html 數據嘅名義 </Export_HTML_Data>
+    <Check_Log language="yue">錯誤︰請檢查日誌中詳細信息</Check_Log>
+    <Query_Error language="yue">查詢錯誤</Query_Error>
+    <Export_CSV language="yue">導出 csv 嘅名義 </Export_CSV>
+    <Export_SQL_SCHEMA language="yue">導出 sql 架構-代表 </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="yue">代表對導出 sql-sql- </Export_SQL_SQL>
+    <Export_XML language="yue">導出 xml 的名義</Export_XML>
+    <System language="yue">系統</System>
   </Language>
 </root>

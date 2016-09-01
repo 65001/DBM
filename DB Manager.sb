@@ -1,45 +1,5 @@
 'Copyrighted Software 2016. Abhishek Sathiabalan . All Rights Reserved. Governed by EULA. 
-
-'v1000
-'Initial Release
-'v1100
-'Import - Export Feature ; Functions Added ; Known Bugs : Crash upon Edit with too many lines
-'v1101
-'Log Data Base Implemented
-'v1102
-'Bug Fixes
-'v1103
-' Schema for DB file with more than one table implemented
-'v1104
-'Ability to switch between Tables in the same database | Possibly Unstable Feature
-'Multiple Tables support
-'v1105
-'Schema system updated to use PRAGMA table_info(table_name);
-'v1106
-'Bug Fixes
-'Allows you to export data to sql
-'Changed Online EULA Path
-'Changed order of program
-'v1107
-'Exports into HTML Tables
-'v1108
-'Import From CSV (Potentially Unstable)
-'v1109
-'Added Limited Support for Views ,  Indexes , and SQLite_master table through GUI
-'v1110
-'Attempt to refactor code . New Menu Interface 
-'v1111
-'Help Code
-'New Settings Menu 
-'v1112
-'Refactored Code 
-'Better Information Presented 
-'Moved Around Things in the Menu 
-'Update Function 
-'v1113
-'Bug Fixes 
-'Logging Changes
-'HTML Code Outputted is more stylized 
+'For a timeline of release information please check Assets\Change_Log Table 
 
 'v1114
 ' Transaction DB Implemented (Default is OFF )
@@ -48,17 +8,39 @@
 
 'v1115
 'Added Localization/Lang Folder which enables switching between languages to be nearly instant 
+'Added backend capability to use mods :) 
+'Front End capability still needed :( 
+'Moved Export Functions to a MOD File :) 
+
+'v1116
+'Smarter Mod Loader 
 
 '______________________________________________________________________________
-'                                                                                                 To do
+'                                                                                                 To do - Non Modding 
 '______________________________________________________________________________
+'Cross Engine Support 
+
 'Dataview bug report | Dataview Crash Bug 
-'Automatic Limiter on Dataview ? 
+'Automatic Limiter on Dataview ? Using SQL Limit ? 
 'Export Menu
 'Access Table 
-'Make the mastertable a view and remove the program only restrictions on it 
-'Ability to load Mods ? 
 'Localizations ?
+'New Table Menu
+'SQL Functions List
+'Make the mastertable a view and remove the program only restrictions on it 
+
+'______________________________________________________________________________
+'                                                                                                 To do - Modding 
+'______________________________________________________________________________
+'Server - Client Iniative 
+'     Make a Server Mod ? 
+'     Make a Client Mod ? 
+
+'Ability to load Mods ? 
+'GUI For a Mod Manager 
+'Universal Button Controler ?
+'     As in one that would capture the button down even and foward it to the appopriate handler including ones in Mods and such ?
+'Make a MOD Documentation
 
 GraphicsWindow.Show()
 MainWindowID =  LDWindows.CurrentID
@@ -72,7 +54,23 @@ logfunction = "Log"
 QueryFunction = "Query"
 CommandFunction = "Command" 
 TransactionFunction = "TransactionRecord"
+RunModParserFunction = "MOD_RUN_Parser" 
+
+Function_XML_Attributes = "XML_Fetch_All"
+Function_MainMenu_Handler = "MainMenuHandler" 
+Function_RunMod_Parser = RunModParserFunction 
+Function_Command = CommandFunction
+Function_Query = QueryFunction
+Function_Log = logfunction
+Function_Transaction = TransactionFunction 
+'______________________________________________________________________________
+'                                                                                     List Names 
+'______________________________________________________________________________
+Export_T2  = "Export T2" 
+Export_T1  = "Export T1" 
 TrackDefaultTable = "TrackDefaultTable"
+List_Mod_Name = "Mod_Name"
+List_Mod_Path = "Mod_Path" 
 
 LDUtilities.ShowErrors = "False"
 LDUtilities.ShowFileErrors= "False"
@@ -80,12 +78,13 @@ LDUtilities.ShowNoShapeErrors = "False"
 LDEvents.Error = ErrorHandler
 
 debug_mode = 0 '1=On;0=Off(Default)
+EULA_Test = 0 'Default 0 
 
 copyrightDate = 2016
 ProductID = "DBM"
-PrgmVersionID = 1115
+PrgmVersionID = 1116
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
-Self = Program.Directory +"\DB Manager Test.exe"
+Self = Program.Directory +"\DB Manager.exe"
 
 '______________________________________________________________________________
 '                                                                                    Not to be set by Settings
@@ -95,7 +94,10 @@ Self = Program.Directory +"\DB Manager Test.exe"
 DoubleQuotesCharacter = Text.GetCharacter(34)
 XML_Version_Number ="1.0"
 SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;"
+
 DB_Engines_Types = "1=MySQL;2=Odbc;3=Oledb;4=SQLite;5=SqlServer;" 
+DB_Engine_Username = "1=1;2=1;3=1;4=0;5=1;"
+DB_Engine_Password = "1=1;2=1;3=1;4=0;5=1;"
 Engine_Mode = 4 
 
 LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer Primary Key,[UTC_DATE] TEXT,[UTC_TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
@@ -134,18 +136,18 @@ LDList.Add("DB_Path", TransactionDBpath )
 LDList.Add("DB_Name", TransactionDB ) 
 
 LDDataBase.Command( TransactionDB , Transactions_SQL)
-LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL,"App","Auto Creation Statements" ) 'Sadly Cannot be Localized 
-LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL_View ,"App","Auto Creation Statements")'Sadly Cannot be Localized 
-LDCall.Function4( CommandFunction , TransactionDB , Transactions_SQL ,"App","Auto Creation Statements") 'Sadly Cannot be Localized 
+LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL,"App","Auto Creation Statements" ) ' Cannot be Localized 
+LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL_View ,"App","Auto Creation Statements")'Cannot be Localized 
+LDCall.Function4( CommandFunction , TransactionDB , Transactions_SQL ,"App","Auto Creation Statements") ' Cannot be Localized 
 
 LogNumber = LDDataBase.Query( LOG_DB,"SELECT COUNT(ID) From Log;","","True")
 LogNumber = LogNumber[1]["COUNT(ID)"]
-LDCall.Function5(TransactionFunction , "App" , LOG_DB +"| LOG"  ,"SELECT COUNT(ID) From Log;" ,"Query", " Auto Query Log Count") 'Sadly Cannot be Localized 
+LDCall.Function5(TransactionFunction , "App" , LOG_DB +"| LOG"  ,"SELECT COUNT(ID) From Log;" ,"Query", " Auto Query Log Count") 'Cannot be Localized 
 TransactionNumber = LDDataBase.Query( TransactionDB,"SELECT COUNT(ID) From Transactions","","True") 
 TransactionNumber = TransactionNumber[1]["COUNT(ID)"]
 
 OnlineEULaPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRNTFKckFKLVNNUDg" 'EULA Path
-OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download"
+OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download" 'Update DB Path 
 
 StartTime[1] = Clock.ElapsedMilliseconds
 LDNetwork.DownloadFile(EULAFile,OnlineEULaPath)
@@ -155,7 +157,7 @@ LoadedFile = 0
 SortByMode = 1 
 RestoreSettings = 0
 
-CLLF = Text.GetCharacter(10) '+ Text.GetCharacter(13) 
+CLLF = Text.GetCharacter(10) 
 TabKey = Text.GetCharacter(9) 
 args = ""
 
@@ -173,21 +175,20 @@ NEULA_Version =""
 '______________________________________________________________________________
 '                                                                                     End of No Settings Zone
 '______________________________________________________________________________
-LDCall.Function2( logfunction , "Program Started","Application") 'Sadly Cannot be Localized 
 Startup()
 
 Sub Startup
+  MOD_Find_All()
   LoadSettings()
   Localization_XML()
+  LDCall.Function2( logfunction , "Program Started",LangList["Application"]) '// Localize 
+  
   If Program.ArgumentCount  = 1  Then
     GetPath()
     Load_DB()
   EndIf
-  If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) Then
-    StartTime[2] = Clock.ElapsedMilliseconds
-    '   MannualUpdateCheck = 0 
-    '   UpdateFunction()
-    EndTime[2] = Clock.ElapsedMilliseconds 
+  If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) And EULA_Test = 0   Then
+    Pre_MainMenuUI()
     MainMenuUI()
   Else
     SaveSettings()
@@ -203,14 +204,14 @@ Sub Localization_XML
     LDxml.FirstChild()
     LDxml.LastChild()
     
-    XML_Fetch_All()
+    XML_Array = LDCall.Function( Function_XML_Attributes , "")
     Localixation_XML_Private()
     While LDxml.PreviousSibling() = "SUCCESS"
-      XML_Fetch_All()
+      XML_Array =   LDCall.Function( Function_XML_Attributes , "")
       Localixation_XML_Private()
     EndWhile
   Else
-    LDCall.Function2( logfunction , "Localization XML Missing","Application") 'DO NOT LOCALIZE EVER! 
+    LDCall.Function2( logfunction , "Localization XML Missing","Application") 'DO NOT LOCALIZE EVER! This error indicates the localization file is missing!! 
   EndIf 
   
   LDLanguages = LDTranslate.Languages() 
@@ -235,9 +236,9 @@ Sub LoadSettings
   If RestoreSettings = 0 Then 
     Settings = File.ReadContents(settingspath)
   EndIf 
-  Listview_Width = Settings["Listview_Width"]' 1000
-  Listview_Height = Settings["Listview_Height"] '900
-  VersionID = Settings["VersionID"] '1000
+  Listview_Width = Settings["Listview_Width"]
+  Listview_Height = Settings["Listview_Height"] 
+  VersionID = Settings["VersionID"] 
   lastFolder = Settings["LastFolder"]
   SupportedExtensions = Settings["Extensions"]
   deliminator = Settings["Deliminator"] 
@@ -338,8 +339,6 @@ Sub EULA_UI
   defaultWidth = GraphicsWindow.Width
   defaultHeight= GraphicsWindow.Height
   
-  ' GraphicsWindow.BackgroundColor = "LightGray"
-  
   LDControls.RichTextBoxReadOnly = "True"
   eulatextbox =  LDControls.AddRichTextBox(600,350)
   Controls.Move(eulatextbox,10,10)
@@ -376,8 +375,9 @@ Sub EULA_UI
     
     Controls.SetSize(EULAaccept,70,30)
     Controls.SetSize(EULADecline,70,30)
-    Controls.ButtonClicked = EULA_Handler
   EndIf
+  Controls.ButtonClicked = EULA_Handler
+  
 EndSub
 
 Sub EULA_Handler
@@ -385,27 +385,26 @@ Sub EULA_Handler
   Settings["EULA_By"]  = LDFile.UserName
   Settings["EULA_Version"] = EULA_Version
   Settings["VersionID"] = PrgmVersionID
-  If LDControls.CheckBoxGetState(Ihaveread) = "True" And LastClickedButton = EULAaccept Then
+  If  LastClickedButton = EULAaccept AND LDControls.CheckBoxGetState(Ihaveread) = "True" Then 
     Settings["EULA"] = "True"
     SaveSettings()
+    Pre_MainMenuUI()
     MainMenuUI()
   ElseIf LastClickedButton = EULADecline Then
-    LDCall.Function2( logfunction , "EULA Declined","UI")
-    GraphicsWindow.ShowMessage("If you disagree with this EULA please delete this program","EULA Decline")
     Settings["EULA"] = "False"
     SaveSettings()
+    LDCall.Function2( logfunction , "EULA Declined","UI")
+    GraphicsWindow.ShowMessage("If you disagree with this EULA please delete this program","EULA Decline")
     Program.End()
-  EndIf
-EndSub
+  EndIf 
+EndSub 
+
 
 '______________________________________________________________________________
 '                                                                                     Maine Menu UI
 '______________________________________________________________________________
 
-Sub MainMenuUI 
-  GraphicsWindow.CanResize = "True"
-  LDGraphicsWindow.ExitButtonMode(GraphicsWindow.Title,"Enabled")
-  
+Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI 
   MenuList[LangList["File"]] = "Main"
   MenuList[LangList["Edit"]] = "Main"
   MenuList[LangList["View"]] = "Main"
@@ -417,6 +416,7 @@ Sub MainMenuUI
   MenuList[LangList["New"]] = LangList["File"]
   MenuList[LangList["Open"] ] = LangList["File"]
   MenuList["-"] = LangList["File"]
+  
   MenuList[LangList["CSV"]] = LangList["Import"]
   MenuList[LangList["SQL"]] = LangList["Import"]
   MenuList["-"] = LangList["Import"]
@@ -425,6 +425,7 @@ Sub MainMenuUI
   MenuList[LangList["SQL"] +" "] = LangList["Export"]
   MenuList[LangList["PXML"] + " " ] = LangList["Export"]
   MenuList[LangList["HTML"] + " "] = LangList["Export"]
+  MenuList["Export UI"] = LangList["Export"]
   MenuList["-"]= LangList["Export"]
   
   MenuList[LangList["Help"]] = LangList["Settings"]
@@ -457,6 +458,13 @@ Sub MainMenuUI
   RefreshButton = LangList["Refresh"]
   CheckForUpdates = LangList["Check for Updates"]
   ToggleTransaction = LangList["Toggle Transaction Log"]
+  Export_UI_Button = "Export UI" 
+EndSub
+
+Sub MainMenuUI 
+  GraphicsWindow.CanResize = "True"
+  LDGraphicsWindow.ExitButtonMode(GraphicsWindow.Title,"Enabled")
+  
   
   If debug_mode = 1 Then 
     CheckList[ LangList["Toggle Debug"]] = "True"
@@ -495,7 +503,7 @@ Sub MainMenuUI
   Controls.Move(TableCB,970,5)
   Controls.Move(SortsCB,1075,5) 
   
-  LastClickedButton = ViewDB_Button 'Acts like a Function Call  
+  LastClickedButton = ViewDB_Button 'Acts like a Virtual Function Call  
   MainMenuHandler()
   
   GraphicsWindow.Title = title + " " +LangList[ "Table" ] +": " + Default_Table 
@@ -509,13 +517,11 @@ Sub MainMenuUI
 EndSub
 
 Sub MainMenuMenu
-  LastClickedButton = LDControls.LastMenuItem
-  MainMenuHandler()
+  LDCall.Function( Function_MainMenu_Handler , LDControls.LastMenuItem )
 EndSub
 
 Sub MainMenuButton
-  LastClickedButton = Controls.LastClickedButton
-  MainMenuHandler() 
+  LDCall.Function( Function_MainMenu_Handler , Controls.LastClickedButton )
 EndSub
 
 Sub ComboBoxChanged
@@ -523,7 +529,6 @@ Sub ComboBoxChanged
   LastCBIndex = LDControls.LastComboBoxIndex
   If LastClickedCB = TableCB Then 
     If  LDList.GetAt(TrackDefaultTable,LDList.Count(TrackDefaultTable)) <> LastCBIndex Then
-      ' TextWindow.WriteLine( SCHEMA_TableList[ LDControls.LastComboBoxIndex ] )
       LDList.Add(TrackDefaultTable,LastCBIndex)
       Default_Table = SCHEMA_CurrentList[ LastCBIndex ]
       
@@ -576,6 +581,7 @@ Sub ComboBoxChanged
     Else
       LDCall.Function2(logfunction,"In the current database no "+LangList[ TypesOfSorts[SortByMode] ]+"s can be found.","UI") '//Localize  
       GraphicsWindow.ShowMessage("In the current database no "+ LangList[ TypesOfSorts[SortByMode] ] +"s can be found." , "Error" ) '//Localize 
+      
     EndIf 
     
     If debug_mode = 1 Then  
@@ -588,6 +594,13 @@ Sub MainMenuHandler
   Results_Search = 0
   Results_Sort = 0
   Results_Function = 0
+  
+  If args[1] <> "" Then 
+    LastClickedButton = args[1] 
+    If debug_mode = 1 Then 
+      Textwindow.writeline(args[1])
+    EndIf 
+  EndIf 
   
   If debug_mode = 0 Then
     TextWindow.Hide()
@@ -610,6 +623,7 @@ Sub MainMenuHandler
       LoadSettings()
       Load_DB()
       SaveSettings()
+      Pre_MainMenuUI()
       MainMenuUI()
     EndIf
   ElseIf LastClickedButton = EditDB_Button Then 'Edit Database List View
@@ -655,6 +669,7 @@ Sub MainMenuHandler
     GetPath()
     Load_DB()
     SaveSettings()
+    Pre_MainMenuUI()
     MainMenuUI()
   Elseif LastClickedButton = SaveButton  Then 'Save Button   
     If database <> "" and Dataview <> "" Then 
@@ -680,42 +695,36 @@ Sub MainMenuHandler
     Results_Function = 1
     GenerateQuery()
   ElseIf LastClickedButton = ImportCSV_Button Then 'Imports CSV
-    Import_CSV_Path = LDDialogs.OpenFile("csv","")
-    I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
-    I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
-    For I = 1 to Array.GetItemCount(I_CSV_Array[1])
-      I_CSV_Int_Array[I] = 1  
-    EndFor 
-    IMPORT_CSV()
-    Import_CSV_Headers()
-    records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV") '//Localize  
-    LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file","Application")'//Localize 
+    LDCall.Function( Function_RunMod_Parser , "Import.CSV") 
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT") '//Localize  
-    File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
   ElseIf LastClickedButton = ImportSQL_Button Then ' Imports SQL 
     CurrentFolder = LDFile.GetFolder(databasepath)
     records =  LDCall.Function4( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) , LDFile.UserName ,"Import SQL") '//Localize 
     LDCall.Function2(logfunction, "Imported data into: " + databasepath +" From sql file","Application") '//Localize 
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT") '//Localize 
   ElseIf LastClickedButton = ExportSQL_Button Then 
-    Export_SQL_Dump_Fetch()
-    Export_SQL_Dump_Write()
+    LDCall.Function(Function_RunMod_Parser,"Export.Export_SQL")
   ElseIf LastClickedButton = ExportCSV_Button Then
+    
     TextWindow.WriteLine("")
     TextWindow.WriteLine("SELECT DATA TO WRITE IN " + LastClickedButton)
     TextWindow.Write(">")
     querycmd = TextWindow.Read()
     querycmd = Text.ConvertToLowerCase(querycmd)
-    Export_CSV()
+    TextWindow.Clear()
+    TextWindow.Hide()
+    LDCall.Function(Function_RunMod_Parser, "Export.CSV" )
+    
   ElseIf LastClickedButton = ExportXML_Button Then
     TextWindow.WriteLine("")
     TextWindow.WriteLine("SELECT DATA TO WRITE IN " + LastClickedButton)
     TextWindow.Write(">")
     querycmd = TextWindow.Read()
     querycmd = Text.ConvertToLowerCase(querycmd)
-    Export_XML()
+    TextWindow.Hide()
+    LDCall.Function( Function_RunMod_Parser , "Export.XML" )
   ElseIf LastClickedButton = ExportHTML_Button Then
-    Export_HTML()
+    LDCall.Function( Function_RunMod_Parser, "Export.HTML" ) 'Mod Version ; Runs as a dll of sorts 
   ElseIf LastClickedButton = ToggleDebug_Button Then 
     If debug_mode = 1 Then 
       debug_mode = 0
@@ -739,8 +748,6 @@ Sub MainMenuHandler
     LoadSettings()
     
     'Sets it up so the Language Info can be reset 
-    'LDList.Clear( LanguageLookUptable ) 
-    'LDList.Clear( LanguageValueTable ) 
     LDList.Clear("ISO_Lang") 
     LDList.Clear("ISO_Text") 
     MenuList = ""
@@ -752,12 +759,27 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = Settings_Close Then 
     listview = ""
     Dataview = ""
+    Pre_MainMenuUI()
     MainMenuUI()
-    ' ElseIf LastClickedButton = MoveRight Then 'Export UI Controls 
-    
-    ' ElseIf LastClickedButton = MoveLeft Then
-    
-    ' ElseIf LastClickedButton = NextButton Then 
+  ElseIf LastClickedButton = MoveRight Then 'Export UI Controls 
+    CB_Node = LDControls.ListBoxGetSelected( ExportListBox[1] )
+    If  LDList.Contains(Export_T2, LDList.GetAt(Export_T1,  CB_Node)) = "False" Then
+      LDList.Add( Export_T2, LDList.GetAt(Export_T1, CB_Node   )) 
+      LDList.SetAt(Export_T1,CB_Node ,"") 
+      Export_T1 =  LDList.FromArray( LDList.ToArray(Export_T1) )
+      LDControls.ListBoxContent( ExportListBox[1],Export_T1 ) 
+      LDControls.ListBoxContent(ExportListBox[2] ,Export_T2)
+    EndIf 
+  ElseIf LastClickedButton = MoveLeft Then
+    CB_Node = LDControls.ListBoxGetSelected( ExportListBox[2] )
+    If  LDList.Contains(Export_T1, LDList.GetAt(Export_T2,  CB_Node)) = "False" Then
+      LDList.Add( Export_T1, LDList.GetAt(Export_T2, CB_Node   )) 
+      LDList.SetAt(Export_T2,CB_Node ,"") 
+      Export_T2 =  LDList.FromArray( LDList.ToArray(Export_T2) )
+      LDControls.ListBoxContent( ExportListBox[1],Export_T1 ) 
+      LDControls.ListBoxContent(ExportListBox[2] ,Export_T2)
+    EndIf 
+  ElseIf LastClickedButton = NextButton Then 'Create SQL Export Query :) 
     
   ElseIf LastClickedButton = RefreshButton Then 
     Get_SCHEMA()
@@ -772,13 +794,24 @@ Sub MainMenuHandler
     EndIf 
     Settings["Transactions"] = Transactions_mode 
     SaveSettings()
+    
+  ElseIf LastClickedButton = Export_Close Then
+    listview = "" 
+    Dataview = ""
+    Pre_MainMenuUI()
+    MainMenuUI()
+    LastClickedButton = ViewDB_Button
+    MainMenuHandler()
+  ElseIf LastClickedButton = Export_UI_Button Then 
+    Export_UI()
+  Else
+    GraphicsWindow.ShowMessage ( LastClickedButton ,"") 
   EndIf
   
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
-    'Export_UI() ' Not Yet Implemtented //TO DO 
     LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,LangList["Application"]) '//Localize 
     GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton, LangList[ "Export"]) '//Localize  
-  EndIf
+  EndIf 
 EndSub
 
 '______________________________________________________________________________
@@ -872,43 +905,88 @@ Sub Display_Results
   Display_Results_MasterControlsList = Display_Results_MasterControlsList +"10="+CommandButton+";11="+FunctionListCB+";12="+ColumnListCB+";13="+RunFunctionButton+";"
 EndSub
 
-'Sub Export_UI 'Currently not in use 
-'  ExportWinID = LDWindows.Create()
-'  GraphicsWindow.Title = "Export"
-'  LDGraphicsWindow.CancelClose = "True"
-'  LDGraphicsWindow.ExitOnClose = "False"
-'  LDGraphicsWindow.ExitButtonMode("Settings","Disabled")
-'  
-'  Export_Tables_UI = "" 
-'  For I = 1 To Array.GetItemCount(SCHEMA_TableList ) 
-'    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_TableList[I] + " (T)"
-'  EndFor 
-'  
-'  For I = 1 To Array.GetItemCount(SCHEMA_IndexList ) 
-'    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_IndexList[I] + " (I)"
-'  EndFor
-'  
-'  For I = 1 To Array.GetItemCount(SCHEMA_ViewList ) 
-'    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_ViewList[I] + " (V)"
-'  EndFor
-'  
-'  ExportListBox[1] = LDControls.AddListBox(Export_Tables_UI,200,200)
-'  ExportListBox[2] = LDControls.AddListBox("",200,200)
-'  Controls.Move(ExportListBox[1] , 1, 40 )
-''  Controls.Move(ExportListBox[2] , 300,40 )
-' 
-' ToolTip[1] = Shapes.AddText("Tables / Views / Indexes" )
-' ToolTip[2] = Shapes.AddText("Export Following:")
-' Shapes.Move(ToolTip[1], 25 ,20 )
-' Shapes.Move(ToolTip[2], 345,20 )
-' 
-' MoveRight =  Controls.AddButton(">",230,120)
-' MoveLeft = Controls.AddButton("<",230,150)
-' NextButton = Controls.AddButton("Next", 230,180 )
-' Controls.SetSize( MoveRight ,50 , 25)
-' Controls.SetSize( MoveLeft ,50 , 25)
-' Controls.SetSize( NextButton , 50 , 25 )
-'EndSub
+Sub Export_UI 'Currently not in use 
+  GraphicsWindow.Clear()
+  If SortByMode = 1 Then 
+    Export_Default_Table = default_Table + " (T)"
+  ElseIf SortByMode = 2 Then
+    Export_Default_Table = default_Table + " (I)"
+  ElseIf SortByMode = 3 Then
+    Export_Default_Table = default_Table + " (V)"
+  EndIf 
+  GraphicsWindow.Title = "Export"
+  
+  Export_Tables_UI = "" 
+  For I = 1 To Array.GetItemCount(SCHEMA_TableList ) 
+    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_TableList[I] + " (T)"
+  EndFor 
+  
+  For I = 1 To Array.GetItemCount(SCHEMA_IndexList ) 
+    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_IndexList[I] + " (I)"
+  EndFor
+  
+  For I = 1 To Array.GetItemCount(SCHEMA_ViewList ) 
+    Export_Tables_UI[ Array.GetItemCount(Export_Tables_UI) + 1] = SCHEMA_ViewList[I] + " (V)"
+  EndFor
+  
+  For I = 1 to Array.GetItemCount( Export_Tables_UI )
+    If Export_Tables_UI[I] = Export_Default_Table Then
+      Export_Default_Node = I 
+    EndIf 
+  EndFor
+  
+  ExportComboBox =  LDControls.AddComboBox( Export_Tables_UI , 200 , 50 ) 
+  Controls.Move (ExportComboBox , 10, 10 ) 
+  LDControls.ComboBoxSelect( ExportComboBox , Export_Default_Node )
+  
+  Export_T1 = LDList.FromArray( SchemaList )
+  ExportListBox[1] = LDControls.AddListBox(SCHEMAList,200,200)
+  ExportListBox[2] = LDControls.AddListBox("",200,200)
+  Controls.Move(ExportListBox[1] , 1, 60 )
+  Controls.Move(ExportListBox[2] , 300,60 )
+  
+  ToolTip[1] = Shapes.AddText("Columns" )
+  ToolTip[2] = Shapes.AddText("Export Following:")
+  Shapes.Move(ToolTip[1], 25 ,40 )
+  Shapes.Move(ToolTip[2], 345,40 )
+  
+  MoveRight =  Controls.AddButton(">",230,120)
+  MoveLeft = Controls.AddButton("<",230,150)
+  NextButton = Controls.AddButton("Next", 230,180 )
+  
+  Export_Close = Controls.AddButton("Close",50,300) 
+  
+  Controls.SetSize( MoveRight ,50 , 25)
+  Controls.SetSize( MoveLeft ,50 , 25)
+  Controls.SetSize( NextButton , 50 , 25 )
+  
+  LDControls.ComboBoxItemChanged = Export_CB_Handler
+EndSub
+
+Sub Export_CB_Handler
+  LastClickedCB =  LDControls.LastComboBox
+  LastCBIndex = LDControls.LastComboBoxIndex
+  If LastClickedCB = ExportComboBox Then 'Export Menu Control 
+    
+    If LDText.FindAll(Export_Tables_UI[ LastCBIndex ] ,"(T)")  <> 0 Then 
+      SCHEMA_CurrentList = SCHEMA_TableList
+      LastCBIndex = LastCBIndex 
+    ElseIf LDText.FindAll(Export_Tables_UI[ LastCBIndex ] ,"(I)" ) <> 0 Then
+      SCHEMA_CurrentList = SCHEMA_IndexList
+      LastCBIndex = LastCBIndex - ( Array.GetItemCount( SCHEMA_TableList ) )
+    ElseIf LDText.FindAll(Export_Tables_UI[ LastCBIndex ] ,"(V)" ) <> 0 Then
+      SCHEMA_CurrentList =  SCHEMA_ViewList
+      LastCBIndex = LastCBIndex - ( Array.GetItemCount( SCHEMA_TableList ) + Array.GetItemCount( SCHEMA_IndexList) ) 
+    EndIf 
+    
+    Default_Table = SCHEMA_CurrentList[ LastCBIndex ]
+    
+    Get_SCHEMA_Private()
+    LDControls.ListBoxContent( ExportListBox[1] , SchemaList ) 
+    Export_T1 = LDList.FromArray( SchemaList )
+    LDControls.ListBoxContent( ExportListBox[2] , "" ) 
+  EndIf
+EndSub 
 
 Sub Settings_UI
   GraphicsWindow.Clear()
@@ -1027,64 +1105,8 @@ Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View
 EndSub
 
 '______________________________________________________________________________
-'                                                                                    EXPORT
+'                                                                                    Utilities 
 '______________________________________________________________________________
-Sub Export_CSV
-  TextWindow.WriteLine("")
-  
-  If deliminator = "" then
-    LDUtilities.CSVDeliminator = "," 
-  Else
-    LDUtilities.CSVDeliminator = deliminator
-  EndIf
-  
-  return =  LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],"EXPORT CSV ON BEHALF OF " + LDFile.UserName) '//Localize 
-  csvdata = return 
-  
-  return2 = Array.GetAllIndices(return)
-  return2 = return [return2[1] ]
-  return2 = Array.GetAllIndices(return2)
-  
-  csvpath = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.csv"
-  
-  
-  For i = 1 To Array.GetItemCount(return2) 'Gets Column Names  Headers
-    csvdata[0][i] =  return2[i]
-  EndFor
-  
-  For i = 0 To Array.GetItemCount(csvdata) + 1 'Puts Column Names into Data
-    csvdataREAL[i+1] = csvdata[i]
-  EndFor
-  
-  LDFile.WriteCSV(csvpath,csvdataREAL )
-  csvdata = ""
-EndSub
-
-Sub Export_XML
-  debug_mode = 1 
-  EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],"Export XML on behalf of " + LDFile.UserName ) '//Localize 
-  TextWindow.WriteLine ( EXPORTDATA ) 
-  XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
-  File.DeleteFile(XML_Path)
-  XML_Createment_Statement = "<?xml version=" +DoubleQuotesCharacter+ XML_Version_Number+DoubleQuotesCharacter+" encoding="+DoubleQuotesCharacter+ "UTF-8"+DoubleQuotesCharacter+" standalone="+DoubleQuotesCharacter+"yes" + DoubleQuotesCharacter +"?>"
-  XML_Createment_Statement = XML_Createment_Statement +"<root></root>"
-  File.AppendContents(XML_Path,XML_Createment_Statement)
-  XML_Document = LDxml.Open(XML_Path)
-  XML_Parent = LDxml.Parent()
-  LDxml.FirstChild()
-  GO = 1
-  XML_Fetch_All()
-  While 1 = GO
-    If XML_Array[5] = "XmlDeclaration" Or XML_Array[5] ="root" Then 'Ignores Root and XMLDeclaration
-      LDxml.NextSibling()
-      XML_Fetch_All()
-    Else
-      XML_Write()
-      LDxml.Save(XML_Path)
-      GO = 0
-    EndIf
-  EndWhile
-EndSub
 
 Sub XML_Fetch_All
   XML_Array[1] = LDxml.Attributes
@@ -1095,140 +1117,9 @@ Sub XML_Fetch_All
   XML_Array[6] = LDxml.NodeInnerText 
   
   XML_Array_SCHEMA ="1=Attributes:;2=Attribute Count:;3=Children count:;4=Node Name:;5=Node Type:;"
+  return = XML_Array 
 EndSub
 
-Sub XML_Write 'Writes Data Out. Currently all data is stuck under the 1st record instead of their respective records.
-  For I = 1 To Array.GetItemCount(EXPORTDATA)
-    data["id"]=I
-    LDxml.AddNode("record",data,"","Append")
-    Child = LDxml.LastChild()
-    For II = 1 To Array.GetItemCount(EXPORTDATA[I])
-      LDxml.AddNode(SchemaList[II],"",EXPORTDATA[I][SchemaList[II]],"Append")
-    EndFor
-    LDxml.Parent()
-  EndFor
-EndSub
-
-Sub Export_SQL_Dump_Fetch
-  LDList.Clear("EXPORT_SQL")
-  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],"Export SQL - SCHEMA - On behalf of " + LDFile.UserName) '//Localize 
-  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],"Export SQL - SQL - On behalf of " + LDFile.UserName)'//Localize 
-  EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
-  
-  For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
-    LDList.Add("EXPORT_SQL",SCHEMA[Export_SQL_I]["type"] ) 'Type of Data 
-  EndFor
-  Export_SQL_DUMP_SCHEMA = LDList.ToArray("EXPORT_SQL")
-EndSub
-
-Sub Export_SQL_DUMP_WRITE
-  'Generates Create Table Schema with proper Schema
-  Dump_SQL = "CREATE TABLE " + Default_Table +"("
-  For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
-    DUMP_SQL = DUMP_SQL + SchemaList[Export_SQL_I] +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
-    If Export_SQL_I < Array.GetItemCount(SchemaList) Then
-      DUMP_SQL = DUMP_SQL +","
-    EndIf
-  EndFor
-  
-  DUMP_SQL = DUMP_SQL +");"
-  'Exports Data from SQL Table
-  For Export_SQL_I = 1 To Array.GetItemCount(EXPORT_SQL_DATA)
-    DUMP_SQL = DUMP_SQL +"INSERT INTO " +Default_Table + " VALUES ('"
-    For Export_SQL_II = 1 To Array.GetItemCount(EXPORT_SQL_DATA[Export_SQL_I])
-      DUMP_SQL =DUMP_SQL + LDText.Replace(EXPORT_SQL_DATA[Export_SQL_I][SchemaList[Export_SQL_II]],"'","''")
-      If Export_SQL_II < Array.GetItemCount(SchemaList) Then
-        DUMP_SQL = DUMP_SQL +"','"
-      EndIf
-    EndFor
-    DUMP_SQL = DUMP_SQL +"');" + CLLF
-  EndFor
-  File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
-EndSub
-
-Sub Export_HTML
-  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],"Export HTML SCHEMA on behalf of " + LDFile.UserName) '//Localize 
-  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],"Export HTML DATA on behalf of " + LDFile.UserName ) '//Localize 
-  EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
-  
-  HTML_Statement = "" 
-  HTML_Statement = "<!DOCTYPE html>"+CLLF+"<html>"+CLLF+TabKey+"<title>" + Default_Table +" Exported</title>" +CLLF + CLLF
-  HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}" +CLLF+TabKey+TabKey+TabKey+"table {border-collapse: collapse; width: 100%;}" +CLLF+TabKey+TabKey+TabKey+"th,td {padding: 15px;}" 
-  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}"
-  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
-  HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
-  HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->" + CLLF 
-  HTML_Statement = HTML_Statement + TabKey +"</head>" + CLLF + CLLF  
-  HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"
-  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr> "  +CLLF + TabKey+TabKey+Tabkey+Tabkey+ TabKey + "<td id = " +DoubleQuotesCharacter +"Main"+ DoubleQuotesCharacter +" + colspan = " + DoubleQuotesCharacter + Array.GetItemCount(Export_HTML_SCHEMA ) + DoubleQuotesCharacter +">" + Default_Table +"</td>"
-  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+"</tr>" +CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr>"+CLLF 
-  
-  For EXPORT_HTML_I = 1 To  Array.GetItemCount(Export_HTML_SCHEMA)
-    HTML_Statement = HTML_Statement + TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I]["name"] +"</th>" + CLLF
-  EndFor 
-  HTML_Statement = HTML_Statement +TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF
-  
-  For EXPORT_HTML_I = 1 To Array.GetItemCount(EXPORT_HTML_DATA)
-    HTML_Statement = HTML_Statement +TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF
-    For EXPORT_HTML_II = 1 To Array.GetItemCount(Export_HTML_SCHEMA)
-      HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + EXPORT_HTML_DATA[EXPORT_HTML_I][Export_HTML_SCHEMA[EXPORT_HTML_II]["name"]] +"</td>" + CLLF
-    EndFor
-    HTML_Statement = HTML_Statement +TabKey + TabKey+Tabkey+Tabkey+"</tr>"+CLLF 
-  EndFor
-  HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
-  File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
-EndSub
-'______________________________________________________________________________
-'                                                                                    IMPORT
-'______________________________________________________________________________
-
-Sub IMPORT_CSV
-  Import_CSV_SQL = "" 
-  For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
-    Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + I_CSV_Name + " VALUES ('"
-    CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[I] )
-    For II = 1 To Array.GetItemCount(I_CSV_Array[I])
-      CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
-      CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
-      
-      Import_CSV_SQL =  Import_CSV_SQL+ CSV_Array_Temp
-      
-      If CSV_Array_Temp <> 0 And Math.SquareRoot(CSV_Array_Temp) = 0 Then
-        CSV_Int_Array[II] = 0 
-      EndIf 
-      
-      If II < Array.GetItemCount(I_CSV_Array[i]) Then 
-        Import_CSV_SQL = Import_CSV_SQL + "','"
-      EndIf
-      
-    EndFor
-    
-    Import_CSV_SQL = Import_CSV_SQL + "');" + Text.GetCharacter(10)
-  EndFor
-EndSub
-
-Sub Import_CSV_Headers
-  ' LDClipboard.SetText(Import_CSV_SQL)
-  
-  Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + I_CSV_Name +" ("
-  Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
-  
-  For I = 1 To Array.GetItemCount(I_CSV_Array[1])
-    Import_CSV_HSQL = Import_CSV_HSQL +I_CSV_Array[1][I] + " " 
-    If CSV_Int_Array[I] = 1 Then 
-      Import_CSV_HSQL = Import_CSV_HSQL +"INTEGER"
-    Else 
-      Import_CSV_HSQL = Import_CSV_HSQL +"TEXT"
-    EndIf 
-    
-    If I < Array.GetItemCount(I_CSV_Array[1]) Then 
-      Import_CSV_HSQL = Import_CSV_HSQL + ","
-    EndIf
-    
-  EndFor
-  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
-  Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
-EndSub
 '______________________________________________________________________________
 '                                                                                          MOD
 '______________________________________________________________________________
@@ -1236,14 +1127,70 @@ Sub MOD_XML
   
 EndSub
 
-Sub MOD_READ
+Sub MOD_READ 
   
 EndSub
 
-Sub MOD_RUN
+
+Sub MOD_RUN_Parser
+  Dynamically_Added_Mod = 0 
   
+  If Array.GetItemCount(args) = 1 AND Text.GetIndexOf(args[1],".") <> 0 Then 'Normalizes arguments  into two arguments 
+    Mod_Index_of_Dot = Text.GetIndexOf(args[1],".") 
+    args[2] = Text.GetSubTextToEnd( args[1] ,( Mod_Index_of_Dot + 1 ) )
+    args[1] = Text.GetSubText( args[1] , 1 ,( Mod_Index_of_Dot - 1 ) )
+  EndIf 
+  
+  If LDList.IndexOf( List_Mod_Name , args[1] ) <> 0 AND Mod_Name[ args[1] ] = "" Then 'If the Mod Is known but has not yet been included
+    Temp_Mod_Path = LDList.GetAt( List_Mod_Path , LDList.IndexOf( List_Mod_Name , args[1] ) ) 
+    Temp_Mod_Name = args[1]
+    Mod_Name[  args[1] ]  =  LDCall.Include( Temp_Mod_Path ) 'Dynamically adds the MOD 
+    Dynamically_Added_Mod = 1 
+  EndIf 
+  
+  If Mod_Name[ args[1] ] <> "" And Array.GetItemCount(args) = 2 Then 'If the Mod basically is known to exist and has been included
+    return =  LDCall.CallInclude(Mod_Name[args[1]],args[2]) 
+    If Dynamically_Added_Mod = 1 Then 
+      LDCall.Function2(logfunction ,"Dynamically added " + Temp_Mod_Name + " ("+Mod_Name[  Temp_Mod_Name ]+")" + " FROM " + Temp_Mod_Path, LangList["System"])  
+      Temp_Mod_Name = ""
+      Temp_Mod_Path = "" 
+    EndIf 
+  Else
+    LDCall.Function2(logfunction ,"Error : Critical Fault. Could not call " + args[1]+"."+args[2] +" as it could not be found. " , LangList["System"]) '//Localize 
+    GraphicsWindow.ShowMessage("Error : Critical Fault. Could not call " + args[1]+"."+args[2] +" as it could not be found. (" + args +")","Critical Fault Error" )'//Localize 
+  EndIf 
 EndSub 
 
+Sub MOD_Find_All
+  Mod_Files =  File.GetFiles( ModPath )
+  LDList.Clear( List_Mod_Path ) 
+  LDList.Clear( List_Mod_Name ) 
+  For I = 1 To Array.GetItemCount ( Mod_Files ) 
+    If LDFile.GetExtension( Mod_Files[I] ) = "exe" Then 'Loads all EXE Files into Mod List 
+      LDList.Add( List_Mod_Path , Mod_Files[I] )
+      LDList.Add( List_Mod_Name , LDFile.GetFile(Mod_Files[I]) )
+    EndIf 
+  EndFor 
+EndSub 
+
+Sub MOD_Include_All ' Includes all mods even when it may not be nessecarry !! Obselete , left over as a failsafe 
+  debug_mode = 1 
+  TextWindow.WriteLine("FORCE DEBUG MODE ON")
+  TextWindow.WriteLine("YOU ARE USING AN OBSOLUTE FUNCTION NAMED : MOD_Include_All " )
+  TextWindow.WriteLine("Mod_Find_All and Mod_Run are the replacements for this function")
+  TextWindow.WriteLine("Please stop using function at the earliest possible moment") 
+  
+  Mod_Files =  File.GetFiles( ModPath )
+  For I = 1 To Array.GetItemCount ( Mod_Files ) 
+    If LDFile.GetExtension( Mod_Files[I] ) = "exe" Then 'Loads all EXE Files into Mod List 
+      Mod_Name[  LDFile.GetFile(Mod_Files[I]) ]  =  LDCall.Include( Mod_Files[I] )
+    EndIf 
+  EndFor 
+EndSub
+
+Sub MOD_SMART_Include
+  
+EndSub 
 '______________________________________________________________________________
 '                                                                                     Query
 '______________________________________________________________________________
@@ -1255,8 +1202,8 @@ Sub Query
     EndIf
     return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
   Else 
-    LDCall.Function2(logfunction ,"Query Error : No Database has been loaded", LangList["UI"] ) '//Localize 
-    GraphicsWindow.ShowMessage("Error : No Database has been loaded" , "Query Error " ) '//Localize 
+    LDCall.Function2(logfunction , LangList["Query Error"] + ": " + LangList["Error No DB"]  , LangList["UI"] )
+    GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Query Error"] ) 
   EndIf 
 EndSub
 
@@ -1271,7 +1218,7 @@ Sub Command 'Runs A Command Function
     return = LDDataBase.Command(CommandArgs[1] ,LDText.Trim( CommandArgs[2] ) )
   Else 
     LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
-    GraphicsWindow.ShowMessage("Error : No Database has been loaded" , LangList["Command"] + " " + LangList["Error"] ) '//Localize 
+    GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Command"] + " " + LangList["Error"] )
   EndIf
 EndSub
 
@@ -1288,16 +1235,16 @@ EndSub
 '______________________________________________________________________________
 Sub Closing
   If databasepath = "" Then 
-    LDCall.Function2(logfunction, "Program Closing ","Application") '//Localize 
+    LDCall.Function2(logfunction, "Program Closing ",LangList["Application"]) '//Localize 
   Else 
-    LDCall.Function2(logfunction, "Program Closing - Closing : " + databasepath ,"Application") '//Localize 
+    LDCall.Function2(logfunction, "Program Closing - Closing : " + databasepath ,LangList["Application"]) '//Localize 
   EndIf 
   Program.End()
 EndSub
 
 Sub ErrorHandler
   TextWindow.WriteLine( LDEvents.LastError )
-  LDCall.Function2(logfunction, LDEvents.LastError ,"System" )'//Localize 
+  LDCall.Function2(logfunction, LDEvents.LastError ,LangList["System"])
 EndSub
 
 Sub Log
@@ -1320,7 +1267,7 @@ Sub Log
     LogNumber = LogNumber + 1
     return = File.AppendContents(logpath,Clock.Date + "|" + Clock.Time +"|" + LDFile.UserName +"|" + ProductID +"|"+ VersionID+"|"+   LogEvent)
     LOG_CMD = "INSERT INTO LOG (ID,UTC_DATE,UTC_TIME,DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
-    LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , "App" ,"Auto Log") '//Localize 
+    LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log") '//Localize 
   EndIf 
 EndSub
 
@@ -1343,7 +1290,7 @@ Sub UpdateDownload
     LatestVersion = QueryItems[1]["VERSION"]
     DownloadLocation = QueryItems[1]["URL"] 
   Else
-    GraphicsWindow.ShowMessage("An Error has occured. Please check the log for details.","Error") '//Localize 
+    GraphicsWindow.ShowMessage(LangList["Check Log"],LangList["Error"])
   EndIf 
 EndSub 
 
@@ -1352,11 +1299,11 @@ Sub UpdateUI
     LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
     GraphicsWindow.ShowMessage("There are no updates available","No Updates") '//Localize 
   ElseIf PrgmVersionID  > LatestVersion AND MannualUpdateCheck = 1 Then 
-    LDCall.Function2(logfunction ,"You have early beta version of the program", "UI" ) '//Localize 
+    LDCall.Function2(logfunction ,"You have early beta version of the program", LangList["UI"]) '//Localize 
     GraphicsWindow.ShowMessage("You have a more recent edition of the program than that offered to the public." + CLLF + " You have version " + PrgmVersionID  + " while the most recent public release is version " + LatestVersion,"No Updates") '//Localize 
   ElseIf (PrgmVersionID  < LatestVersion) Then 
     If   ( LDDialogs.Confirm("Do you wish to download Version " + LatestVersion + "? You have Version " + PrgmVersionID ,"Download Update") = "Yes" ) Then '//Localize 
-      LDCall.Function2(logfunction ,"Starting Download of Update", "UI" )   '//Localize 
+      LDCall.Function2(logfunction ,"Starting Download of Update", LangList["UI"] )   '//Localize 
       DownloadUpdate()  
     EndIf  
   EndIf 
@@ -1373,10 +1320,10 @@ Sub DownloadUpdate
   UpdaterSize = LDNetwork.DownloadFile(DownloadFolder,DownloadLocation) 
   
   If UpdaterSize <> "-1" then 
-    LDCall.Function2(logfunction ,"Dowloaded update to : " + DownloadFolder, "UI" ) '//Localize 
+    LDCall.Function2(logfunction ,"Dowloaded update to : " + DownloadFolder, LangList["UI"] ) '//Localize 
     GraphicsWindow.ShowMessage("SUCCESS","Update Downloaded")'//Localize 
   Else
-    GraphicsWindow.ShowMessage("An Error has occured. Please check the log for details.","Error") '//Localize 
+    GraphicsWindow.ShowMessage(LangList["Check Log"],LangList["Error"])
   EndIf 
   
 EndSub 

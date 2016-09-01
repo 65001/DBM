@@ -3,7 +3,7 @@
   <Language language="sv">
     <File language="sv">Fil</File>
     <New language="sv">Nya</New>
-    <Open language="sv">Öppen</Open>
+    <Open language="sv">Öppna</Open>
     <Edit language="sv">Redigera</Edit>
     <View language="sv">Visa</View>
     <Save language="sv">Spara</Save>
@@ -16,7 +16,7 @@
     <Help language="sv">Hjälp</Help>
     <About language="sv">Om</About>
     <Show_Help language="sv">Visa hjälp</Show_Help>
-    <Settings_Editor language="sv">Inställningar Redaktör</Settings_Editor>
+    <Settings_Editor language="sv">Inställningar för Editor</Settings_Editor>
     <Toggle_Debug language="sv">Toggle Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="sv">Toggle transaktionsloggen</Toggle_Transaction_Log>
     <Refresh language="sv">Uppdatera</Refresh>
@@ -57,5 +57,16 @@
     <Language language="sv">Språk</Language>
     <Save_and_Close language="sv">Spara och Stäng</Save_and_Close>
     <Close_wo_saving language="sv">Stäng utan att spara</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sv">Misslyckades med att läsa online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="sv">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="sv">Exportera HTML-SCHEMA för </Export_HTML_Schema>
+    <Export_HTML_Data language="sv">Exportera HTML-DATA för </Export_HTML_Data>
+    <Check_Log language="sv">Fel: Kontrollera loggen för Detaljer</Check_Log>
+    <Query_Error language="sv">Fråga fel</Query_Error>
+    <Export_CSV language="sv">EXPORTERA CSV PÅ UPPDRAG AV </Export_CSV>
+    <Export_SQL_SCHEMA language="sv">Exportera SQL - SCHEMA - på uppdrag av </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="sv">Exportera SQL - SQL - på uppdrag av </Export_SQL_SQL>
+    <Export_XML language="sv">EXPORTERA XML PÅ UPPDRAG AV</Export_XML>
+    <System language="sv">Systemet</System>
   </Language>
 </root>

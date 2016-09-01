@@ -57,5 +57,16 @@
     <Language language="et">Keel</Language>
     <Save_and_Close language="et">Salvesta ja Sule</Save_and_Close>
     <Close_wo_saving language="et">Sule ilma salvestamata</Close_wo_saving>
+    <Failed_Load_Online_EULA language="et">Online EULA laadimine nurjus</Failed_Load_Online_EULA>
+    <Auto_Log language="et">Auto Logi</Auto_Log>
+    <Export_HTML_Schema language="et">Ekspordi HTML-i SKEEMI nimel </Export_HTML_Schema>
+    <Export_HTML_Data language="et">ANDMETE eksportimine HTML nimel </Export_HTML_Data>
+    <Check_Log language="et">Viga: Palun vaadake logist üksikasjad</Check_Log>
+    <Query_Error language="et">Päringule viga</Query_Error>
+    <Export_CSV language="et">EKSPORDI CSV NIMEL </Export_CSV>
+    <Export_SQL_SCHEMA language="et">Ekspordi SQL - SKEEMI - nimel </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="et">Ekspordi SQL - SQL - nimel </Export_SQL_SQL>
+    <Export_XML language="et">EKSPORDI XML-I NIMEL</Export_XML>
+    <System language="et">Süsteemi</System>
   </Language>
 </root>

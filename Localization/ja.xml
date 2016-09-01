@@ -57,5 +57,16 @@
     <Language language="ja">言語</Language>
     <Save_and_Close language="ja">保存して閉じる</Save_and_Close>
     <Close_wo_saving language="ja">保存しないで閉じる</Close_wo_saving>
+    <Failed_Load_Online_EULA language="ja">オンライン使用許諾契約書を読み込めませんでした。</Failed_Load_Online_EULA>
+    <Auto_Log language="ja">自動ログ</Auto_Log>
+    <Export_HTML_Schema language="ja">代わりに HTML スキーマをエクスポートします。</Export_HTML_Schema>
+    <Export_HTML_Data language="ja">代わりに HTML データをエクスポートします。</Export_HTML_Data>
+    <Check_Log language="ja">エラー: 詳細についてはログを確認してください。</Check_Log>
+    <Query_Error language="ja">クエリ エラー</Query_Error>
+    <Export_CSV language="ja">代理で CSV にエクスポートします。</Export_CSV>
+    <Export_SQL_SCHEMA language="ja">代わりに SQL のスキーマをエクスポートします。</Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="ja">代わりに SQL の SQL をエクスポートします。</Export_SQL_SQL>
+    <Export_XML language="ja">代わりに XML をエクスポートします。</Export_XML>
+    <System language="ja">システム</System>
   </Language>
 </root>

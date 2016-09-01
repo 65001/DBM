@@ -57,5 +57,16 @@
     <Language language="sk">Jazyk</Language>
     <Save_and_Close language="sk">Uložiť a zavrieť</Save_and_Close>
     <Close_wo_saving language="sk">Zavrieť bez uloženia</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sk">Nepodarilo sa načítať online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="sk">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="sk">Exportovať HTML schémy v </Export_HTML_Schema>
+    <Export_HTML_Data language="sk">Exportovať údaje HTML v </Export_HTML_Data>
+    <Check_Log language="sk">Chyba: Prosím skontrolujte Podrobnosti v denníku</Check_Log>
+    <Query_Error language="sk">Dotaz chyba</Query_Error>
+    <Export_CSV language="sk">EXPORT CSV V </Export_CSV>
+    <Export_SQL_SCHEMA language="sk">Export SQL - schéma - v </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="sk">Export SQL - SQL - v </Export_SQL_SQL>
+    <Export_XML language="sk">EXPORT XML V</Export_XML>
+    <System language="sk">Systém</System>
   </Language>
 </root>

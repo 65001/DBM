@@ -57,5 +57,16 @@
     <Language language="sw">Lugha</Language>
     <Save_and_Close language="sw">Hifadhi na Funga</Save_and_Close>
     <Close_wo_saving language="sw">Kufunga bila ya kuhifadhi</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sw">Imeshindwa kupakia EULA mtandaoni</Failed_Load_Online_EULA>
+    <Auto_Log language="sw">Logi ya otomatiki</Auto_Log>
+    <Export_HTML_Schema language="sw">Hamisha MUUNDAMANO HTML kwa niaba ya </Export_HTML_Schema>
+    <Export_HTML_Data language="sw">Hamisha DATA HTML kwa niaba ya </Export_HTML_Data>
+    <Check_Log language="sw">Kosa: Tafadhali kagua logi kwa maelezo</Check_Log>
+    <Query_Error language="sw">Kosa la Ulizo</Query_Error>
+    <Export_CSV language="sw">HAMISHA CSV KWA NIABA YA </Export_CSV>
+    <Export_SQL_SCHEMA language="sw">Hamisha SQL - MUUNDAMANO - kwa niaba ya </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="sw">Hamisha SQL - SQL - kwa niaba ya </Export_SQL_SQL>
+    <Export_XML language="sw">HAMISHA XML KWA NIABA YA</Export_XML>
+    <System language="sw">Mfumo</System>
   </Language>
 </root>

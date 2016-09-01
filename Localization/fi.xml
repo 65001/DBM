@@ -57,5 +57,16 @@
     <Language language="fi">Kieli</Language>
     <Save_and_Close language="fi">Tallenna ja sulje</Save_and_Close>
     <Close_wo_saving language="fi">Sulje tallentamatta</Close_wo_saving>
+    <Failed_Load_Online_EULA language="fi">Online Käyttöoikeussopimuksen lataaminen epäonnistui</Failed_Load_Online_EULA>
+    <Auto_Log language="fi">Automaattinen sisäänkirjaus</Auto_Log>
+    <Export_HTML_Schema language="fi">Vie HTML rakenne puolesta </Export_HTML_Schema>
+    <Export_HTML_Data language="fi">Vie HTML-tietojen puolesta </Export_HTML_Data>
+    <Check_Log language="fi">Virhe: Tarkista halko ajaksi esittää tarkasti</Check_Log>
+    <Query_Error language="fi">Kyselyn virhe</Query_Error>
+    <Export_CSV language="fi">VIENTI CSV PUOLESTA </Export_CSV>
+    <Export_SQL_SCHEMA language="fi">Viedä SQL - SCHEMA - puolesta </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="fi">Viedä SQL - SQL - puolesta </Export_SQL_SQL>
+    <Export_XML language="fi">XML: N PUOLESTA VIEMINEN</Export_XML>
+    <System language="fi">Järjestelmän</System>
   </Language>
 </root>

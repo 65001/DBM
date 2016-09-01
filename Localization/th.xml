@@ -57,5 +57,16 @@
     <Language language="th">ภาษา</Language>
     <Save_and_Close language="th">บันทึกและปิด</Save_and_Close>
     <Close_wo_saving language="th">ปิดโดยไม่บันทึก</Close_wo_saving>
+    <Failed_Load_Online_EULA language="th">ล้มเหลวในการโหลด EULA ออนไลน์</Failed_Load_Online_EULA>
+    <Auto_Log language="th">ระบบอัตโนมัติ</Auto_Log>
+    <Export_HTML_Schema language="th">SCHEMA HTML ส่งออกในนามของ </Export_HTML_Schema>
+    <Export_HTML_Data language="th">ส่งออกข้อมูล HTML ในนามของ </Export_HTML_Data>
+    <Check_Log language="th">ข้อผิดพลาด: กรุณาตรวจสอบแฟ้มบันทึกสำหรับรายละเอียด</Check_Log>
+    <Query_Error language="th">สอบถามข้อผิดพลาด</Query_Error>
+    <Export_CSV language="th">ส่งออก CSV ในนามของ </Export_CSV>
+    <Export_SQL_SCHEMA language="th">ส่ง SQL - SCHEMA - ในนามของ </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="th">ส่ง SQL - SQL - ในนามของ </Export_SQL_SQL>
+    <Export_XML language="th">ส่งออก XML ในนามของ</Export_XML>
+    <System language="th">ระบบ</System>
   </Language>
 </root>

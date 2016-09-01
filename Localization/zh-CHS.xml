@@ -57,5 +57,16 @@
     <Language language="zh-CHS">语言</Language>
     <Save_and_Close language="zh-CHS">保存并关闭</Save_and_Close>
     <Close_wo_saving language="zh-CHS">关闭但不保存</Close_wo_saving>
+    <Failed_Load_Online_EULA language="zh-CHS">未能加载在线最终用户许可协议</Failed_Load_Online_EULA>
+    <Auto_Log language="zh-CHS">自动日志</Auto_Log>
+    <Export_HTML_Schema language="zh-CHS">导出 HTML 架构的名义</Export_HTML_Schema>
+    <Export_HTML_Data language="zh-CHS">导出 HTML 数据的名义</Export_HTML_Data>
+    <Check_Log language="zh-CHS">错误︰ 请检查日志中的详细信息</Check_Log>
+    <Query_Error language="zh-CHS">查询错误</Query_Error>
+    <Export_CSV language="zh-CHS">导出 CSV 的名义</Export_CSV>
+    <Export_SQL_SCHEMA language="zh-CHS">导出 SQL 架构-代表</Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="zh-CHS">代表对导出 SQL-SQL-</Export_SQL_SQL>
+    <Export_XML language="zh-CHS">导出 XML 的名义</Export_XML>
+    <System language="zh-CHS">系统</System>
   </Language>
 </root>

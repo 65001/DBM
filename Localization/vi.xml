@@ -57,5 +57,16 @@
     <Language language="vi">Ngôn ngữ</Language>
     <Save_and_Close language="vi">Lưu và đóng</Save_and_Close>
     <Close_wo_saving language="vi">Đóng cửa mà không lưu</Close_wo_saving>
+    <Failed_Load_Online_EULA language="vi">Thất bại để tải EULA trực tuyến</Failed_Load_Online_EULA>
+    <Auto_Log language="vi">Đăng nhập tự động</Auto_Log>
+    <Export_HTML_Schema language="vi">Xuất khẩu HTML SCHEMA thay mặt cho </Export_HTML_Schema>
+    <Export_HTML_Data language="vi">Xuất dữ liệu HTML thay mặt cho </Export_HTML_Data>
+    <Check_Log language="vi">Lỗi: Kiểm tra Xin vui lòng đăng nhập để xem chi tiết</Check_Log>
+    <Query_Error language="vi">Truy vấn lỗi</Query_Error>
+    <Export_CSV language="vi">CSV XUẤT KHẨU ĐẠI DIỆN CHO </Export_CSV>
+    <Export_SQL_SCHEMA language="vi">Xuất khẩu SQL - sơ đồ - thay mặt cho </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="vi">Xuất khẩu SQL - SQL - thay mặt cho </Export_SQL_SQL>
+    <Export_XML language="vi">XUẤT KHẨU XML THAY MẶT CHO</Export_XML>
+    <System language="vi">Hệ thống</System>
   </Language>
 </root>

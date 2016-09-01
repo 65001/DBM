@@ -57,5 +57,16 @@
     <Language language="sr-Cyrl">Језик</Language>
     <Save_and_Close language="sr-Cyrl">Сачувај и затвори</Save_and_Close>
     <Close_wo_saving language="sr-Cyrl">Затворили без чувања</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sr-Cyrl">Онлине уговора ЕУЛА није успело</Failed_Load_Online_EULA>
+    <Auto_Log language="sr-Cyrl">Аутоматске евиденције</Auto_Log>
+    <Export_HTML_Schema language="sr-Cyrl">Извоз ХТМЛ шеме за </Export_HTML_Schema>
+    <Export_HTML_Data language="sr-Cyrl">Извоз података у ХТМЛ за </Export_HTML_Data>
+    <Check_Log language="sr-Cyrl">Грешка : Молим вас потражите у евиденцији детаље</Check_Log>
+    <Query_Error language="sr-Cyrl">Грешка у упит</Query_Error>
+    <Export_CSV language="sr-Cyrl">ИЗВОЗ ЦСВ НА ЧИЈЕ ИМЕ </Export_CSV>
+    <Export_SQL_SCHEMA language="sr-Cyrl">Извоз СQЛ - шема - за </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="sr-Cyrl">Извоз СQЛ - СQЛ - за </Export_SQL_SQL>
+    <Export_XML language="sr-Cyrl">ИЗВОЗ XМЛ-А ЗА</Export_XML>
+    <System language="sr-Cyrl">Систем</System>
   </Language>
 </root>

@@ -57,5 +57,16 @@
     <Language language="yua">T'aano'</Language>
     <Save_and_Close language="yua">Ooks yéetel muts'ik in</Save_and_Close>
     <Close_wo_saving language="yua">Muts'ik in xma' ooks le cambios</Close_wo_saving>
+    <Failed_Load_Online_EULA language="yua">Ma' u páajchaj kuuch u EULA ti' internet ichil</Failed_Load_Online_EULA>
+    <Auto_Log language="yua">Registro kiis</Auto_Log>
+    <Export_HTML_Schema language="yua">Jo'osa'al bisbil ba'alche'obo' HTML esquema te' k'aaba' u </Export_HTML_Schema>
+    <Export_HTML_Data language="yua">Jo'osa'al bisbil ba'alche'obo' u datos HTML te' k'aaba' u </Export_HTML_Data>
+    <Check_Log language="yua">Ba'alo': Much compruebe le registro utia'al u asab detalles</Check_Log>
+    <Query_Error language="yua">Consulta ba'alo'</Query_Error>
+    <Export_CSV language="yua">EXPORTAR CSV U NOMBRE U </Export_CSV>
+    <Export_SQL_SCHEMA language="yua">Exportar SQL ti'-esquema - ti' k'aaba' u </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="yua">Exportar u SQL ti'-SQL - ti' k'aaba' u </Export_SQL_SQL>
+    <Export_XML language="yua">JO'OSA'AL BISBIL BA'ALCHE'OBO' XML TI' K'AABA' U</Export_XML>
+    <System language="yua">T.u.m u</System>
   </Language>
 </root>

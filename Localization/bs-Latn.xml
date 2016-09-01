@@ -57,5 +57,16 @@
     <Language language="bs-Latn">Jezik</Language>
     <Save_and_Close language="bs-Latn">Sačuvaj i zatvori</Save_and_Close>
     <Close_wo_saving language="bs-Latn">Zatvorite bez spremanja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="bs-Latn">Nije uspjelo Učitavanje on-line EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="bs-Latn">Automatska prijava</Auto_Log>
+    <Export_HTML_Schema language="bs-Latn">Izvoz HTML SHEME u ime </Export_HTML_Schema>
+    <Export_HTML_Data language="bs-Latn">Izvoz HTML podataka u ime </Export_HTML_Data>
+    <Check_Log language="bs-Latn">Greška: Molimo provjerite dnevnik za detalje</Check_Log>
+    <Query_Error language="bs-Latn">Pogreška upita</Query_Error>
+    <Export_CSV language="bs-Latn">IZVEZI CSV U IME </Export_CSV>
+    <Export_SQL_SCHEMA language="bs-Latn">Izvoz SQL - SHEMA - u ime </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="bs-Latn">Izvoz SQL - u SQL - u ime </Export_SQL_SQL>
+    <Export_XML language="bs-Latn">IZVOZ XML-A U IME</Export_XML>
+    <System language="bs-Latn">Sustav</System>
   </Language>
 </root>

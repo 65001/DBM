@@ -57,5 +57,16 @@
     <Language language="he">שפה</Language>
     <Save_and_Close language="he">שמור ולסגור</Save_and_Close>
     <Close_wo_saving language="he">סגור ללא שמירה</Close_wo_saving>
+    <Failed_Load_Online_EULA language="he">נכשל בטעינת EULA באינטרנט</Failed_Load_Online_EULA>
+    <Auto_Log language="he">כניסה אוטומטית</Auto_Log>
+    <Export_HTML_Schema language="he">ייצוא תבנית HTML שבשמו </Export_HTML_Schema>
+    <Export_HTML_Data language="he">ייצוא נתוני HTML שבשמו </Export_HTML_Data>
+    <Check_Log language="he">שגיאה: נא בדוק את יומן הרישום לקבלת פרטים</Check_Log>
+    <Query_Error language="he">שגיאה בשאילתה</Query_Error>
+    <Export_CSV language="he">ייצוא CSV בשם </Export_CSV>
+    <Export_SQL_SCHEMA language="he">ייצוא SQL - סכימת - על </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="he">ייצוא SQL - SQL - על </Export_SQL_SQL>
+    <Export_XML language="he">ייצוא XML שבשמו</Export_XML>
+    <System language="he">מערכת</System>
   </Language>
 </root>

@@ -57,5 +57,16 @@
     <Language language="mt">Lingwa</Language>
     <Save_and_Close language="mt">Issejvja u għeluq</Save_and_Close>
     <Close_wo_saving language="mt">Agħlaq mingħajr ma tissejvja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="mt">Ma rnexxilux jillowdja l-EULA onlajn</Failed_Load_Online_EULA>
+    <Auto_Log language="mt">Illoggjar awtomatiku</Auto_Log>
+    <Export_HTML_Schema language="mt">ISKEMA HTML għan-nom ta ' l-esportazzjoni </Export_HTML_Schema>
+    <Export_HTML_Data language="mt">HTML informazzjoni għan-nom ta ' l-esportazzjoni </Export_HTML_Data>
+    <Check_Log language="mt">L-iżball: Iċċekkja r-reġistru għal dettalji</Check_Log>
+    <Query_Error language="mt">Żball tal-query</Query_Error>
+    <Export_CSV language="mt">CSV GĦAN-NOM TA ' L-ESPORTAZZJONI </Export_CSV>
+    <Export_SQL_SCHEMA language="mt">Esportazzjoni SQL - iskema - f'isem </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="mt">Esportazzjoni SQL - SQL - f'isem </Export_SQL_SQL>
+    <Export_XML language="mt">XML GĦAN-NOM TA ' L-ESPORTAZZJONI</Export_XML>
+    <System language="mt">Is-sistema</System>
   </Language>
 </root>

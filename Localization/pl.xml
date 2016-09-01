@@ -57,5 +57,16 @@
     <Language language="pl">Język</Language>
     <Save_and_Close language="pl">Zapisz i Zamknij</Save_and_Close>
     <Close_wo_saving language="pl">Zamknąć bez zapisywania</Close_wo_saving>
+    <Failed_Load_Online_EULA language="pl">Nie można załadować online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="pl">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="pl">Eksportu HTML schematu w imieniu </Export_HTML_Schema>
+    <Export_HTML_Data language="pl">Eksportowanie danych HTML w imieniu </Export_HTML_Data>
+    <Check_Log language="pl">Błąd: Proszę sprawdzić szczegóły w dzienniku</Check_Log>
+    <Query_Error language="pl">Błąd kwerendy</Query_Error>
+    <Export_CSV language="pl">EKSPORT CSV W IMIENIU </Export_CSV>
+    <Export_SQL_SCHEMA language="pl">Wyeksportować SQL - schemat - w imieniu </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="pl">Wyeksportować SQL - SQL - w imieniu </Export_SQL_SQL>
+    <Export_XML language="pl">EKSPORTOWANIE DANYCH XML W IMIENIU</Export_XML>
+    <System language="pl">Systemu</System>
   </Language>
 </root>

@@ -57,5 +57,16 @@
     <Language language="sl">Jezik</Language>
     <Save_and_Close language="sl">Shrani in zapri</Save_and_Close>
     <Close_wo_saving language="sl">Zapreti brez shranjevanja</Close_wo_saving>
+    <Failed_Load_Online_EULA language="sl">Pri nalaganju online EULA</Failed_Load_Online_EULA>
+    <Auto_Log language="sl">Auto Log</Auto_Log>
+    <Export_HTML_Schema language="sl">Izvozi shemo HTML za </Export_HTML_Schema>
+    <Export_HTML_Data language="sl">Izvoz HTML podatke za </Export_HTML_Data>
+    <Check_Log language="sl">Napaka: Prosimo, da preverite dnevnik za podrobnosti</Check_Log>
+    <Query_Error language="sl">Napaka poizvedb</Query_Error>
+    <Export_CSV language="sl">IZVOZ V CSV ZA </Export_CSV>
+    <Export_SQL_SCHEMA language="sl">Izvoz SQL - sheme - za </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="sl">Izvoz SQL - SQL - za </Export_SQL_SQL>
+    <Export_XML language="sl">IZVOZ XML ZA</Export_XML>
+    <System language="sl">Sistem</System>
   </Language>
 </root>

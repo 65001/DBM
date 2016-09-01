@@ -57,5 +57,16 @@
     <Language language="fr">Langue</Language>
     <Save_and_Close language="fr">Enregistrez et fermez</Save_and_Close>
     <Close_wo_saving language="fr">Fermer sans enregistrer les modifications</Close_wo_saving>
+    <Failed_Load_Online_EULA language="fr">Impossible de charger le CLUF en ligne</Failed_Load_Online_EULA>
+    <Auto_Log language="fr">Auto Journal</Auto_Log>
+    <Export_HTML_Schema language="fr">Exportation HTML schéma au nom de </Export_HTML_Schema>
+    <Export_HTML_Data language="fr">Exporter des données HTML au nom de </Export_HTML_Data>
+    <Check_Log language="fr">Erreur : Veuillez consulter le journal pour plus de détails</Check_Log>
+    <Query_Error language="fr">Erreur de requête</Query_Error>
+    <Export_CSV language="fr">EXPORT CSV AU NOM DE </Export_CSV>
+    <Export_SQL_SCHEMA language="fr">Export SQL - schéma - au nom de </Export_SQL_SCHEMA>
+    <Export_SQL_SQL language="fr">Export SQL - SQL - au nom de </Export_SQL_SQL>
+    <Export_XML language="fr">EXPORT XML POUR LE COMPTE DE</Export_XML>
+    <System language="fr">Système</System>
   </Language>
 </root>
