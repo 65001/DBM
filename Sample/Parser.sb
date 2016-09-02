@@ -1,0 +1,25 @@
+
+RPath = LDFile.GetFolder ( Program.Directory ) +"\Assets\CSV Import DUMP.sql"
+Exists = LDFile.Exists(RPath ) 
+Cnts = File.ReadContents( RPath) 
+CRLF = Text.GetCharacter(10)
+InString = 0
+
+While I <= Text.GetLength( Cnts )
+  Character = Text.GetSubText( Cnts , I , 1 )
+  If  Character = ";" And InString = 0   Then
+    LDList.Add("SQL" , String +";")
+    String = ""
+  ElseIf Character ="'" Then 
+    If InString = 0 Then 
+      InString = 1 
+    ElseIf InString = 1 Then
+      InString = 0 
+    EndIf
+    String = String + Character 
+  Else  
+    String = String + Character 
+  EndIf 
+  I = I + 1
+EndWhile
+LDList.Print("SQL")  

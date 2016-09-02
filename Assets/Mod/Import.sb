@@ -16,7 +16,7 @@ Sub CSV
   
   CSV_TO_SQL()
   CSV_Headers()
-  
+  Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
   records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV") '//Localize  
   LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file",LangList["Application"])'//Localize 
   File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
@@ -30,8 +30,17 @@ Sub CSV_TO_SQL
     For II = 1 To Array.GetItemCount(I_CSV_Array[I])
       CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
       CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
+      
       debug_mode = 1 
+      If CSV_Array_Temp ="" Or CSV_Array_Temp = " " Then
+        TextWindow.ForegroundColor = "RED"
+        CSV_Array_Temp = "NULL"
+      Else
+        TextWindow.ForegroundColor = "WHITE"
+      EndIf 
+      
       TextWindow.WriteLine( CSV_Array_Temp ) 
+      
       Import_CSV_SQL =  Import_CSV_SQL+ CSV_Array_Temp
       
       If CSV_Array_Temp <> 0 And Math.SquareRoot(CSV_Array_Temp) = 0 Then
@@ -68,3 +77,4 @@ Sub CSV_Headers
   Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
   Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
 EndSub
+  
