@@ -14,6 +14,10 @@
 
 'v1116
 'Smarter Mod Loader 
+'Importer now works a lot more reliabley alabit a bit slower
+'Command Function reworked to include a parser
+'debug_Parser added . Default value 0 . Debugs Command Line Parser
+
 
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
@@ -28,6 +32,11 @@
 'New Table Menu
 'SQL Functions List
 'Make the mastertable a view and remove the program only restrictions on it 
+'______________________________________________________________________________
+'                                                                                                           Localize
+'______________________________________________________________________________
+'Localize Self
+'Localize Import Module
 
 '______________________________________________________________________________
 '                                                                                                 To do - Modding 
@@ -69,8 +78,14 @@ Function_Transaction = TransactionFunction
 Export_T2  = "Export T2" 
 Export_T1  = "Export T1" 
 TrackDefaultTable = "TrackDefaultTable"
+
 List_Mod_Name = "Mod_Name"
 List_Mod_Path = "Mod_Path" 
+
+List_Command_Parser = "Command_SQL_Parser"
+List_Command_Parser_Status = "Command_SQL_Parser_Status"
+List_Command_Parser_OnFail = "Command_SQL_Parser_Fail"
+List_Command_Parser_OnFail_Index = "Command_SQL_Parser_Fail_Index"
 
 LDUtilities.ShowErrors = "False"
 LDUtilities.ShowFileErrors= "False"
@@ -78,7 +93,9 @@ LDUtilities.ShowNoShapeErrors = "False"
 LDEvents.Error = ErrorHandler
 
 debug_mode = 0 '1=On;0=Off(Default)
+debug_Parser = 0 'Debugs the CMD Function Parser . Seperated bc otherwise it creates a lot of noise in the debug output
 EULA_Test = 0 'Default 0 
+Command_Busy = 0
 
 copyrightDate = 2016
 ProductID = "DBM"
@@ -109,7 +126,7 @@ Transactions_SQL = "CREATE TABLE IF NOT EXISTS Transactions (ID INTEGER PRIMARY 
 '                                                               File Operations 
 '______________________________________________________________________________
 AssetPath = Program.Directory +"\Assets\"
-logpath = AssetPath +"Log.txt"
+logpath = AssetPath +"Log.csv"
 LogDBpath = AssetPath +"Log.db"
 TransactionDBpath = AssetPath +"Transactions.db" 
 EULAFile = AssetPath +"EULA.txt"
@@ -120,10 +137,14 @@ LocalizationsFolder = Program.Directory +"\Localization\"
 LocalizationsLangFolder = Program.Directory +"\Localization\Lang\"
 LocalizationsFilesArray  =  File.GetFiles ( LocalizationsFolder ) 
 
-IF LDFile.Exists(AssetPath) = "FALSE" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
+IF LDFile.Exists(AssetPath) = "False" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
   File.CreateDirectory(AssetPath)
   File.CreateDirectory(LocalizationsFolder ) 
   File.CreateDirectory(ModPath ) 
+EndIf 
+
+If LDFile.Exists(logpath) = "False" Then
+  File.AppendContents( logpath , "id,local date,local time,Username,Product ID,Version ,Type of Error,Log Event")
 EndIf 
 
 LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
@@ -182,7 +203,6 @@ Sub Startup
   LoadSettings()
   Localization_XML()
   LDCall.Function2( logfunction , "Program Started",LangList["Application"]) '// Localize 
-  
   If Program.ArgumentCount  = 1  Then
     GetPath()
     Load_DB()
@@ -425,7 +445,7 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   MenuList[LangList["SQL"] +" "] = LangList["Export"]
   MenuList[LangList["PXML"] + " " ] = LangList["Export"]
   MenuList[LangList["HTML"] + " "] = LangList["Export"]
-  MenuList["Export UI"] = LangList["Export"]
+  MenuList["Export UI"] = LangList["Export"]'// Localize
   MenuList["-"]= LangList["Export"]
   
   MenuList[LangList["Help"]] = LangList["Settings"]
@@ -438,6 +458,7 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   MenuList[LangList["Toggle Transaction Log"]] = LangList["Settings"]
   MenuList[LangList["Refresh"]] = LangList["Settings"]
   MenuList[LangList["Check for Updates"]] = LangList["Settings"]
+  MenuList["Close TW"] = LangList["Settings"] '// Localize
   MenuList["-"] = LangList["Settings"]
   
   ViewDB_Button = LangList["View"]
@@ -458,7 +479,8 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   RefreshButton = LangList["Refresh"]
   CheckForUpdates = LangList["Check for Updates"]
   ToggleTransaction = LangList["Toggle Transaction Log"]
-  Export_UI_Button = "Export UI" 
+  CLoseTW_Button = "Close TW" 
+  Export_UI_Button = "Export UI" '// Localize
 EndSub
 
 Sub MainMenuUI 
@@ -696,7 +718,6 @@ Sub MainMenuHandler
     GenerateQuery()
   ElseIf LastClickedButton = ImportCSV_Button Then 'Imports CSV
     LDCall.Function( Function_RunMod_Parser , "Import.CSV") 
-    GraphicsWindow.ShowMessage(records + " records updated","IMPORT") '//Localize  
   ElseIf LastClickedButton = ImportSQL_Button Then ' Imports SQL 
     CurrentFolder = LDFile.GetFolder(databasepath)
     records =  LDCall.Function4( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) , LDFile.UserName ,"Import SQL") '//Localize 
@@ -804,6 +825,9 @@ Sub MainMenuHandler
     MainMenuHandler()
   ElseIf LastClickedButton = Export_UI_Button Then 
     Export_UI()
+  ElseIf LastClickedButton = CLoseTW_Button Then
+    TextWindow.Clear()
+    TextWindow.Hide()
   Else
     GraphicsWindow.ShowMessage ( LastClickedButton ,"") 
   EndIf
@@ -1060,7 +1084,7 @@ Sub GenerateQuery
   EndIf
   
   'Apply Sort Constraints
-  CMD = CMD + "ORDER BY " + List[SearchByGQ] +" "
+  CMD = CMD + "ORDER BY " + List[OrderByGQ] +" "
   If SortOrder = 1 Then
     CMD = CMD + "ASC;"
   ElseIf SortOrder = 2 Then
@@ -1211,15 +1235,71 @@ EndSub
 '                                                                                     Database Command 
 '______________________________________________________________________________
 
-Sub Command 'Runs A Command Function 
-  CommandArgs = args 
-  If args[1] <> "" Then 
-    LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
-    return = LDDataBase.Command(CommandArgs[1] ,LDText.Trim( CommandArgs[2] ) )
+Sub Command 'Runs A Command Function  
+  If Command_Busy  = 0 Then 
+    Command_Busy =  1
+    
+    CommandArgs = args 
+    If args[1] <> "" Then 
+      LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
+      CommandArgs[2] = LDText.Trim( CommandArgs[2] ) 
+      
+      LDList.Clear( List_Command_Parser ) 
+      LDList.Clear( List_Command_Parser_OnFail ) 
+      LDList.Clear( List_Command_Parser_OnFail_Index ) 
+      LDList.Clear( List_Command_Parser_Status )
+      
+      InString = 0 
+      Command_Counter = 0 
+      For I = 1 to Text.GetLength( CommandArgs[2] )
+        Character = Text.GetSubText( CommandArgs[2] , I , 1 )
+        If  Character = ";" And InString = 0   Then
+          LDList.Add(List_Command_Parser , String +";")
+          String = ""
+        ElseIf Character ="'" Then 
+          If InString = 0 Then 
+            InString = 1 
+          ElseIf InString = 1 Then
+            InString = 0 
+          EndIf
+          String = String + Character 
+        Else  
+          String = String + Character 
+        EndIf 
+      EndFor 
+      
+      For I = 1 To LDList.Count(List_Command_Parser) 
+        Temp_Command_Counter = LDDataBase.Command( CommandArgs[1] , LDList.GetAt(List_Command_Parser,I) )
+        LDList.Add( List_Command_Parser_Status , Temp_Command_Counter ) 
+        
+        If Temp_Command_Counter = 0 Then 
+          LDList.Add( List_Command_Parser_OnFail , LDList.GetAt(List_Command_Parser,I) ) 
+          LDList.Add( List_Command_Parser_OnFail_Index , I ) 
+        EndIf 
+        Command_Counter = Command_Counter + Temp_Command_Counter
+      EndFor
+      
+      If debug_Parser = 1 Then
+        LDList.Print( List_Command_Parser ) 
+        LDList.Print( List_Command_Parser_Status ) 
+        If LDList.Count( List_Command_Parser_OnFail ) <> 0 Then 'If there are failed statements display them 
+          LDList.Print( List_Command_Parser_OnFail ) 
+        EndIf 
+      EndIf 
+      
+     Command_Num_Cmds = LDList.Count( List_Command_Parser_Status ) 
+      return = Command_Counter
+    Else 
+      LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
+      GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Command"] + " " + LangList["Error"] )
+    EndIf
+    Command_Busy = 0
   Else 
-    LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
-    GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Command"] + " " + LangList["Error"] )
-  EndIf
+    debug_mode = 1 
+    TextWindow.ForegroundColor = "RED"
+    TextWindow.WriteLine("CMD BUSY! " + args ) 
+    LDQueue.Enqueue("CMD", args) 
+  EndIf 
 EndSub
 
 Sub TransactionRecord
@@ -1243,6 +1323,7 @@ Sub Closing
 EndSub
 
 Sub ErrorHandler
+  debug_mode = 1 
   TextWindow.WriteLine( LDEvents.LastError )
   LDCall.Function2(logfunction, LDEvents.LastError ,LangList["System"])
 EndSub
@@ -1265,9 +1346,10 @@ Sub Log
     EndIf 
     
     LogNumber = LogNumber + 1
-    return = File.AppendContents(logpath,Clock.Date + "|" + Clock.Time +"|" + LDFile.UserName +"|" + ProductID +"|"+ VersionID+"|"+   LogEvent)
+    File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( LDFile.UserName , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)
     LOG_CMD = "INSERT INTO LOG (ID,UTC_DATE,UTC_TIME,DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
-    LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log") '//Localize 
+    
+    LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log")  '//Localize  
   EndIf 
 EndSub
 

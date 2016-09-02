@@ -1,5 +1,6 @@
 	Limitations
 		1.You can only call subs in the DBM by calling it through a function call. 
-		2.To my understanding you cannot edit the UI as it requires a universal button handler which has not   yet been implemented
-	
+		2.To my understanding you cannot edit the UI as it requires a universal button handler which has not yet been implemented
+	Warning
+		1. The Command Function Parses your SQL statements before inserting them. This can result in slower speeds.
 		
