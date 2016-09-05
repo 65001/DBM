@@ -5,7 +5,6 @@ Sub VOID
   databasepath = databasepath 
   LangList = LangList 
   List_Command_Parser_Status = List_Command_Parser_Status 
-  Command_Num_Cmds = Command_Num_Cmds 
 EndSub
 
 Sub CSV
@@ -78,4 +77,3 @@ Sub CSV_Headers
   Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
   Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
 EndSub
-  
