@@ -19,6 +19,8 @@
 'debug_Parser added . Default value 0 . Debugs Command Line Parser
 'Moved EULA UI Over to Universal Handler 
 'Moved all UI over to Universal Handler 
+'Improved Start up Speed by removing useless code
+'Made Main Menu Interface better 
 
 
 '______________________________________________________________________________
@@ -57,7 +59,7 @@
 '     Make a Server Mod ? 
 '     Make a Client Mod ? 
 
-'Ability to load Mods ? 
+'Ability to front end load Mod ? 
 'GUI For a Mod Manager 
 'Universal Button Controler ?
 '     As in one that would capture the button down even and foward it to the appopriate handler including ones in Mods and such ?
@@ -66,8 +68,7 @@
 '______________________________________________________________________________
 '                                                                                     Module Iniative
 '______________________________________________________________________________
-'     Make a EULA Module 
-'     Make the Core Engine a Module :) 
+'   Make the Core Engine a Module :) 
 
 
 GraphicsWindow.Show()
@@ -127,8 +128,7 @@ LDEvents.Error = ErrorHandler
 
 debug_mode = 0 '1=On;0=Off(Default)
 debug_Parser = 0 'Debugs the CMD Function Parser . Seperated bc otherwise it creates a lot of noise in the debug output
-EULA_Test = 0'Default 0 
-Command_Busy = 0
+EULA_Test = 0 'Default 0 
 
 copyrightDate = 2016
 ProductID = "DBM"
@@ -144,8 +144,11 @@ CLLF = Text.GetCharacter(10)
 DoubleQuotesCharacter = Text.GetCharacter(34)
 XML_Version_Number ="1.0"
 
+MOD_Running_False = 0 'Temp Fake Variable ; Add Functionality Later 
 
-SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;" 'Add to 
+
+SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;7=Hex;8=Length;9=Lower;10=round;11=Trim;12=Upper;"
+SQLFunctionsList = Text.ConvertToUpperCase( SQLFunctionsList ) 
 
 DB_Engines_Types = "1=MySQL;2=Odbc;3=Oledb;4=SQLite;5=SqlServer;" 
 DB_Engine_Username = "1=1;2=1;3=1;4=0;5=1;"
@@ -238,8 +241,13 @@ Startup()
 Sub Startup
   MOD_Find_All()
   LoadSettings()
+  CMD_Output = AssetPath + "CMD.txt"
+  CMD_String = "ECHO %SYSTEMROOT% >> " + CMD_Output
+  File.WriteContents(AssetPath+"Sysroot.bat" , CMD_String ) 
+  LDProcess.Start( AssetPath +"Sysroot.bat" ,"")
   Localization_XML()
   LDCall.Function2( logfunction , "Program Started",LangList["Application"]) '// Localize 
+  
   If Program.ArgumentCount  = 1  Then
     GetPath()
     Load_DB()
@@ -274,7 +282,7 @@ Sub Localization_XML
     LDCall.Function2( logfunction , "Localization XML Missing","Application") 'DO NOT LOCALIZE EVER! This error indicates the localization file is missing!! 
   EndIf 
   
-  LDLanguages = LDTranslate.Languages() 
+  'LDLanguages = LDTranslate.Languages() 
   Localization_Temp = File.ReadContents( LocalizationsLangFolder +Localization_lang+".txt" ) 
   For I = 1 To Array.GetItemCount( LocalizationsFilesArray  )
     MLanguages[I] =  LDFile.GetFile( LocalizationsFilesArray[I] )
@@ -309,8 +317,10 @@ Sub LoadSettings
   EULA_Accepted_By = Settings["EULA_By"]
   EULA_Accepted_Version = Settings["EULA_Version"]
   
-  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;"
-  Setting_Default ="1=1500;2=900;3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder 
+  OS_Dir = Settings["OS_Dir"] 
+  
+  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;"
+  Setting_Default ="1=1500;2=900;3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;"
   Setting_Default[4] = "1=db;2=sqlite;3=*;"
   
   For I = 1 To Array.GetItemCount( Null_Settings )
@@ -537,7 +547,7 @@ Sub MainMenuUI
   SCHEMA_CurrentList = SCHEMA_TableList 
   
   GraphicsWindow.FontSize = 20
-  Menu = LDControls.AddMenu(Desktop.Width,25,MenuList,"",CheckList) 
+  Menu = LDControls.AddMenu(Desktop.Width,30,MenuList,"",CheckList) 
   
   Shapes.Move( Shapes.AddText(LangList["Sort"] +":") , 890 ,  1) 
   
@@ -566,8 +576,7 @@ Sub MainMenuUI
 EndSub
 
 Sub MainMenuButton
-  debug_mode = 1
-  TextWindow.WriteLine(":(")
+  '  TextWindow.WriteLine(":(")
   
   LDCall.Function( Function_Handler_MainMenu , Controls.LastClickedButton )
 EndSub
@@ -1202,10 +1211,9 @@ Sub XML_Fetch_All
   return = XML_Array 
 EndSub
 
-Sub Add_UI_Controls '4 Args needed 
+Sub Add_UI_Controls '5 Args needed 
   
   Add_UI_Args =  args 
-  
   If Add_UI_Args[1] = "Menu" Then 
     MenuList[ Add_UI_Args[2] ] = Add_UI_Args[4] 
     If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 OR Add_UI_Args[2] ="-" Then 
@@ -1282,7 +1290,6 @@ Sub MOD_XML
 EndSub
 
 Sub MOD_READ_AutoRunFile
-  debug_mode = 1 
   AutoRunMod_Cnts =  File.ReadContents( AutoRunMod_Path )
   For I = 1 To LDFile.Length( AutoRunMod_Path )
     Temp_Cnts = File.ReadLine( AutoRunMod_Path , I ) 
@@ -1353,7 +1360,7 @@ Sub MOD_Include_All ' Includes all mods even when it may not be nessecarry !! Ob
   TextWindow.WriteLine("FORCE DEBUG MODE ON")
   TextWindow.WriteLine("YOU ARE USING AN OBSOLUTE FUNCTION NAMED : MOD_Include_All " )
   TextWindow.WriteLine("Mod_Find_All and Mod_Run are the replacements for this function")
-  TextWindow.WriteLine("Please stop using function at the earliest possible moment") 
+  TextWindow.WriteLine("Please stop using function at the earliest possible moment as it WILL be REMOVED in future versions") 
   
   Mod_Files =  File.GetFiles( ModPath )
   For I = 1 To Array.GetItemCount ( Mod_Files ) 
@@ -1384,12 +1391,9 @@ EndSub
 '______________________________________________________________________________
 
 Sub Command 'Runs A Command Function  
-  Command_Busy = 0 
-  If Command_Busy  = 0 Then 
-    Command_Busy =  1
-    
-    CommandArgs = args 
-    If args[1] <> "" Then 
+  CommandArgs = args 
+  If Array.GetItemCount( CommandArgs ) = 4 Then 
+    If CommandArgs[1] <> "" Then
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
       CommandArgs[2] = LDText.Trim( CommandArgs[2] ) 
       
@@ -1431,7 +1435,7 @@ Sub Command 'Runs A Command Function
       If debug_Parser = 1 Then
         LDList.Print( List_Command_Parser ) 
         LDList.Print( List_Command_Parser_Status ) 
-        If LDList.Count( List_Command_Parser_OnFail ) <> 0 Then 'If there are failed statements display them 
+        If LDList.Count( List_Command_Parser_OnFail ) > 0 Then 'Only If there are failed statements display them 
           LDList.Print( List_Command_Parser_OnFail ) 
         EndIf 
       EndIf 
@@ -1442,20 +1446,25 @@ Sub Command 'Runs A Command Function
       LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
       GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Command"] + " " + LangList["Error"] )
     EndIf
-    Command_Busy = 0
-  Else 
+  Else
     debug_mode = 1 
-    TextWindow.ForegroundColor = "RED"
-    TextWindow.WriteLine("CMD BUSY! " + args ) 
-    LDQueue.Enqueue("CMD", args) 
+    TextWindow.WriteLine("FORCE DEBUG : ON ")
+    TextWindow.WriteLine("Function_Command : Expected 4 Arguments but recsived " + Array.GetItemCount( CommandArgs ) )
   EndIf 
 EndSub
 
 Sub TransactionRecord
-  If Transactions_mode = 1 Then 
-    Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",args[2] ) )
-    Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+args[1] +"','"+args[2]+"','"+ LDText.Replace(args[3],"'","''")+"','"+args[4]+"','"+ args[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
-    LDDataBase.Command( TransactionDB , Transactions_SQL )  
+  TransactionArgs = args 
+  If Transactions_mode = 1  Then 
+    If Array.GetItemCount(TransactionArgs ) = 5 Then
+      Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+      Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+      LDDataBase.Command( TransactionDB , Transactions_SQL )  
+    Else 
+      debug_mode = 1 
+      TextWindow.WriteLine("FORCE DEBUG : ON ")
+      TextWindow.WriteLine("Function_Transaction : Expected 5 Arguments but recsived " + Array.GetItemCount( TransactionArgs ) )
+    EndIf 
   EndIf 
 EndSub 
 
@@ -1472,7 +1481,9 @@ Sub Closing
 EndSub
 
 Sub ErrorHandler
-  debug_mode = 1 
+  If MOD_Running_False = 1  Then 
+    debug_mode = 1 '<< ANNOYING AT TIMES
+  EndIf 
   TextWindow.WriteLine("Error : " +  LDEvents.LastError )
   LDCall.Function2(logfunction, LDEvents.LastError ,LangList["System"])
 EndSub
@@ -1515,54 +1526,5 @@ EndSub
 '______________________________________________________________________________
 
 Sub UpdateFunction
-  UpdateDownload()
-  UpdateUI()
+  LDCall.Function( Function_RunMod_Parser , "Updater.Main")
 EndSub
-
-Sub UpdateDownload
-  UpdaterDB = AssetPath+"Updater.db"
-  
-  If LDNetwork.DownloadFile(UpdaterDB,OnlineDB_Refrence_Location) <> "-1" Then 
-    UpdaterDB =  LDDataBase.ConnectSQLite(UpdaterDB)
-    QueryItems =  LDDataBase.Query(UpdaterDB,"SELECT * FROM updates WHERE PRODUCTID =" + "'"+PRODUCTID + "';" ,"","True") 
-    
-    LatestVersion = QueryItems[1]["VERSION"]
-    DownloadLocation = QueryItems[1]["URL"] 
-  Else
-    GraphicsWindow.ShowMessage(LangList["Check Log"],LangList["Error"])
-  EndIf 
-EndSub 
-
-Sub UpdateUI
-  If LatestVersion = PrgmVersionID And MannualUpdateCheck = 1 Then 
-    LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
-    GraphicsWindow.ShowMessage("There are no updates available","No Updates") '//Localize 
-  ElseIf PrgmVersionID  > LatestVersion AND MannualUpdateCheck = 1 Then 
-    LDCall.Function2(logfunction ,"You have early beta version of the program", LangList["UI"]) '//Localize 
-    GraphicsWindow.ShowMessage("You have a more recent edition of the program than that offered to the public." + CLLF + " You have version " + PrgmVersionID  + " while the most recent public release is version " + LatestVersion,"No Updates") '//Localize 
-  ElseIf (PrgmVersionID  < LatestVersion) Then 
-    If   ( LDDialogs.Confirm("Do you wish to download Version " + LatestVersion + "? You have Version " + PrgmVersionID ,"Download Update") = "Yes" ) Then '//Localize 
-      LDCall.Function2(logfunction ,"Starting Download of Update", LangList["UI"] )   '//Localize 
-      DownloadUpdate()  
-    EndIf  
-  EndIf 
-EndSub
-
-Sub DownloadUpdate
-  
-  DownloadFolder = "" 
-  While DownloadFolder = "" 
-    GraphicsWindow.ShowMessage("You will be prompted to select the download location.","Download Location") '//Localize 
-    DownloadFolder =  LDDialogs.SaveFile("1=zip;2=*","C:\Users\"+LDFile.UserName)
-  EndWhile 
-  
-  UpdaterSize = LDNetwork.DownloadFile(DownloadFolder,DownloadLocation) 
-  
-  If UpdaterSize <> "-1" then 
-    LDCall.Function2(logfunction ,"Dowloaded update to : " + DownloadFolder, LangList["UI"] ) '//Localize 
-    GraphicsWindow.ShowMessage("SUCCESS","Update Downloaded")'//Localize 
-  Else
-    GraphicsWindow.ShowMessage(LangList["Check Log"],LangList["Error"])
-  EndIf 
-  
-EndSub 

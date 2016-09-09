@@ -1,0 +1,65 @@
+Sub Void
+  LangList = LangList 
+  PrgmVersionID = PrgmVersionID 
+  MannualUpdateCheck = MannualUpdateCheck 
+  logfunction = logfunction 
+  CLLF = CLLF
+  AssetPath = AssetPath 
+  OnlineDB_Refrence_Location = OnlineDB_Refrence_Location 
+  PRODUCTID = PRODUCTID 
+EndSub
+
+'______________________________________________________________________________
+'                       Update Function
+'______________________________________________________________________________
+
+Sub Main
+  UpdateDownload()
+  UpdateUI()
+EndSub
+
+Sub UpdateDownload
+  UpdaterDB = AssetPath+"Updater.db"
+  
+  If LDNetwork.DownloadFile(UpdaterDB,OnlineDB_Refrence_Location) <> "-1" Then 
+    UpdaterDB =  LDDataBase.ConnectSQLite(UpdaterDB)
+    QueryItems =  LDDataBase.Query(UpdaterDB,"SELECT * FROM updates WHERE PRODUCTID =" + "'"+PRODUCTID + "';" ,"","True") 
+    
+    LatestVersion = QueryItems[1]["VERSION"]
+    DownloadLocation = QueryItems[1]["URL"] 
+  Else
+    GraphicsWindow.ShowMessage(LangList["Check Log"],LangList["Error"])
+  EndIf 
+EndSub 
+
+Sub UpdateUI
+  If LatestVersion = PrgmVersionID And MannualUpdateCheck = 1 Then 
+    LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
+    GraphicsWindow.ShowMessage("There are no updates available","No Updates") '//Localize 
+  ElseIf PrgmVersionID  > LatestVersion AND MannualUpdateCheck = 1 Then 
+    LDCall.Function2(logfunction ,"You have early beta version of the program", LangList["UI"]) '//Localize 
+    GraphicsWindow.ShowMessage("You have a more recent edition of the program than that offered to the public." + CLLF + " You have version " + PrgmVersionID  + " while the most recent public release is version " + LatestVersion,"No Updates") '//Localize 
+  ElseIf (PrgmVersionID  < LatestVersion) Then 
+    If   ( LDDialogs.Confirm("Do you wish to download Version " + LatestVersion + "? You have Version " + PrgmVersionID ,"Download Update") = "Yes" ) Then '//Localize 
+      LDCall.Function2(logfunction ,"Starting Download of Update", LangList["UI"] )   '//Localize 
+      DownloadUpdate()  
+    EndIf  
+  EndIf 
+EndSub
+
+Sub DownloadUpdate
+  DownloadFolder = "" 
+  While DownloadFolder = "" 
+    GraphicsWindow.ShowMessage("You will be prompted to select the download location.","Download Location") '//Localize 
+    DownloadFolder =  LDDialogs.SaveFile("1=zip;2=*","C:\Users\"+LDFile.UserName)
+  EndWhile 
+  
+  UpdaterSize = LDNetwork.DownloadFile(DownloadFolder,DownloadLocation) 
+  
+  If UpdaterSize <> "-1" then 
+    LDCall.Function2(logfunction ,"Dowloaded update to : " + DownloadFolder, LangList["UI"] ) '//Localize 
+    GraphicsWindow.ShowMessage("SUCCESS","Update Downloaded")'//Localize 
+  Else
+    GraphicsWindow.ShowMessage(LangList["Check Log"],LangList["Error"])
+  EndIf 
+EndSub 

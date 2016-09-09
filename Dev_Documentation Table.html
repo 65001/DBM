@@ -19,7 +19,7 @@
 		<div style="overflow-x:auto;">
 			<table>
 				<tr> 
-					<td id = "Main" + colspan = "8">Dev_Documentation</td>
+					<td id = "Main" + colspan = "9">Dev_Documentation</td>
 				</tr>
 				<tr>
 					<th>Id</th>
@@ -30,6 +30,7 @@
 					<th>Function</th>
 					<th>Function_Name1</th>
 					<th>Function_Name2</th>
+					<th>Parameter # Mismatch Check </th>
 				</tr>
 				<tr>
 					<td>1</td>
@@ -40,6 +41,7 @@
 					<td>Yes</td>
 					<td>logfunction</td>
 					<td>Function_Log</td>
+					<td>✕</td>
 				</tr>
 				<tr>
 					<td>2</td>
@@ -50,6 +52,7 @@
 					<td>Yes</td>
 					<td>QueryFunction</td>
 					<td>Function_Query</td>
+					<td>✕</td>
 				</tr>
 				<tr>
 					<td>3</td>
@@ -60,6 +63,7 @@
 					<td>Yes</td>
 					<td>CommandFunction</td>
 					<td>Function_Command</td>
+					<td>✓</td>
 				</tr>
 				<tr>
 					<td>4</td>
@@ -70,6 +74,7 @@
 					<td>Yes</td>
 					<td>TransactionFunction</td>
 					<td>Function_Transaction</td>
+					<td>✓</td>
 				</tr>
 				<tr>
 					<td>5</td>
@@ -80,8 +85,9 @@
 					<td>Yes</td>
 					<td>RunModParserFunction</td>
 					<td>Function_RunMod_Parser</td>
+					<td>✕</td>
 				</tr>
-								<tr>
+				<tr>
 					<td>6</td>
 					<td>XML_Fetch_All</td>
 					<td>Fetches XML Attributes</td>
@@ -90,6 +96,7 @@
 					<td>Yes</td>
 					<td>Function_XML_Attributes</td>
 					<td> </td>
+					<td>✕</td>
 				</tr>
 				<tr>
 					<td>7</td>
@@ -100,6 +107,24 @@
 					<td>Yes</td>
 					<td>Function_MainMenu_Handler</td>
 					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Add_UI_Controls</td>
+					<td>Adds a UI Control</td>
+					<td>
+					1= Type ( Menu , Register) 'Register only adds a existing control <br>
+					2 = Caption ,  Name <br>
+					3 = Handler   , Handler <br>
+					4 = NA, If Menu then Previous Node <br>
+					5 = Action ' Arguments to pass to the Handler . IF "" then nothing will be passed <br>
+					</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>Function_UI_Add</td>
+					<td> </td>
+					<td>✕</td>
 				</tr>
 			</table>
 		</div>
