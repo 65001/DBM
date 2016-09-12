@@ -1,0 +1,63 @@
+BatchFile = "C:\Users\" + LDFile.UserName+ "\Desktop\Sign Program.bat"
+signtool = "signtool sign /v /f MySPC.pfx "
+CLLF = Text.GetCharacter(10)
+Quotes = Text.GetCharacter(34)
+Exist = LDFile.Exists( BatchFile )
+Run = 1
+While Exist = "True"
+  While Run = 1 
+    BatchCNTS = "CD C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\" + CLLF 
+    BatchCNTS = BatchCNTS +  "pvk2pfx -pvk MySPC.pvk -spc MySPC.cer -pfx MySPC.pfx" + CLLF 
+    Dir =  LDFile.GetFolder( Program.Directory ) +"\" 
+    LDQueue.Enqueue("Dir", Dir )
+    LDList.Add("Dir",Dir ) 
+    
+    While LDQueue.GetCount("Dir") <> 0 
+      Dir = File.GetDirectories( LDQueue.Dequeue("Dir") )
+      For I = 1 To Array.GetItemCount(Dir)
+        If Text.GetIndexOf( Dir[I] ,".git")= 0 Then 
+          LDQueue.Enqueue("Dir",Dir[I]) 
+          LDList.Add("Dir",Dir[I]) 
+          TextWindow.WriteLine(Dir[I] ) 
+        EndIf 
+      EndFor
+    EndWhile 
+    
+    TextWindow.WriteLine("") 
+    
+    
+    For I = 1 To LDList.Count("Dir")
+      Files = File.GetFiles(  LDList.GetAt("Dir",I)  )
+      For II = 1 To Array.GetItemCount(Files) 
+        If LDFile.GetExtension( Files[II]) ="sb" Then
+          LDQueue.Enqueue("File",Files[II] )
+          Size = Size + LDFile.Length( Files[II] )
+          Size_Bits = Size_Bits  + LDFile.Size(Files[II] )
+          TextWindow.WriteLine( Files[II] + " | " + LDFile.Length( Files[II] ) +"|" + LDFile.Size(Files[II] ) ) 
+        EndIf 
+      EndFor
+    EndFor
+    
+    TextWindow.WriteLine("")
+    
+    While LDQueue.GetCount("File") <> 0 
+      Name = LDQueue.Dequeue("File")
+      Path = LDCall.Compile( Name )
+      TextWindow.WriteLine( LDFile.Size(Path) )
+      BatchCNTS = BatchCNTS + signtool + Quotes + Path + Quotes + CLLF 
+    EndWhile
+    TextWindow.WriteLine("Total Size : " + Size ) 
+    TextWindow.WriteLine("Byte Total : " + Size_Bits ) 
+    TextWindow.WriteLine("Files Compiled")
+    TextWindow.WriteLine("Press Any Key to Sign all .exe ")
+    TextWindow.Pause()
+    
+    BatchCNTS = BatchCNTS + CLLF + "PAUSE"
+    TextWindow.WriteLine( BatchCNTS ) 
+    File.WriteContents( BatchFile , BatchCNTS )
+    Program.Delay(500)
+    LDProcess.Start( BatchFile , "" )
+    TextWindow.Pause()
+    Run = 0 
+  EndWhile 
+EndWhile 

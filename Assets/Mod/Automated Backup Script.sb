@@ -9,9 +9,9 @@ Sub ABS_VOID
 EndSub 
 
 Sub ABS_UI
-  LDCall.Function5( Function_UI_Add , "Menu" , "Mod" ,"","Main","")
-  LDCall.Function5( Function_UI_Add , "Menu" , "SB Backup Script" ,"","Mod","")
-  LDCall.Function5( Function_UI_Add , "Menu" , "Scan" ,Function_RunMod_Parser ,"SB Backup Script","Automated Backup Script.ABS_Main")
+  LDCall.Function5( Function_UI_Add , "Menu" , "Mod " ,"","Main","")
+  LDCall.Function5( Function_UI_Add , "Menu" , "SB Backup Script" ,"","Mod ","")
+  LDCall.Function5( Function_UI_Add , "Menu" , "Scan " ,Function_RunMod_Parser ,"SB Backup Script","Automated Backup Script.ABS_Main")
   LDCall.Function5( Function_UI_Add , "Menu" , "View " ,Function_RunMod_Parser ,"SB Backup Script","Automated Backup Script.ABS_Mod_View_Results_UI")
 EndSub 
 

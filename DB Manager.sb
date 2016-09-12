@@ -318,9 +318,11 @@ Sub LoadSettings
   EULA_Accepted_Version = Settings["EULA_Version"]
   
   OS_Dir = Settings["OS_Dir"] 
+  debug_mode = Settings["debug_mode"]
+  debug_Parser = Settings["debug_parser"]
   
-  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;"
-  Setting_Default ="1=1500;2=900;3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;"
+  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;"
+  Setting_Default ="1=1500;2=900;3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;"
   Setting_Default[4] = "1=db;2=sqlite;3=*;"
   
   For I = 1 To Array.GetItemCount( Null_Settings )
@@ -440,7 +442,10 @@ Sub EULA_Handler
   If  LastClickedButton = EULAaccept AND LDControls.CheckBoxGetState(Ihaveread) = "True" Then 
     Settings["EULA"] = "True"
     SaveSettings()
+    GraphicsWindow.Clear()
     Pre_MainMenuUI()
+    MOD_READ_AutoRunFile()
+    MOD_AutoRun()
     MainMenuUI()
   ElseIf LastClickedButton = EULADecline Then
     Settings["EULA"] = "False"
@@ -535,7 +540,7 @@ Sub MainMenuUI
     CheckList[LangList["Toggle Transaction Log"]] = "False" 
   EndIf
   
-  GraphicsWindow.Clear()
+  'GraphicsWindow.Clear() 'Is this nessecarry ?? //TO DO //LOCALIZE //FLAG 
   LDGraphicsWindow.State = 2
   GraphicsWindow.Title = title + " " 
   
