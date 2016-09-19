@@ -1,44 +1,56 @@
 # DBM
 Database Manager (DBM) is SmallBasic software developed by Abhishek Sathiabalan 
-The software is liscensed under the EULA found in the Assets Folder. 
+The software is licensed under the EULA found in the Assets Folder. 
 
 V1.1.1.6 Beta
 
 Features :
-	1) Bootstrapper lets you run your own SmallBasic code and use the Application as a framework
-	2) GUI ontop of the sqlite database engine
-	3) You can export to the followin : HTML , SQL , XML , and CSV
-	4) You can import data into the database from a CSV file and SQL file
-	5) Ability to log all transactions made using the application
-	6) Ability to extend the application 
-	7) GUI lessens the requirment to know SQL
-	8) Dynamic Plugin Loader
-	9) Simple Configuration
-	10) Serverless 
-	11) Excellent for debugging purposes 
-	12) Liscense is fairly open
-	13) Partial Localization for over 50 languages 
+<ol type = "1">
+	<li> Bootstrapper lets you run your own SmallBasic code and use the Application as a framework </li>
+	<li> GUI on top of the sqlite database engine </li>
+	<li> You can export to the following : HTML , SQL , XML , and CSV </li>
+	<li> You can import data into the database from a CSV file and SQL file </li>
+	<li> Ability to log all transactions made using the application </li>
+	<li> Ability to extend the application  </li>
+	<li> GUI lessens the requirement to know SQL </li>
+	<li> Dynamic Plugin Loader </li>
+	<li> Simple Configuration </li>
+	<li> Server-less </li>
+	<li> Excellent for debugging purposes  </li>
+	<li> License is fairly open </li>
+	<li> Partial Localization for over 50 languages </li>
+</ol>
 
 Do not use this application if :
-	1) You are technically illetrate 
-	2) You do not wish to learn SQL. 
-	3) You do wish to have concurrent writes. Currently sqlite does not offer that ability but does serial writes
-
+<ol type = "1">
+	<li> You are technically illiterate </li>
+	<li> You do not wish to learn SQL.  </li>
+	<li> You do wish to have concurrent writes. Currently sqlite does not offer that ability but does serial writes </li>
+</ol>
 Specifications 
-	1) See the Sqlite Specifications . The application is built on top of Sqlite
+<ol type = "1">
+	<li> See the Sqlite Specifications . The application is built on top of Sqlite</li>
+</ol>
 
 Bugs
-	1) Editing view may not store data correctly if constraints are present
+<ol type = "1">
+	<li> Editing view may not store data correctly if constraints are present</li>
+</ol>
 
 Road Map :
-	* XML Based Menu and Actions
-	* Localization Iniative 
-	* Cross Enginge Support 
-		*MySQL
-		*Odbc
-		*OleDb
-		*SqlServer
-	*Custom Connection Strings 
+<ul>
+	<li> XML Based Menu and Actions </li>
+	<li> Localization Initiative </li>
+	<li> Cross Engine Support </li>
+	<ul>
+		<li>MySQL</li>
+		<li>Odbc</li>
+		<li>OleDb</li>
+		<li>SqlServer</li>
+	</ul>
+	<li>Custom Connection Strings </li>
+</ul>
+
 
 	
 	
