@@ -5,19 +5,21 @@ The software is liscensed under the EULA found in the Assets Folder.
 V1.1.1.6 Beta
 
 Features :
-	1) Bootstrapper lets you run your own SmallBasic code and use the Application as a framework
-	2) GUI ontop of the sqlite database engine
-	3) You can export to the followin : HTML , SQL , XML , and CSV
-	4) You can import data into the database from a CSV file and SQL file
-	5) Ability to log all transactions made using the application
-	6) Ability to extend the application 
-	7) GUI lessens the requirment to know SQL
-	8) Dynamic Plugin Loader
-	9) Simple Configuration
-	10) Serverless 
-	11) Excellent for debugging purposes 
-	12) Liscense is fairly open
-	13) Partial Localization for over 50 languages 
+<ol type = "1"
+	<li> Bootstrapper lets you run your own SmallBasic code and use the Application as a framework </li>
+	<li> GUI ontop of the sqlite database engine </li>
+	<li> You can export to the followin : HTML , SQL , XML , and CSV </li>
+	<li> You can import data into the database from a CSV file and SQL file </li>
+	<li> Ability to log all transactions made using the application </li>
+	<li> Ability to extend the application  </li>
+	<li> GUI lessens the requirment to know SQL </li>
+	<li> Dynamic Plugin Loader </li>
+	<li> Simple Configuration </li>
+	<li> Serverless </li>
+	<li> Excellent for debugging purposes  </li>
+	<li> Liscense is fairly open </li>
+	<li> Partial Localization for over 50 languages </li>
+</ol>
 
 Do not use this application if :
 	1) You are technically illetrate 
