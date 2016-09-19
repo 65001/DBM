@@ -21,6 +21,7 @@
 'Moved all UI over to Universal Handler 
 'Improved Start up Speed by removing useless code
 'Made Main Menu Interface better 
+'Added Universal Handler to improve plugin support 
 
 
 '______________________________________________________________________________
@@ -48,29 +49,16 @@
 '                                                                                                 To do - Modding 
 '______________________________________________________________________________
 'XML Based Menu and Actions ?
-'List of Mods to run at the start 
-' Format:
-'Import.UI
-'Export.UI
-'Server.UI
-'etc
-
 'Server - Client Iniative 
 '     Make a Server Mod ? 
 '     Make a Client Mod ? 
-
-'Ability to front end load Mod ? 
 'GUI For a Mod Manager 
-'Universal Button Controler ?
-'     As in one that would capture the button down even and foward it to the appopriate handler including ones in Mods and such ?
 'Make  MOD Documentation
 
 '______________________________________________________________________________
 '                                                                                     Module Iniative
 '______________________________________________________________________________
 '   Make the Core Engine a Module :) 
-
-
 GraphicsWindow.Show()
 MainWindowID =  LDWindows.CurrentID
 LDGraphicsWindow.ExitOnClose = "False"

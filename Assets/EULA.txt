@@ -1,10 +1,13 @@
-					EULA v 2.7.2	
+					EULA v 2.7.4
 								
-Copyright (c) <date> Abhishek Sathiabalan
+An executive summary may be found at 
+	https://drive.google.com/open?id=0B2v4xbFnpKvRZ25iT2Y0NDUzaFk
+
+Copyright (c) 2016 Abhishek Sathiabalan
 All rights reserved.
 
 1.Definitions 
-	Licensor , Author , and we shall herein
+	Licensor , Author , and "we" shall herein
 	refer to Abhishek Sathiabalan or his 
 	successors. 
 	
@@ -13,22 +16,21 @@ All rights reserved.
 	this License with respect to the Work, or who has received 	
 	express permission from the Licensor to exercise rights 	
 	under this License despite a previous violation. 	
-	Hereinafter sometimes referred to as “You,”,"Your", 
-	“End User” or “Licensee” .
+	Hereinafter sometimes referred to as “ You ”," Your ", 
+	“ End User ” or “ Licensee ” .
 	
-	Waiver - Document that records the 
-	waiving of a Section or Clause of this
-	EULA including ELECTRONIC WAIVER.
+	Waiver - Document that records the waiving of a Section 
+	or Clause of this EULA including ELECTRONIC WAIVER.
 	
 	Electronic Waiver - Any waiver by the Author by a website 
 	or email that explicitly waives one or multiple from specific 
 	clause(s) of this License
 	
 	End User License Agreement ("EULA") or License - Is a legal 	
-	agreement between YOU  and the Author .Any and all 
-	uses of the Software Product and its accompanying
-	documentation that are accompanied with this 
-	EULA are governed by the terms of this EULA. 
+	agreement between YOU and the Author .Any and all uses of 
+	the Software Product and its accompanying documentation 
+	that are accompanied with this EULA are governed by the 
+	terms of this EULA unless otherwise explicitly stated. 
 	
 	SOVEIRGN IMMUNITY - Definition includes but is not limited to:
 		The right of a state , government , public body
@@ -36,7 +38,10 @@ All rights reserved.
 		the jurisdiction of a court whether it be 
 		in a foreign jurisdiction or an internal court
 		
-2. END USER LICENSE AGREEMENT ("EULA Clause")
+	FAIR USE - As defined under the laws of the 
+	United States of America
+		
+2.END USER LICENSE AGREEMENT ("EULA Clause")
 	
 	A.It is understood that this EULA is a legal agreement
 	between YOU and the Author. By clicking "Accept" or
@@ -50,12 +55,12 @@ All rights reserved.
 	the form required by law from the parents or other 
 	legal representatives.
 	
-	C.If YOU are accepting this EULA on behalf of another entity,YOU
-	represent and warrant that YOU have full legal authority to bind 
-	such entity to this EULA. If YOU lack legal authority to bind or 
-	do not wish to be bound by this EULA , please press the 
-	"Decline" button below and follow out the Termination Clause 
-	of this EULA.
+	C.If YOU are accepting this EULA on behalf of another 
+	entity,YOU represent and warrant that YOU have full legal 
+	authority to bind such entity to this EULA. If YOU lack 
+	legal authority to bind or do not wish to be bound by 
+	this EULA , please press the "Decline" button below and 
+	follow out the Termination Clause of this EULA.
 	
 	D.If YOU do not agree to the terms of this EULA, YOU may 	
 	not install, copy, download or use the Software Product and in 
@@ -70,12 +75,13 @@ All rights reserved.
 	F.The Author may be contacted at the email address listed below
 	for inquires regarding but not limited to :
 		This EULA , Waivers , Bug reports , Feature Requests.
-		
+	
 		YOU may be at any point and for no reason be requested
 		to cease and desist from contacting the Author.
 		
 		Email Address: asathiablan@gmail.com
-		(Subject Line should be Program Name and the version number) 
+		(Subject Line should be Program Name 
+		and the version number if applicable) 
 	
 3.OWNERSHIP
 
@@ -145,7 +151,7 @@ All rights reserved.
 	EULA. 
 	
 		1.Notices will be posted to the Author’s website :				
-			(https://sites.google.com/site/downloadprogramsauthorized/current-projects-1)
+			(<a href ="https://sites.google.com/site/downloadprogramsauthorized/current-projects-1" >)
 			and/or to
 			(https://drive.google.com/file/d/0B2v4xbFnpKvRNTFKckFKLVNNUDg/view?usp=sharing)
 			
@@ -179,7 +185,7 @@ All rights reserved.
 	by Section 7 ("Redistribution Rights") &
 	Section 8 ("Derivative or Modified Works) of this EULA.
 	
-6. Non Authorized Users
+6.Non Authorized Users
 	As this is a public license any person
 	may enter into it with the exception of 
 	the persons listed below.
@@ -200,7 +206,7 @@ All rights reserved.
 		E.YOU have violated this EULA in the past or have been given permission from
 		the Author to enter into this EULA despite past violations.		
 
-7.	Redistribution Rights
+7.Redistribution Rights
 
 	A.You may not without a WAIVER
 	impose a fee, sell, or distribute a this Software 
@@ -227,7 +233,8 @@ All rights reserved.
 			*a copyright notice;
 			*a notice that refers to this Public License;
 			*a notice that refers to the disclaimer of warranties;
-			*a URI or hyperlink to the Licensed Material to the extent reasonably practicable;
+			*a URI or hyperlink to the Licensed Material to the extent 
+			reasonably practicable;
 			*indicate if You modified the Licensed Material and retain an indication of any 
 			previous modifications; and indicate the Licensed Material is 
 			licensed under this Public License, and include the text of, 
@@ -244,7 +251,7 @@ All rights reserved.
 		4. The rights under Section 7(D) may only be exercise when the conditions
 		in Section 7(C) are met. 
 		
-8. Derivative or Modified Works
+8.Derivative or Modified Works
 	
 	A.The author reserves the right to determine what is deemed a mod under this EULA.
 	If your software can fall into more than one group under this EULA You must 
@@ -310,7 +317,7 @@ All rights reserved.
 			and it may not be a purpose of the program to duplicate 
 			the systems and processes of the Author’s Software Product. 
 		
-		5.FAIR USE of this Software Product is authorized 
+		5.FAIR USE of this Software Product is authorized.
 
 9.Jurisdiction & Choice of Venue
 	A.This agreement shall be governed by and construed in 
@@ -332,7 +339,7 @@ All rights reserved.
 	E.IF YOU LIVE OUTSIDE THE JURISDICTION OF THE U.S.A OR THE
 	STATE OF VA	YOU EXPRESSLY CONSENT TO SECTIONS:9(A),9(B),9(C),AND 9(D). 
 	
-10. Legal Compliance 
+10.Legal Compliance 
 	A.Each party shall comply in all respects with all applicable legal 
 	requirements governing the duties, obligations, and business 
 	practices of that party and shall obtain any permits or licenses 
@@ -349,7 +356,7 @@ All rights reserved.
 	D. The software's & its auto-generated databases that are used to make 
 	reports may not be used in a malicious manner.
 	
-11. Cumulative Rights
+11.Cumulative Rights
 
 	Any specific right or remedy provided in this contract will not be 
 	exclusive but will be cumulative of all other rights and remedies.
@@ -372,15 +379,17 @@ All rights reserved.
 	communications, representations, and warranties, whether oral or written, 
 	of any party to this agreement with the exception of waivers.
 	
-	B.Waivers are tied to a specific version of the EULA. Accepting
-	a newer version of the EULA does not mean previous waivers still apply
+	B.Waivers are tied to a specific version of the EULA and to a particular entity. 
+	Waivers are non-transferable . 
+	
+	C.Accepting a newer version of the EULA does not mean previous waivers still apply
 	on the new EULA.
 
-14. Term
+14.Term
 	This EULA is effective upon acceptance and will continue in force 
 	until terminated.	
 	
-15.	Termination 
+15.Termination 
 	A. Cause for Termination
 		1.If You breach any or all parts of this EULA your licence to use 
 		and redistribute this software product is immediately terminated. 
@@ -420,4 +429,4 @@ All rights reserved.
 	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
 	OTHER DEALINGS IN THE SOFTWARE.
 		
-							End Of EULA 
+					End Of EULA
