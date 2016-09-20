@@ -1,5 +1,1 @@
-#This file designates the Mod and the subroutine the main program should call on the start of the program. Use this to insert your UI at start up using the Function_UI_Add
-#Test UI.Main 
-#^Example on how to add UI objects
-Automated Backup Script.ABS_UI
-#EOF
+# This file designates the Mod and the subroutine the main program should call on the start of the program. Use this to insert your UI at startup. The character # marks the line as commented. 

@@ -1,3 +1,4 @@
+LDDataBase.Connection = "Data Source=:memory:;Version=3;New=True;"
 database = LDDataBase.ConnectSQLite(":memory:" ) 
 Query[1] = LDDataBase.Query(database,"Select DATETIME();","","True")
 Query[2] = LDDataBase.Query(database,"Select * FROM sqlite_master;","","True")

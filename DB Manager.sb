@@ -6,13 +6,13 @@
 'Partial Localization Implemtented . 
 ' 53 Languages are computer translated. English is the only verified and vetted Language currently 
 
-'v1115
+'v1115 ("The Localization Patch")
 'Added Localization/Lang Folder which enables switching between languages to be nearly instant 
 'Added backend capability to use mods :) 
 'Front End capability still needed :( 
 'Moved Export Functions to a MOD File :) 
 
-'v1116
+'v1116 ("The Plugin Patch ")
 'Smarter Mod Loader 
 'Importer now works a lot more reliabley alabit a bit slower
 'Command Function reworked to include a parser
@@ -22,6 +22,8 @@
 'Improved Start up Speed by removing useless code
 'Made Main Menu Interface better 
 'Added Universal Handler to improve plugin support 
+
+'v1117
 
 
 '______________________________________________________________________________
@@ -1156,9 +1158,9 @@ EndSub
 
 Sub Get_SCHEMA
   If database <> "" Then 'Prevents Application from querying a nonexistent db 
-    TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='table';","","True",LangList["App"],"SCHEMA")
-    ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='view';","","True",LangList["App"],"SCHEMA")
-    IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name FROM sqlite_master WHERE type ='index';","","True",LangList["App"],"SCHEMA")
+    TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='table';","","True",LangList["App"],"SCHEMA")
+    ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='view';","","True",LangList["App"],"SCHEMA")
+    IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='index';","","True",LangList["App"],"SCHEMA")
     
     For I = 1 To Array.GetItemCount(TableList)
       SCHEMA_TableList[I] = TableList[I]["tbl_name"]
