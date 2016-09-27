@@ -24,7 +24,7 @@
 'Added Universal Handler to improve plugin support 
 
 'v1117
-
+'Moved Backup URL To GITHUB
 
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
@@ -38,15 +38,20 @@
 'Automatic Limiter on Dataview ? Using SQL Limit ? 
 'Export Menu
 'Access Table 
-'Localizations ?
 'New Table Menu
 'SQL Functions List
 'Make the mastertable a view and remove the program only restrictions on it 
+'Make Views Read Only Program Side
+'Finer Transaction Logging Support 
+'     Ability to Supress Queries  or CMDS
+' Automated Backup Script for DBs ?
+'Custom Connection Strings
 '______________________________________________________________________________
-'                                                                                                           Localize Iniative 
+'                                                                                                   Localize Iniative 
 '______________________________________________________________________________
 'Localize Self
 'Localize Import Module
+
 '______________________________________________________________________________
 '                                                                                                 To do - Modding 
 '______________________________________________________________________________
@@ -56,11 +61,12 @@
 '     Make a Client Mod ? 
 'GUI For a Mod Manager 
 'Make  MOD Documentation
-
 '______________________________________________________________________________
 '                                                                                     Module Iniative
 '______________________________________________________________________________
 '   Make the Core Engine a Module :) 
+
+StartTime[0] = Clock.ElapsedMilliseconds
 GraphicsWindow.Show()
 MainWindowID =  LDWindows.CurrentID
 LDGraphicsWindow.ExitOnClose = "False"
@@ -122,7 +128,7 @@ EULA_Test = 0 'Default 0
 
 copyrightDate = 2016
 ProductID = "DBM"
-PrgmVersionID = 1116
+PrgmVersionID = 1117
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
 Self = Program.Directory +"\DB Manager.exe"
 
@@ -243,15 +249,19 @@ Sub Startup
     Load_DB()
   EndIf
   If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) And EULA_Test = 0   Then
-    
-    Pre_MainMenuUI()
-    MOD_READ_AutoRunFile()
-    MOD_AutoRun()
-    MainMenuUI()
+    Startup_GUI()
   Else
     SaveSettings()
     EULA_UI()
   EndIf
+EndSub
+
+Sub Startup_GUI
+  Pre_MainMenuUI()
+  MOD_READ_AutoRunFile()
+  MOD_AutoRun()
+  LDCall.Function2( logfunction , "Startup Time: " +(Clock.ElapsedMilliseconds - StartTime[0]) +" (ms)" ,LangList["UI"])
+  MainMenuUI()
 EndSub
 
 Sub Localization_XML 
@@ -433,10 +443,7 @@ Sub EULA_Handler
     Settings["EULA"] = "True"
     SaveSettings()
     GraphicsWindow.Clear()
-    Pre_MainMenuUI()
-    MOD_READ_AutoRunFile()
-    MOD_AutoRun()
-    MainMenuUI()
+    Startup_GUI()
   ElseIf LastClickedButton = EULADecline Then
     Settings["EULA"] = "False"
     SaveSettings()
@@ -684,7 +691,7 @@ Sub MainMenuHandler
     EndIf
   ElseIf LastClickedButton = EditDB_Button Then 'Edit Database List View
     If database <> "" Then 
-      If SortByMode <> 4 Then 
+      If SortByMode <> 4 AND SortByMode <> 2 Then 
         Controls.HideControl(listview)
         If Dataview = "" Then
           Dataview =  LDControls.AddDataView(Listview_Width,Listview_Height,"")
@@ -696,9 +703,12 @@ Sub MainMenuHandler
         CurrentControl = Dataview
         LDDataBase.EditTable(database,Default_Table,CurrentControl)
         Hide_Display_Results()
-      Else 
+      ElseIf SortByMode = 4 Then  
         LDCall.Function2(logfunction ,LangList["Master Table Protected"] , LangList["UI"]) 
         GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + LangList["Master Table Protected"] ,LangList["Access Denied"])
+      ElseIf SortByMode = 2 Then 
+        LDCall.Function2(logfunction ,"Views are a readonly type." , LangList["UI"]) 'Localize 
+        GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + "Views cannot be edited" ,LangList["Access Denied"]) 'Lozalize
       EndIf 
     Else 
       LDCall.Function2(logfunction ,LangList["Error No DB"]  , LangList["UI"])
@@ -1486,6 +1496,9 @@ EndSub
 Sub Log
   LogEvent = args[1]
   TypeofError = args[2] 
+  If debug_mode = 1 Then 
+    TextWindow.WriteLine(TypeofError +":" + LogEvent ) 
+  EndIf 
   If TypeofError = "Debug" And debug_mode = 0 Then 'DO NOT STORE IF TRUE 
   Else 
     If TypeofError = "" Then 

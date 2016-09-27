@@ -1,0 +1,1 @@
+ECHO %SYSTEMROOT% >> C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\CMD.txt

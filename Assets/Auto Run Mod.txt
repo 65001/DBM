@@ -1,1 +1,3 @@
 # This file designates the Mod and the subroutine the main program should call on the start of the program. Use this to insert your UI at startup. The character # marks the line as commented. 
+Automated Backup Script.ABS_UI
+Song Book Export.UI

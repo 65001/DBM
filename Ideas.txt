@@ -1,0 +1,8 @@
+MySQL 
+	Server , user, password, database
+Odbc
+	driver, server, port, user, password, option, database)
+Oldeb
+	(provider, server, database)
+SQL Server
+	(server, database)

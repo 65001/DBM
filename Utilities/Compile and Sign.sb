@@ -43,7 +43,7 @@ While Exist = "True"
     While LDQueue.GetCount("File") <> 0 
       Name = LDQueue.Dequeue("File")
       Path = LDCall.Compile( Name )
-      TextWindow.WriteLine( LDFile.Size(Path) )
+      'TextWindow.WriteLine( LDFile.Size(Path) )
       BatchCNTS = BatchCNTS + signtool + Quotes + Path + Quotes + CLLF 
     EndWhile
     TextWindow.WriteLine("Total Size : " + Size ) 

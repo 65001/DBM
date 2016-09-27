@@ -1,0 +1,46 @@
+Sub Void
+  Function_UI_Add = Function_UI_Add 
+  Function_RunMod_Parser = Function_RunMod_Parser 
+  Function_Query = Function_Query 
+  CLLF = CLLF
+  DoubleQuotesCharacter = DoubleQuotesCharacter
+  databasepath = databasepath 
+EndSub
+
+Sub UI
+  LDCall.Function5(Function_UI_Add , "Menu","ICF " , Function_RunMod_Parser , "Export" , "Song Book Export.Main")
+EndSub
+
+Sub Main
+  TextWindow.WriteLine("ICF v1") 
+  
+  Data_Array =LDCall.Function5( Function_Query ,"Select * From ICF;" ,"" , "True" , "Mod ", "ICF Song Book Mod" )
+  ICF_Path = LDFile.GetFolder(databasepath) +"\Song Book.html"
+  
+  ICF_HTML = "<!DOCTYPE html>" +CLLF +"<html>" + CLLF +" <title> ICF Song Book </title> "
+  ICF_HTML = ICF_HTML + "<meta name=" + DoubleQuotesCharacter +"viewport" +  DoubleQuotesCharacter + "content=" + DoubleQuotesCharacter + "width=device-width, initial-scale=1" + DoubleQuotesCharacter +">"
+  ICF_HTML = ICF_HTML + "<head><style>" + CLLF + ".song {float: justify;margin: 5px;padding: 5px;max-width: 500px;border: 0px solid black;}  h1{text-align:center;} pre{font-family:" + DoubleQuotesCharacter +"Times New Roman" + DoubleQuotesCharacter +" </style></head> " +CLLF + "<body>"
+  ICF_HTML = ICF_HTML + "<h1> ICF Song Book </h1>" + CLLF
+  
+  For I = 1 To Array.GetItemCount(Data_Array) 
+    ICF_Temp = Data_Array[I]
+    
+    ICF_RID = LDList.GetAt("ICF_RID",I)
+    ICF_ID = LDList.GetAt("ICF_ID",I)
+    
+    TextWindow.WriteLine(I + ". Title: " + ICF_Temp["Title"] )
+    
+    ICF_HTML = ICF_HTML + "<div class = " + DoubleQuotesCharacter +"song" + DoubleQuotesCharacter +" id = " + DoubleQuotesCharacter +ICF_Temp["Title"] + DoubleQuotesCharacter + ">" + CLLF 
+    ICF_HTML = ICF_HTML +"<h3>"+ I +". " + ICF_Temp["Title"] + "</h3>"
+    If ICF_Temp["Author"] <> "" And ICF_Temp["Author"] <> " " And ICF_Temp["Author"] <> "?" Then 
+      ICF_HTML = ICF_HTML +  " <p> By " +  ICF_Temp["Author"] +"</p>" + CLLF 
+    EndIf 
+    ICF_HTML = ICF_HTML +"<p><pre>" + ICF_Temp["WORDS"] +"</pre></p> </div>" + CLLf
+  EndFor
+  
+  ICF_HTML = ICF_HTML +"</body></html>"
+  
+  File.WriteContents( ICF_Path , ICF_HTML ) 
+  TextWindow.Hide()
+  GraphicsWindow.ShowMessage("ICF Export","")
+EndSub
