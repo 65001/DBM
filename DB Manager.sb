@@ -1,4 +1,5 @@
 'Copyrighted Software 2016. Abhishek Sathiabalan . All Rights Reserved. Governed by EULA. 
+
 'For a timeline of release information please check Assets\Change_Log Table 
 
 'v1114
@@ -26,7 +27,14 @@
 'v1117
 'Moved Backup URL To GITHUB
 'Added more Settings Options to Settings Menu
+'Flexible File Settings for Logs , Asset Folder , and Transaction DB
+'Finer Transaction Logging Support (Config File Only :( )
+'Added Scroll Bars 
 
+'_____________________________________________________________________________
+'                                                                                     To do Next Version
+'______________________________________________________________________________
+'Add ability to change Flexible File Settings Through UI
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
 '______________________________________________________________________________
@@ -42,7 +50,6 @@
 'New Table Menu
 'SQL Functions List
 'Make the mastertable a view and remove the program only restrictions on it 
-'Make Views Read Only Program Side
 'Finer Transaction Logging Support 
 '     Ability to Supress Queries  or CMDS
 ' Automated Backup Script for DBs ?
@@ -262,6 +269,11 @@ Sub Int_DB
 EndSub
 
 Sub Startup_GUI
+  GraphicsWindow.Clear()
+  GraphicsWindow.Hide()
+  GraphicsWindow.Show()
+  LDScrollBars.Add( Listview_Width + 500  ,Listview_Height ) 
+  
   Pre_MainMenuUI()
   MOD_READ_AutoRunFile()
   MOD_AutoRun()
@@ -330,9 +342,12 @@ Sub LoadSettings
   logpath = Settings["Log_Path"]
   LogDBpath = Settings["Log_DB_Path"]
   Transaction_DB_Path_Temp = Settings["Transaction_DB"]
+  Transactions_mode_Query = Settings["Transaction_Query"]
+  Transactions_mode_Cmd = Settings["Transaction_Commands"]
   
   Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;11=Asset_Dir;12=Log_Path;13=Log_DB_Path;14=Transaction_DB;15=Deliminator;"
-  Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;"
+  Null_Settings = Null_Settings +"16=Transaction_Query;17=Transaction_Commands;"
+  Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;16=0;17=0;"
   Setting_Default[1] = Desktop.Width - 400
   Setting_Default[2] = Desktop.Height - 150
   Setting_Default[4] = "1=db;2=sqlite;3=*;"
@@ -514,10 +529,14 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Settings Editor"], Function_Handler_MainMenu , LangList["Settings"],"")
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Toggle Debug"], Function_Handler_MainMenu , LangList["Settings"],"")
+  
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Toggle Transaction Log"], Function_Handler_MainMenu , LangList["Settings"],"")
+  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Toggle Transaction Log"],"")'// Localize
+  
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Refresh"], Function_Handler_MainMenu , LangList["Settings"],"")
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Check for Updates"], Function_Handler_MainMenu , LangList["Settings"],"")
   LDCall.Function5(Function_UI_Add,"Menu","Close TW", Function_Handler_MainMenu , LangList["Settings"],"") '// Localize
+  
   LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Settings"],"") 
   
   ViewDB_Button = LangList["View"]
@@ -946,9 +965,8 @@ Sub Show_Display_Results
 EndSub
 
 Sub Display_Results 
-  
-  GraphicsWindow.Width = Desktop.Width
-  GraphicsWindow.Height = Desktop.Height
+  LDGraphicsWindow.Width = Desktop.Width 
+  LDGraphicsWindow.Height = Desktop.Height
   GraphicsWindow.Left = 0
   GraphicsWindow.Top = 0
   UIx = Listview_Width + 50
@@ -1514,11 +1532,21 @@ EndSub
 
 Sub TransactionRecord
   TransactionArgs = args 
-  If Transactions_mode = 1  Then 
+  If Transactions_mode = 1 Or ( Transactions_mode_Cmd = 1 Or Transactions_mode_Query = 1)  Then 
     If Array.GetItemCount(TransactionArgs ) = 5 Then
-      Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
-      Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
-      LDDataBase.Command( TransactionDB , Transactions_SQL )  
+      If TransactionArgs[4] = "CMD" And Transactions_mode_Cmd = 1  Then 
+        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+        LDDataBase.Command( TransactionDB , Transactions_SQL ) 
+      ElseIf TransactionArgs[4] = "Query" And Transactions_mode_Query = 1  Then
+        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+        LDDataBase.Command( TransactionDB , Transactions_SQL ) 
+      Else 
+        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+        LDDataBase.Command( TransactionDB , Transactions_SQL )  
+      EndIf 
     Else 
       debug_mode = 1 
       TextWindow.WriteLine("FORCE DEBUG : ON ")
