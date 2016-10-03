@@ -28,8 +28,9 @@
 'Moved Backup URL To GITHUB
 'Added more Settings Options to Settings Menu
 'Flexible File Settings for Logs , Asset Folder , and Transaction DB
-'Finer Transaction Logging Support (Config File Only :( )
+'Finer Transaction Logging Support [Config File Only :( ]
 'Added Scroll Bars 
+'Added a TimeOut Variable to Settings which tells you the status of the Command if the time to execute the Command exceeds the value 
 
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
@@ -346,8 +347,8 @@ Sub LoadSettings
   Transactions_mode_Cmd = Settings["Transaction_Commands"]
   
   Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;11=Asset_Dir;12=Log_Path;13=Log_DB_Path;14=Transaction_DB;15=Deliminator;"
-  Null_Settings = Null_Settings +"16=Transaction_Query;17=Transaction_Commands;"
-  Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;16=0;17=0;"
+  Null_Settings = Null_Settings +"16=Transaction_Query;17=Transaction_Commands;18=TimeOut;"
+  Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;16=0;17=0;18=10000;"
   Setting_Default[1] = Desktop.Width - 400
   Setting_Default[2] = Desktop.Height - 150
   Setting_Default[4] = "1=db;2=sqlite;3=*;"
@@ -1464,6 +1465,7 @@ EndSub
 Sub Command 'Runs A Command Function  
   CommandArgs = args 
   If Array.GetItemCount( CommandArgs ) = 4 Then 
+    CMD_StartTime = Clock.ElapsedMilliseconds
     ' LDDialogs.Wait("PROCCESSING...","BLUE")
     If CommandArgs[1] <> "" Then
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
@@ -1479,8 +1481,8 @@ Sub Command 'Runs A Command Function
       Command_Parser_Length = Text.GetLength( CommandArgs[2] ) 
       For I = 1 to Command_Parser_Length
         Character = Text.GetSubText( CommandArgs[2] , I , 1 )
-        If debug_Parser = 1 Then 
-          TextWindow.Title = Math.Floor( I/ Command_Parser_Length ) * 100 
+        If debug_Parser = 1 Or (Clock.ElapsedMilliseconds - CMD_StartTime ) > Settings["TimeOut"] Then 
+          TextWindow.Title = I + "/" + Command_Parser_Length + " " + Math.Floor( I/ Command_Parser_Length ) * 100 +"%"
         EndIf 
         If  Character = ";" And InString = 0   Then
           LDList.Add(List_Command_Parser , String +";")
@@ -1522,11 +1524,10 @@ Sub Command 'Runs A Command Function
       LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
       GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Command"] + " " + LangList["Error"] )
     EndIf
-    ' LDDialogs.EndWait()
   Else
     debug_mode = 1 
     TextWindow.WriteLine("FORCE DEBUG : ON ")
-    TextWindow.WriteLine("Function_Command : Expected 4 Arguments but recsived " + Array.GetItemCount( CommandArgs ) )
+    TextWindow.WriteLine("Function_Command : Expected 4 Arguments but recievied " + Array.GetItemCount( CommandArgs ) )
   EndIf 
 EndSub
 
