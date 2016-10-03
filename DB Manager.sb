@@ -36,7 +36,7 @@
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
 '______________________________________________________________________________
-'Add ability to change Flexible File Settings Through UI
+'Add ability to change ALL Flexible File Settings Through UI
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
 '______________________________________________________________________________
@@ -158,8 +158,8 @@ SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;7=Hex;8=Length;9=Low
 SQLFunctionsList = Text.ConvertToUpperCase( SQLFunctionsList ) 
 
 DB_Engines_Types = "1=MySQL;2=Odbc;3=Oledb;4=SQLite;5=SqlServer;" 
-DB_Engine_Username = "1=1;2=1;3=1;4=0;5=1;"
-DB_Engine_Password = "1=1;2=1;3=1;4=0;5=1;"
+DB_Engine_Username = "1=1;2=1;3=1;4=0;5=0;"
+DB_Engine_Password = "1=1;2=1;3=1;4=0;5=0;"
 Engine_Mode = 4 
 
 LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer Primary Key,[UTC_DATE] TEXT,[UTC_TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
@@ -398,18 +398,28 @@ Sub GetPath
     databasepath = Program.getArgument(1)
     LoadedFile = 1 
   Else
-    databasepath = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
+    If Engine_Mode = 4 Then 
+      databasepath = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
+    EndIf 
   EndIf
 EndSub
 
 Sub Load_DB  
-  If LDFile.Exists(databasepath) = "True" then
+  If Engine_Mode = 1 Then '//To DO
+    
+  ElseIf Engine_Mode = 2 Then '//To DO
+    
+  ElseIf Engine_Mode = 3 Then '//To DO
+    
+  ElseIf Engine_Mode = 4 And LDFile.Exists(databasepath) = "True" Then
     database =  LDDataBase.ConnectSQLite(databasepath)
     LDCall.Function2(logfunction, "Program Started - OPENED : " + databasepath ,LangList["Application"])'//Localize
     Settings["LastFolder"] = LDFile.GetFolder(databasepath)
     SaveSettings()
     LDList.Add("DB_Path", databasepath ) 
     LDList.Add("DB_Name", database  ) 
+  ElseIf Engine_Mode = 5 Then '//To DO
+    
   Else
     LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + databasepath,"Application" ) '//Localize
     GraphicsWindow.ShowMessage("File Could not be found or opened ", "Fatal Error" ) '//Localize
@@ -623,8 +633,6 @@ Sub MainMenuUI
 EndSub
 
 Sub MainMenuButton
-  '  TextWindow.WriteLine(":(")
-  
   LDCall.Function( Function_Handler_MainMenu , Controls.LastClickedButton )
 EndSub
 
@@ -740,7 +748,6 @@ Sub MainMenuHandler
         Controls.HideControl(listview)
         If Dataview = "" Then
           Dataview =  LDControls.AddDataView(Listview_Width,Listview_Height,"")
-          'TextWindow.WriteLine(Dataview) 'Debug 
           Controls.Move(Dataview,10,35)
         Else
           Controls.ShowControl(Dataview)
@@ -776,7 +783,7 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
     Dataview = ""
-    LoadSettings()
+    LoadSettings() 'Reloads Settings 
     GetPath()
     Load_DB()
     SaveSettings()
@@ -860,9 +867,6 @@ Sub MainMenuHandler
     Settings["debug_mode"] = debug_mode 
     Settings["debug_parser"] = debug_Parser
     
-    ' TextWindow.WriteLine("State : " + State[1] + "(" + Booleans[State[1]]+") " + State[2] +"(" + Booleans[State[2]]+")"  )
-    ' TextWindow.WriteLine( Booleans["False"] ) 
-    ' TextWindow.Pause() 
     Localization_lang = Settings["Language" ]
     SaveSettings()
     LoadSettings()
@@ -939,9 +943,9 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = Settings_Buttons_LogDBPath Then
     Temp_Path = LDDialogs.SaveFile("1=db;2=sqlite;3=*;", LDFile.GetFolder( logDBpath ) )
     If   Temp_Path <> "" Then 
-     Settings["Log_DB_Path"] = Temp_Path
-   EndIf 
-   Temp_Path = ""
+      Settings["Log_DB_Path"] = Temp_Path
+    EndIf 
+    Temp_Path = ""
   ElseIf LastClickedButton = Settings_Buttons_TransactionDBPath Then 
     Temp_Path = LDDialogs.SaveFile("1=db;2=sqlite;3=*;", LDFile.GetFolder( TransactionDBpath ) )
     IF  Temp_Path <> "" Then
@@ -1406,14 +1410,10 @@ Sub MOD_READ_AutoRunFile
   AutoRunMod_Cnts =  File.ReadContents( AutoRunMod_Path )
   For I = 1 To LDFile.Length( AutoRunMod_Path )
     Temp_Cnts = File.ReadLine( AutoRunMod_Path , I ) 
-    If Text.StartsWith( Temp_Cnts ,"#" ) = "True" Then
-      ' AutoRunMod_Cnts[ ( Array.GetItemCount( AutoRunMod_Cnts ) + 1 ) ] = "Comment"
-    Else 
+    If Text.StartsWith( Temp_Cnts ,"#" ) <> "True" Then
       AutoRunMod_Cnts[ ( Array.GetItemCount( AutoRunMod_Cnts ) + 1 ) ] = Temp_Cnts
     EndIf 
   EndFor
-  
-  'TextWindow.WriteLine( AutoRunMod_Cnts ) 
 EndSub
 
 Sub MOD_AutoRun 
