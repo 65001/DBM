@@ -30,7 +30,8 @@
 'Flexible File Settings for Logs , Asset Folder , and Transaction DB
 'Finer Transaction Logging Support [Config File Only :( ]
 'Added Scroll Bars 
-'Added a TimeOut Variable to Settings which tells you the status of the Command if the time to execute the Command exceeds the value 
+'Added a TimeOut Variable to Settings which tells you the status of the Command if the time to execute the Command exceeds the value
+'Add ability to change some Flexible File Settings Through UI
 
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
@@ -593,7 +594,7 @@ Sub MainMenuUI
   SCHEMA_CurrentList = SCHEMA_TableList 
   
   GraphicsWindow.FontSize = 20
-  Menu = LDControls.AddMenu(Desktop.Width,30,MenuList,"",CheckList) 
+  Menu = LDControls.AddMenu(Desktop.Width * 1.5 ,30,MenuList,"",CheckList) 
   
   Shapes.Move( Shapes.AddText(LangList["Sort"] +":") , 890 ,  1) 
   
@@ -929,8 +930,26 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = CLoseTW_Button Then
     TextWindow.Clear()
     TextWindow.Hide()
+  ElseIf LastClickedButton = Settings_Buttons_LogCSVPath Then
+    Temp_Path  = LDDialogs.SaveFile("1=csv;", LDFile.GetFolder( logpath ) )
+    If Temp_Path <> "" Then 
+      Settings["Log_Path"] = Temp_Path
+    EndIf 
+    Temp_Path = ""
+  ElseIf LastClickedButton = Settings_Buttons_LogDBPath Then
+    Temp_Path = LDDialogs.SaveFile("1=db;2=sqlite;3=*;", LDFile.GetFolder( logDBpath ) )
+    If   Temp_Path <> "" Then 
+     Settings["Log_DB_Path"] = Temp_Path
+   EndIf 
+   Temp_Path = ""
+  ElseIf LastClickedButton = Settings_Buttons_TransactionDBPath Then 
+    Temp_Path = LDDialogs.SaveFile("1=db;2=sqlite;3=*;", LDFile.GetFolder( TransactionDBpath ) )
+    IF  Temp_Path <> "" Then
+      Settings["Transaction_DB"] = Temp_Path
+    EndIf 
+    Temp_Path = "" 
   Else
-    GraphicsWindow.ShowMessage ( LastClickedButton + " "+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
+    GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
   
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
@@ -1150,7 +1169,8 @@ Sub Settings_UI
   
   GraphicsWindow.FontSize = 20
   
-  GraphicsWindow.DrawText(10,30, LangList["Listview Width"]) 
+  Settings_UI_Text[1] = Shapes.AddText(LangList["Listview Width"])
+  Shapes.Move(Settings_UI_Text[1],10,30) 
   Settings_WidthTB = Controls.AddTextBox(200,25)
   
   GraphicsWindow.DrawText(10,65,LangList["Listview Height"]) 
@@ -1164,8 +1184,25 @@ Sub Settings_UI
   
   GraphicsWindow.DrawText(10,165,LangList["Language"])
   
+  GraphicsWindow.DrawText(10,280,"Log CSV Path") '//Localize 
+  GraphicsWindow.DrawText(10,320,"Log DB Path") '//Localize
+  GraphicsWindow.DrawText(10,360,"Transaction DB Path") '//Localize 
+  
+  Settings_Buttons_LogCSVPath = Controls.AddButton("Browse",250,280 ) 
+  Settings_Buttons_LogDBPath = Controls.AddButton("Browse",250,320)
+  Settings_Buttons_TransactionDBPath = Controls.AddButton("Browse",250,360)
+  
   Language_LB = LDControls.AddComboBox( LDList.ToArray("ISO_Text") , 200,120 ) 
-  LDControls.ComboBoxSelect( Language_LB , LDList.IndexOf("ISO_Lang", Localization_lang )  ) 
+  ISO_Lang_Array = LDList.ToArray("ISO_Lang")
+  
+  ' A
+  For I = 1 To Array.GetItemCount(ISO_Lang_Array)
+    If ISO_Lang_Array[I] = Localization_lang Then 
+      Settings_UI_Node = I
+    EndIf 
+  EndFor 
+  
+  LDControls.ComboBoxSelect( Language_LB ,  Settings_UI_Node   )
   
   Controls.Move( Language_LB , 200 , 165 )
   
@@ -1173,15 +1210,18 @@ Sub Settings_UI
   Controls.Move(Settings_Debug_Parser , 10 ,220 )
   
   Settings_Debug_Mode = LDControls.AddCheckBox("Debug Mode")
-  Controls.Move(Settings_Debug_Mode , 10 ,270 )
+  Controls.Move(Settings_Debug_Mode , 10 ,250 )
   
-  Setting_Save = Controls.AddButton(LangList[ "Save and Close"],50,320) 
-  Settings_Close = Controls.AddButton(LangList["Close wo saving"] , 50, 370 )
+  Setting_Save = Controls.AddButton(LangList[ "Save and Close"],50,420) 
+  Settings_Close = Controls.AddButton(LangList["Close wo saving"] , 50, 470 )
   
   Controls.SetSize ( Setting_Save , 280 , 35 )
   Controls.SetSize ( Settings_Close , 280 , 35 )
   LDCall.Function5( Function_UI_Add , Register , Setting_Save ,Function_Handler_MainMenu,"","" ) 
   LDCall.Function5( Function_UI_Add , Register , Settings_Close ,Function_Handler_MainMenu,"","" ) 
+  LDCall.Function5( Function_UI_Add , Register , Settings_Buttons_LogCSVPath ,Function_Handler_MainMenu,"","" ) 
+  LDCall.Function5( Function_UI_Add , Register , Settings_Buttons_LogDBPath,Function_Handler_MainMenu,"","" ) 
+  LDCall.Function5( Function_UI_Add , Register , Settings_Buttons_TransactionDBPath,Function_Handler_MainMenu,"","" ) 
   
   Controls.SetTextBoxText(Settings_WidthTB , Listview_Width )
   Controls.SetTextBoxText(Settings_HeigthTB, Listview_Height )
@@ -1192,6 +1232,7 @@ Sub Settings_UI
   LDControls.CheckBoxState( Settings_Debug_Parser ,  Booleans[ debug_Parser ] ) 
   
   Controls_Settings ="1="+ Settings_WidthTB +";2="+ Settings_HeigthTB+";3="+Settings_ExtensionsTB+";4="+Settings_DeliminatorTB+";5="+Language_LB+";6="+Settings_Debug_Parser+";7="+Settings_Debug_Mode+";8="+Setting_Save+";9="+Settings_Close+";"
+  Controls_Settings = Controls_Settings + "10="+ Settings_UI_Text[1]+";"
   GraphicsWindow.FontSize = Default_FontSize 
 EndSub
 '______________________________________________________________________________
