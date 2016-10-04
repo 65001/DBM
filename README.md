@@ -34,7 +34,7 @@ Specifications
 
 Bugs
 <ol type = "1">
-	<li> Editing view may not store data correctly if constraints are present</li>
+	<li> Editing view may not store data correctly if SQL Specific constraints are present</li>
 </ol>
 
 Road Map :

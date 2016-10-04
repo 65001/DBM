@@ -1,4 +1,5 @@
 'Copyrighted Software 2016. Abhishek Sathiabalan . All Rights Reserved. Governed by EULA. 
+
 'For a timeline of release information please check Assets\Change_Log Table 
 
 'v1114
@@ -25,7 +26,17 @@
 
 'v1117
 'Moved Backup URL To GITHUB
+'Added more Settings Options to Settings Menu
+'Flexible File Settings for Logs , Asset Folder , and Transaction DB
+'Finer Transaction Logging Support [Config File Only :( ]
+'Added Scroll Bars 
+'Added a TimeOut Variable to Settings which tells you the status of the Command if the time to execute the Command exceeds the value
+'Add ability to change some Flexible File Settings Through UI
 
+'_____________________________________________________________________________
+'                                                                                     To do Next Version
+'______________________________________________________________________________
+'Add ability to change ALL Flexible File Settings Through UI
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
 '______________________________________________________________________________
@@ -41,7 +52,6 @@
 'New Table Menu
 'SQL Functions List
 'Make the mastertable a view and remove the program only restrictions on it 
-'Make Views Read Only Program Side
 'Finer Transaction Logging Support 
 '     Ability to Supress Queries  or CMDS
 ' Automated Backup Script for DBs ?
@@ -132,6 +142,7 @@ PrgmVersionID = 1117
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
 Self = Program.Directory +"\DB Manager.exe"
 
+Booleans ="True=1;False=0;0=False;1=True;"
 '______________________________________________________________________________
 '                                                                                    Not to be set by Settings
 '______________________________________________________________________________
@@ -147,8 +158,8 @@ SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;7=Hex;8=Length;9=Low
 SQLFunctionsList = Text.ConvertToUpperCase( SQLFunctionsList ) 
 
 DB_Engines_Types = "1=MySQL;2=Odbc;3=Oledb;4=SQLite;5=SqlServer;" 
-DB_Engine_Username = "1=1;2=1;3=1;4=0;5=1;"
-DB_Engine_Password = "1=1;2=1;3=1;4=0;5=1;"
+DB_Engine_Username = "1=1;2=1;3=1;4=0;5=0;"
+DB_Engine_Password = "1=1;2=1;3=1;4=0;5=0;"
 Engine_Mode = 4 
 
 LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer Primary Key,[UTC_DATE] TEXT,[UTC_TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
@@ -170,40 +181,6 @@ HelpPath = AssetPath +"HELP Table.html"
 LocalizationsFolder = Program.Directory +"\Localization\"
 LocalizationsLangFolder = Program.Directory +"\Localization\Lang\"
 LocalizationsFilesArray  =  File.GetFiles ( LocalizationsFolder ) 
-
-IF LDFile.Exists(AssetPath) = "False" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
-  File.CreateDirectory(AssetPath)
-  File.CreateDirectory(LocalizationsFolder ) 
-  File.CreateDirectory(ModPath ) 
-EndIf 
-
-If LDFile.Exists( AutoRunMod_Path ) = "False" Then
-  File.AppendContents( AutoRunMod_Path , "# This file designates the Mod and the subroutine the main program should call on the start of the program. Use this to insert your UI at startup. The character # marks the line as commented. ") 
-EndIf 
-
-If LDFile.Exists(logpath) = "False" Then
-  File.AppendContents( logpath , "id,local date,local time,Username,Product ID,Version ,Type of Error,Log Event")
-EndIf 
-
-LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
-TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 
-
-LDList.Add("DB_Path", LogDBpath ) 
-LDList.Add("DB_Name", Log_DB ) 
-
-LDList.Add("DB_Path", TransactionDBpath ) 
-LDList.Add("DB_Name", TransactionDB ) 
-
-LDDataBase.Command( TransactionDB , Transactions_SQL)
-LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL,"App","Auto Creation Statements" ) ' Cannot be Localized 
-LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL_View ,"App","Auto Creation Statements")'Cannot be Localized 
-LDCall.Function4( CommandFunction , TransactionDB , Transactions_SQL ,"App","Auto Creation Statements") ' Cannot be Localized 
-
-LogNumber = LDDataBase.Query( LOG_DB,"SELECT COUNT(ID) From Log;","","True")
-LogNumber = LogNumber[1]["COUNT(ID)"]
-LDCall.Function5(TransactionFunction , "App" , LOG_DB +"| LOG"  ,"SELECT COUNT(ID) From Log;" ,"Query", " Auto Query Log Count") 'Cannot be Localized 
-TransactionNumber = LDDataBase.Query( TransactionDB,"SELECT COUNT(ID) From Transactions","","True") 
-TransactionNumber = TransactionNumber[1]["COUNT(ID)"]
 
 OnlineEULaPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRNTFKckFKLVNNUDg" 'EULA Path
 OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download" 'Update DB Path 
@@ -235,8 +212,9 @@ NEULA_Version =""
 Startup()
 
 Sub Startup
-  MOD_Find_All()
   LoadSettings()
+  Int_DB() 'Creates The Databases used for logging error and transactions 
+  MOD_Find_All()
   CMD_Output = AssetPath + "CMD.txt"
   CMD_String = "ECHO %SYSTEMROOT% >> " + CMD_Output
   File.WriteContents(AssetPath+"Sysroot.bat" , CMD_String ) 
@@ -256,7 +234,48 @@ Sub Startup
   EndIf
 EndSub
 
+Sub Int_DB
+  IF LDFile.Exists(AssetPath) = "False" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
+    File.CreateDirectory(AssetPath)
+    File.CreateDirectory(LocalizationsFolder ) 
+    File.CreateDirectory(ModPath ) 
+  EndIf 
+  
+  If LDFile.Exists( AutoRunMod_Path ) = "False" Then
+    File.AppendContents( AutoRunMod_Path , "# This file designates the Mod and the subroutine the main program should call on the start of the program. Use this to insert your UI at startup. The character # marks the line as commented. ") 
+  EndIf 
+  
+  If LDFile.Exists(logpath) = "False" Then
+    File.AppendContents( logpath , "id,local date,local time,Username,Product ID,Version ,Type of Error,Log Event")
+  EndIf 
+  
+  LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
+  TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 
+  
+  LDList.Add("DB_Path", LogDBpath ) 
+  LDList.Add("DB_Name", Log_DB ) 
+  
+  LDList.Add("DB_Path", TransactionDBpath ) 
+  LDList.Add("DB_Name", TransactionDB ) 
+  
+  LDDataBase.Command( TransactionDB , Transactions_SQL)
+  LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL,"App","Auto Creation Statements" ) ' Cannot be Localized 
+  LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL_View ,"App","Auto Creation Statements")'Cannot be Localized 
+  LDCall.Function4( CommandFunction , TransactionDB , Transactions_SQL ,"App","Auto Creation Statements") ' Cannot be Localized 
+  
+  LogNumber = LDDataBase.Query( LOG_DB,"SELECT COUNT(ID) From Log;","","True")
+  LogNumber = LogNumber[1]["COUNT(ID)"]
+  LDCall.Function5(TransactionFunction , "App" , LOG_DB +"| LOG"  ,"SELECT COUNT(ID) From Log;" ,"Query", " Auto Query Log Count") 'Cannot be Localized 
+  TransactionNumber = LDDataBase.Query( TransactionDB,"SELECT COUNT(ID) From Transactions","","True") 
+  TransactionNumber = TransactionNumber[1]["COUNT(ID)"]
+EndSub
+
 Sub Startup_GUI
+  GraphicsWindow.Clear()
+  GraphicsWindow.Hide()
+  GraphicsWindow.Show()
+  LDScrollBars.Add( Listview_Width + 500  ,Listview_Height ) 
+  
   Pre_MainMenuUI()
   MOD_READ_AutoRunFile()
   MOD_AutoRun()
@@ -321,9 +340,23 @@ Sub LoadSettings
   debug_mode = Settings["debug_mode"]
   debug_Parser = Settings["debug_parser"]
   
-  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;"
-  Setting_Default ="1=1500;2=900;3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;"
+  AssetPath = Settings["Asset_Dir"]
+  logpath = Settings["Log_Path"]
+  LogDBpath = Settings["Log_DB_Path"]
+  Transaction_DB_Path_Temp = Settings["Transaction_DB"]
+  Transactions_mode_Query = Settings["Transaction_Query"]
+  Transactions_mode_Cmd = Settings["Transaction_Commands"]
+  
+  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;11=Asset_Dir;12=Log_Path;13=Log_DB_Path;14=Transaction_DB;15=Deliminator;"
+  Null_Settings = Null_Settings +"16=Transaction_Query;17=Transaction_Commands;18=TimeOut;"
+  Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;16=0;17=0;18=10000;"
+  Setting_Default[1] = Desktop.Width - 400
+  Setting_Default[2] = Desktop.Height - 150
   Setting_Default[4] = "1=db;2=sqlite;3=*;"
+  Setting_Default[11] = Program.Directory +"\Assets\"
+  Setting_Default[12] = Setting_Default[11] + "Log.csv"
+  Setting_Default[13] = Setting_Default[11] + "Log.db"
+  Setting_Default[14] = Setting_Default[11] + "Transactions.db"
   
   For I = 1 To Array.GetItemCount( Null_Settings )
     If Settings[ Null_Settings[I] ] = "" Then
@@ -340,6 +373,14 @@ Sub LoadSettings
     Localization_lang = Settings["Language"]
     Transactions_mode =  Settings["Transactions"] 
     lastFolder = Settings["LastFolder"]
+    
+    OS_Dir = Settings["OS_Dir"] 
+    debug_mode = Settings["debug_mode"]
+    debug_Parser = Settings["debug_parser"]
+    AssetPath = Settings["Asset_Dir"]
+    logpath = Settings["Log_Path"]
+    LogDBpath = Settings["Log_DB_Path"]
+    Transaction_DB_Path_Temp = Settings["Transaction_DB"]
   EndIf 
   SaveSettings()
 EndSub
@@ -357,18 +398,28 @@ Sub GetPath
     databasepath = Program.getArgument(1)
     LoadedFile = 1 
   Else
-    databasepath = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
+    If Engine_Mode = 4 Then 
+      databasepath = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
+    EndIf 
   EndIf
 EndSub
 
 Sub Load_DB  
-  If LDFile.Exists(databasepath) = "True" then
+  If Engine_Mode = 1 Then '//To DO
+    
+  ElseIf Engine_Mode = 2 Then '//To DO
+    
+  ElseIf Engine_Mode = 3 Then '//To DO
+    
+  ElseIf Engine_Mode = 4 And LDFile.Exists(databasepath) = "True" Then
     database =  LDDataBase.ConnectSQLite(databasepath)
     LDCall.Function2(logfunction, "Program Started - OPENED : " + databasepath ,LangList["Application"])'//Localize
     Settings["LastFolder"] = LDFile.GetFolder(databasepath)
     SaveSettings()
     LDList.Add("DB_Path", databasepath ) 
     LDList.Add("DB_Name", database  ) 
+  ElseIf Engine_Mode = 5 Then '//To DO
+    
   Else
     LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + databasepath,"Application" ) '//Localize
     GraphicsWindow.ShowMessage("File Could not be found or opened ", "Fatal Error" ) '//Localize
@@ -490,10 +541,14 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Settings Editor"], Function_Handler_MainMenu , LangList["Settings"],"")
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Toggle Debug"], Function_Handler_MainMenu , LangList["Settings"],"")
+  
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Toggle Transaction Log"], Function_Handler_MainMenu , LangList["Settings"],"")
+  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Toggle Transaction Log"],"")'// Localize
+  
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Refresh"], Function_Handler_MainMenu , LangList["Settings"],"")
   LDCall.Function5(Function_UI_Add,"Menu",LangList["Check for Updates"], Function_Handler_MainMenu , LangList["Settings"],"")
   LDCall.Function5(Function_UI_Add,"Menu","Close TW", Function_Handler_MainMenu , LangList["Settings"],"") '// Localize
+  
   LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Settings"],"") 
   
   ViewDB_Button = LangList["View"]
@@ -549,7 +604,7 @@ Sub MainMenuUI
   SCHEMA_CurrentList = SCHEMA_TableList 
   
   GraphicsWindow.FontSize = 20
-  Menu = LDControls.AddMenu(Desktop.Width,30,MenuList,"",CheckList) 
+  Menu = LDControls.AddMenu(Desktop.Width * 1.5 ,30,MenuList,"",CheckList) 
   
   Shapes.Move( Shapes.AddText(LangList["Sort"] +":") , 890 ,  1) 
   
@@ -578,8 +633,6 @@ Sub MainMenuUI
 EndSub
 
 Sub MainMenuButton
-  '  TextWindow.WriteLine(":(")
-  
   LDCall.Function( Function_Handler_MainMenu , Controls.LastClickedButton )
 EndSub
 
@@ -695,7 +748,6 @@ Sub MainMenuHandler
         Controls.HideControl(listview)
         If Dataview = "" Then
           Dataview =  LDControls.AddDataView(Listview_Width,Listview_Height,"")
-          'TextWindow.WriteLine(Dataview) 'Debug 
           Controls.Move(Dataview,10,35)
         Else
           Controls.ShowControl(Dataview)
@@ -731,7 +783,7 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
     Dataview = ""
-    LoadSettings()
+    LoadSettings() 'Reloads Settings 
     GetPath()
     Load_DB()
     SaveSettings()
@@ -808,6 +860,13 @@ Sub MainMenuHandler
     Settings["Extensions"] = Controls.GetTextBoxText(Settings_ExtensionsTB)
     Settings["Deliminator"] = Controls.GetTextBoxText( Settings_DeliminatorTB )
     Settings["Language" ] = LDList.GetAt("ISO_Lang", LDControls.ComboBoxGetSelected( Language_LB ) )
+    State[1] = LDControls.CheckBoxGetState( Settings_Debug_Mode )
+    State[2] = LDControls.CheckBoxGetState( Settings_Debug_Parser)
+    debug_mode = Booleans[( State[1] )] 
+    debug_Parser = Booleans[( State[2] )] 
+    Settings["debug_mode"] = debug_mode 
+    Settings["debug_parser"] = debug_Parser
+    
     Localization_lang = Settings["Language" ]
     SaveSettings()
     LoadSettings()
@@ -824,6 +883,9 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = Settings_Close Then 
     listview = ""
     Dataview = ""
+    For I = 1 To Array.GetItemCount( Controls_Settings ) 
+      Controls.HideControl( Controls_Settings[I] )
+    EndFor 
     Pre_MainMenuUI()
     MainMenuUI()
   ElseIf LastClickedButton = MoveRight Then 'Export UI Controls 
@@ -872,8 +934,26 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = CLoseTW_Button Then
     TextWindow.Clear()
     TextWindow.Hide()
+  ElseIf LastClickedButton = Settings_Buttons_LogCSVPath Then
+    Temp_Path  = LDDialogs.SaveFile("1=csv;", LDFile.GetFolder( logpath ) )
+    If Temp_Path <> "" Then 
+      Settings["Log_Path"] = Temp_Path
+    EndIf 
+    Temp_Path = ""
+  ElseIf LastClickedButton = Settings_Buttons_LogDBPath Then
+    Temp_Path = LDDialogs.SaveFile("1=db;2=sqlite;3=*;", LDFile.GetFolder( logDBpath ) )
+    If   Temp_Path <> "" Then 
+      Settings["Log_DB_Path"] = Temp_Path
+    EndIf 
+    Temp_Path = ""
+  ElseIf LastClickedButton = Settings_Buttons_TransactionDBPath Then 
+    Temp_Path = LDDialogs.SaveFile("1=db;2=sqlite;3=*;", LDFile.GetFolder( TransactionDBpath ) )
+    IF  Temp_Path <> "" Then
+      Settings["Transaction_DB"] = Temp_Path
+    EndIf 
+    Temp_Path = "" 
   Else
-    GraphicsWindow.ShowMessage ( LastClickedButton + " "+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
+    GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
   
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
@@ -909,9 +989,8 @@ Sub Show_Display_Results
 EndSub
 
 Sub Display_Results 
-  
-  GraphicsWindow.Width = Desktop.Width
-  GraphicsWindow.Height = Desktop.Height
+  LDGraphicsWindow.Width = Desktop.Width 
+  LDGraphicsWindow.Height = Desktop.Height
   GraphicsWindow.Left = 0
   GraphicsWindow.Top = 0
   UIx = Listview_Width + 50
@@ -1094,7 +1173,8 @@ Sub Settings_UI
   
   GraphicsWindow.FontSize = 20
   
-  GraphicsWindow.DrawText(10,30, LangList["Listview Width"]) 
+  Settings_UI_Text[1] = Shapes.AddText(LangList["Listview Width"])
+  Shapes.Move(Settings_UI_Text[1],10,30) 
   Settings_WidthTB = Controls.AddTextBox(200,25)
   
   GraphicsWindow.DrawText(10,65,LangList["Listview Height"]) 
@@ -1108,23 +1188,55 @@ Sub Settings_UI
   
   GraphicsWindow.DrawText(10,165,LangList["Language"])
   
-  Language_LB = LDControls.AddComboBox(LDList.ToArray("ISO_Text") , 200,120 ) 
-  LDControls.ComboBoxSelect( Language_LB , LDList.IndexOf("ISO_Lang", Localization_lang )  ) 
+  GraphicsWindow.DrawText(10,280,"Log CSV Path") '//Localize 
+  GraphicsWindow.DrawText(10,320,"Log DB Path") '//Localize
+  GraphicsWindow.DrawText(10,360,"Transaction DB Path") '//Localize 
+  
+  Settings_Buttons_LogCSVPath = Controls.AddButton("Browse",250,280 ) 
+  Settings_Buttons_LogDBPath = Controls.AddButton("Browse",250,320)
+  Settings_Buttons_TransactionDBPath = Controls.AddButton("Browse",250,360)
+  
+  Language_LB = LDControls.AddComboBox( LDList.ToArray("ISO_Text") , 200,120 ) 
+  ISO_Lang_Array = LDList.ToArray("ISO_Lang")
+  
+  ' A
+  For I = 1 To Array.GetItemCount(ISO_Lang_Array)
+    If ISO_Lang_Array[I] = Localization_lang Then 
+      Settings_UI_Node = I
+    EndIf 
+  EndFor 
+  
+  LDControls.ComboBoxSelect( Language_LB ,  Settings_UI_Node   )
+  
   Controls.Move( Language_LB , 200 , 165 )
   
-  Setting_Save = Controls.AddButton(LangList[ "Save and Close"],50,220) 
-  Settings_Close = Controls.AddButton(LangList["Close wo saving"] , 50, 270 )
+  Settings_Debug_Parser = LDControls.AddCheckBox("Debug Parser")
+  Controls.Move(Settings_Debug_Parser , 10 ,220 )
+  
+  Settings_Debug_Mode = LDControls.AddCheckBox("Debug Mode")
+  Controls.Move(Settings_Debug_Mode , 10 ,250 )
+  
+  Setting_Save = Controls.AddButton(LangList[ "Save and Close"],50,420) 
+  Settings_Close = Controls.AddButton(LangList["Close wo saving"] , 50, 470 )
   
   Controls.SetSize ( Setting_Save , 280 , 35 )
   Controls.SetSize ( Settings_Close , 280 , 35 )
   LDCall.Function5( Function_UI_Add , Register , Setting_Save ,Function_Handler_MainMenu,"","" ) 
   LDCall.Function5( Function_UI_Add , Register , Settings_Close ,Function_Handler_MainMenu,"","" ) 
+  LDCall.Function5( Function_UI_Add , Register , Settings_Buttons_LogCSVPath ,Function_Handler_MainMenu,"","" ) 
+  LDCall.Function5( Function_UI_Add , Register , Settings_Buttons_LogDBPath,Function_Handler_MainMenu,"","" ) 
+  LDCall.Function5( Function_UI_Add , Register , Settings_Buttons_TransactionDBPath,Function_Handler_MainMenu,"","" ) 
   
   Controls.SetTextBoxText(Settings_WidthTB , Listview_Width )
   Controls.SetTextBoxText(Settings_HeigthTB, Listview_Height )
   Controls.SetTextBoxText(Settings_ExtensionsTB , Settings["Extensions"] )
   Controls.SetTextBoxText( Settings_DeliminatorTB , Settings["Deliminator"] ) 
   
+  LDControls.CheckBoxState(Settings_Debug_Mode , Booleans[ debug_mode ] )
+  LDControls.CheckBoxState( Settings_Debug_Parser ,  Booleans[ debug_Parser ] ) 
+  
+  Controls_Settings ="1="+ Settings_WidthTB +";2="+ Settings_HeigthTB+";3="+Settings_ExtensionsTB+";4="+Settings_DeliminatorTB+";5="+Language_LB+";6="+Settings_Debug_Parser+";7="+Settings_Debug_Mode+";8="+Setting_Save+";9="+Settings_Close+";"
+  Controls_Settings = Controls_Settings + "10="+ Settings_UI_Text[1]+";"
   GraphicsWindow.FontSize = Default_FontSize 
 EndSub
 '______________________________________________________________________________
@@ -1298,14 +1410,10 @@ Sub MOD_READ_AutoRunFile
   AutoRunMod_Cnts =  File.ReadContents( AutoRunMod_Path )
   For I = 1 To LDFile.Length( AutoRunMod_Path )
     Temp_Cnts = File.ReadLine( AutoRunMod_Path , I ) 
-    If Text.StartsWith( Temp_Cnts ,"#" ) = "True" Then
-      ' AutoRunMod_Cnts[ ( Array.GetItemCount( AutoRunMod_Cnts ) + 1 ) ] = "Comment"
-    Else 
+    If Text.StartsWith( Temp_Cnts ,"#" ) <> "True" Then
       AutoRunMod_Cnts[ ( Array.GetItemCount( AutoRunMod_Cnts ) + 1 ) ] = Temp_Cnts
     EndIf 
   EndFor
-  
-  'TextWindow.WriteLine( AutoRunMod_Cnts ) 
 EndSub
 
 Sub MOD_AutoRun 
@@ -1398,6 +1506,8 @@ EndSub
 Sub Command 'Runs A Command Function  
   CommandArgs = args 
   If Array.GetItemCount( CommandArgs ) = 4 Then 
+    CMD_StartTime = Clock.ElapsedMilliseconds
+    ' LDDialogs.Wait("PROCCESSING...","BLUE")
     If CommandArgs[1] <> "" Then
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
       CommandArgs[2] = LDText.Trim( CommandArgs[2] ) 
@@ -1409,8 +1519,12 @@ Sub Command 'Runs A Command Function
       
       InString = 0 
       Command_Counter = 0 
-      For I = 1 to Text.GetLength( CommandArgs[2] )
+      Command_Parser_Length = Text.GetLength( CommandArgs[2] ) 
+      For I = 1 to Command_Parser_Length
         Character = Text.GetSubText( CommandArgs[2] , I , 1 )
+        If debug_Parser = 1 Or (Clock.ElapsedMilliseconds - CMD_StartTime ) > Settings["TimeOut"] Then 
+          TextWindow.Title = I + "/" + Command_Parser_Length + " " + Math.Floor( I/ Command_Parser_Length ) * 100 +"%"
+        EndIf 
         If  Character = ";" And InString = 0   Then
           LDList.Add(List_Command_Parser , String +";")
           String = ""
@@ -1454,17 +1568,27 @@ Sub Command 'Runs A Command Function
   Else
     debug_mode = 1 
     TextWindow.WriteLine("FORCE DEBUG : ON ")
-    TextWindow.WriteLine("Function_Command : Expected 4 Arguments but recsived " + Array.GetItemCount( CommandArgs ) )
+    TextWindow.WriteLine("Function_Command : Expected 4 Arguments but recievied " + Array.GetItemCount( CommandArgs ) )
   EndIf 
 EndSub
 
 Sub TransactionRecord
   TransactionArgs = args 
-  If Transactions_mode = 1  Then 
+  If Transactions_mode = 1 Or ( Transactions_mode_Cmd = 1 Or Transactions_mode_Query = 1)  Then 
     If Array.GetItemCount(TransactionArgs ) = 5 Then
-      Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
-      Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
-      LDDataBase.Command( TransactionDB , Transactions_SQL )  
+      If TransactionArgs[4] = "CMD" And Transactions_mode_Cmd = 1  Then 
+        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+        LDDataBase.Command( TransactionDB , Transactions_SQL ) 
+      ElseIf TransactionArgs[4] = "Query" And Transactions_mode_Query = 1  Then
+        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+        LDDataBase.Command( TransactionDB , Transactions_SQL ) 
+      Else 
+        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
+        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
+        LDDataBase.Command( TransactionDB , Transactions_SQL )  
+      EndIf 
     Else 
       debug_mode = 1 
       TextWindow.WriteLine("FORCE DEBUG : ON ")
@@ -1489,7 +1613,11 @@ Sub ErrorHandler
   If MOD_Running_False = 1  Then 
     debug_mode = 1 '<< ANNOYING AT TIMES
   EndIf 
-  TextWindow.WriteLine("Error : " +  LDEvents.LastError )
+  TextWindow.ForegroundColor = "YELLOW"
+  TextWindow.Write("Error Caught : " )
+  TextWindow.ForegroundColor = "WHITE"
+  TextWindow.WriteLine(LangList["System"]+":" + LDEvents.LastError ) 
+  
   LDCall.Function2(logfunction, LDEvents.LastError ,LangList["System"])
 EndSub
 
@@ -1497,6 +1625,9 @@ Sub Log
   LogEvent = args[1]
   TypeofError = args[2] 
   If debug_mode = 1 Then 
+    TextWindow.ForegroundColor = "YELLOW"
+    TextWindow.Write("Log Function : " )
+    TextWindow.ForegroundColor = "WHITE"
     TextWindow.WriteLine(TypeofError +":" + LogEvent ) 
   EndIf 
   If TypeofError = "Debug" And debug_mode = 0 Then 'DO NOT STORE IF TRUE 
