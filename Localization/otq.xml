@@ -41,7 +41,7 @@
     <Functions language="otq">Ya 'befi</Functions>
     <Strict_Search language="otq">Nthoni estricta</Strict_Search>
     <Run_Function language="otq">Ejecutar ar función</Run_Function>
-    <Query language="otq">Consulta</Query>
+    <Query language="otq">Hño nthoki</Query>
     <Command language="otq">Ts'edi</Command>
     <Error_No_DB language="otq">Error: 'nar base ar datos ar xi cargado</Error_No_DB>
     <UI language="otq">INTERFAZ USUARIO</UI>
@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="otq">Exportar da SQL — SQL — jar thuhuu ar </Export_SQL_SQL>
     <Export_XML language="otq">EXPORTACIÓN XML JAR THUHUU AR</Export_XML>
     <System language="otq">Ko ar</System>
+    <Views_Read_Only language="otq">Vistas ya ho̲ntho da ne hingi ar tsa̲ da editar</Views_Read_Only>
+    <Dataview_Error language="otq">Ar base ar datos wa Dataview hingi nuna ar dängo wa hi'nä ar xi cargado aún mi</Dataview_Error>
   </Language>
 </root>

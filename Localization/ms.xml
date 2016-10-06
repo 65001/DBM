@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ms">Eksport SQL - SQL - bagi pihak </Export_SQL_SQL>
     <Export_XML language="ms">XML EKSPORT BAGI PIHAK</Export_XML>
     <System language="ms">Sistem</System>
+    <Views_Read_Only language="ms">Pandangan yang readonly dan tidak boleh diedit</Views_Read_Only>
+    <Dataview_Error language="ms">Pangkalan data atau Dataview tidak wujud atau masih belum dimuatkan lagi</Dataview_Error>
   </Language>
 </root>

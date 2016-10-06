@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ru">Экспорт SQL - SQL - от имени </Export_SQL_SQL>
     <Export_XML language="ru">ЭКСПОРТ XML ОТ ИМЕНИ</Export_XML>
     <System language="ru">Система</System>
+    <Views_Read_Only language="ru">Представления являются только для чтения и не могут быть изменены</Views_Read_Only>
+    <Dataview_Error language="ru">База данных или объект Dataview не существует или еще не загружен</Dataview_Error>
   </Language>
 </root>

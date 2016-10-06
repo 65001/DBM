@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="el">Εξαγωγή SQL - SQL - εκ μέρους του </Export_SQL_SQL>
     <Export_XML language="el">ΕΞΑΓΩΓΉ XML ΕΚ ΜΈΡΟΥΣ ΤΟΥ</Export_XML>
     <System language="el">Σύστημα</System>
+    <Views_Read_Only language="el">Απόψεις που είναι μόνο για ανάγνωση και δεν είναι δυνατή η επεξεργασία</Views_Read_Only>
+    <Dataview_Error language="el">Η βάση δεδομένων ή το Dataview δεν υπάρχει ή δεν έχει φορτωθεί ακόμη</Dataview_Error>
   </Language>
 </root>

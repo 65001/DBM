@@ -36,18 +36,13 @@ Sub ABS_View_Handler
   ABS_RHG_ID = Controls.GetTextBoxText(ABS_RestoreIDTB) 
   If LastClickedButton = ABS_RestoreButton And LDUtilities.IsNumber(ABS_RHG_ID) = "True" Then 
     Return = LDCall.Function5(Function_Query ,"Select CNTS,Title from Files WHERE ID ='"+ABS_RHG_ID+"';" ,"","True", LDFile.UserName , "ABS MOD Restore Function"  )
-    ' LDDataBase.Query(database,"Select CNTS,Title from Files WHERE ID ='"+RHG_ID+"';","","True")
     RestoreCnts = Return[1]["CNTS"]
     RHG_Title = Return[1]["Title"]
-    '  If  Array.GetItemCount(Return) = 1 Then 
-    '    RHG_Title = LDDataBase.Query(database,"Select Title from Files WHERE ID ='"+RHG_ID+"';","","True")
     GraphicsWindow.ShowMessage("Save path for "+RHG_Title  ,"Save Path") 
     SaveLocation =  LDDialogs.SaveFile("sb","C:\Users\"+LDFile.UserName+"\Desktop\")
     File.WriteContents(SaveLocation, RestoreCnts ) 
     If LDDialogs.Confirm("Do you wish to launch " + RHG_Title +"?","Open File") = "Yes" Then 
-      LDProcess.Start(SaveLocation,"") 
-      '    EndIf
-      
+      LDProcess.Start(SaveLocation,"")  
     EndIf 
   ElseIf LastClickedButton = ABS_OpenSBbutton And LDUtilities.IsNumber(ABS_RHG_ID) = "True" Then
     Return = LDCall.Function5(Function_Query ,"Select Path from Files WHERE ID ='"+ABS_RHG_ID+"';" ,"","True", LDFile.UserName , "ABS MOD Open Function"  )

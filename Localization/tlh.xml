@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="tlh">sql-sql-export behalf </Export_SQL_SQL>
     <Export_XML language="tlh">EXPORT XML BEHALF</Export_XML>
     <System language="tlh">pat</System>
+    <Views_Read_Only language="tlh">readonly 'ej pagh edited jIH</Views_Read_Only>
+    <Dataview_Error language="tlh">wej nIv'e' pagh wej load 'ach Database dataview pagh</Dataview_Error>
   </Language>
 </root>

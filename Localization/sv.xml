@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="sv">Exportera SQL - SQL - på uppdrag av </Export_SQL_SQL>
     <Export_XML language="sv">EXPORTERA XML PÅ UPPDRAG AV</Export_XML>
     <System language="sv">Systemet</System>
+    <Views_Read_Only language="sv">Vyer är skrivskyddade och kan inte redigeras</Views_Read_Only>
+    <Dataview_Error language="sv">Den databas eller Dataview existerar inte eller har inte lästs in ännu</Dataview_Error>
   </Language>
 </root>

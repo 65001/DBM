@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ar">تصدير SQL-SQL-نيابة عن </Export_SQL_SQL>
     <Export_XML language="ar">تصدير XML نيابة عن</Export_XML>
     <System language="ar">نظام</System>
+    <Views_Read_Only language="ar">وجهات النظر هي القراءة فقط ولا يمكن تحريره</Views_Read_Only>
+    <Dataview_Error language="ar">في قاعدة البيانات أو Dataview غير موجود أو لم يتم تحميل حتى الآن</Dataview_Error>
   </Language>
 </root>

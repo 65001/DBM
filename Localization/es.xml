@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="es">Exportar a SQL - SQL - en nombre de </Export_SQL_SQL>
     <Export_XML language="es">EXPORTACIÓN XML EN NOMBRE DE</Export_XML>
     <System language="es">Sistema de</System>
+    <Views_Read_Only language="es">Vistas son de sólo lectura y no se puede editar</Views_Read_Only>
+    <Dataview_Error language="es">La base de datos o Dataview no existe o no se ha cargado aún</Dataview_Error>
   </Language>
 </root>

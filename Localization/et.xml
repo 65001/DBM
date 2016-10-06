@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="et">Ekspordi SQL - SQL - nimel </Export_SQL_SQL>
     <Export_XML language="et">EKSPORDI XML-I NIMEL</Export_XML>
     <System language="et">Süsteemi</System>
+    <Views_Read_Only language="et">Vaated on kirjutuskaitstud ja ei saa redigeerida</Views_Read_Only>
+    <Dataview_Error language="et">Andmebaasi või Andmevaate pole olemas või ei ole veel koormatud</Dataview_Error>
   </Language>
 </root>

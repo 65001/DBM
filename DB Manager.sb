@@ -449,7 +449,7 @@ Sub EULA_UI
   OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
   
   If OnlineEULACnts = "" Then
-    LDCall.Function2( logfunction ,LangList["Failed Load Online EULA"],LangList["UI"])
+    LDCall.Function2( logfunction ,LangList["Failed Load Online EULA"],LangList["Error"])
     GraphicsWindow.ShowMessage(LangList["Failed Load Online EULA"],LangList["Error"])
     EULAContents = Text.Append("This is the EULA that came with this program. This may not be the most latest EULA. Subject to General Part F the most latest EULA can be found here:" +Text.GetCharacter(10) + OnlineEULaPath ,File.ReadContents(EULAFile) )
   Else
@@ -759,8 +759,8 @@ Sub MainMenuHandler
         LDCall.Function2(logfunction ,LangList["Master Table Protected"] , LangList["UI"]) 
         GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + LangList["Master Table Protected"] ,LangList["Access Denied"])
       ElseIf SortByMode = 2 Then 
-        LDCall.Function2(logfunction ,"Views are a readonly type." , LangList["UI"]) 'Localize 
-        GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + "Views cannot be edited" ,LangList["Access Denied"]) 'Lozalize
+        LDCall.Function2(logfunction ,LangList["Views Read Only"] , LangList["UI"]) 
+        GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + LangList["Views Read Only"]  ,LangList["Access Denied"]) 
       EndIf 
     Else 
       LDCall.Function2(logfunction ,LangList["Error No DB"]  , LangList["UI"])
@@ -795,8 +795,8 @@ Sub MainMenuHandler
       LDCall.Function2(logfunction ,"The save was : " + Save_Status , "UI" ) '//Localize 
       GraphicsWindow.ShowMessage("The save was : " + Save_Status,"Save Status !") '//Localize  
     Else 
-      LDCall.Function2(logfunction ,"The Database or Dataview does not exist or have not yet been loaded", "UI" ) '//Localize  
-      GraphicsWindow.ShowMessage("Error : The Database or Dataview does not exist or have not yet been loaded","Save Error") '//Localize 
+      LDCall.Function2(logfunction ,"The Database or Dataview does not exist or have not yet been loaded", LangList["UI"]) '//Localize  
+      GraphicsWindow.ShowMessage(LangList["Error"] +":" +  LangList["Dataview Error"],"Save Error") 
     EndIf
   ElseIf LastClickedButton = SortButton Then 'Sort View
     Results_Sort = 1
@@ -1199,7 +1199,6 @@ Sub Settings_UI
   Language_LB = LDControls.AddComboBox( LDList.ToArray("ISO_Text") , 200,120 ) 
   ISO_Lang_Array = LDList.ToArray("ISO_Lang")
   
-  ' A
   For I = 1 To Array.GetItemCount(ISO_Lang_Array)
     If ISO_Lang_Array[I] = Localization_lang Then 
       Settings_UI_Node = I

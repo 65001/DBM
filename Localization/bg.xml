@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="bg">Експортиране на SQL - SQL - от името на </Export_SQL_SQL>
     <Export_XML language="bg">ЕКСПОРТИРАНЕ НА XML ОТ ИМЕТО НА</Export_XML>
     <System language="bg">Система</System>
+    <Views_Read_Only language="bg">Мненията са само за четене и не може да бъде редактирана</Views_Read_Only>
+    <Dataview_Error language="bg">Базата данни или Dataview не съществува или не е бил натоварен още</Dataview_Error>
   </Language>
 </root>

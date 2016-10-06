@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="mt">Esportazzjoni SQL - SQL - f'isem </Export_SQL_SQL>
     <Export_XML language="mt">XML GĦAN-NOM TA ' L-ESPORTAZZJONI</Export_XML>
     <System language="mt">Is-sistema</System>
+    <Views_Read_Only language="mt">Veduti huma readonly u ma jistgħux jiġu editjati</Views_Read_Only>
+    <Dataview_Error language="mt">-Database jew Dataview ma jeżistix jew ma tkunx ġiet mgħobbija għadhom</Dataview_Error>
   </Language>
 </root>

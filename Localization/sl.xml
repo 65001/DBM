@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="sl">Izvoz SQL - SQL - za </Export_SQL_SQL>
     <Export_XML language="sl">IZVOZ XML ZA</Export_XML>
     <System language="sl">Sistem</System>
+    <Views_Read_Only language="sl">Stališča so samo za branje in ga ni mogoče urejati</Views_Read_Only>
+    <Dataview_Error language="sl">Zbirke podatkov ali Dataview ne obstaja ali ni bil naložen še</Dataview_Error>
   </Language>
 </root>

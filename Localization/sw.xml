@@ -17,7 +17,7 @@
     <About language="sw">Kuhusu</About>
     <Show_Help language="sw">Onyesha msaada</Show_Help>
     <Settings_Editor language="sw">Mipangilio ya mhariri</Settings_Editor>
-    <Toggle_Debug language="sw">Togoa rekebishi</Toggle_Debug>
+    <Toggle_Debug language="sw">Utatuaji wa Togo</Toggle_Debug>
     <Toggle_Transaction_Log language="sw">Togoa shughuli logi</Toggle_Transaction_Log>
     <Refresh language="sw">Onyesha upya</Refresh>
     <Check_for_Updates language="sw">Kagua sasishi</Check_for_Updates>
@@ -43,7 +43,7 @@
     <Run_Function language="sw">Kuendesha kazi</Run_Function>
     <Query language="sw">Ulizo</Query>
     <Command language="sw">Amri</Command>
-    <Error_No_DB language="sw">Kosa: Hakuna hazina data ina haija pakiwa</Error_No_DB>
+    <Error_No_DB language="sw">Kosa: Hifadhidata hakuna imekuwa kubeba</Error_No_DB>
     <UI language="sw">UI</UI>
     <Master_Table_Protected language="sw">Sqlite_mastertable au 'Mama Jedwali' ni Jedwali Lindwa. Ili kulinda uadilifu wa db ya Huwezi kuhariri Jedwali hili</Master_Table_Protected>
     <Access_Denied language="sw">Ufikivu umekataliwa</Access_Denied>
@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="sw">Hamisha SQL - SQL - kwa niaba ya </Export_SQL_SQL>
     <Export_XML language="sw">HAMISHA XML KWA NIABA YA</Export_XML>
     <System language="sw">Mfumo</System>
+    <Views_Read_Only language="sw">Maoni ni readonly na haiwezi kuhaririwa</Views_Read_Only>
+    <Dataview_Error language="sw">Hazina data au Dataview hakipo au haijawahi pakizwa bado</Dataview_Error>
   </Language>
 </root>

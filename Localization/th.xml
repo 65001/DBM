@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="th">ส่ง SQL - SQL - ในนามของ </Export_SQL_SQL>
     <Export_XML language="th">ส่งออก XML ในนามของ</Export_XML>
     <System language="th">ระบบ</System>
+    <Views_Read_Only language="th">จะอ่านอย่างเดียว และไม่สามารถแก้ไขได้</Views_Read_Only>
+    <Dataview_Error language="th">ฐานข้อมูลหรือมุมมองข้อมูลไม่มีอยู่ หรือไม่ได้โหลดยัง</Dataview_Error>
   </Language>
 </root>

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="zh-CHS">代表对导出 SQL-SQL-</Export_SQL_SQL>
     <Export_XML language="zh-CHS">导出 XML 的名义</Export_XML>
     <System language="zh-CHS">系统</System>
+    <Views_Read_Only language="zh-CHS">视图是只读的无法编辑</Views_Read_Only>
+    <Dataview_Error language="zh-CHS">数据库或数据视图不存在或尚未加载</Dataview_Error>
   </Language>
 </root>

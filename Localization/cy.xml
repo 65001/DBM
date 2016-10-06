@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="cy">Allforio SQL-SQL-ar ran y </Export_SQL_SQL>
     <Export_XML language="cy">ALLGLUDO XML AR RAN Y</Export_XML>
     <System language="cy">System</System>
+    <Views_Read_Only language="cy">Barn readonly ac ni ellir ei olygu</Views_Read_Only>
+    <Dataview_Error language="cy">Mae cronfa ddata neu Dataview ddim yn bodoli neu nid yw wedi llwytho eto</Dataview_Error>
   </Language>
 </root>
