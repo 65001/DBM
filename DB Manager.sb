@@ -36,6 +36,8 @@
 'Fixed a Generate Query Bug that would occur for Columns with spaces
 'Added capability for Export SQL to differiante between regular columns and Primary Keys. Added support for Columns with spaces in their names 
 
+'v1118
+
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
 '______________________________________________________________________________
