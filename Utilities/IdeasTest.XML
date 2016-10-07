@@ -1,0 +1,18 @@
+<root>
+  <Controls>
+    <Control>
+      <Type>Register</Type>
+      <Type>Langlist[]</Type>
+      <Type>Self</Type>
+      <Type>NA</Type>
+      <Type>RUN</Type>
+    </Control>
+    <Control>
+      <Type>Menu</Type>
+      <Type>Help</Type>
+      <Type>Self</Type>
+      <Type>Main</Type>
+      <Type>Run</Type>
+    </Control>
+  </Controls>
+</root>
