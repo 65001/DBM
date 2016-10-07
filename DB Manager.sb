@@ -56,6 +56,10 @@
 '     Ability to Supress Queries  or CMDS
 ' Automated Backup Script for DBs ?
 'Custom Connection Strings
+
+'Rewrite Export SQL to include Pragmatic table data PK
+'Require Export SQL to put all column headings inside [] ,
+'Rewrite Export XML to use XML Schema Information ?
 '______________________________________________________________________________
 '                                                                                                   Localize Iniative 
 '______________________________________________________________________________
@@ -69,6 +73,7 @@
 'Server - Client Iniative 
 '     Make a Server Mod ? 
 '     Make a Client Mod ? 
+
 'GUI For a Mod Manager 
 'Make  MOD Documentation
 '______________________________________________________________________________
