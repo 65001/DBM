@@ -67,22 +67,29 @@ EndSub
 
 Sub SQL_Dump_Fetch 
   LDList.Clear("EXPORT_SQL")
+  LDList.Clear("EXPORT_SQL_PK")
   Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export SQL SCHEMA"]  + LDFile.UserName) 
   EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export SQL SQL"] + LDFile.UserName)
   EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
   
   For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
     LDList.Add("EXPORT_SQL",SCHEMA[Export_SQL_I]["type"] ) 'Type of Data 
+    LDList.Add("EXPORT_SQL_PK",SCHEMA[Export_SQL_I]["pk"] ) 
   EndFor
   Export_SQL_DUMP_SCHEMA = LDList.ToArray("EXPORT_SQL")
-  
+  EXPORT_SQL_DUMP_PK = LDList.ToArray("EXPORT_SQL_PK")
+  LDList.Clear("EXPORT_SQL")
+  LDList.Clear("EXPORT_SQL_PK")
 EndSub
 
 Sub SQL_Dump_WRITE
   'Generates Create Table Schema with proper Schema
   Dump_SQL = "CREATE TABLE " + Default_Table +"("
   For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
-    DUMP_SQL = DUMP_SQL + SchemaList[Export_SQL_I] +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
+    DUMP_SQL = DUMP_SQL +"[" + SchemaList[Export_SQL_I]+"]" +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
+    If EXPORT_SQL_DUMP_PK[Export_SQL_I] = 1 Then
+      Dump_SQL = Dump_SQL +" " + "PRIMARY KEY"
+      EndIf 
     If Export_SQL_I < Array.GetItemCount(SchemaList) Then
       DUMP_SQL = DUMP_SQL +","
     EndIf
@@ -173,5 +180,5 @@ Sub XML_Write 'Writes Data Out.
     EndFor
     LDxml.Parent()
   EndFor
- XML_Array = LDCall.Function( Function_XML_Attributes , "")
+  XML_Array = LDCall.Function( Function_XML_Attributes , "")
 EndSub
