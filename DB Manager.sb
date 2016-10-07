@@ -32,6 +32,9 @@
 'Added Scroll Bars 
 'Added a TimeOut Variable to Settings which tells you the status of the Command if the time to execute the Command exceeds the value
 'Add ability to change some Flexible File Settings Through UI
+'Fixed a XML Export Bug that would occur for Columns with spaces
+'Fixed a Generate Query Bug that would occur for Columns with spaces
+'Added capability for Export SQL to differiante between regular columns and Primary Keys. Added support for Columns with spaces in their names 
 
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
@@ -1268,7 +1271,7 @@ Sub GenerateQuery
     EndIf
   ElseIf Results_Function = 1 Then
     CMD = ""
-    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" + List[ColumnListGQ]+") FROM " +Default_Table +" "
+    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" +"[" + List[ColumnListGQ]+"]" +") FROM " +Default_Table +" "
   EndIf
   
   'Apply Sort Constraints
