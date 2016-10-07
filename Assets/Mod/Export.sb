@@ -169,7 +169,7 @@ Sub XML_Write 'Writes Data Out.
     Child = LDxml.LastChild()
     XML_Array = LDCall.Function( Function_XML_Attributes , "")
     For II = 1 To Array.GetItemCount(EXPORTDATA[I])
-      LDxml.AddNode(SchemaList[II],"",EXPORTDATA[I][SchemaList[II]],"Append")
+      LDxml.AddNode(LDText.Replace(SchemaList[II]," ","_"),"",EXPORTDATA[I][SchemaList[II]],"Append")
     EndFor
     LDxml.Parent()
   EndFor

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="cs">Exportovat SQL - SQL - jménem </Export_SQL_SQL>
     <Export_XML language="cs">EXPORTOVAT XML JMÉNEM</Export_XML>
     <System language="cs">Systém</System>
+    <Views_Read_Only language="cs">Názory jsou jen pro čtení a nelze upravit</Views_Read_Only>
+    <Dataview_Error language="cs">Databáze nebo Dataview neexistuje nebo nebyla dosud načtena</Dataview_Error>
   </Language>
 </root>

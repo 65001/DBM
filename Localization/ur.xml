@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ur">کے ایما پر SQL - SQL - برآمد کریں </Export_SQL_SQL>
     <Export_XML language="ur">XML کے ایما پر برآمد کریں</Export_XML>
     <System language="ur">نظام</System>
+    <Views_Read_Only language="ur">خیالات ریڈونل ہیں اور تدوین نہیں کی جا سکتی</Views_Read_Only>
+    <Dataview_Error language="ur">کوائفیہ یا داتویو موجود نہیں یا ابھی تک لوڈ نہیں کی گئی ہے</Dataview_Error>
   </Language>
 </root>

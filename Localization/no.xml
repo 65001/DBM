@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="no">Eksportere SQL - SQL - på vegne av </Export_SQL_SQL>
     <Export_XML language="no">EKSPORT XML PÅ VEGNE AV</Export_XML>
     <System language="no">Systemet</System>
+    <Views_Read_Only language="no">Visninger er skrivebeskyttet og kan ikke redigeres</Views_Read_Only>
+    <Dataview_Error language="no">Databasen eller Dataview finnes ikke eller har ikke blitt lastet ennå</Dataview_Error>
   </Language>
 </root>

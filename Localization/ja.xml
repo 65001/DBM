@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ja">代わりに SQL の SQL をエクスポートします。</Export_SQL_SQL>
     <Export_XML language="ja">代わりに XML をエクスポートします。</Export_XML>
     <System language="ja">システム</System>
+    <Views_Read_Only language="ja">ビューは読み取り専用、編集できません。</Views_Read_Only>
+    <Dataview_Error language="ja">データベースまたは Dataview が存在しないまたはまだ読み込まれていません</Dataview_Error>
   </Language>
 </root>

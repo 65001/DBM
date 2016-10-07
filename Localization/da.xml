@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="da">Eksportere SQL - SQL - på vegne af </Export_SQL_SQL>
     <Export_XML language="da">EKSPORTERE XML PÅ VEGNE AF</Export_XML>
     <System language="da">System</System>
+    <Views_Read_Only language="da">Synspunkter er skrivebeskyttet og kan ikke redigeres</Views_Read_Only>
+    <Dataview_Error language="da">Den Database eller Dataview findes ikke eller er ikke blevet indlæst endnu</Dataview_Error>
   </Language>
 </root>

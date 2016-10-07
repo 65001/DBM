@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ht">Ekspòtasyon SQL - SQL - sou nom de </Export_SQL_SQL>
     <Export_XML language="ht">EKSPÒTASYON XML SOU NOM DE</Export_XML>
     <System language="ht">Sistèm</System>
+    <Views_Read_Only language="ht">Pwen de vi yo readonly epi pa kapab modifié</Views_Read_Only>
+    <Dataview_Error language="ht">Bazdone la oubyen Dataview pa egziste oubyen pa te Nouy ankò</Dataview_Error>
   </Language>
 </root>

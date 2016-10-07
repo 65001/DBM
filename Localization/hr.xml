@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="hr">Izvoz SQL - SQL - u ime </Export_SQL_SQL>
     <Export_XML language="hr">IZVOZ XML-A U IME</Export_XML>
     <System language="hr">Sustav</System>
+    <Views_Read_Only language="hr">Stavovi su samo za čitanje i ne može se uređivati</Views_Read_Only>
+    <Dataview_Error language="hr">Baze podataka ili Dataview ne postoji ili nije učitan još</Dataview_Error>
   </Language>
 </root>

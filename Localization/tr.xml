@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="tr">Adına SQL - SQL - ihracat </Export_SQL_SQL>
     <Export_XML language="tr">ADINA XML VERME</Export_XML>
     <System language="tr">Sistem</System>
+    <Views_Read_Only language="tr">Görünümler salt okunur olan ve düzenlenemez</Views_Read_Only>
+    <Dataview_Error language="tr">Dataview ve veritabanı yok veya henüz yüklü olmamıştır</Dataview_Error>
   </Language>
 </root>

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="lt">Eksporto SQL - SQL - vardu </Export_SQL_SQL>
     <Export_XML language="lt">EKSPORTUOTI XML VARDU</Export_XML>
     <System language="lt">Sistemos</System>
+    <Views_Read_Only language="lt">Nuomonės yra tik skaitomas ir jo redaguoti negalima</Views_Read_Only>
+    <Dataview_Error language="lt">Duomenų bazės arba trukmė nėra arba dar nebuvo įkelta</Dataview_Error>
   </Language>
 </root>

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ko">대신 SQL-SQL-수출 </Export_SQL_SQL>
     <Export_XML language="ko">대신 XML 내보내기</Export_XML>
     <System language="ko">시스템</System>
+    <Views_Read_Only language="ko">조회 읽기 전용 이며 편집할 수 없습니다.</Views_Read_Only>
+    <Dataview_Error language="ko">데이터베이스 또는 Dataview 존재 하지 않거나 아직 로드 되지 않았습니다.</Dataview_Error>
   </Language>
 </root>

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="fi">Viedä SQL - SQL - puolesta </Export_SQL_SQL>
     <Export_XML language="fi">XML: N PUOLESTA VIEMINEN</Export_XML>
     <System language="fi">Järjestelmän</System>
+    <Views_Read_Only language="fi">Näkymät ovat vain luku ja ei voi muokata</Views_Read_Only>
+    <Dataview_Error language="fi">Tietokannan tai Dataview ei ole tai ei ole ladattu vielä</Dataview_Error>
   </Language>
 </root>

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="sr-Latn">Izvoz SQL - SQL - za </Export_SQL_SQL>
     <Export_XML language="sr-Latn">IZVOZ XML-A ZA</Export_XML>
     <System language="sr-Latn">Sistem</System>
+    <Views_Read_Only language="sr-Latn">Prikazi su readonly i ne može se uređivati</Views_Read_Only>
+    <Dataview_Error language="sr-Latn">Baza podataka ili Dataview ne postoji ili nije bio napunjen još</Dataview_Error>
   </Language>
 </root>

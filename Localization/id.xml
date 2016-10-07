@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="id">Ekspor SQL - SQL - bertindak untuk </Export_SQL_SQL>
     <Export_XML language="id">EKSPOR XML BERTINDAK UNTUK</Export_XML>
     <System language="id">Sistem</System>
+    <Views_Read_Only language="id">Pandangan adalah readonly dan tidak dapat diedit</Views_Read_Only>
+    <Dataview_Error language="id">Database atau Dataview tidak ada atau belum dimuat</Dataview_Error>
   </Language>
 </root>

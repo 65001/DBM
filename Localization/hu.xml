@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="hu">Exportálás SQL - SQL - nevében </Export_SQL_SQL>
     <Export_XML language="hu">EXPORTÁLÁS XML NEVÉBEN</Export_XML>
     <System language="hu">Rendszer</System>
+    <Views_Read_Only language="hu">Nézetek írásvédett, és nem lehet szerkeszteni</Views_Read_Only>
+    <Dataview_Error language="hu">Az adatbázis vagy a Dataview nem létezik, vagy még nem volt betöltve</Dataview_Error>
   </Language>
 </root>

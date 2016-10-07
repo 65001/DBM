@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="en">Export SQL - SQL - On behalf of </Export_SQL_SQL>
     <Export_XML language="en">EXPORT XML ON BEHALF OF</Export_XML>
     <System language="en">System</System>
+    <Views_Read_Only language="en">Views are readonly and cannot be edited</Views_Read_Only>
+    <Dataview_Error language="en">The Database or Dataview does not exist or has not been loaded yet</Dataview_Error>
   </Language>
 </root>

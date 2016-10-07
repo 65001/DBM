@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="vi">Xuất khẩu SQL - SQL - thay mặt cho </Export_SQL_SQL>
     <Export_XML language="vi">XUẤT KHẨU XML THAY MẶT CHO</Export_XML>
     <System language="vi">Hệ thống</System>
+    <Views_Read_Only language="vi">Lượt xem là readonly và không được biên tập</Views_Read_Only>
+    <Dataview_Error language="vi">Cơ sở dữ liệu hoặc Dataview không tồn tại hoặc đã không nạp được</Dataview_Error>
   </Language>
 </root>

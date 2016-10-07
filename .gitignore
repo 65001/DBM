@@ -1,0 +1,7 @@
+*.db
+Assets/Mod/Automated Backup Script.pdb
+Classic/DB Manager.pdb
+*.pdb
+*.db
+Assets/Transactions.db
+Assets/setting.txt

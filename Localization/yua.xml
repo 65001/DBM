@@ -10,7 +10,7 @@
     <Import language="yua">Tasbil</Import>
     <CSV language="yua">CSV</CSV>
     <SQL language="yua">SQL</SQL>
-    <Export language="yua">Ti' le jo'osa'al bisbil ba'alche'obo'</Export>
+    <Export language="yua">U u jo'osa'al bisbil ba'alche'obo'</Export>
     <HTML language="yua">HTML</HTML>
     <Settings language="yua">Configuración</Settings>
     <Help language="yua">Áantaj</Help>
@@ -45,7 +45,7 @@
     <Command language="yua">Comando</Command>
     <Error_No_DB language="yua">Ba'alo': Jump'éel k'oja'ano'obo' datos ku yaantal cargado</Error_No_DB>
     <UI language="yua">INTERFAZ USUARIO</UI>
-    <Master_Table_Protected language="yua">Sqlite_mastertable wa. Master Table' jach jump'éel tabla protegida. Utia'al wáaj u integridad le BD ma' u editar le tabla</Master_Table_Protected>
+    <Master_Table_Protected language="yua">Sqlite_mastertable wa. Master Table' le jump'éel tabla protegida. Utia'al u wáaj u integridad le BD ma' u editar le tabla</Master_Table_Protected>
     <Access_Denied language="yua">Muuk' denegado</Access_Denied>
     <App language="yua">Ka'anatako'ob</App>
     <View_Function language="yua">Función sáasil</View_Function>
@@ -67,6 +67,8 @@
     <Export_SQL_SCHEMA language="yua">Exportar SQL ti'-esquema - ti' k'aaba' u </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="yua">Exportar u SQL ti'-SQL - ti' k'aaba' u </Export_SQL_SQL>
     <Export_XML language="yua">JO'OSA'AL BISBIL BA'ALCHE'OBO' XML TI' K'AABA' U</Export_XML>
-    <System language="yua">T.u.m u</System>
+    <System language="yua">Yaan u</System>
+    <Views_Read_Only language="yua">Vistas ku chéen xooka' yéetel ma' u páajtal editar</Views_Read_Only>
+    <Dataview_Error language="yua">Le k'oja'ano'obo' datos wa Dataview ma' yaan wa ma' u ts'o'ok cargado láayli'</Dataview_Error>
   </Language>
 </root>

@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="ro">Export SQL - SQL - în numele </Export_SQL_SQL>
     <Export_XML language="ro">EXPORT XML ÎN NUMELE</Export_XML>
     <System language="ro">Sistem</System>
+    <Views_Read_Only language="ro">Vedere sunt readonly si nu poate fi editat</Views_Read_Only>
+    <Dataview_Error language="ro">Baza de date sau Dataview nu exista sau nu a fost încărcat încă</Dataview_Error>
   </Language>
 </root>

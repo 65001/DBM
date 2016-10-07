@@ -68,5 +68,7 @@
     <Export_SQL_SQL language="lv">SQL - SQL - eksporta vārdā </Export_SQL_SQL>
     <Export_XML language="lv">EKSPORTĒT XML VĀRDĀ</Export_XML>
     <System language="lv">Sistēma</System>
+    <Views_Read_Only language="lv">Skatos ir tikai lasāms un to nevar rediģēt</Views_Read_Only>
+    <Dataview_Error language="lv">Datu bāzi vai Dataview nepastāv vai vēl nav ielādēts</Dataview_Error>
   </Language>
 </root>

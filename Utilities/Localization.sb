@@ -1,7 +1,6 @@
 MListOfLanguages = LDTranslate.Languages()
 Max = Array.GetItemCount(MListOfLanguages) 
 language_mode = "en"
-'MListOfLanguages[language_mode] = ""
 
 ListOfLanguages =  Array.GetAllIndices(MListOfLanguages ) 
 File.CreateDirectory(Program.Directory + "\xml\" ) 
@@ -95,13 +94,14 @@ Sub Master
   XML_Data["en"] = XML_Data["en"] + "33=Ascending;34=Descending;35=Display Settings;36=Sort By;37=Search In;38=Search;39=Functions;40=Strict Search;41=Run Function;42=Query;43=Command;" 
   XML_Data["en"] = XML_Data["en"] + "44=Error : No Database has been loaded;45=UI;46=Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table;47=Access denied;48=App;49=View Function;"
   XML_Data["en"] = XML_Data["en"] + "50=User Requested;51=Listview Width;52=Listview Height;53=Extensions;54=Deliminator;55=Language;56=Save and Close;57=Close without Saving;58=Failed to load online EULA;59=Auto Log;60=Export HTML SCHEMA on behalf of ;61=Export HTML DATA on behalf of ;"
-  XML_Data["en"] = XML_Data["en"] + "62=Error : Please check the log for details;63=Query Error;64=EXPORT CSV ON BEHALF OF ;65=Export SQL - SCHEMA - On behalf of ;66=Export SQL - SQL - On behalf of ;67=EXPORT XML ON BEHALF OF;68=System;"
+  XML_Data["en"] = XML_Data["en"] + "62=Error : Please check the log for details;63=Query Error;64=EXPORT CSV ON BEHALF OF ;65=Export SQL - SCHEMA - On behalf of ;66=Export SQL - SQL - On behalf of ;67=EXPORT XML ON BEHALF OF;68=System;69=Views are readonly and cannot be edited;"
+  XML_Data["en"] = XML_Data["en"] + "70=The Database or Dataview does not exist or has not been loaded yet;" 
   
   XML_Tag = "1=Language;2=File;3=New;4=Open;5=Edit;6=View;7=Save;8=Import;9=CSV;10=SQL;11=Export;12=HTML;13=Settings;14=Help;15=About;16=Show_Help;"
   XML_Tag = XML_Tag + "17=Settings_Editor;18=Toggle_Debug;19=Toggle_Transaction_Log;20=Refresh;21=Check_for_Updates;22=PXML;23=PRGM_Start;24=Application;25=Failed_Save_Settings;26=Error;27=Failed;28=Table;29=Index;30=View;31=Master_Table;"
   XML_Tag = XML_Tag + "32=Sort;33=Asc;34=Desc;35=Display_Settings;36=Sort_by;37=Search_in;38=Search;39=Functions;40=Strict_Search;41=Run_Function;42=Query;43=Command;44=Error_No_DB;45=UI;46=Master_Table_Protected;47=Access_Denied;48=App;49=View_Function;"
   XML_Tag = XML_Tag + "50=User_Requested;51=Listview_Width;52=Listview_Height;53=Extensions;54=Deliminator;55=Language;56=Save_and_Close;57=Close_wo_saving;58=Failed_Load_Online_EULA;59=Auto_Log;60=Export_HTML_Schema;61=Export_HTML_Data;62=Check_Log;"
-  XML_Tag = XML_Tag + "63=Query_Error;64=Export_CSV;65=Export_SQL_SCHEMA;66=Export_SQL_SQL;67=Export_XML;68=System;"
+  XML_Tag = XML_Tag + "63=Query_Error;64=Export_CSV;65=Export_SQL_SCHEMA;66=Export_SQL_SQL;67=Export_XML;68=System;69=Views_Read_Only;70=Dataview_Error;"
   
   For I = 1 to Array.GetItemCount(XML_Tag )
     XML_Location[I] = "Append"
