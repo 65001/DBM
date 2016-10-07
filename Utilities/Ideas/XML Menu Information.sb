@@ -1,0 +1,42 @@
+Insertions = "1=Append;2=Prepend;3=Before;4=After;"
+Path = Program.Directory + "Test.XML"
+File.WriteContents(Path,"<root></root>")
+XMLPath = LDxml.Open(Path)
+Data[1] = "1=Register;2=Langlist[];3=Self;4=NA;5=RUN;"
+Data[2] = "1=Menu;2=Help;3=Self;4=Main;5=Run;"
+LDxml.AddNode("Controls","","","Append")
+
+For I = 1 To Array.GetItemCount(Data)
+  LDxml.FirstChild()
+  LDxml.AddNode("Control","","",Insertions[1])
+  LDxml.LastChild()
+  For II = 1 To Array.GetItemCount(Data[I])
+    LDxml.AddNode("Type","",Data[I][II],Insertions[1] )
+  EndFor
+  LDxml.Parent()
+  LDxml.Parent()
+EndFor
+LDxml.Save(Path)
+Parse()
+Sub Parse
+  XMLPath = LDxml.Open(Path)
+  TextWindow.WriteLine(XMLPath)
+  TextWindow.WriteLine( LDxml.Parent() )
+  TextWindow.WriteLine( LDxml.FirstChild() )
+  TextWindow.WriteLine( LDxml.FirstChild() )
+  
+  Children = LDxml.ChildrenCount
+  LDxml.FirstChild()
+  For I = 1 To Children
+    LDxml.NextSibling()
+    While LDxml.NextSibling() <> "FAILED"
+      While LDxml.ChildrenCount <> 0
+        TextWindow.WriteLine(LDxml.NodeType +":" + LDxml.NodeName +":" + LDxml.NodeInnerText)
+        LDxml.FirstChild()
+      EndWhile
+      LDxml.Parent()
+    EndWhile
+    LDxml.
+    'LDxml.Parent() 
+  EndFor
+EndSub
