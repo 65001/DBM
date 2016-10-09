@@ -1,9 +1,9 @@
-﻿					EULA v 2.7.5
+					EULA v 2.7.5
 								
 An executive summary may be found at 
 	https://drive.google.com/open?id=0B2v4xbFnpKvRZ25iT2Y0NDUzaFk
 
-Copyright (c) <date> Abhishek Sathiabalan
+Copyright (c) 2016 Abhishek Sathiabalan
 All rights reserved.
 
 THIS EULA CONTAINS A LIMITATION OF LIABILITY CLAUSE.
