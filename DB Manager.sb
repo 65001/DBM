@@ -47,6 +47,7 @@
 '                                                                                     To do Next Version
 '______________________________________________________________________________
 'Add ability to change ALL Flexible File Settings Through UI
+'Add Instrumentation that tells how long the program spends in each subroutine or function
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
 '______________________________________________________________________________
@@ -379,12 +380,21 @@ Sub LoadSettings
   Setting_Default[12] = Setting_Default[11] + "Log.csv"
   Setting_Default[13] = Setting_Default[11] + "Log.db"
   Setting_Default[14] = Setting_Default[11] + "Transactions.db"
+  Setting_Files = "11=1;12=1;13=1;14=1;"
   
   For I = 1 To Array.GetItemCount( Null_Settings )
-    If Settings[ Null_Settings[I] ] = "" Then
+    If Settings[ Null_Settings[I] ] = ""  Then
       Settings[ Null_Settings[I] ] = Setting_Default[I]
       RestoreSettings = 1 
     EndIf 
+    
+    If debug_mode = 1 Then 'Run this check only in debug mode
+      If Setting_Files[I] = 1 AND  LDFile.Exists( Setting_Files[I] ) = "False"  Then
+        Settings[ Null_Settings[I] ] = Setting_Default[I] 
+        RestoreSettings = 1 
+      EndIf 
+    EndIf 
+    
   EndFor
   
   If RestoreSettings = 1 Then 
@@ -405,8 +415,6 @@ Sub LoadSettings
     Transaction_DB_Path_Temp = Settings["Transaction_DB"]
   EndIf 
   
-  OnlineEULaPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRNTFKckFKLVNNUDg" 'EULA Path
-  OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download" 'Update DB Path 
   
   SaveSettings()
 EndSub
@@ -544,46 +552,6 @@ EndSub
 Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI 
   LDList.Add(List_Stack_Trace,"Pre_MainMenuUI")
   'Root 
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "File" ], Function_Handler_MainMenu , "Main","")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "Edit" ], Function_Handler_MainMenu , "Main","")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "View" ], Function_Handler_MainMenu , "Main","")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "Save" ], Function_Handler_MainMenu , "Main","")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "Import" ], Function_Handler_MainMenu , "Main","")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "Export" ], Function_Handler_MainMenu , "Main","")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList[ "Settings" ], Function_Handler_MainMenu , "Main","")
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["New"], Function_Handler_MainMenu , LangList["File"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Open"], Function_Handler_MainMenu , LangList["File"],"")
-  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["File"],"")
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["CSV"], Function_Handler_MainMenu , LangList["Import"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["SQL"], Function_Handler_MainMenu , LangList["Import"],"")
-  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Import"],"")
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["CSV"] + " ", Function_Handler_MainMenu , LangList["Export"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["SQL"] +" ", Function_Handler_MainMenu , LangList["Export"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["PXML"] + " " , Function_Handler_MainMenu , LangList["Export"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["HTML"] + " " , Function_Handler_MainMenu , LangList["Export"],"")
-  LDCall.Function5(Function_UI_Add,"Menu","Export UI", Function_Handler_MainMenu , LangList["Export"],"") '// Localize
-  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Export"],"")
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Help"], Function_Handler_MainMenu , LangList["Settings"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["About"], Function_Handler_MainMenu , LangList["Help"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Show Help"], Function_Handler_MainMenu , LangList["Help"],"")
-  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Help"],"")
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Settings Editor"], Function_Handler_MainMenu , LangList["Settings"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Toggle Debug"], Function_Handler_MainMenu , LangList["Settings"],"")
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Toggle Transaction Log"], Function_Handler_MainMenu , LangList["Settings"],"")
-  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Toggle Transaction Log"],"")'// Localize
-  
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Refresh"], Function_Handler_MainMenu , LangList["Settings"],"")
-  LDCall.Function5(Function_UI_Add,"Menu",LangList["Check for Updates"], Function_Handler_MainMenu , LangList["Settings"],"")
-  LDCall.Function5(Function_UI_Add,"Menu","Close TW", Function_Handler_MainMenu , LangList["Settings"],"") '// Localize
-  LDCall.Function5(Function_UI_Add,"Menu","Stack Trace", Function_Handler_MainMenu , LangList["Settings"],"") '// Localize
-  
-  LDCall.Function5(Function_UI_Add,"Menu","-", Function_Handler_MainMenu , LangList["Settings"],"") 
   
   ViewDB_Button = LangList["View"]
   NewDB_Button = LangList["New"]
@@ -1385,6 +1353,7 @@ EndSub
 Sub Add_UI_Controls '5 Args needed 
   LDList.Add(List_Stack_Trace,"Add_UI_Controls")
   Add_UI_Args =  args 
+  'File.AppendContents( File.GetSettingsFilePath() , Add_UI_Args )
   If Add_UI_Args[1] = "Menu" Then 
     MenuList[ Add_UI_Args[2] ] = Add_UI_Args[4] 
     If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 OR Add_UI_Args[2] ="-" Then 
@@ -1422,14 +1391,14 @@ Sub Query_UI_Controls
     If Query_UI_Index <> 0 Then 
       return =  LDList.GetAt( List_UI_Handler , Query_UI_Index )
     Else 
-     ' TextWindow.WriteLine("Caption : " +  Controls.GetButtonCaption( Query_UI_Args[2] ) )
+      ' TextWindow.WriteLine("Caption : " +  Controls.GetButtonCaption( Query_UI_Args[2] ) )
     EndIf 
   ElseIf Query_UI_Args[1] = "Action" Then
     Query_UI_Index = LDList.IndexOf( List_UI_Name , Query_UI_Args[2] )
     If Query_UI_Index <> 0 Then 
       return = LDList.GetAt( List_UI_Action ,Query_UI_Index )
     Else 
-     ' TextWindow.WriteLine("Caption : " +  Controls.GetButtonCaption( Query_UI_Args[2] ) )
+      ' TextWindow.WriteLine("Caption : " +  Controls.GetButtonCaption( Query_UI_Args[2] ) )
     EndIf 
   Else
     LDCall.Function2(Function_Log ,"UI QUERY: Parameters unknown " + Query_UI_Args , LangList["App"] ) 
@@ -1476,12 +1445,19 @@ Sub MOD_External_Menu 'Lets External Entities add Menu Items by mainpulating a M
     External_Menu_Cnts = LDFile.ReadToArray( External_Menu_Items_Path )
     For I = 1 To Array.GetItemCount( External_Menu_Cnts ) 
       If Text.StartsWith(External_Menu_Cnts[I],"#") <> "True" AND External_Menu_Cnts[I] <> " " Then 'Ignores Line
-        If External_Menu_Cnts[I][6] = 1 Then 'Localization Tag
+        
+        If External_Menu_Cnts[I][6] = 1 Or External_Menu_Cnts[I][6] = "" Then 'Localization Tag
           If LangList[ External_Menu_Cnts[I][2] ] <> "" Then
             External_Menu_Cnts[i][2] = LangList[ External_Menu_Cnts[I][2] ] 
           EndIf 
-        EndIf 
+        EndIf  
+        
+        If LangList[ External_Menu_Cnts[I][4] ] <> "" Then
+          External_Menu_Cnts[i][4] = LangList[ External_Menu_Cnts[I][4] ] 
+        EndIf  
+        
         External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Mod Parser>",Function_RunMod_Parser )
+        External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Main Menu>",Function_RunMod_Parser )
         LDCall.Function5(Function_UI_Add,External_Menu_Cnts[i][1] ,External_Menu_Cnts[i][2], External_Menu_Cnts[i][3] , External_Menu_Cnts[i][4],External_Menu_Cnts[i][5])
       EndIf 
     EndFor 
