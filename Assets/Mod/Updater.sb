@@ -7,6 +7,7 @@ Sub Void
   AssetPath = AssetPath 
   OnlineDB_Refrence_Location = OnlineDB_Refrence_Location 
   PRODUCTID = PRODUCTID 
+  List_Stack_Trace = List_Stack_Trace
 EndSub
 
 '______________________________________________________________________________
@@ -14,12 +15,14 @@ EndSub
 '______________________________________________________________________________
 
 Sub Main
+  LDList.Add(List_Stack_Trace,"Plugin : Update.Main")  
   Updater_URL_ID = 1
   UpdateDownload()
   UpdateUI()
 EndSub
 
 Sub UpdateDownload
+  LDList.Add(List_Stack_Trace,"Plugin : Update.Download") 
   UpdaterDB = AssetPath+"Updater.db"
   
   If LDNetwork.DownloadFile(UpdaterDB,OnlineDB_Refrence_Location) <> "-1" Then 
@@ -35,6 +38,7 @@ Sub UpdateDownload
 EndSub 
 
 Sub UpdateUI
+  LDList.Add(List_Stack_Trace,"Plugin : Update.UI") 
   If LatestVersion = PrgmVersionID And MannualUpdateCheck = 1 Then 
     LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
     GraphicsWindow.ShowMessage("There are no updates available","No Updates") '//Localize 
@@ -50,6 +54,7 @@ Sub UpdateUI
 EndSub
 
 Sub DownloadUpdate
+  LDList.Add(List_Stack_Trace,"Plugin : Update.DownloadUpdate") 
   DownloadFolder = "" 
   UpdaterSize = ""
   While UpdaterSize = "" And Array.GetItemCount( DownloadLocation ) >= Updater_URL_ID 

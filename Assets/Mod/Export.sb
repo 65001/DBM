@@ -23,10 +23,12 @@ Sub VOID
   XML_Version_Number = XML_Version_Number 
   Function_XML_Attributes = Function_XML_Attributes 
   XML_Array = XML_Array 
+  List_Stack_Trace = List_Stack_Trace
 EndSub
 
 
 Sub HTML
+  LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
   Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
   EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
@@ -61,11 +63,13 @@ Sub HTML
 EndSub
 
 Sub Export_SQL
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL")
   SQL_Dump_Fetch()
   SQL_Dump_WRITE()
 EndSub
 
 Sub SQL_Dump_Fetch 
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Fetch")
   LDList.Clear("EXPORT_SQL")
   LDList.Clear("EXPORT_SQL_PK")
   Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export SQL SCHEMA"]  + LDFile.UserName) 
@@ -83,6 +87,7 @@ Sub SQL_Dump_Fetch
 EndSub
 
 Sub SQL_Dump_WRITE
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Write")
   'Generates Create Table Schema with proper Schema
   Dump_SQL = "CREATE TABLE " + Default_Table +"("
   For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
@@ -112,6 +117,7 @@ Sub SQL_Dump_WRITE
 EndSub
 
 Sub CSV
+  LDList.Add(List_Stack_Trace,"Plugin : Export.CSV")
   TextWindow.WriteLine("")
   
   If deliminator = "" then
@@ -143,6 +149,7 @@ Sub CSV
 EndSub
 
 Sub XML
+  LDList.Add(List_Stack_Trace,"Plugin : Export.XML")
   EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],LangList["Export XML"] + LDFile.UserName ) 
   
   XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
@@ -170,6 +177,7 @@ Sub XML
 EndSub
 
 Sub XML_Write 'Writes Data Out. 
+  LDList.Add(List_Stack_Trace,"Plugin : Export.XML_Write")
   For I = 1 To Array.GetItemCount(EXPORTDATA)
     data["id"]=I
     LDxml.AddNode("record",I,"","Append")
