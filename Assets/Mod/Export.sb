@@ -118,6 +118,10 @@ Sub SQL_Dump_WRITE
     EndFor
     DUMP_SQL = DUMP_SQL +"');" + CLLF
   EndFor
+  
+  Dump_SQL = LDText.Replace( Dump_SQL ,"' '","NULL")
+  Dump_SQL = LDText.Replace( Dump_SQL ,"''","NULL")
+  
   File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
 EndSub
 
@@ -139,7 +143,6 @@ Sub CSV
   return2 = Array.GetAllIndices(return2)
   
   csvpath = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.csv"
-  
   
   For i = 1 To Array.GetItemCount(return2) 'Gets Column Names  Headers
     csvdata[0][i] =  return2[i]

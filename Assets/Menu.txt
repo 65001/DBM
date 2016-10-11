@@ -22,7 +22,7 @@
 1=Menu;2=SQL ;3=<Mod Parser>;4=Export;5=Export.Export_SQL;
 1=Menu;2=XML ;3=MainMenuHandler;4=Export;
 1=Menu;2=HTML ;3=<Mod Parser>;4=Export;5=Export.HTML;
-1=Menu;2=Export UI;3=MainMenuHandler;4=Export;
+#1=Menu;2=Export UI;3=MainMenuHandler;4=Export;
 1=Menu;2=-;3=MainMenuHandler;4=Export;
 #Settings
 1=Menu;2=Help;3=MainMenuHandler;4=Settings;
