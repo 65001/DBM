@@ -40,16 +40,14 @@ While Exist = "True"
     
     TextWindow.WriteLine("")
     
+    TextWindow.WriteLine("Total Size : " + Size ) 
+    TextWindow.WriteLine("Byte Total : " + Size_Bits ) 
+    TextWindow.WriteLine("Press Any Key to Compile and Sign all .exe ")
     While LDQueue.GetCount("File") <> 0 
       Name = LDQueue.Dequeue("File")
       Path = LDCall.Compile( Name )
-      'TextWindow.WriteLine( LDFile.Size(Path) )
       BatchCNTS = BatchCNTS + signtool + Quotes + Path + Quotes + CLLF 
     EndWhile
-    TextWindow.WriteLine("Total Size : " + Size ) 
-    TextWindow.WriteLine("Byte Total : " + Size_Bits ) 
-    TextWindow.WriteLine("Files Compiled")
-    TextWindow.WriteLine("Press Any Key to Sign all .exe ")
     TextWindow.Pause()
     
     BatchCNTS = BatchCNTS + CLLF + "PAUSE"

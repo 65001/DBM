@@ -892,5 +892,4 @@ Sub Log
   LOG_CMD = "INSERT INTO LOG (ID,DATE,TIME,USER,ProductID,ProductVersion,Event) VALUES('"+LogNumber+"','"+Clock.Date+"','"+Clock.Time+"','"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"');"
   return = LDDataBase.Command(LOG_DB,LOG_CMD)
   ' TextWindow.WriteLine(return) 'Debug 
-EndSub
-  
+EndSub 

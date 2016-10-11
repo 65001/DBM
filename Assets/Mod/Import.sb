@@ -5,9 +5,11 @@ Sub VOID
   databasepath = databasepath 
   LangList = LangList 
   List_Command_Parser_Status = List_Command_Parser_Status 
+  List_Stack_Trace = List_Stack_Trace
 EndSub
 
 Sub CSV
+  LDList.Add(List_Stack_Trace,"Plugin : Import.CSV")
   Import_CSV_Path = LDDialogs.OpenFile("csv","")
   I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
   I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
@@ -29,6 +31,7 @@ Sub CSV
 EndSub 
 
 Sub CSV_TO_SQL
+  LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_TO_SQL")
   Import_CSV_SQL = "" 
   For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
     Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + I_CSV_Name + " VALUES ('"
@@ -58,6 +61,7 @@ Sub CSV_TO_SQL
 EndSub
 
 Sub CSV_Headers
+  LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_Headers")
   Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + I_CSV_Name +" ("
   Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
   

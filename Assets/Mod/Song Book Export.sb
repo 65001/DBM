@@ -5,13 +5,16 @@ Sub Void
   CLLF = CLLF
   DoubleQuotesCharacter = DoubleQuotesCharacter
   databasepath = databasepath 
+  List_Stack_Trace = List_Stack_Trace
 EndSub
 
 Sub UI
+  LDList.Add(List_Stack_Trace,"Plugin: Song Book Export.UI")
   LDCall.Function5(Function_UI_Add , "Menu","ICF " , Function_RunMod_Parser , "Export" , "Song Book Export.Main")
 EndSub
 
 Sub Main
+  LDList.Add(List_Stack_Trace,"Plugin: Song Book Export.Main")
   TextWindow.WriteLine("ICF v1") 
   
   Data_Array =LDCall.Function5( Function_Query ,"Select * From ICF;" ,"" , "True" , "Mod ", "ICF Song Book Mod" )

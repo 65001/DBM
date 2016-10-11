@@ -6,9 +6,11 @@ Sub ABS_VOID
   Function_Query = Function_Query
   listview = listview 
   UIx = UIx 
+  List_Stack_Trace = List_Stack_Trace
 EndSub 
 
 Sub ABS_UI
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.ABS_UI")  
   LDCall.Function5( Function_UI_Add , "Menu" , "Mod " ,"","Main","")
   LDCall.Function5( Function_UI_Add , "Menu" , "SB Backup Script" ,"","Mod ","")
   LDCall.Function5( Function_UI_Add , "Menu" , "Scan " ,Function_RunMod_Parser ,"SB Backup Script","Automated Backup Script.ABS_Main")
@@ -16,6 +18,7 @@ Sub ABS_UI
 EndSub 
 
 Sub ABS_Mod_View_Results_UI
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.ABS_Mod_View_Results_UI")  
   GraphicsWindow.DrawText( UIx + 100 , (270+20) + 400, "ABS Restore /Open Settings")
   GraphicsWindow.DrawText( UIx + 20,   (300+20) + 400,"ID:")
   
@@ -32,6 +35,7 @@ Sub ABS_Mod_View_Results_UI
 EndSub
 
 Sub ABS_View_Handler
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.ABS_View_Handler")  
   LastClickedButton = Controls.LastClickedButton 
   ABS_RHG_ID = Controls.GetTextBoxText(ABS_RestoreIDTB) 
   If LastClickedButton = ABS_RestoreButton And LDUtilities.IsNumber(ABS_RHG_ID) = "True" Then 
@@ -62,6 +66,7 @@ Sub ABS_View_Handler
 EndSub
 
 Sub ABS_Main
+   LDList.Add(List_Stack_Trace,"Plugin : ABS.Main")  
   TextWindow.WriteLine("ABS ")
   DirectoryList = "Dir"
   FileList = "File" 
@@ -70,6 +75,7 @@ Sub ABS_Main
 EndSub
 
 Sub ABS_Setup
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.Setup")  
   ScanPath = LDDialogs.GetFolder("C:\Users\"+ LDFile.UserName+"\")
   LDList.Add(DirectoryList,ScanPath )'Gets Initial Directory 
   ABS_Generate_BlackList() 'Gets List of All Folders the Program Should not Scan
@@ -82,6 +88,7 @@ Sub ABS_Setup
 EndSub 
 
 Sub ABS_New_Scan
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.New_Scan")  
   Max = LDList.Count(DirectoryList) + 1 
   ABS_Get_Folder()'Gets all Sub Folders 
   ABS_Get_Files() 'Get all Files in sub Folders
@@ -89,7 +96,7 @@ Sub ABS_New_Scan
 EndSub
 
 Sub ABS_Get_Folder
-  
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.Get_Folder")  
   TextWindow.Title = "Automated SB Backup" 
   TextWindow.ForegroundColor = "WHITE"
   TextWindow.WriteLine("FOLDER")
@@ -113,6 +120,7 @@ Sub ABS_Get_Folder
 EndSub
 
 Sub ABS_Get_Files
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.Get_Files")  
   TextWindow.ForegroundColor = "WHITE"
   TextWindow.WriteLine("")
   TextWindow.WriteLine("FILE")
@@ -141,6 +149,7 @@ Sub ABS_Get_Files
 EndSub
 
 Sub ABS_Sort
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.Sort")  
   ID = 0 
   Max = LDQueue.GetCount(FileList)
   CMD = "" 
@@ -185,6 +194,7 @@ EndSub
 
 
 Sub ABS_Generate_BlackList
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.Generate_BlackList")  
   BlackListList[Array.GetItemCount(BlackListList)+1] = "C:\Windows"
   BlackListList[Array.GetItemCount(BlackListList)+1] = "C:\$Windows.~BT"
   BlackListList[Array.GetItemCount(BlackListList)+1] = "C:\ProgramData"
@@ -200,6 +210,7 @@ Sub ABS_Generate_BlackList
 EndSub
 
 Sub ABS_blackList
+  LDList.Add(List_Stack_Trace,"Plugin : ABS.ABS_blackList")  
   BlackListValue = 0 
   For iii = 1 To Array.GetItemCount(BlackListList) 
     If BlackListList[iii]  = DirReturn[ii] Then 

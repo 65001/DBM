@@ -23,10 +23,14 @@ Sub VOID
   XML_Version_Number = XML_Version_Number 
   Function_XML_Attributes = Function_XML_Attributes 
   XML_Array = XML_Array 
+  List_Stack_Trace = List_Stack_Trace
+  
+  logfunction = logfunction
 EndSub
 
 
 Sub HTML
+  LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
   Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
   EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
@@ -58,14 +62,20 @@ Sub HTML
   EndFor
   HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
   File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
+  LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO HTML",LangList["Application"]) '//Localize 
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO HTML", LangList[ "Export"]) '//Localize  
 EndSub
 
 Sub Export_SQL
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL")
   SQL_Dump_Fetch()
   SQL_Dump_WRITE()
+  LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO SQL",LangList["Application"]) '//Localize 
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO SQL" , LangList[ "Export"]) '//Localize  
 EndSub
 
 Sub SQL_Dump_Fetch 
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Fetch")
   LDList.Clear("EXPORT_SQL")
   LDList.Clear("EXPORT_SQL_PK")
   Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export SQL SCHEMA"]  + LDFile.UserName) 
@@ -83,13 +93,14 @@ Sub SQL_Dump_Fetch
 EndSub
 
 Sub SQL_Dump_WRITE
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Write")
   'Generates Create Table Schema with proper Schema
   Dump_SQL = "CREATE TABLE " + Default_Table +"("
   For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
     DUMP_SQL = DUMP_SQL +"[" + SchemaList[Export_SQL_I]+"]" +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
     If EXPORT_SQL_DUMP_PK[Export_SQL_I] = 1 Then
       Dump_SQL = Dump_SQL +" " + "PRIMARY KEY"
-      EndIf 
+    EndIf 
     If Export_SQL_I < Array.GetItemCount(SchemaList) Then
       DUMP_SQL = DUMP_SQL +","
     EndIf
@@ -107,11 +118,15 @@ Sub SQL_Dump_WRITE
     EndFor
     DUMP_SQL = DUMP_SQL +"');" + CLLF
   EndFor
-  File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
   
+  Dump_SQL = LDText.Replace( Dump_SQL ,"' '","NULL")
+  Dump_SQL = LDText.Replace( Dump_SQL ,"''","NULL")
+  
+  File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
 EndSub
 
 Sub CSV
+  LDList.Add(List_Stack_Trace,"Plugin : Export.CSV")
   TextWindow.WriteLine("")
   
   If deliminator = "" then
@@ -129,7 +144,6 @@ Sub CSV
   
   csvpath = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.csv"
   
-  
   For i = 1 To Array.GetItemCount(return2) 'Gets Column Names  Headers
     csvdata[0][i] =  return2[i]
   EndFor
@@ -143,6 +157,7 @@ Sub CSV
 EndSub
 
 Sub XML
+  LDList.Add(List_Stack_Trace,"Plugin : Export.XML")
   EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],LangList["Export XML"] + LDFile.UserName ) 
   
   XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
@@ -170,6 +185,7 @@ Sub XML
 EndSub
 
 Sub XML_Write 'Writes Data Out. 
+  LDList.Add(List_Stack_Trace,"Plugin : Export.XML_Write")
   For I = 1 To Array.GetItemCount(EXPORTDATA)
     data["id"]=I
     LDxml.AddNode("record",I,"","Append")

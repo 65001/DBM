@@ -1,12 +1,12 @@
 Sub Void
   LangList = LangList 
   PrgmVersionID = PrgmVersionID 
-  MannualUpdateCheck = MannualUpdateCheck 
   logfunction = logfunction 
   CLLF = CLLF
   AssetPath = AssetPath 
   OnlineDB_Refrence_Location = OnlineDB_Refrence_Location 
   PRODUCTID = PRODUCTID 
+  List_Stack_Trace = List_Stack_Trace
 EndSub
 
 '______________________________________________________________________________
@@ -14,12 +14,14 @@ EndSub
 '______________________________________________________________________________
 
 Sub Main
+  LDList.Add(List_Stack_Trace,"Plugin : Update.Main")  
   Updater_URL_ID = 1
   UpdateDownload()
   UpdateUI()
 EndSub
 
 Sub UpdateDownload
+  LDList.Add(List_Stack_Trace,"Plugin : Update.Download") 
   UpdaterDB = AssetPath+"Updater.db"
   
   If LDNetwork.DownloadFile(UpdaterDB,OnlineDB_Refrence_Location) <> "-1" Then 
@@ -35,10 +37,11 @@ Sub UpdateDownload
 EndSub 
 
 Sub UpdateUI
-  If LatestVersion = PrgmVersionID And MannualUpdateCheck = 1 Then 
+  LDList.Add(List_Stack_Trace,"Plugin : Update.UI") 
+  If LatestVersion = PrgmVersionID  Then 
     LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
     GraphicsWindow.ShowMessage("There are no updates available","No Updates") '//Localize 
-  ElseIf PrgmVersionID  > LatestVersion AND MannualUpdateCheck = 1 Then 
+  ElseIf PrgmVersionID  > LatestVersion  Then 
     LDCall.Function2(logfunction ,"You have early beta version of the program", LangList["UI"]) '//Localize 
     GraphicsWindow.ShowMessage("You have a more recent edition of the program than that offered to the public." + CLLF + " You have version " + PrgmVersionID  + " while the most recent public release is version " + LatestVersion,"No Updates") '//Localize 
   ElseIf (PrgmVersionID  < LatestVersion) Then 
@@ -50,6 +53,7 @@ Sub UpdateUI
 EndSub
 
 Sub DownloadUpdate
+  LDList.Add(List_Stack_Trace,"Plugin : Update.DownloadUpdate") 
   DownloadFolder = "" 
   UpdaterSize = ""
   While UpdaterSize = "" And Array.GetItemCount( DownloadLocation ) >= Updater_URL_ID 
