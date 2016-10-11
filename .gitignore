@@ -2,3 +2,7 @@
 *.pdb
 Assets/setting.txt
 *.pdb
+*.pdb
+Assets/Mod/Import.pdb
+Assets/Mod/Export.pdb
+Utilities/Compile and Sign.pdb
