@@ -24,6 +24,8 @@ Sub VOID
   Function_XML_Attributes = Function_XML_Attributes 
   XML_Array = XML_Array 
   List_Stack_Trace = List_Stack_Trace
+  
+  logfunction = logfunction
 EndSub
 
 
@@ -60,12 +62,16 @@ Sub HTML
   EndFor
   HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
   File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
+  LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO HTML",LangList["Application"]) '//Localize 
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO HTML", LangList[ "Export"]) '//Localize  
 EndSub
 
 Sub Export_SQL
   LDList.Add(List_Stack_Trace,"Plugin : Export.SQL")
   SQL_Dump_Fetch()
   SQL_Dump_WRITE()
+  LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO SQL",LangList["Application"]) '//Localize 
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO SQL" , LangList[ "Export"]) '//Localize  
 EndSub
 
 Sub SQL_Dump_Fetch 
@@ -94,7 +100,7 @@ Sub SQL_Dump_WRITE
     DUMP_SQL = DUMP_SQL +"[" + SchemaList[Export_SQL_I]+"]" +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
     If EXPORT_SQL_DUMP_PK[Export_SQL_I] = 1 Then
       Dump_SQL = Dump_SQL +" " + "PRIMARY KEY"
-      EndIf 
+    EndIf 
     If Export_SQL_I < Array.GetItemCount(SchemaList) Then
       DUMP_SQL = DUMP_SQL +","
     EndIf
@@ -113,7 +119,6 @@ Sub SQL_Dump_WRITE
     DUMP_SQL = DUMP_SQL +"');" + CLLF
   EndFor
   File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
-  
 EndSub
 
 Sub CSV

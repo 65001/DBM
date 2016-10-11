@@ -1,7 +1,6 @@
 Sub Void
   LangList = LangList 
   PrgmVersionID = PrgmVersionID 
-  MannualUpdateCheck = MannualUpdateCheck 
   logfunction = logfunction 
   CLLF = CLLF
   AssetPath = AssetPath 
@@ -39,10 +38,10 @@ EndSub
 
 Sub UpdateUI
   LDList.Add(List_Stack_Trace,"Plugin : Update.UI") 
-  If LatestVersion = PrgmVersionID And MannualUpdateCheck = 1 Then 
+  If LatestVersion = PrgmVersionID  Then 
     LDCall.Function2(logfunction ,"No Update Available", "UI" ) 
     GraphicsWindow.ShowMessage("There are no updates available","No Updates") '//Localize 
-  ElseIf PrgmVersionID  > LatestVersion AND MannualUpdateCheck = 1 Then 
+  ElseIf PrgmVersionID  > LatestVersion  Then 
     LDCall.Function2(logfunction ,"You have early beta version of the program", LangList["UI"]) '//Localize 
     GraphicsWindow.ShowMessage("You have a more recent edition of the program than that offered to the public." + CLLF + " You have version " + PrgmVersionID  + " while the most recent public release is version " + LatestVersion,"No Updates") '//Localize 
   ElseIf (PrgmVersionID  < LatestVersion) Then 

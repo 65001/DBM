@@ -1,5 +1,7 @@
 #Default Bindings | Do not edit unless you know what you are doing !!!
-
+#The Program Implicitly assumes that all Menu items are localized.
+#If they are not make sure to set 6 to 0
+# Main 
 1=Menu;2=File;3=MainMenuHandler;4=Main;
 1=Menu;2=Edit;3=MainMenuHandler;4=Main;
 1=Menu;2=View;3=MainMenuHandler;4=Main;
@@ -7,18 +9,22 @@
 1=Menu;2=Import;3=MainMenuHandler;4=Main;
 1=Menu;2=Export;3=MainMenuHandler;4=Main;
 1=Menu;2=Settings;3=MainMenuHandler;4=Main;
+#File
 1=Menu;2=New;3=MainMenuHandler;4=File;
 1=Menu;2=Open;3=MainMenuHandler;4=File;
 1=Menu;2=-;3=MainMenuHandler;4=File;
-1=Menu;2=CSV;3=MainMenuHandler;4=Import;
+#Import
+1=Menu;2=CSV;3=<Mod Parser>;4=Import;5=Import.CSV;
 1=Menu;2=SQL;3=MainMenuHandler;4=Import;
 1=Menu;2=-;3=MainMenuHandler;4=Import;
+#Export
 1=Menu;2=CSV ;3=MainMenuHandler;4=Export;
-1=Menu;2=SQL ;3=MainMenuHandler;4=Export;
+1=Menu;2=SQL ;3=<Mod Parser>;4=Export;5=Export.Export_SQL;
 1=Menu;2=XML ;3=MainMenuHandler;4=Export;
-1=Menu;2=HTML ;3=MainMenuHandler;4=Export;
+1=Menu;2=HTML ;3=<Mod Parser>;4=Export;5=Export.HTML;
 1=Menu;2=Export UI;3=MainMenuHandler;4=Export;
 1=Menu;2=-;3=MainMenuHandler;4=Export;
+#Settings
 1=Menu;2=Help;3=MainMenuHandler;4=Settings;
 1=Menu;2=About;3=MainMenuHandler;4=Help;
 1=Menu;2=Show Help;3=MainMenuHandler;4=Help;
@@ -28,7 +34,7 @@
 1=Menu;2=Toggle Transaction Log;3=MainMenuHandler;4=Settings;6=0;
 1=Menu;2=-;3=MainMenuHandler;4=Toggle Transaction Log;
 1=Menu;2=Refresh;3=MainMenuHandler;4=Settings;
-1=Menu;2=Check for Updates;3=MainMenuHandler;4=Settings;
+1=Menu;2=Check for Updates;3=<Mod Parser>;4=Settings;5=Updater.Main;
 1=Menu;2=Close TW;3=MainMenuHandler;4=Settings;6=0;
 1=Menu;2=Stack Trace;3=MainMenuHandler;4=Settings;6=0;
 1=Menu;2=-;3=MainMenuHandler;4=Settings;
