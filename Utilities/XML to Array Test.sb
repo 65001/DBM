@@ -1,0 +1,57 @@
+xml = LDxml.Open("C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Log Table.xml")
+data = LDxml.ToArray()
+xdata = data
+While Array.GetItemCount( xData ) = 1 
+  Data_Indicies = Array.GetAllIndices(xData)
+  TextWindow.WriteLine( Data_Indicies[1] )
+  xdata = xdata[(Data_Indicies[1])]
+EndWhile 
+TextWindow.WriteLine( Text.GetLength(xdata) +":"+ Text.GetLength(data))
+TextWindow.Pause()
+child = 0
+node = data
+WriteNode()
+TextWindow.ForegroundColor = "Gray"
+Sub WriteNode
+  indent = ""
+  For i = 1 To child
+    indent = indent+" "
+  EndFor
+  
+  If (Array.GetItemCount(node) <> 1) Then
+    TextWindow.ForegroundColor = "Red"
+    TextWindow.WriteLine("ERROR 1")
+  Else
+    TextWindow.ForegroundColor = "White"
+    indices = Array.GetAllIndices(node)
+    TextWindow.WriteLine(indent+"NODE "+indices[1])
+    content = node[indices[1]]
+    
+    TextWindow.ForegroundColor = "Blue"
+    attributes = content["Attributes"]
+    indices = Array.GetAllIndices(attributes)
+    For i = 1 To Array.GetItemCount(indices)
+      index = indices[i]
+      TextWindow.WriteLine(indent+" ATTRIBUTE "+index+" : "+attributes[index])
+    EndFor
+    
+    TextWindow.ForegroundColor = "Green"
+    data = content["Data"]
+    If (data <> "") Then
+      TextWindow.WriteLine(indent+" DATA "+data)
+    EndIf 
+    
+    children = content["Children"]
+    For i = 1 To Array.GetItemCount(children)
+      node = children[i]
+      
+      iStore[child] = i
+      childrenStore[child] = children
+      child = child+1
+      WriteNode()
+      child = child-1
+      i = iStore[child]
+      children = childrenStore[child]
+    EndFor
+  EndIf
+EndSub
