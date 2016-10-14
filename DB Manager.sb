@@ -41,13 +41,15 @@
 'Added a Menu.txt file that follows Add_UI_Controls argument pattern that allows Plugins to add UI Items without being loaded . Hence reducing Startup Time
 '     An additonal item 6 represents whether or not an item has been localized. By setting it to 1 the Program will attempt to use the localiztion set in the relavent localization file
 'Version 1118 is the last version that will have any obselete functions . All obselete functions will be commented out
-'Added a pusedo stack trace system that has been implemented into  
+'Added a pusedo stack trace system that has been implemented into  nearly all parts of the program
 
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
 '______________________________________________________________________________
 'Add ability to change ALL Flexible File Settings Through UI
 'Add Instrumentation that tells how long the program spends in each subroutine or function
+'Redo Load Settings so manually editing the settings file looks less messy
+
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding 
 '______________________________________________________________________________
@@ -63,13 +65,9 @@
 'New Table Menu
 'SQL Functions List
 'Make the mastertable a view and remove the program only restrictions on it 
-'Finer Transaction Logging Support 
-'     Ability to Supress Queries  or CMDS
 ' Automated Backup Script for DBs ?
 'Custom Connection Strings
 
-'Rewrite Export SQL to include Pragmatic table data PK
-'Require Export SQL to put all column headings inside [] ,
 'Rewrite Export XML to use XML Schema Information ?
 '______________________________________________________________________________
 '                                                                                                   Localize Iniative 
@@ -377,6 +375,7 @@ Sub LoadSettings
   
   Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;11=Asset_Dir;12=Log_Path;13=Log_DB_Path;14=Transaction_DB;15=Deliminator;"
   Null_Settings = Null_Settings +"16=Transaction_Query;17=Transaction_Commands;18=TimeOut;"
+  
   Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;16=0;17=0;18=10000;"
   Setting_Default[1] = Desktop.Width - 400
   Setting_Default[2] = Desktop.Height - 150
@@ -956,6 +955,7 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = PrintStackTrace Then 
     debug_mode = 1 
     LDList.Print( List_Stack_Trace ) 
+    LDFile.SaveAllVariables( AssetPath +"\Debug.txt" ) 
   Else
     GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
