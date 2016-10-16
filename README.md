@@ -2,7 +2,7 @@
 Database Manager (DBM) is SmallBasic software developed by Abhishek Sathiabalan 
 The software is licensed under the EULA found in the Assets Folder. 
 
-V1.1.1.7 Stable
+V1.1.1.8 Stable
 
 Features :
 <ol type = "1">
