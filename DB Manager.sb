@@ -955,7 +955,7 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = PrintStackTrace Then 
     debug_mode = 1 
     LDList.Print( List_Stack_Trace ) 
-    LDFile.SaveAllVariables( AssetPath +"\Debug.txt" ) 
+    LDFile.SaveAllVariables( AssetPath +"\Debug.txt" ) '<<<< Fault line . Results in only 
   Else
     GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
@@ -1289,12 +1289,20 @@ Sub GenerateQuery
 EndSub
 
 Sub Get_SCHEMA
+  SCHEMA_TableList = ""
+  SCHEMA_IndexList = ""
+  SCHEMA_ViewList = ""
   LDList.Add(List_Stack_Trace,"Get_SCHEMA")
   If database <> "" Then 'Prevents Application from querying a nonexistent db 
     TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='table';","","True",LangList["App"],"SCHEMA")
     ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='view';","","True",LangList["App"],"SCHEMA")
     IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='index';","","True",LangList["App"],"SCHEMA")
     
+    Table_Temp_Array = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM SQLITE_TEMP_MASTER WHERE type ='table';","","True",LangList["App"],"SCHEMA")
+    View_Temp_Array = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM SQLITE_TEMP_MASTER WHERE type ='view';","","True",LangList["App"],"SCHEMA")
+    Index_Temp_List =LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM SQLITE_TEMP_MASTER WHERE type ='index';","","True",LangList["App"],"SCHEMA")
+    
+    'Permanent Entries 
     For I = 1 To Array.GetItemCount(TableList)
       SCHEMA_TableList[I] = TableList[I]["tbl_name"]
     EndFor
@@ -1305,6 +1313,19 @@ Sub Get_SCHEMA
     
     For I = 1 To Array.GetItemCount(IndexList)
       SCHEMA_IndexList[I] = IndexList[I]["tbl_name"] 
+    EndFor
+    
+    'Temporary Entries
+    For I = 1 To Array.GetItemCount(Table_Temp_Array ) 
+      SCHEMA_TableList[( Array.GetItemCount( SCHEMA_TableList) + 1 )] = Table_Temp_Array[I] 
+    EndFor 
+    
+    For I = 1 To Array.GetItemCount(View_Temp_Array )
+      SCHEMA_ViewList[(Array.GetItemCount( SCHEMA_ViewList ) + 1)] = View_Temp_Array[I]
+    EndFor
+    
+    For I = 1 To Array.GetItemCount(Index_Temp_List) 
+      SCHEMA_IndexList[(Array.GetItemCount( SCHEMA_IndexList ) + 1)] = Index_Temp_List[I] 
     EndFor
     
     Default_Table = SCHEMA_TableList[1]
@@ -1433,7 +1454,7 @@ Sub MOD_External_Menu 'Lets External Entities add Menu Items by mainpulating a M
       If Text.StartsWith(External_Menu_Cnts[I],"#") <> "True" AND External_Menu_Cnts[I] <> " " Then 'Ignores Line
         
         If (External_Menu_Cnts[I][6] = 1 Or External_Menu_Cnts[I][6] = "" ) AND LangList[ External_Menu_Cnts[I][2] ] <> ""  Then 'Localization Tag
-            External_Menu_Cnts[i][2] = LangList[ External_Menu_Cnts[I][2] ] 
+          External_Menu_Cnts[i][2] = LangList[ External_Menu_Cnts[I][2] ] 
         EndIf  
         
         If LangList[ External_Menu_Cnts[I][4] ] <> "" Then
@@ -1673,11 +1694,11 @@ Sub Log
       TypeofError = "Unknown"
     EndIf 
     
-      If debug_mode = 1 And ( Text.StartsWith(LogEvent,"LDDataBase.Query") = "True" Or Text.StartsWith(LogEvent,"LDDataBase.Command") = "True" ) Then 
-        TextWindow.ForegroundColor = "RED"
-        TextWindow.WriteLine( LogEvent )
-        TextWindow.WriteLine(QueryArgs )
-      EndIf 
+    If debug_mode = 1 And ( Text.StartsWith(LogEvent,"LDDataBase.Query") = "True" Or Text.StartsWith(LogEvent,"LDDataBase.Command") = "True" ) Then 
+      TextWindow.ForegroundColor = "RED"
+      TextWindow.WriteLine( LogEvent )
+      TextWindow.WriteLine(QueryArgs )
+    EndIf 
     
     LogNumber = LogNumber + 1
     File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( LDFile.UserName , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)

@@ -1,0 +1,5 @@
+GraphicsWindow.Show()
+DataView = LDControls.AddDataView(1000,900,"1=Field;2=Button;3=ComboBox;4=PK;")
+LDControls.DataViewSetColumnButton(DataView,2)
+LDControls.DataViewSetColumnComboBox(DataView,3,"1=Integer;2=Text;3=Blob;4=Real;5=Numeric;")
+LDControls.DataViewSetColumnCheckBox(DataView,4)
