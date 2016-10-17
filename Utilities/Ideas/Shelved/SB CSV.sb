@@ -1,0 +1,58 @@
+Path = "C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Log.csv"
+Cnts = File.ReadLine( Path , 1)
+CLLF = Text.GetCharacter(10)
+DQ = Text.GetCharacter(34)
+Cnts = File.ReadLine( Path , 1)
+Parse() 
+Headers() 
+
+Sub Parse
+  Lines = 1 
+  QuotesFlag = 0
+  Delimits = "" 
+  Delimits[1][0] = 1 
+  For I = 1 To Text.GetLength( Cnts )
+    TextWindow.ForegroundColor = "WHITE"
+    Char = Text.GetSubText( Cnts , I , 1 ) 
+    If Char = DQ Then 
+      If QuotesFlag = 0 Then 
+        QuotesFlag = 1
+      Else 
+        QuotesFlag = 0
+      EndIf 
+      TextWindow.Write(Char)
+    ElseIf Char = CLLF Then 
+      TextWindow.WriteLine ( Delimits[Lines]) 
+      Lines = Lines + 1 
+      Delimits[Lines][0] = 1 
+      QuotesFlag = 0
+    ElseIf Char = "," And QuotesFlag = 0 Then 
+      TextWindow.ForegroundColor ="GREEN"
+      Delimits[Lines][Array.GetItemCount(Delimits[Lines]) + 1 ] = I 
+      TextWindow.Write(Char)
+      TextWindow.WriteLine( Text.GetSubText( Cnts , Delimits[1][ (I-1) ] , Delimits[1][( Array.GetItemCount(Delimits[1] )  - 1 )] ))
+    ElseIF Char = "," And QuotesFlag = 1 Then 
+      TextWindow.ForegroundColor ="RED"
+      TextWindow.Write(Char)
+    Else 
+      TextWindow.Write(Char)
+    EndIf 
+  EndFor 
+  TextWindow.WriteLine("")
+EndSub 
+
+Sub Headers
+  TextWindow.WriteLine( Cnts )
+  TextWindow.WriteLine( Delimits[1] )
+  TextWindow.WriteLine( Array.GetItemCount( Delimits[1] ) )
+  For I = 1 To Array.GetItemCount( Delimits[1] ) 
+    Prev = I - 1 
+    Start = Delimits[ Prev ]
+    Length = Delimits[I] '- Delimits[ (I - 1) ]
+    TextWindow.WriteLine("Start : " + Start ) 
+    TextWindow.WriteLine ( I +"." + ": (" + Start +"," + Length +"," + Prev +") " ) 
+    TextWindow.WriteLine ( Text.GetSubText( Cnts , Start , Length ) )
+    'LDDebug.Break(56)
+  EndFor 
+ ' LDDebug.Break(58)
+EndSub 

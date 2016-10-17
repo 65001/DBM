@@ -29,11 +29,13 @@ While Exist = "True"
     For I = 1 To LDList.Count("Dir")
       Files = File.GetFiles(  LDList.GetAt("Dir",I)  )
       For II = 1 To Array.GetItemCount(Files) 
-        If LDFile.GetExtension( Files[II]) ="sb" Then
+        If LDFile.GetExtension( Files[II]) ="exe" Then
           LDQueue.Enqueue("File",Files[II] )
           Size = Size + LDFile.Length( Files[II] )
           Size_Bits = Size_Bits  + LDFile.Size(Files[II] )
           TextWindow.WriteLine( Files[II] + " | " + LDFile.Length( Files[II] ) +"|" + LDFile.Size(Files[II] ) ) 
+        ElseIf LDFile.GetExtension( Files[II] ) = "pdb" Then 
+          File.DeleteFile(Files[II] ) 
         EndIf 
       EndFor
     EndFor

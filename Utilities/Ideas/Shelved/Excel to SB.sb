@@ -1,0 +1,10 @@
+TextWindow.WriteLine("Excel to SQL")
+Path = "C:\Users\Abhishek\Desktop\Encryption2 Data.xlsx"
+Extension = LDFile.GetExtension(Path)
+If Extension = "xls" Then 
+  LDDataBase.Connection = "Data Source=" + Path + ";" + "Extended Properties='Excel 8.0;HDR=YES;'"
+ElseIf Extension = ".xlsx" Then
+  LDDataBase.Connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path + ";" + "Extended Properties='Excel 12.0 Xml;HDR=YES;"
+  EndIf
+  TextWindow.WriteLine( LDDataBase.ConnectOleDb("Microsoft.Jet.OLEDB.4.0","localhost","table1") )
+  FCDialogs

@@ -43,6 +43,10 @@
 'Version 1118 is the last version that will have any obselete functions . All obselete functions will be commented out
 'Added a pusedo stack trace system that has been implemented into  nearly all parts of the program
 
+'v1119
+'Support for TEMP Tables has been added to the underlying dll and to his program as well.
+
+
 '_____________________________________________________________________________
 '                                                                                     To do Next Version
 '______________________________________________________________________________
@@ -158,7 +162,7 @@ Functions_Support_Obselete = 0 'If set to true then the program will run Obselet
 
 copyrightDate = 2016
 ProductID = "DBM"
-PrgmVersionID = 1118
+PrgmVersionID = 1119
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
 Self = Program.Directory +"\DB Manager.exe"
 
@@ -171,8 +175,7 @@ CLLF = Text.GetCharacter(10)
 DoubleQuotesCharacter = Text.GetCharacter(34)
 XML_Version_Number ="1.0"
 
-MOD_Running_False = 0 'Temp Fake Variable ; Add Functionality Later 
-
+MOD_Running = 0 'Temp Fake Variable ; Add Functionality Later 
 
 SQLFunctionsList = "1=AVG;2=COUNT;3=MAX;4=MIN;5=SUM;6=TOTAL;7=Hex;8=Length;9=Lower;10=round;11=Trim;12=Upper;"
 SQLFunctionsList = Text.ConvertToUpperCase( SQLFunctionsList ) 
@@ -954,8 +957,8 @@ Sub MainMenuHandler
     Temp_Path = "" 
   ElseIf LastClickedButton = PrintStackTrace Then 
     debug_mode = 1 
+    TextWindow.WriteLine("Debug Mode turned on due to current action")
     LDList.Print( List_Stack_Trace ) 
-    LDFile.SaveAllVariables( AssetPath +"\Debug.txt" ) '<<<< Fault line . Results in only 
   Else
     GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
@@ -1021,6 +1024,7 @@ Sub Display_Results
   AscDescString = "1=" + LangList["Asc"] +";2=" +LangList["Desc"]+";"
   ASCDESC_CB = LDControls.AddComboBox(AscDescString,110,100) 
   SortButton = Controls.AddButton(LangList["SORT"], UIx + 10 , 120)
+  
   Controls.Move(SortByCB, UIx + 80 , 72 )
   Controls.Move(ASCDESC_CB,  UIx + 190, 72)
   Controls.SetSize(SortButton,290,25)
@@ -1317,15 +1321,15 @@ Sub Get_SCHEMA
     
     'Temporary Entries
     For I = 1 To Array.GetItemCount(Table_Temp_Array ) 
-      SCHEMA_TableList[( Array.GetItemCount( SCHEMA_TableList) + 1 )] = Table_Temp_Array[I] 
+      SCHEMA_TableList[( Array.GetItemCount( SCHEMA_TableList) + 1 )] = Table_Temp_Array[I]["tbl_name"]
     EndFor 
     
     For I = 1 To Array.GetItemCount(View_Temp_Array )
-      SCHEMA_ViewList[(Array.GetItemCount( SCHEMA_ViewList ) + 1)] = View_Temp_Array[I]
+      SCHEMA_ViewList[(Array.GetItemCount( SCHEMA_ViewList ) + 1)] = View_Temp_Array[I]["tbl_name"]
     EndFor
     
     For I = 1 To Array.GetItemCount(Index_Temp_List) 
-      SCHEMA_IndexList[(Array.GetItemCount( SCHEMA_IndexList ) + 1)] = Index_Temp_List[I] 
+      SCHEMA_IndexList[(Array.GetItemCount( SCHEMA_IndexList ) + 1)] = Index_Temp_List[I]["tbl_name"] 
     EndFor
     
     Default_Table = SCHEMA_TableList[1]
@@ -1507,14 +1511,12 @@ Sub MOD_RUN_Parser
   EndIf 
   
   If Mod_Name[ Mod_Run_Args[1] ] <> "" And Array.GetItemCount(Mod_Run_Args) = 2 Then 'If the Mod basically is known to exist and has been included
-    return =  LDCall.CallInclude(Mod_Name[ Mod_Run_Args[1] ],Mod_Run_Args[2]) 
-    
+    return =  LDCall.CallInclude(Mod_Name[ Mod_Run_Args[1] ],Mod_Run_Args[2])   
     If Dynamically_Added_Mod = 1 And debug_mode = 1 Then 'Debug type info , usefull only to developers 
       LDCall.Function2(logfunction ,"Dynamically added " + Temp_Mod_Name + " ("+Mod_Name[  Temp_Mod_Name ]+")" + " FROM " + Temp_Mod_Path, LangList["System"])  
       Temp_Mod_Name = ""
       Temp_Mod_Path = "" 
-    EndIf 
-    
+    EndIf   
   Else
     LDCall.Function2(logfunction ,"Error : Critical Fault. Could not call " + Mod_Run_Args[1]+"."+Mod_Run_Args[2] +" as it could not be found. " , LangList["System"]) '//Localize 
     GraphicsWindow.ShowMessage("Error : Critical Fault. Could not call " + Mod_Run_Args[1]+"."+Mod_Run_Args[2] +" as it could not be found. (" + Mod_Run_Args +")","Critical Fault Error" )'//Localize 
@@ -1611,7 +1613,7 @@ Sub Command 'Runs A Command Function
           LDList.Print( List_Command_Parser_OnFail ) 
         EndIf 
       EndIf 
-      
+           
       Command_Num_Cmds = LDList.Count( List_Command_Parser_Status ) 
       return = Command_Counter
     Else 
@@ -1662,7 +1664,7 @@ Sub Closing
 EndSub
 
 Sub ErrorHandler 
-  If MOD_Running_False = 1  Then 
+  If MOD_Running = 1  Then 
     debug_mode = 1 '<< ANNOYING AT TIMES
   EndIf 
   TextWindow.ForegroundColor = "YELLOW"

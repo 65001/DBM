@@ -1,0 +1,64 @@
+Main()
+Sub Main
+  TextWindow.Show()
+  LDWindows.Create()
+  GraphicsWindow.Show()
+  GraphicsWindow.KeyDown = KD
+  DataView = LDControls.AddDataView(1000,900,"1=Field;2=ComboBox;3=PK;4=AI;5=Unique;6=Not_Null;")
+  GraphicsWindow.DrawText(1,4,"Name: " )
+  Controls.Move( DataView , 1 ,30 )
+  
+  Table_Name = Controls.AddTextBox(50,1) 
+  LDControls.DataViewSetColumnComboBox(DataView,2,"1=Integer;2=Text;3=Blob;4=Real;5=Numeric;")
+  LDControls.DataViewSetColumnCheckBox(DataView,3)
+  LDControls.DataViewSetColumnCheckBox(DataView,4)
+  LDControls.DataViewSetColumnCheckBox(DataView,5)
+  LDControls.DataViewSetColumnCheckBox(DataView,6)
+EndSub 
+
+Sub KD 
+  If GraphicsWindow.LastKey = "F1"  Then 
+    If Controls.GetTextBoxText(Table_Name ) <> "" Then 
+      Name = Controls.GetTextBoxText( Table_Name )
+      Max = LDControls.DataViewRowCount(DataView)
+      SQL = "CREATE TABLE [" + LDText.Replace( LDText.Replace( Name,"[","") ,"]","" ) +"] (" 
+      TextWindow.Clear()
+      New_Schemap = ""
+      For I = 1 To  Max
+        New_Schemap[I] = LDControls.DataViewGetRow(DataView,I ) 
+        If New_Schemap[I][1] <> "" Then 
+          If New_Schemap[I][4] = "True" Then 
+            New_Schemap[I][3] = "True" 
+          EndIf 
+          SQL = SQL +"[" + LDText.Replace( LDText.Replace( New_Schemap[I][1] ,"[","") ,"]","")+ "] " + Text.ConvertToUpperCase( New_Schemap[I][2] )
+          
+          If New_Schemap[I][6] = "True" Then 
+            SQL = SQL + " NOT NULL"
+          EndIf 
+          
+          If New_Schemap[I][3] = "True" Then 
+            SQL = SQL + " PRIMARY KEY"
+          EndIf 
+          
+          If New_Schemap[I][4] = "True" Then 
+            SQL = SQL + " AUTO INCREMENT"
+          EndIf 
+          
+          If New_Schemap[I][5] = "True" Then 
+            SQL = SQL + " UNIQUE"
+          EndIf 
+          
+          If I <> Max Then
+            SQL = SQL + ","
+          Else 
+            SQL = SQL + ");"
+            
+          EndIf 
+        EndIf 
+      EndFor
+      TextWindow.WriteLine(SQL)
+    Else 
+      GraphicsWindow.ShowMessage("","NAME!")
+    EndIf 
+  EndIf 
+EndSub
