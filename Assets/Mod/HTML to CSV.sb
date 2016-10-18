@@ -1,3 +1,4 @@
+Main()
 Sub Void
   debug_Mode = debug_Mode
   databasepath = databasepath 
@@ -7,11 +8,11 @@ Sub Main
   TextWindow.Title ="HTML to CSV"
   TextWindow.Write("URL (Include http:// or C:\ ) : " )
   HTTPPath = TextWindow.Read()
-  BasePath = Text.GetSubText( HTTPPath , Text.GetIndexOf(HTTPPath,"//") + 2 , Text.GetIndexOf(HTTPPath,".") -1 ) 
-  TextWindow.WriteLine("Base Path : " + BasePath ) 
   If LDFile.Exists(HTTPPath) = "False" Then 
     CNTS = Network.GetWebPageContents( HTTPPath )
+    BasePath = Text.GetSubText( HTTPPath , Text.GetIndexOf(HTTPPath,"//") + 2 , Text.GetIndexOf(HTTPPath,".") -1 ) 
   Else 
+    BasePath = "FILE "
     CNTS = File.ReadContents(HTTPPath ) 
   EndIf 
   
@@ -34,6 +35,7 @@ Sub Main
   If Math.Remainder( LDList.Count( TableInt2 ) , 2 ) = 0 Then 'Nested Table
     II = LDList.Count( TableInt )
     For I = 1 To LDList.Count( TableInt )
+      TextWindow.WriteLine("PARSING ("+ I +"/"+ LDList.Count( TableInt ) +")" ) 
       Length = ( LDList.GetAt(TableEnd,II) - LDList.GetAt(TableInt,I) ) + 8
       If Length > 0  Then 
         Table = Text.GetSubText( CNTS,LDList.GetAt(TableInt,I) ,( LDList.GetAt(TableEnd,II) - LDList.GetAt(TableInt,I) ) + 8 ) 
@@ -85,7 +87,9 @@ Sub TableToArray
     DataEnd = LDText.FindAll( Table, "</td>" )
     
     If debug_Mode <> 0 Then 
-      TextWindow.WriteLine("Attributes : " + Text.GetSubText( Table , TableStart[1] + 7, IndexOf[1] - 8 ) )
+      If TableStart[1] + 7 < Text.GetLength(Table) AND IndexOf[1] - 8 = Math.Abs(IndexOf[1] - 8) AND ( ( TableStart[1] + 7) + (IndexOf[1] - 8) ) <= Text.GetLength(Table) Then 
+        TextWindow.WriteLine("Attributes : " + Text.GetSubText( Table , TableStart[1] + 7, IndexOf[1] - 8 ) )
+      EndIf 
       TextWindow.WriteLine("Start : " + TableStart[1]  )
       TextWindow.WriteLine( HeaderStart )
       TextWindow.WriteLine( HeaderEnd )
@@ -104,9 +108,14 @@ Sub TableToArray
       TextWindow.WriteLine("")
     EndIf 
     If databasepath <> "" Then 
-      LDFile.WriteCSV(LDFile.GetFolder( databasepath )+"\"+LDText.Replace( BasePath,".","_") + "Table " + I+".csv",CSV)
+      Path_Write = LDFile.GetFolder( databasepath )+"\"+LDText.Replace( BasePath,".","_") + "Table " + I+".csv"
     Else 
-      LDFile.WriteCSV(CSVPath+"\"+LDText.Replace( BasePath,".","_") + "Table " + I+".csv",CSV)
+      Path_Write = CSVPath+"\"+LDText.Replace( BasePath,".","_") + "Table " + I+".csv"
+    EndIf 
+    If CSV <> "" Then 
+      LDFile.WriteCSV(Path_Write,CSV)
+    Else 
+      TextWindow.WriteLine(I +"." + "Error :: File Output Null for Table :: "  +I ) 
     EndIf 
     CSV = ""
   EndFor
