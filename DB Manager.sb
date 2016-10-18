@@ -45,48 +45,49 @@
 
 'v1119
 'Support for TEMP Tables has been added to the underlying dll and to his program as well.
-
+'New Table Menu added through Plugin Interface . You must copy and paste the SQL Code until a further revision
 
 '_____________________________________________________________________________
-'                                                                                     To do Next Version
+'                                                                                                 To do Elevated Priority 
 '______________________________________________________________________________
 'Add ability to change ALL Flexible File Settings Through UI
 'Add Instrumentation that tells how long the program spends in each subroutine or function
 'Redo Load Settings so manually editing the settings file looks less messy
+'Change Export.SQL to support a more PRAGMA Schema data.
 
 '______________________________________________________________________________
-'                                                                                                 To do - Non Modding 
+'                                                                                                 To do - Non Modding - Normal Priority
 '______________________________________________________________________________
 'Cross Engine Support 
+'Integrate New Menu UI better
 
 'Add more Core Functions to sqlite sys
 'Resarch custom functions in sqlite 
 
 'Dataview bug report | Dataview Crash Bug 
 'Automatic Limiter on Dataview ? Using SQL Limit ? 
+
 'Export Menu
 'Access Table 
-'New Table Menu
 'SQL Functions List
-'Make the mastertable a view and remove the program only restrictions on it 
-' Automated Backup Script for DBs ?
-'Custom Connection Strings
+'Make the mastertable a view and remove the program only restrictions on it ?
 
+'Automated Backup Script for DBs ?
+'Custom Connection Strings
 'Rewrite Export XML to use XML Schema Information ?
 '______________________________________________________________________________
 '                                                                                                   Localize Iniative 
 '______________________________________________________________________________
 'Localize Self
 'Localize Import Module
+'Localize Everything
 
 '______________________________________________________________________________
 '                                                                                                 To do - Modding 
 '______________________________________________________________________________
-'XML Based Menu and Actions ?
 'Server - Client Iniative 
 '     Make a Server Mod ? 
 '     Make a Client Mod ? 
-
 'GUI For a Mod Manager 
 'Make  MOD Documentation
 '______________________________________________________________________________
@@ -1565,6 +1566,7 @@ Sub Command 'Runs A Command Function
     CMD_StartTime = Clock.ElapsedMilliseconds
     If CommandArgs[1] <> "" Then
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 
+      LDList.Add(List_Stack_Trace,"Command")
       CommandArgs[2] = LDText.Trim( CommandArgs[2] ) 
       
       LDList.Clear( List_Command_Parser ) 
@@ -1696,7 +1698,7 @@ Sub Log
       TypeofError = "Unknown"
     EndIf 
     
-    If debug_mode = 1 And ( Text.StartsWith(LogEvent,"LDDataBase.Query") = "True" Or Text.StartsWith(LogEvent,"LDDataBase.Command") = "True" ) Then 
+    If debug_mode = 1 And ( Text.IsSubText(LogEvent,"LDDataBase.Query") = "True" Or Text.IsSubText(LogEvent,"LDDataBase.Command") = "True" ) Then 
       TextWindow.ForegroundColor = "RED"
       TextWindow.WriteLine( LogEvent )
       TextWindow.WriteLine(QueryArgs )
@@ -1705,7 +1707,7 @@ Sub Log
     LogNumber = LogNumber + 1
     File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( LDFile.UserName , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)
     
-    If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" Then
+    If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 
       LOG_CMD = "INSERT INTO LOG (ID,[UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
       LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log")  '//Localize  
     EndIf 
