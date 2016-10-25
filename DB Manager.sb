@@ -46,13 +46,13 @@
 'v1119
 'Support for TEMP Tables has been added to the underlying dll and to his program as well.
 'New Table Menu added through Plugin Interface . You must copy and paste the SQL Code until a further revision
+'Refactored Load Settings so manually editing the settings file looks less messy
 
 '_____________________________________________________________________________
 '                                                                                                 To do Elevated Priority 
 '______________________________________________________________________________
 'Add ability to change ALL Flexible File Settings Through UI
 'Add Instrumentation that tells how long the program spends in each subroutine or function
-'Redo Load Settings so manually editing the settings file looks less messy
 'Change Export.SQL to support a more PRAGMA Schema data.
 
 '______________________________________________________________________________
@@ -384,18 +384,18 @@ Sub LoadSettings
   Transactions_mode_Query = Settings["Transaction_Query"]
   Transactions_mode_Cmd = Settings["Transaction_Commands"]
   
-  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=LastFolder;8=OS_Dir;9=debug_parser;10=debug_mode;11=Asset_Dir;12=Log_Path;13=Log_DB_Path;14=Transaction_DB;15=Deliminator;"
-  Null_Settings = Null_Settings +"16=Transaction_Query;17=Transaction_Commands;18=TimeOut;"
+  Null_Settings = "1=Listview_Width;2=Listview_Height;3=VersionID;4=Extensions;5=Language;6=Transactions;7=Transaction_Query;8=Transaction_Commands;9=debug_parser;10=debug_mode;11=Deliminator;12=TimeOut;"
+  Null_Settings = Null_Settings +"13=LastFolder;14=OS_Dir;15=Asset_Dir;16=Log_Path;17=Log_DB_Path;18=Transaction_DB;"
   
-  Setting_Default ="3="+ PrgmVersionID +";5=en;6=0;7=" +LDFile.DocumentsFolder +";8=C:\\Windows\\System32\\;9=0;10=0;15=,;16=0;17=0;18=10000;"
-  Setting_Default[1] = Desktop.Width - 400
-  Setting_Default[2] = Desktop.Height - 150
-  Setting_Default[4] = "1=db;2=sqlite;3=*;"
-  Setting_Default[11] = Program.Directory +"\Assets\"
-  Setting_Default[12] = Setting_Default[11] + "Log.csv"
-  Setting_Default[13] = Setting_Default[11] + "Log.db"
-  Setting_Default[14] = Setting_Default[11] + "Transactions.db"
-  Setting_Files = "11=1;12=1;13=1;14=1;"
+  Setting_Default = "1=" + (Desktop.Width - 400 ) +";2=" + (Desktop.Height - 150) +";3="+PrgmVersionID+";5=en;6=0;7=0;8=0;9=0;10=0;11=,;12=10000;"
+  Setting_Default[13] = LDFile.DocumentsFolder
+  Setting_Default[14] = "C:\Windows\System32\"
+  Setting_Default[15] = Program.Directory +"\Assets\"
+  Setting_Default[16] = Setting_Default[15] + "Log.csv"
+  Setting_Default[17] = Setting_Default[15] + "Log.db"
+  Setting_Default[18] = Setting_Default[15] + "Transactions.db"
+  
+  Setting_Files = "15=1;16=1;17=1;18=1;"
   
   For I = 1 To Array.GetItemCount( Null_Settings )
     If Settings[ Null_Settings[I] ] = ""  Then
