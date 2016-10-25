@@ -90,10 +90,11 @@
 '     Make a Client Mod ? 
 'GUI For a Mod Manager 
 'Make  MOD Documentation
+
 '______________________________________________________________________________
 '                                                                                     Module Iniative
 '______________________________________________________________________________
-'   Make the Core Engine a Module ?? 
+'   Make the Core Engine more modular
 
 
 StartTime[0] = Clock.ElapsedMilliseconds
@@ -198,6 +199,10 @@ logpath = AssetPath +"Log.csv"
 LogDBpath = AssetPath +"Log.db"
 TransactionDBpath = AssetPath +"Transactions.db" 
 EULAFile = AssetPath +"EULA.txt"
+EULA_HTML_File = AssetPath +"EULA.html"
+
+'EULAFile = EULA_HTML_File 'Allows HTML File to be used in place of TXT File
+
 settingspath = AssetPath+"setting.txt"
 ModPath = AssetPath +"Mod\"
 AutoRunMod_Path = AssetPath +"Auto Run Mod.txt"
@@ -209,12 +214,14 @@ LocalizationsLangFolder = Program.Directory +"\Localization\Lang\"
 LocalizationsFilesArray  =  File.GetFiles ( LocalizationsFolder ) 
 
 OnlineEULaPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRNTFKckFKLVNNUDg" 'EULA Path
+OnlineEULAHTMLPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpKvRSFVqQVBqelJoS2s"
 OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download" 'Update DB Path 
 
 Ping = LDNetwork.Ping("8.8.8.8",500)
 If Ping <> "-1" Then 'Pings Google DNS Server
   StartTime[1] = Clock.ElapsedMilliseconds
   LDNetwork.DownloadFile(EULAFile,OnlineEULaPath)
+  LDNetwork.DownloadFile(EULA_HTML_File,OnlineEULAHTMLPath)
   EndTime[1] = Clock.ElapsedMilliseconds
 EndIf 
 
@@ -485,19 +492,21 @@ Sub EULA_UI
   defaultHeight= GraphicsWindow.Height
   
   LDControls.RichTextBoxReadOnly = "True"
-  eulatextbox =  LDControls.AddRichTextBox(600,350)
+  
+  If LDFile.GetExtension(EULAFile) = "html" Then 
+    eulatextbox =  LDControls.AddBrowser(600,350,"file:///"+EULAFile)
+    
+  Else 
+    eulatextbox =  LDControls.AddRichTextBox(600,350)
+  EndIf 
   Controls.Move(eulatextbox,10,10)
   LDControls.RichTextBoxReadOnly = "False"
   
-  ' DowloandedFilePath = File.GetTemporaryFilePath() 'Commented because Program Startup Sequence automatically downloads EULA file
-  ' LDNetwork.DownloadFile(DowloandedFilePath ,OnlineEULaPath) 'Commented because Program Startup Sequence automatically downloads EULA file
   OnlineEULACnts  = File.ReadContents( EULAFile)
-  ' OnlineEULACnts = File.ReadContents( DowloandedFilePath ) 'Commented because Program Startup Sequence automatically downloads EULA file
   OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
   
   If Ping = "-1" Then
     LDCall.Function2( logfunction ,LangList["Failed Load Online EULA"],LangList["Error"])
-    'GraphicsWindow.ShowMessage(LangList["Failed Load Online EULA"],LangList["Error"])
     EULAContents = Text.Append("This is the EULA that came with this program. This may not be the most latest EULA. Subject to Section 5 Subsection C the most latest EULA can be found here:" +Text.GetCharacter(10) + OnlineEULaPath +Text.GetCharacter(10) ,File.ReadContents(EULAFile) )
   Else
     EULAContents = OnlineEULACnts
@@ -1615,7 +1624,7 @@ Sub Command 'Runs A Command Function
           LDList.Print( List_Command_Parser_OnFail ) 
         EndIf 
       EndIf 
-           
+      
       Command_Num_Cmds = LDList.Count( List_Command_Parser_Status ) 
       return = Command_Counter
     Else 
