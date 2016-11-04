@@ -8,17 +8,22 @@ Sub VOID
   List_Stack_Trace = List_Stack_Trace
 EndSub
 
-Sub CSV
+Sub CSV_Interface
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV")
   Import_CSV_Path = LDDialogs.OpenFile("csv","")
   I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
   I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
+  CSV()
+EndSub
+
+Sub CSV 'Make this a function in the future
   For I = 1 to Array.GetItemCount(I_CSV_Array[1])
     I_CSV_Int_Array[I] = 1  
   EndFor 
   
   CSV_TO_SQL()
-  CSV_Headers()
+  CSV_Headers() 'First Line becomes header information
+  
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
   records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV") '//Localize  
   Percentage = records/ Array.GetItemCount( LDText.FindAll(Import_CSV_SQL_Final,";") )
@@ -32,6 +37,7 @@ EndSub
 
 Sub CSV_TO_SQL
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_TO_SQL")
+  
   Import_CSV_SQL = "" 
   For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
     Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + I_CSV_Name + " VALUES ('"
@@ -40,7 +46,7 @@ Sub CSV_TO_SQL
       CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
       CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
       
-      If CSV_Array_Temp ="" Or CSV_Array_Temp = " " Then
+      If CSV_Array_Temp = "" Or CSV_Array_Temp = " " Then
         CSV_Array_Temp = "NULL"
       EndIf 
       
@@ -61,17 +67,15 @@ Sub CSV_TO_SQL
 EndSub
 
 Sub CSV_Headers
+  CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
+  
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_Headers")
   Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + I_CSV_Name +" ("
   Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
   
   For I = 1 To Array.GetItemCount(I_CSV_Array[1])
     Import_CSV_HSQL = Import_CSV_HSQL +I_CSV_Array[1][I] + " " 
-    If CSV_Int_Array[I] = 1 Then 
-      Import_CSV_HSQL = Import_CSV_HSQL +"INTEGER"
-    Else 
-      Import_CSV_HSQL = Import_CSV_HSQL +"TEXT"
-    EndIf 
+    Import_CSV_HSQL = Import_CSV_HSQL + CSV_Headers_Types[ CSV_Int_Array[I] ] 
     
     If I < Array.GetItemCount(I_CSV_Array[1]) Then 
       Import_CSV_HSQL = Import_CSV_HSQL + ","

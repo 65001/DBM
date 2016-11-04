@@ -1,5 +1,6 @@
 Drop Table IF EXISTS SQL;Drop Index IF EXISTS SQLlite;Drop VIEW IF EXISTS SQLlite;Drop Index IF EXISTS MySQL;Drop VIEW IF EXISTS MySQL;Drop Index IF EXISTS Odbc;Drop VIEW IF EXISTS Odbc;Drop Index IF EXISTS OleDb;Drop VIEW IF EXISTS OleDb;Drop Index IF EXISTS SQLServer;Drop VIEW IF EXISTS SQLServer;Drop Index IF EXISTS Returns;Drop VIEW IF EXISTS Returns;Drop Index IF EXISTS [Names];Drop VIEW IF EXISTS [Names];Drop Index IF EXISTS [Returns];Drop VIEW IF EXISTS [Returns];
 Create Table SQL (ID INTEGER PRIMARY KEY , SNAME TEXT, Sqlite TEXT, MySQL Text , Odbc TEXT , OleDb TEXT , SQLServer TEXT , Reason TEXT , [Returns] INTEGER , Type TEXT); 
+
 Create VIEW IF NOT EXISTS [Names] AS SELECT Sname,ID FROM SQL;
 Create VIEW IF NOT EXISTS [SQLite] AS SELECT ID,Sqlite FROM SQL;
 Create VIEW IF NOT EXISTS [MYSQL] AS SELECT ID,MYSQL FROM SQL;

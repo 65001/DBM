@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<title>Dev_Documentation Exported</title>
+
+	<head>
+		<style>
+			table, td, th {border: 1px solid #ddd;text-align: left;}
+			table {border-collapse: collapse; width: 100%;}
+			th,td {padding: 15px;}
+			tr:hover{background-color:#f5f5f5}
+			th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}
+		</style>
+		<meta charset = "UTF-8">
+		<meta name="generator" content="DBM v1116">
+		<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->
+	</head>
+
+	<body>
+		<div style="overflow-x:auto;">
+			<table>
+				<thead>
+					<tr> 
+						<td id = "Main" + colspan = "9">Dev Documentation</td>
+					</tr>
+				</thead>
+				<tr>
+					<th>Id</th>
+					<th>NAME</th>
+					<th>DESCRIPTION</th>
+					<th>Arguments</th>
+					<th>Return</th>
+					<th>Function</th>
+					<th>Function_Name1</th>
+					<th>Function_Name2</th>
+					<th>Parameter # Mismatch Check </th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Log</td>
+					<td>Logs Events handed to it to LOG.db and LOG.CSV </td>
+					<td>( Log Event , Type of Error )</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>logfunction</td>
+					<td>Function_Log</td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Query</td>
+					<td>Querys the current user defined db </td>
+					<td>( Query , Listview , GetRecords , User ,Reason for Query )</td>
+					<td>Records if applicable</td>
+					<td>Yes</td>
+					<td>QueryFunction</td>
+					<td>Function_Query</td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Command</td>
+					<td>Inserts data into define db with the defined SQL code. Parses the code first.</td>
+					<td>(DB ,SQL , User , Reason for command )</td>
+					<td># Rows Updated</td>
+					<td>Yes</td>
+					<td>CommandFunction</td>
+					<td>Function_Command</td>
+					<td>✓</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>TransactionRecord</td>
+					<td>Keeps a record of all transactions</td>
+					<td>(User , DB , SQL , Type , Reason )</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>TransactionFunction</td>
+					<td>Function_Transaction</td>
+					<td>✓</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>MOD_RUN_Parser</td>
+					<td>Runs external precomipled SB program</td>
+					<td>(ModName.SubName) OR (Modname , SubName) </td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>RunModParserFunction</td>
+					<td>Function_RunMod_Parser</td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>XML_Fetch_All</td>
+					<td>Fetches XML Attributes</td>
+					<td>None</td>
+					<td>Array of Attributes</td>
+					<td>Yes</td>
+					<td>Function_XML_Attributes</td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>MainMenuHandler</td>
+					<td>Passes Events to the Main Menu UI Handler</td>
+					<td>( LastClickedButton)</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>Function_MainMenu_Handler</td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Add_UI_Controls</td>
+					<td>Adds a UI Control</td>
+					<td>
+						1= Type ( Menu , Register) <br>
+						2 = Caption / Name <br>
+						3 = Handler / Handler <br>
+						4 = NA, If Menu then Previous Node <br>
+						5 = Action <br>
+						You should only register controls that already exist. Argument 5 Can be a null value.
+					</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>Function_UI_Add</td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>Load_DB</td>
+					<td>Loads a database</td>
+					<td>
+						<p> 1 = Engine Mode | Integer ONLY </p>
+						<p> 2 = URI or Array of Data </p>
+					</td>
+					<td>None</td>
+					<td>Yes</td>
+					<td>Function_Load_DB </td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>GetPath</td>
+					<td>Gets the URI of a Database</td>
+					<td>
+						No Arguments
+					</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>Function_Get_DB</td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
