@@ -109,7 +109,6 @@ LDGraphicsWindow.Closing = Closing
 '______________________________________________________________________________
 '                                                                               Functions List ( Mini API of sorts ) 
 '______________________________________________________________________________
-logfunction = "Log"
 QueryFunction = "Query"
 CommandFunction = "Command" 
 TransactionFunction = "TransactionRecord"
@@ -131,8 +130,10 @@ Function_Get_DB = "GetPath"
 Function_RunMod_Parser = RunModParserFunction 
 Function_Command = CommandFunction
 Function_Query = QueryFunction
-Function_Log = logfunction
+Function_Log = "Log"
 Function_Transaction = TransactionFunction 
+
+logfunction = Function_Log
 '______________________________________________________________________________
 '                                                                                     List Names 
 '______________________________________________________________________________
@@ -258,7 +259,7 @@ Sub Startup
   Int_DB() 'Creates The Databases used for logging error and transactions 
   MOD_Find_All() 
   Localization_XML()
-  LDCall.Function2( logfunction , "Program Started",LangList["Application"]) '// Localize 
+  LDCall.Function2( Function_Log , "Program Started",LangList["Application"]) '// Localize 
   
   If Program.ArgumentCount  = 1  Then
     LDCall.Function2(Function_Load_DB,4, LDCall.Function( Function_Get_DB ,"") )
@@ -318,7 +319,7 @@ Sub Startup_GUI
   Pre_MainMenuUI()
   MOD_READ_AutoRunFile()
   MOD_AutoRun()
-  LDCall.Function2( logfunction , "Startup Time: " +(Clock.ElapsedMilliseconds - StartTime[0]) +" (ms)" ,LangList["UI"])
+  LDCall.Function2( Function_Log , "Startup Time: " +(Clock.ElapsedMilliseconds - StartTime[0]) +" (ms)" ,LangList["UI"])
   MainMenuUI()
 EndSub
 
@@ -338,7 +339,7 @@ Sub Localization_XML
       Localixation_XML_Private()
     EndWhile
   Else
-    LDCall.Function2( logfunction , "Localization XML Missing","Application") 'DO NOT LOCALIZE EVER! This error indicates the localization file is missing!! 
+    LDCall.Function2( Function_Log , "Localization XML Missing","Application") 'DO NOT LOCALIZE EVER! This error indicates the localization file is missing!! 
   EndIf 
   
   Localization_Temp = File.ReadContents( LocalizationsLangFolder +Localization_lang+".txt" ) 
@@ -446,7 +447,7 @@ Sub SaveSettings
   EndIf 
   
   If status = "FAILED" Then
-    LDCall.Function2( logfunction ,"Failed to save settings","UI") 
+    LDCall.Function2( Function_Log ,"Failed to save settings","UI") 
     GraphicsWindow.ShowMessage(LangList["Failed Save Settings"] ,LangList["Error"]) 'Failed to Save Settings
   EndIf
 EndSub
@@ -479,7 +480,7 @@ Sub Load_DB
     '  LDDataBase.ConnectOleDb( OLDB_Provider , Server , OLDB_DB)
   ElseIf LOAD_DB_Args[1] = 4 And LDFile.Exists(LOAD_DB_Args[2]) = "True" Then
     database =  LDDataBase.ConnectSQLite(LOAD_DB_Args[2])
-    LDCall.Function2(logfunction, "Program Started - OPENED : " + LOAD_DB_Args[2] ,LangList["Application"])'//Localize
+    LDCall.Function2(Function_Log, "Program Started - OPENED : " + LOAD_DB_Args[2] ,LangList["Application"])'//Localize
     Settings["LastFolder"] = LDFile.GetFolder(LOAD_DB_Args[2])
     SaveSettings()
     LDList.Add("DB_Path", LOAD_DB_Args[2] ) 
@@ -489,7 +490,7 @@ Sub Load_DB
     ' LDDataBase.ConnectSqlServer(Server , SQLServer_DB )
   Else
     If LOAD_DB_Args[1] = 4 Then 
-      LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
+      LDCall.Function2(Function_Log, "Program Started - Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
     EndIf 
     GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
   Endif
@@ -523,7 +524,7 @@ Sub EULA_UI
   OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
   
   If Ping = "-1" Then
-    LDCall.Function2( logfunction ,LangList["Failed Load Online EULA"],LangList["Error"])
+    LDCall.Function2( Function_Log ,LangList["Failed Load Online EULA"],LangList["Error"])
     EULAContents = Text.Append("This is the EULA that came with this program. This may not be the most latest EULA. Subject to Section 5 Subsection C the most latest EULA can be found here:" +Text.GetCharacter(10) + OnlineEULaPath +Text.GetCharacter(10) ,File.ReadContents(EULAFile) )
   Else
     EULAContents = OnlineEULACnts
@@ -531,7 +532,7 @@ Sub EULA_UI
   EndIf
   
   If EULAContents = "" Then
-    LDCall.Function2( logfunction , "NO EULA FOUND. Local or Online","UI")'//Localize 
+    LDCall.Function2( Function_Log , "NO EULA FOUND. Local or Online","UI")'//Localize 
     GraphicsWindow.ShowMessage("EULA could not be loaded. This program cannot start without its EULA." "EULA LOAD ERROR")'//Localize 
     Program.End()
   Else
@@ -572,7 +573,7 @@ Sub EULA_Handler
   ElseIf LastClickedButton = EULADecline Then
     Settings["EULA"] = "False"
     SaveSettings()
-    LDCall.Function2( logfunction , "EULA Declined","UI")
+    LDCall.Function2( Function_Log, "EULA Declined","UI")
     GraphicsWindow.ShowMessage("If you disagree with this EULA please delete this program","EULA Decline")
     Program.End()
   EndIf 
@@ -621,7 +622,7 @@ Sub MainMenuUI
   
   If debug_mode = 1 Then 
     CheckList[ LangList["Toggle Debug"]] = "True"
-    LDCall.Function2( logfunction , "Debug Mode is ON","UI")
+    LDCall.Function2( Function_Log , "Debug Mode is ON","UI")
   ElseIf debug_mode = 0 Then  
     CheckList[LangList["Toggle Debug"]] = "False"
   EndIf
@@ -739,7 +740,7 @@ Sub ComboBoxChanged
       
       GraphicsWindow.Title = title + " "+ TypesOfSorts[SortByMode] +": "  + Default_Table
     Else
-      LDCall.Function2(logfunction,"In the current database no "+LangList[ TypesOfSorts[SortByMode] ]+"s can be found.","UI") '//Localize  
+      LDCall.Function2(Function_Log,"In the current database no "+LangList[ TypesOfSorts[SortByMode] ]+"s can be found.","UI") '//Localize  
       GraphicsWindow.ShowMessage("In the current database no "+ LangList[ TypesOfSorts[SortByMode] ] +"s can be found." , "Error" ) '//Localize 
     EndIf 
     
@@ -775,7 +776,7 @@ Sub MainMenuHandler
       UserSQL  = TextWindow.Read()
       
       LDCall.Function4( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ,LDFile.UserName ,"NEW DB") 
-      LDCall.Function2(logfunction, "Created DB : " + NewFileSavePath,"Application")
+      LDCall.Function2(Function_Log, "Created DB : " + NewFileSavePath,"Application")
       
       listview = "" 
       Dataview = "" 
@@ -788,10 +789,10 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = EditDB_Button Then 'Edit Database List View
     If database <> "" Then 
       If SortByMode = 2 Then 
-        LDCall.Function2(logfunction ,LangList["Views Read Only"] , LangList["UI"]) 
+        LDCall.Function2(Function_Log ,LangList["Views Read Only"] , LangList["UI"]) 
         GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + LangList["Views Read Only"]  ,LangList["Access Denied"]) 
       ElseIf SortByMode = 4 Then
-        LDCall.Function2(logfunction ,LangList["Master Table Protected"] , LangList["UI"]) 
+        LDCall.Function2(Function_Log ,LangList["Master Table Protected"] , LangList["UI"]) 
         GraphicsWindow.ShowMessage(LangList[ "Error"] +":" + LangList["Master Table Protected"] ,LangList["Access Denied"])
       Else 
         Controls.HideControl(listview)
@@ -806,7 +807,7 @@ Sub MainMenuHandler
         Hide_Display_Results()
       EndIf 
     Else 
-      LDCall.Function2(logfunction ,LangList["Error No DB"]  , LangList["UI"])
+      LDCall.Function2(Function_Log ,LangList["Error No DB"]  , LangList["UI"])
       GraphicsWindow.ShowMessage(LangList["Error No DB"] ,LangList[ "Error" ])
     EndIf
   ElseIf LastClickedButton = ViewDB_Button Then 'View Database
@@ -834,10 +835,10 @@ Sub MainMenuHandler
   Elseif LastClickedButton = SaveButton  Then 'Save Button   
     If database <> "" and Dataview <> "" Then 
       Save_Status = LDDataBase.SaveTable(database,Dataview)
-      LDCall.Function2(logfunction ,"The save was : " + Save_Status , "UI" ) '//Localize 
+      LDCall.Function2(Function_Log ,"The save was : " + Save_Status , "UI" ) '//Localize 
       GraphicsWindow.ShowMessage("The save was : " + Save_Status,"Save Status !") '//Localize  
     Else 
-      LDCall.Function2(logfunction ,"The Database or Dataview does not exist or have not yet been loaded", LangList["UI"]) '//Localize  
+      LDCall.Function2(Function_Log,"The Database or Dataview does not exist or have not yet been loaded", LangList["UI"]) '//Localize  
       GraphicsWindow.ShowMessage(LangList["Error"] +":" +  LangList["Dataview Error"],"Save Error") 
     EndIf
   ElseIf LastClickedButton = SortButton Then 'Sort View
@@ -857,7 +858,7 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = ImportSQL_Button Then ' Imports SQL 
     CurrentFolder = LDFile.GetFolder(databasepath)
     records =  LDCall.Function4( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) , LDFile.UserName ,"Import SQL") '//Localize 
-    LDCall.Function2(logfunction, "Imported data into: " + databasepath +" From sql file","Application") '//Localize 
+    LDCall.Function2(Function_Log, "Imported data into: " + databasepath +" From sql file","Application") '//Localize 
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT") '//Localize 
   ElseIf LastClickedButton = ExportCSV_Button Then
     TextWindow.WriteLine("")
@@ -989,7 +990,7 @@ Sub MainMenuHandler
   EndIf
   
   If LastClickedButton = ExportHTML_Button Or LastClickedButton = ExportCSV_Button Or LastClickedButton = ExportXML_Button or LastClickedButton = ExportSQL_Button Then
-    LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,LangList["Application"]) '//Localize 
+    LDCall.Function2(Function_Log, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO " + LastClickedButton,LangList["Application"]) '//Localize 
     GraphicsWindow.ShowMessage("RAN EXPORT INTO " + LastClickedButton, LangList[ "Export"]) '//Localize  
   EndIf 
 EndSub
@@ -1538,12 +1539,12 @@ Sub MOD_RUN_Parser
   If Mod_Name[ Mod_Run_Args[1] ] <> "" And Array.GetItemCount(Mod_Run_Args) = 2 Then 'If the Mod basically is known to exist and has been included
     return =  LDCall.CallInclude(Mod_Name[ Mod_Run_Args[1] ],Mod_Run_Args[2])   
     If Dynamically_Added_Mod = 1 And debug_mode = 1 Then 'Debug type info , usefull only to developers 
-      LDCall.Function2(logfunction ,"Dynamically added " + Temp_Mod_Name + " ("+Mod_Name[  Temp_Mod_Name ]+")" + " FROM " + Temp_Mod_Path, LangList["System"])  
+      LDCall.Function2(Function_Log ,"Dynamically added " + Temp_Mod_Name + " ("+Mod_Name[  Temp_Mod_Name ]+")" + " FROM " + Temp_Mod_Path, LangList["System"])  
       Temp_Mod_Name = ""
       Temp_Mod_Path = "" 
     EndIf   
   Else
-    LDCall.Function2(logfunction ,"Error : Critical Fault. Could not call " + Mod_Run_Args[1]+"."+Mod_Run_Args[2] +" as it could not be found. " , LangList["System"]) '//Localize 
+    LDCall.Function2(Function_Log ,"Error : Critical Fault. Could not call " + Mod_Run_Args[1]+"."+Mod_Run_Args[2] +" as it could not be found. " , LangList["System"]) '//Localize 
     GraphicsWindow.ShowMessage("Error : Critical Fault. Could not call " + Mod_Run_Args[1]+"."+Mod_Run_Args[2] +" as it could not be found. (" + Mod_Run_Args +")","Critical Fault Error" )'//Localize 
   EndIf 
   
@@ -1574,7 +1575,7 @@ Sub Query
     EndIf
     return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
   Else 
-    LDCall.Function2(logfunction , LangList["Query Error"] + ": " + LangList["Error No DB"]  , LangList["UI"] )
+    LDCall.Function2(Function_Log, LangList["Query Error"] + ": " + LangList["Error No DB"]  , LangList["UI"] )
     GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Query Error"] ) 
     return = LangList["Error No DB"]
   EndIf 
@@ -1645,7 +1646,7 @@ Sub Command 'Runs A Command Function
       Command_Num_Cmds = LDList.Count( List_Command_Parser_Status ) 
       return = Command_Counter
     Else 
-      LDCall.Function2(logfunction ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
+      LDCall.Function2(Function_Log ,LangList["Command"] + LangList["Error No DB"] , LangList["UI"])
       GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Command"] + " " + LangList["Error"] )
     EndIf
   Else
@@ -1684,9 +1685,9 @@ EndSub
 Sub Closing
   LDList.Add(List_Stack_Trace,"Closing")
   If databasepath = "" Then 
-    LDCall.Function2(logfunction, "Program Closing ",LangList["Application"]) '//Localize 
+    LDCall.Function2(Function_Log, "Program Closing ",LangList["Application"]) '//Localize 
   Else 
-    LDCall.Function2(logfunction, "Program Closing - Closing : " + databasepath ,LangList["Application"]) '//Localize 
+    LDCall.Function2(Function_Log, "Program Closing - Closing : " + databasepath ,LangList["Application"]) '//Localize 
   EndIf 
   Program.End()
 EndSub
@@ -1699,7 +1700,7 @@ Sub ErrorHandler
   TextWindow.WriteLine(LangList["System"]+":" + LDEvents.LastError ) 
   
   LDList.Add(List_Stack_Trace,"Error Handler")  
-  LDCall.Function2(logfunction, LDEvents.LastError ,LangList["System"])
+  LDCall.Function2(Function_Log, LDEvents.LastError ,LangList["System"])
 EndSub
 
 Sub Log
