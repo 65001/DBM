@@ -14,6 +14,7 @@ Sub Main
   Else 
     BasePath = "FILE "
     CNTS = File.ReadContents(HTTPPath ) 
+    BasePath = LDFile.GetFolder(HTTPPath) +"\"
   EndIf 
   
   CSVPath = Program.Directory +"\"
@@ -76,6 +77,7 @@ Sub TableToArray
   For I = 1 To LDList.Count( "Table_Data") 
     Table = LDList.GetAt("Table_Data",I)
     TextWindow.WriteLine("("+i+"\"+ LDList.Count("Table_Data") +") " + Math.Round(( (I/LDList.Count("Table_Data")) *100 ) ) +"%")
+    
     TableStart = LDText.FindAll( Table, "<table" )
     IndexOf = LDText.FindAll( Table ,">" )
     HeaderStart =LDText.FindAll( Table, "<th" ) 
@@ -86,10 +88,10 @@ Sub TableToArray
     DataStart = LDText.FindAll( Table, "<td" )
     DataEnd = LDText.FindAll( Table, "</td>" )
     
-    If debug_Mode <> 0 Then 
+    If debug_Mode = 1 Then 
       If TableStart[1] + 7 < Text.GetLength(Table) AND IndexOf[1] - 8 = Math.Abs(IndexOf[1] - 8) AND ( ( TableStart[1] + 7) + (IndexOf[1] - 8) ) <= Text.GetLength(Table) Then 
         TextWindow.WriteLine("Attributes : " + Text.GetSubText( Table , TableStart[1] + 7, IndexOf[1] - 8 ) )
-      EndIf 
+      EndIf  
       TextWindow.WriteLine("Start : " + TableStart[1]  )
       TextWindow.WriteLine( HeaderStart )
       TextWindow.WriteLine( HeaderEnd )
@@ -103,15 +105,25 @@ Sub TableToArray
     GetHeaders()
     CSV [ Array.GetItemCount(CSV) + 1 ] = HTempt
     GetData()
-    If debug_Mode <> 0 Then 
+    
+    If debug_Mode = 1 Then 
       LDList.Print("Headers")
       TextWindow.WriteLine("")
     EndIf 
+    
+    TextWindow.WriteLine("Writing CSV Files")
+    
     If databasepath <> "" Then 
+      TextWindow.WriteLine(1)
       Path_Write = LDFile.GetFolder( databasepath )+"\"+LDText.Replace( BasePath,".","_") + "Table " + I+".csv"
     Else 
-      Path_Write = CSVPath+"\"+LDText.Replace( BasePath,".","_") + "Table " + I+".csv"
+      TextWindow.WriteLine(2)
+      Path_Write = LDText.Replace( BasePath,".","_") + "Table " + I+".csv"
     EndIf 
+    
+    TextWindow.WriteLine( Path_Write)
+    TextWindow.WriteLine(CSVPath)
+    
     If CSV <> "" Then 
       LDFile.WriteCSV(Path_Write,CSV)
     Else 
@@ -124,8 +136,8 @@ EndSub
 Sub GetHeaders
   LDList.Clear("Headers")
   For II = 1 To Array.GetItemCount(HeaderStart) 
-    LDList.Add("Headers",Text.GetSubText(Table, HeaderStart[II] +4 , (HeaderEnd[II] - HeaderStart[iI]) - 4 ) )
-    HTempt =HTempt + II+"="+ LDList.GetAt("Headers",II)+";"
+      LDList.Add("Headers",Text.GetSubText(Table, HeaderStart[II] +4 , (HeaderEnd[II] - HeaderStart[iI]) - 4 ) )
+      HTempt =HTempt + II+"="+ LDList.GetAt("Headers",II)+";"
   EndFor 
 EndSub 
 

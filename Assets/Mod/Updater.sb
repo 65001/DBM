@@ -1,4 +1,4 @@
-Sub Void
+Sub Void 'Stuff filled in from Main Program
   LangList = LangList 
   PrgmVersionID = PrgmVersionID 
   logfunction = logfunction 

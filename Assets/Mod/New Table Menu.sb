@@ -16,6 +16,10 @@ Sub Main
   LDControls.DataViewSetColumnCheckBox(DataView,6)
 EndSub 
 
+Sub Void
+  
+  EndSub
+
 Sub KD 
   If GraphicsWindow.LastKey = "F1"  Then 
     If Controls.GetTextBoxText(Table_Name ) <> "" Then 

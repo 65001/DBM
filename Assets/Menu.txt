@@ -19,7 +19,7 @@
 1=Menu;2=-;3=MainMenuHandler;4=File;
 
 #Import
-1=Menu;2=CSV;3=<Mod Parser>;4=Import;5=Import.CSV;
+1=Menu;2=CSV;3=<Mod Parser>;4=Import;5=Import.CSV_Interface;
 1=Menu;2=SQL;3=MainMenuHandler;4=Import;
 1=Menu;2=Converter;3=MainMenuHandler;4=Import;6=0;
 1=Menu;2=HTML To CSV;3=<Mod Parser>;4=Converter;5=HTML to CSV.Main;6=0;
