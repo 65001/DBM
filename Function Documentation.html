@@ -20,7 +20,7 @@
 			<table>
 				<thead>
 					<tr> 
-						<td id = "Main" + colspan = "9">Dev_Documentation</td>
+						<td id = "Main" + colspan = "9">Dev Documentation</td>
 					</tr>
 				</thead>
 				<tr>
@@ -116,15 +116,43 @@
 					<td>Add_UI_Controls</td>
 					<td>Adds a UI Control</td>
 					<td>
-					1= Type ( Menu , Register) 'Register only adds a existing control <br>
-					2 = Caption ,  Name <br>
-					3 = Handler   , Handler <br>
-					4 = NA, If Menu then Previous Node <br>
-					5 = Action ' Arguments to pass to the Handler . IF "" then nothing will be passed <br>
+						1= Type ( Menu , Register) <br>
+						2 = Caption / Name <br>
+						3 = Handler / Handler <br>
+						4 = NA, If Menu then Previous Node <br>
+						5 = Action <br>
+						You should only register controls that already exist. Argument 5 Can be a null value.
 					</td>
 					<td>NA</td>
 					<td>Yes</td>
 					<td>Function_UI_Add</td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>Load_DB</td>
+					<td>Loads a database</td>
+					<td>
+						<p> 1 = Engine Mode | Integer ONLY </p>
+						<p> 2 = URI or Array of Data </p>
+					</td>
+					<td>None</td>
+					<td>Yes</td>
+					<td>Function_Load_DB </td>
+					<td> </td>
+					<td>✕</td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>GetPath</td>
+					<td>Gets the URI of a Database</td>
+					<td>
+						No Arguments
+					</td>
+					<td>NA</td>
+					<td>Yes</td>
+					<td>Function_Get_DB</td>
 					<td> </td>
 					<td>✕</td>
 				</tr>

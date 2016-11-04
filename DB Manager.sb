@@ -47,6 +47,8 @@
 'Support for TEMP Tables has been added to the underlying dll and to his program as well.
 'New Table Menu added through Plugin Interface . You must copy and paste the SQL Code until a further revision
 'Refactored Load Settings so manually editing the settings file looks less messy
+'Save Settings : File will not be rewritten unless changes have been made
+'LOAD DB and GET Path have been made into functions.
 
 '_____________________________________________________________________________
 '                                                                                                 To do Elevated Priority 
@@ -123,6 +125,9 @@ Function_UI_Add = "Add_UI_Controls"
 Function_UI_Query = "Query_UI_Controls"
 Function_Handler_Universal = "Universal_Handler"
 
+Function_Load_DB = "Load_DB"
+Function_Get_DB = "GetPath"
+
 Function_RunMod_Parser = RunModParserFunction 
 Function_Command = CommandFunction
 Function_Query = QueryFunction
@@ -187,7 +192,7 @@ DB_Engine_Username = "1=1;2=1;3=1;4=0;5=0;"
 DB_Engine_Password = "1=1;2=1;3=1;4=0;5=0;"
 Engine_Mode = 4 
 
-LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer Primary Key,[UTC DATE] TEXT,[UTC TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
+LOG_DB_SQL = "CREATE TABLE IF NOT EXISTS Log (ID Integer PRIMARY KEY,[UTC DATE] TEXT,[UTC TIME] TEXT,Date TEXT,Time TEXT,USER TEXT,ProductID TEXT,ProductVersion INTEGER,Type TEXT,Event TEXT);"
 LOG_DB_SQL_View = "CREATE VIEW IF NOT EXISTS LOCAL_TIME AS SELECT ID,DATE,TIME,USER,PRODUCTID,PRODUCTVERSION,Type,Event From Log;"
 LOG_DB_SQL_View = LOG_DB_SQL_View +"CREATE VIEW IF NOT EXISTS UTC_TIME AS Select ID,[UTC DATE],[UTC TIME],USER,ProductID,ProductVersion,Type,Event From Log;"
 Transactions_SQL = "CREATE TABLE IF NOT EXISTS Transactions (ID INTEGER PRIMARY KEY,[UTC DATE] TEXT,[UTC TIME] TEXT,USER TEXT,PATH TEXT,DB TEXT,SNAME TEXT,SQL TEXT,Type TEXT,Reason TEXT);"
@@ -256,8 +261,7 @@ Sub Startup
   LDCall.Function2( logfunction , "Program Started",LangList["Application"]) '// Localize 
   
   If Program.ArgumentCount  = 1  Then
-    GetPath()
-    Load_DB()
+    LDCall.Function2(Function_Load_DB,4, LDCall.Function( Function_Get_DB ,"") )
   EndIf
   If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) And EULA_Test = 0   Then
     Startup_GUI()
@@ -436,7 +440,11 @@ EndSub
 
 Sub SaveSettings
   LDList.Add(List_Stack_Trace,"SaveSettings")
-  status=  File.WriteContents(settingspath,Settings)
+  
+  If Settings <> File.ReadContents(settingspath) Then
+    status =  File.WriteContents(settingspath,Settings)
+  EndIf 
+  
   If status = "FAILED" Then
     LDCall.Function2( logfunction ,"Failed to save settings","UI") 
     GraphicsWindow.ShowMessage(LangList["Failed Save Settings"] ,LangList["Error"]) 'Failed to Save Settings
@@ -446,35 +454,44 @@ EndSub
 Sub GetPath
   LDList.Add(List_Stack_Trace,"GetPath")
   If Program.ArgumentCount  = 1 AND LoadedFile = 0 Then
-    databasepath = Program.getArgument(1)
-    LoadedFile = 1 
+    return = Program.getArgument(1)
+    LoadedFile = 1 'Boolean Value indicating that the program has opened the data it recieved arguments for!
   Else
     If Engine_Mode = 4 Then 
-      databasepath = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
+      return = LDDialogs.OpenFile(SupportedExtensions,lastFolder+"\")
     EndIf 
   EndIf
 EndSub
 
 Sub Load_DB  
+  '2 Args 
+  '1 = Engine Mode (Integer)
+  '2 = All other Arguments { Array | String } 
+  
+  LOAD_DB_Args = args 
   LDList.Add(List_Stack_Trace,"Load_DB")
-  If Engine_Mode = 1 Then '//To DO
-    
-  ElseIf Engine_Mode = 2 Then '//To DO
-    
-  ElseIf Engine_Mode = 3 Then '//To DO
-    
-  ElseIf Engine_Mode = 4 And LDFile.Exists(databasepath) = "True" Then
-    database =  LDDataBase.ConnectSQLite(databasepath)
-    LDCall.Function2(logfunction, "Program Started - OPENED : " + databasepath ,LangList["Application"])'//Localize
-    Settings["LastFolder"] = LDFile.GetFolder(databasepath)
+  
+  If LOAD_DB_Args[1] = 1 Then '//To DO
+    '  LDDataBase.ConnectMySQL(Server, Username , Password , MySqlDB)
+  ElseIf LOAD_DB_Args[1] = 2 Then '//To DO
+    '  LDDataBase.ConnectOdbc( ODBC_Driver , Server , Port , Username , Password , Options , ODBC_DB )
+  ElseIf LOAD_DB_Args[1] = 3 Then '//To DO
+    '  LDDataBase.ConnectOleDb( OLDB_Provider , Server , OLDB_DB)
+  ElseIf LOAD_DB_Args[1] = 4 And LDFile.Exists(LOAD_DB_Args[2]) = "True" Then
+    database =  LDDataBase.ConnectSQLite(LOAD_DB_Args[2])
+    LDCall.Function2(logfunction, "Program Started - OPENED : " + LOAD_DB_Args[2] ,LangList["Application"])'//Localize
+    Settings["LastFolder"] = LDFile.GetFolder(LOAD_DB_Args[2])
     SaveSettings()
-    LDList.Add("DB_Path", databasepath ) 
+    LDList.Add("DB_Path", LOAD_DB_Args[2] ) 
     LDList.Add("DB_Name", database  ) 
-  ElseIf Engine_Mode = 5 Then '//To DO
-    
+    databasepath = LOAD_DB_Args[2] 
+  ElseIf LOAD_DB_Args[1] = 5 Then '//To DO
+    ' LDDataBase.ConnectSqlServer(Server , SQLServer_DB )
   Else
-    LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + databasepath,"Application" ) '//Localize
-    GraphicsWindow.ShowMessage("File Could not be found or opened ", "Fatal Error" ) '//Localize
+    If LOAD_DB_Args[1] = 4 Then 
+      LDCall.Function2(logfunction, "Program Started - Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
+    EndIf 
+    GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
   Endif
 EndSub
 
@@ -762,9 +779,8 @@ Sub MainMenuHandler
       
       listview = "" 
       Dataview = "" 
-      databasepath = NewFileSavePath 
       LoadSettings()
-      Load_DB()
+      LDCall.Function2( Function_Load_DB , 4 , NewFileSavePath )
       SaveSettings()
       Pre_MainMenuUI()
       MainMenuUI()
@@ -811,8 +827,7 @@ Sub MainMenuHandler
     listview = ""
     Dataview = ""
     LoadSettings() 'Reloads Settings 
-    GetPath()
-    Load_DB()
+    LDCall.Function2(Function_Load_DB,4, LDCall.Function(Function_Get_DB,"") )
     SaveSettings()
     Pre_MainMenuUI()
     MainMenuUI()
@@ -1588,9 +1603,11 @@ Sub Command 'Runs A Command Function
       Command_Parser_Length = Text.GetLength( CommandArgs[2] ) 
       For I = 1 to Command_Parser_Length
         Character = Text.GetSubText( CommandArgs[2] , I , 1 )
+        
         If debug_Parser = 1 Or (Clock.ElapsedMilliseconds - CMD_StartTime ) > Settings["TimeOut"] Then 
           TextWindow.Title = I + "/" + Command_Parser_Length + " " + Math.Floor( I/ Command_Parser_Length ) * 100 +"%"
         EndIf 
+        
         If  Character = ";" And InString = 0   Then
           LDList.Add(List_Command_Parser , String +";")
           String = ""
@@ -1638,7 +1655,7 @@ Sub Command 'Runs A Command Function
   EndIf 
 EndSub
 
-Sub TransactionRecord
+Sub TransactionRecord 'Direct SQL Commands are used to prevent a possible cycle of loops going to commands and then back to this Function
   LDList.Add(List_Stack_Trace,"TransactionRecord")
   TransactionArgs = args 
   If Transactions_mode = 1 Or ( Transactions_mode_Cmd = 1 Or Transactions_mode_Query = 1)  Then 
@@ -1675,16 +1692,13 @@ Sub Closing
 EndSub
 
 Sub ErrorHandler 
-  If MOD_Running = 1  Then 
-    debug_mode = 1 '<< ANNOYING AT TIMES
-  EndIf 
   TextWindow.ForegroundColor = "YELLOW"
   TextWindow.Write("Error Caught : " )
   TextWindow.Write( LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +":" ) 
   TextWindow.ForegroundColor = "WHITE"
   TextWindow.WriteLine(LangList["System"]+":" + LDEvents.LastError ) 
   
-  LDList.Add(List_Stack_Trace,"ErrorHandler")  
+  LDList.Add(List_Stack_Trace,"Error Handler")  
   LDCall.Function2(logfunction, LDEvents.LastError ,LangList["System"])
 EndSub
 
