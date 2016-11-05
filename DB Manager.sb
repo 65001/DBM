@@ -91,12 +91,12 @@
 '     Make a Server Mod ? 
 '     Make a Client Mod ? 
 'GUI For a Mod Manager 
-'Make  MOD Documentation
 
 '______________________________________________________________________________
 '                                                                                     Module Iniative
 '______________________________________________________________________________
 '   Make the Core Engine more modular
+'   Make all plugins more modular!
 
 
 StartTime[0] = Clock.ElapsedMilliseconds
@@ -1395,32 +1395,39 @@ EndSub
 Sub Add_UI_Controls '5 Args needed 
   LDList.Add(List_Stack_Trace,"Add_UI_Controls")
   Add_UI_Args =  args 
-  If Add_UI_Args[1] = "Menu" Then 
+  If Add_UI_Args[1] = "Menu" Then 'Menu Set of Instructions. Adds Element to the Menu by adding it to the Lists that build the menu.
     MenuList[ Add_UI_Args[2] ] = Add_UI_Args[4] 
-    If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 OR Add_UI_Args[2] ="-" Then 
+    If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 OR Add_UI_Args[2] ="-" Then 'NEW Menu element
       LDList.Add( List_UI_Name , Add_UI_Args[2] )
       LDList.Add( List_UI_Handler , Add_UI_Args[3] )
       LDList.Add( List_UI_Action , Add_UI_Args[5] )
-    Else 
+    Else 'Updated existing Menu element 
       Temp_UI_Num =  LDList.IndexOf( List_UI_Name , Add_UI_Args[2] )
       LDList.SetAt( List_UI_Handler , Temp_UI_Num , Add_UI_Args[3] )
       LDList.SetAt( List_UI_Action , Temp_UI_Num , Add_UI_Args[5])
+      Temp_UI_Num = "" 'Deallocates data
     EndIf 
-    return = 1
-  ElseIf Add_UI_Args[1] = Register Then 
-    If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 Then  
+    return = 1 'Ends Function
+  ElseIf Add_UI_Args[1] = Register Then 'Registers a UI control to a function that will be called when the UI element is triggered in some way.
+    If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 Then 'Adds a new UI control to the list
       LDList.Add( List_UI_Name , Add_UI_Args[2] )
       LDList.Add( List_UI_Handler , Add_UI_Args[3] )
       LDList.Add( List_UI_Action , Add_UI_Args[5] )
-    Else 
+    Else 'Updates an existing UI control
       Temp_UI_Num =  LDList.IndexOf( List_UI_Name , Add_UI_Args[2] )
       LDList.SetAt( List_UI_Handler , Temp_UI_Num , Add_UI_Args[3] )
       LDList.SetAt( List_UI_Action , Temp_UI_Num , Add_UI_Args[5])
+      Temp_UI_Num = "" 'Deallocates data
     EndIf
-    return = 1 
+    
+    If Add_UI_Args[4] <> "" Then 'Prevents a blank tooltip from being set!
+      LDDialogs.ToolTip( Add_UI_Args[2] , Add_UI_Args[4] )
+    EndIf 
+    
+    return = 1 'Ends Function
   Else 
-    LDCall.Function2(Function_Log ,"UI ADD: Parameters unknown" + Add_UI_Args , LangList["App"] ) 
-    return = "Parameters unknown"
+    LDCall.Function2(Function_Log ,"Function UI ADD: Parameters unknown" + Add_UI_Args , LangList["App"] ) 
+    return = "Parameters unknown" 'Ends Function
   EndIf 
 EndSub 
 
@@ -1731,8 +1738,9 @@ Sub Log
     LogNumber = LogNumber + 1
     File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( LDFile.UserName , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)
     
-    If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 
-      LOG_CMD = "INSERT INTO LOG (ID,[UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
+    If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 'To Prevent Stackoverflow Errors. Without this an error can cascade forever.
+      ' LOG_CMD = "INSERT INTO LOG (ID,[UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
+      LOG_CMD = "INSERT INTO LOG ([UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES(DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
       LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log")  '//Localize  
     EndIf 
     
