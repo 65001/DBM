@@ -1059,7 +1059,6 @@ Sub Display_Results
   LDCall.Function5( Function_UI_Add , Register, ASCDESC_CB,"" ,"","")
   LDCall.Function5( Function_UI_Add , Register, SortByCB ,"" ,"","")
   
-  
   'Search
   SearchByCB = LDControls.AddComboBox(List,200,120)
   SearchTextTB = Controls.AddTextBox(UIx + 100,210)
@@ -1095,7 +1094,7 @@ Sub Display_Results
   Controls.SetSize(CommandButton, 310 ,25)
   
   LDCall.Function5( Function_UI_Add , Register, CustomQueryButton , Function_Handler_MainMenu ,"","")
-  LDCall.Function5( Function_UI_Add ,Register, CommandButton , Function_Handler_MainMenu ,"","")
+  LDCall.Function5( Function_UI_Add ,Register, CommandButton , Function_Handler_MainMenu ,"Executes customized SQL command statements onto the database","") '//Localize
   
   Controls.SetTextBoxText(CustomQuery,"This Textbox allows you to use Custom" +CLLF+" SQL Queries. Remove this and type in an SQL"+CLLF+" statement."+CLLF+"You also use it to export data") '//Localize ??
   
@@ -1103,7 +1102,7 @@ Sub Display_Results
   Display_Results_MasterControlsList = Display_Results_MasterControlsList +"10="+CommandButton+";11="+FunctionListCB+";12="+ColumnListCB+";13="+RunFunctionButton+";"
 EndSub
 
-Sub Export_UI 'Currently not in use  
+Sub Export_UI 'Currently not in use . For future release.
   LDList.Add(List_Stack_Trace,"Export_UI")
   GraphicsWindow.Clear()
   If SortByMode = 1 Then 
@@ -1512,16 +1511,16 @@ Sub MOD_READ_AutoRunFile 'Reads all the Plugins the Application should run
   LDList.Add(List_Stack_Trace,"MOD_READ_AutoRunFile")
   AutoRunModFile_Cnts = LDFile.ReadToArray( AutoRunMod_Path ) 
   For I = 1 To Array.GetItemCount(AutoRunModFile_Cnts)
-    If Text.StartsWith(AutoRunModFile_Cnts[I] ,"#" ) <> "True" And AutoRunModFile_Cnts[I] <> " " Then
+    If Text.StartsWith(AutoRunModFile_Cnts[I] ,"#" ) <> "True" And AutoRunModFile_Cnts[I] <> " " Then 'Lines to Skip
       AutoRunMod_Cnts[ ( Array.GetItemCount( AutoRunMod_Cnts ) + 1 ) ] = AutoRunModFile_Cnts[I]
     EndIf 
   EndFor
 EndSub
 
-Sub MOD_AutoRun 'Runs all the plugins the Application should run
+Sub MOD_AutoRun 'Runs all the plugins the Application should run.
   LDList.Add(List_Stack_Trace,"MOD_AutoRun")
   For I = 1 To Array.GetItemCount( AutoRunMod_Cnts ) 
-    LDCall.Function( Function_RunMod_Parser , AutoRunMod_Cnts[I])
+    LDCall.Function( Function_RunMod_Parser , AutoRunMod_Cnts[I]) 
   EndFor 
 EndSub 
 
@@ -1668,11 +1667,11 @@ Sub TransactionRecord 'Direct SQL Commands are used to prevent a possible cycle 
   TransactionArgs = args 
   If Transactions_mode = 1 Or ( Transactions_mode_Cmd = 1 Or Transactions_mode_Query = 1)  Then 
     If Array.GetItemCount(TransactionArgs ) = 5 Then
-      If (TransactionArgs[4] = "CMD" And Transactions_mode_Cmd = 1 ) Or ( TransactionArgs[4] = "Query" And Transactions_mode_Query = 1 )Then 
+      If (TransactionArgs[4] = "CMD" And Transactions_mode_Cmd = 1 ) Or ( TransactionArgs[4] = "Query" And Transactions_mode_Query = 1 )Then 'Known Parameters
         Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
         Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
         LDDataBase.Command( TransactionDB , Transactions_SQL ) 
-      ElseIf TransactionArgs[4] <> "Query" AND TransactionArgs[4] <> "CMD" Then
+      ElseIf TransactionArgs[4] <> "Query" AND TransactionArgs[4] <> "CMD" Then 'Unknown Parameters. Logging just in case a plugin is passing the Paramters.
         Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
         Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,[UTC DATE],[UTC TIME],PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
         LDDataBase.Command( TransactionDB , Transactions_SQL )  
@@ -1739,7 +1738,6 @@ Sub Log
     File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( LDFile.UserName , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)
     
     If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 'To Prevent Stackoverflow Errors. Without this an error can cascade forever.
-      ' LOG_CMD = "INSERT INTO LOG (ID,[UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES('"+LogNumber+"',DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
       LOG_CMD = "INSERT INTO LOG ([UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES(DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
       LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log")  '//Localize  
     EndIf 
