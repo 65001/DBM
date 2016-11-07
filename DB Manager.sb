@@ -153,6 +153,11 @@ List_UI_Name = "UI_Name"
 List_UI_Handler = "UI_Handler"
 List_UI_Action = "UI_Action" 
 List_Stack_Trace = "Stack_Trace"
+
+List_SCHEMA_Table = "SCHEMA_TABLE"
+List_SCHEMA_View = "SCHEMA_VIEW"
+List_Schema_Index = " SCHEMA_INDEX"
+
 '______________________________________________________________________________
 '                                                                                     Variables
 '______________________________________________________________________________
@@ -266,7 +271,7 @@ Sub Startup
   EndIf
   If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) And EULA_Test = 0   Then
     Startup_GUI()
-  Else
+  Else 'Passes to EULA
     SaveSettings()
     EULA_UI()
   EndIf
@@ -447,7 +452,7 @@ Sub SaveSettings
   EndIf 
   
   If status = "FAILED" Then
-    LDCall.Function2( Function_Log ,"Failed to save settings","UI") 
+    LDCall.Function2( Function_Log ,"Failed to save settings",LangList["UI"]) 
     GraphicsWindow.ShowMessage(LangList["Failed Save Settings"] ,LangList["Error"]) 'Failed to Save Settings
   EndIf
 EndSub
@@ -511,10 +516,9 @@ Sub EULA_UI
   
   LDControls.RichTextBoxReadOnly = "True"
   
-  If LDFile.GetExtension(EULAFile) = "html" Then 
+  If LDFile.GetExtension(EULAFile) = "html" Then 'For html files 
     eulatextbox =  LDControls.AddBrowser(600,350,"file:///"+EULAFile)
-    
-  Else 
+  Else 'RTF Text Box
     eulatextbox =  LDControls.AddRichTextBox(600,350)
   EndIf 
   Controls.Move(eulatextbox,10,10)
@@ -523,7 +527,7 @@ Sub EULA_UI
   OnlineEULACnts  = File.ReadContents( EULAFile)
   OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
   
-  If Ping = "-1" Then
+  If Ping = "-1" Then 'If Ping to Google DNS has failed add the following
     LDCall.Function2( Function_Log ,LangList["Failed Load Online EULA"],LangList["Error"])
     EULAContents = Text.Append("This is the EULA that came with this program. This may not be the most latest EULA. Subject to Section 5 Subsection C the most latest EULA can be found here:" +Text.GetCharacter(10) + OnlineEULaPath +Text.GetCharacter(10) ,File.ReadContents(EULAFile) )
   Else
@@ -531,7 +535,7 @@ Sub EULA_UI
     File.WriteContents(EULAFile, EULAContents)
   EndIf
   
-  If EULAContents = "" Then
+  If EULAContents = "" Then 'NO EULA found.
     LDCall.Function2( Function_Log , "NO EULA FOUND. Local or Online","UI")'//Localize 
     GraphicsWindow.ShowMessage("EULA could not be loaded. This program cannot start without its EULA." "EULA LOAD ERROR")'//Localize 
     Program.End()
@@ -759,7 +763,7 @@ Sub MainMenuHandler
   If args[1] <> "" Then 
     LastClickedButton = args[1] 
     If debug_mode = 1 Then 
-      Textwindow.writeline(args[1])
+      Textwindow.writeline("Main Menu Handler " + args[1])
     EndIf 
   EndIf 
   
@@ -1289,18 +1293,17 @@ Sub GenerateQuery
   StrictSearchChecked = LDControls.CheckBoxGetState(StrictSearchCheckBox)
   FunctionListGQ = LDControls.ComboBoxGetSelected( FunctionListCB )
   ColumnListGQ = LDControls.ComboBoxGetSelected( ColumnListCB)
-  SearchTextGQ = Controls.GetTextBoxText(SearchTextTB)
+  SearchTextGQ = LDText.Replace( Controls.GetTextBoxText(SearchTextTB) ,"'","''")  'Protects from SQL injection attacks and the like
   
   CMD = "" 'Techincally not needed , keep it in for clarity 
   CMD = "SELECT * FROM " +Default_Table +" "
   If Results_Sort = 1 Then ' Do Nothing :) 
   ElseIf Results_Search = 1 Then
-    SearchTextGQ = LDText.Replace(SearchByGQ,"'","''")
     CMD = CMD + "WHERE "+ List[SearchByGQ]
-    If StrictSearchChecked = "False" Then ' Non Strict
-      CMD = CMD +" LIKE '%" + Controls.GetTextBoxText(SearchTextTB)+"%' "
-    Else 'Strict
-      CMD = CMD +"='" + Controls.GetTextBoxText(SearchTextTB)+"' "
+    If StrictSearchChecked = "False" Then ' Non Strict Search
+      CMD = CMD +" LIKE '%" + SearchTextGQ+"%' "
+    Else 'Strict Search
+      CMD = CMD +"='" + SearchTextGQ+"' "
     EndIf
   ElseIf Results_Function = 1 Then
     CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" +"[" + List[ColumnListGQ]+"]" +") FROM " +Default_Table +" "
@@ -1318,11 +1321,9 @@ Sub GenerateQuery
 EndSub
 
 Sub Get_SCHEMA
-  SCHEMA_TableList = ""
-  SCHEMA_IndexList = ""
-  SCHEMA_ViewList = ""
   LDList.Add(List_Stack_Trace,"Get_SCHEMA")
   If database <> "" Then 'Prevents Application from querying a nonexistent db 
+
     TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='table';","","True",LangList["App"],"SCHEMA")
     ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='view';","","True",LangList["App"],"SCHEMA")
     IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='index';","","True",LangList["App"],"SCHEMA")
@@ -1333,29 +1334,37 @@ Sub Get_SCHEMA
     
     'Permanent Entries 
     For I = 1 To Array.GetItemCount(TableList)
-      SCHEMA_TableList[I] = TableList[I]["tbl_name"]
+      LDList.Add(List_SCHEMA_Table,TableList[I]["tbl_name"])
     EndFor
     
     For I = 1 To Array.GetItemCount(ViewList)
-      SCHEMA_ViewList[I] = ViewList[I]["tbl_name"] 
+      LDList.Add(List_SCHEMA_View,ViewList[I]["tbl_name"] )
     EndFor
     
     For I = 1 To Array.GetItemCount(IndexList)
-      SCHEMA_IndexList[I] = IndexList[I]["tbl_name"] 
+      LDList.Add(List_Schema_Index,IndexList[I]["tbl_name"] )
     EndFor
     
     'Temporary Entries
     For I = 1 To Array.GetItemCount(Table_Temp_Array ) 
-      SCHEMA_TableList[( Array.GetItemCount( SCHEMA_TableList) + 1 )] = Table_Temp_Array[I]["tbl_name"]
+      LDList.Add(List_SCHEMA_Table,Table_Temp_Array[I]["tbl_name"])
     EndFor 
     
     For I = 1 To Array.GetItemCount(View_Temp_Array )
-      SCHEMA_ViewList[(Array.GetItemCount( SCHEMA_ViewList ) + 1)] = View_Temp_Array[I]["tbl_name"]
+      LDList.Add(List_SCHEMA_View,View_Temp_Array[I]["tbl_name"])
     EndFor
     
     For I = 1 To Array.GetItemCount(Index_Temp_List) 
-      SCHEMA_IndexList[(Array.GetItemCount( SCHEMA_IndexList ) + 1)] = Index_Temp_List[I]["tbl_name"] 
+      LDList.Add(List_Schema_Index,Index_Temp_List[I]["tbl_name"] )
     EndFor
+    
+    SCHEMA_TableList = LDList.ToArray( List_SCHEMA_Table )
+    SCHEMA_ViewList = LDList.ToArray(List_SCHEMA_View )
+    SCHEMA_IndexList = LDList.ToArray(List_Schema_Index)
+    
+    LDList.Clear( List_SCHEMA_Table)
+    LDList.Clear( List_SCHEMA_View )
+    LDList.Clear( List_Schema_Index)
     
     Default_Table = SCHEMA_TableList[1]
     LDList.Add(TrackDefaultTable,1)
@@ -1387,12 +1396,12 @@ Sub XML_Fetch_All
   XML_Array[5] = LDxml.NodeType
   XML_Array[6] = LDxml.NodeInnerText 
   
-  XML_Array_SCHEMA ="1=Attributes:;2=Attribute Count:;3=Children count:;4=Node Name:;5=Node Type:;"
+  XML_Array_SCHEMA ="1=Attributes:;2=Attribute Count:;3=Children count:;4=Node Name:;5=Node Type:;6=Node Inner Text:;" 'Descriptions of Returned Data
   return = XML_Array 
 EndSub
 
 Sub Add_UI_Controls '5 Args needed 
-  LDList.Add(List_Stack_Trace,"Add_UI_Controls")
+  LDList.Add(List_Stack_Trace,"Add_UI_Controls | Function UI Add")
   Add_UI_Args =  args 
   If Add_UI_Args[1] = "Menu" Then 'Menu Set of Instructions. Adds Element to the Menu by adding it to the Lists that build the menu.
     MenuList[ Add_UI_Args[2] ] = Add_UI_Args[4] 
@@ -1431,16 +1440,16 @@ Sub Add_UI_Controls '5 Args needed
 EndSub 
 
 Sub Query_UI_Controls
-  LDList.Add(List_Stack_Trace,"Query_UI_Controls")
+  LDList.Add(List_Stack_Trace,"Query_UI_Controls | Function UI Query")
   Query_UI_Args = args  
   If Query_UI_Args[1] = "Menu" Or Query_UI_Args[1] = Register Then 
     Query_UI_Index = LDList.IndexOf( List_UI_Name , Query_UI_Args[2] )
-    If Query_UI_Index <> 0 Then 
+    If Query_UI_Index <> 0 Then 'Protects from calling a nonexistent entry
       return =  LDList.GetAt( List_UI_Handler , Query_UI_Index )
     EndIf 
   ElseIf Query_UI_Args[1] = "Action" Then
     Query_UI_Index = LDList.IndexOf( List_UI_Name , Query_UI_Args[2] )
-    If Query_UI_Index <> 0 Then 
+    If Query_UI_Index <> 0 Then 'Protects from calling a nonexistent entry
       return = LDList.GetAt( List_UI_Action ,Query_UI_Index )
     EndIf 
   Else
@@ -1544,7 +1553,7 @@ Sub MOD_RUN_Parser
   
   If Mod_Name[ Mod_Run_Args[1] ] <> "" And Array.GetItemCount(Mod_Run_Args) = 2 Then 'If the Mod basically is known to exist and has been included
     return =  LDCall.CallInclude(Mod_Name[ Mod_Run_Args[1] ],Mod_Run_Args[2])   
-    If Dynamically_Added_Mod = 1 And debug_mode = 1 Then 'Debug type info , usefull only to developers 
+    If Dynamically_Added_Mod = 1 And debug_mode = 1 Then 'Debug type info , usefull only to developers. Hence it is supressed unless debug mode is ON
       LDCall.Function2(Function_Log ,"Dynamically added " + Temp_Mod_Name + " ("+Mod_Name[  Temp_Mod_Name ]+")" + " FROM " + Temp_Mod_Path, LangList["System"])  
       Temp_Mod_Name = ""
       Temp_Mod_Path = "" 
