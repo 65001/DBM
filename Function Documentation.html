@@ -24,14 +24,14 @@
 					</tr>
 				</thead>
 				<tr>
-					<th>Id</th>
+					<th>ID</th>
 					<th>NAME</th>
 					<th>DESCRIPTION</th>
 					<th>Arguments</th>
 					<th>Return</th>
 					<th>Function</th>
-					<th>Function_Name1</th>
-					<th>Function_Name2</th>
+					<th>Function Name 1</th>
+					<th>Function Name 2</th>
 					<th>Parameter # Mismatch Check </th>
 				</tr>
 				<tr>
@@ -117,13 +117,13 @@
 					<td>Adds a UI Control</td>
 					<td>
 						1= Type ( Menu , Register) <br>
-						2 = Caption / Name <br>
-						3 = Handler / Handler <br>
-						4 = NA, If Menu then Previous Node <br>
+						2 = Caption | Name <br>
+						3 = Handler | Handler <br>
+						4 = Previous Menu Node | ToolTip <br>
 						5 = Action <br>
-						You should only register controls that already exist. Argument 5 Can be a null value.
+						You should only register controls that already exist. Argument 5 Can be a null value if no argument is to be passed.
 					</td>
-					<td>NA</td>
+					<td>1 for success or a error message</td>
 					<td>Yes</td>
 					<td>Function_UI_Add</td>
 					<td> </td>
@@ -146,11 +146,11 @@
 				<tr>
 					<td>10</td>
 					<td>GetPath</td>
-					<td>Gets the URI of a Database</td>
+					<td>Gets the URI of a Database by getting the user to select a Database file to load in.</td>
 					<td>
-						No Arguments
+						No Arguments.
 					</td>
-					<td>NA</td>
+					<td>URI of the Database file if one is given. Otherwise returns null.</td>
 					<td>Yes</td>
 					<td>Function_Get_DB</td>
 					<td> </td>
