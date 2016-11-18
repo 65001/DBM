@@ -1070,6 +1070,7 @@ Sub Show_Display_Results
   GraphicsWindow.DrawText( UIx + 100 , 150 , LangList["Search Settings"])
   GraphicsWindow.DrawText( UIx + 20,180,LangList["Search in"])
   GraphicsWindow.DrawText( UIx + 20,210,LangList["Search"] +":")
+  GraphicsWindow.FontSize = Default_FontSize
   For I = 1 To Array.GetItemCount(Display_Results_MasterControlsList)
     Controls.ShowControl(Display_Results_MasterControlsList[I] )
   EndFor
