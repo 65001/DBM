@@ -1107,9 +1107,9 @@ Sub Display_Results
   Controls.Move(ASCDESC_CB,  UIx + 190, 72)
   Controls.SetSize(SortButton,290,25)
   
-  LDCall.Function5( Function_UI_Add , Register, SortButton , Function_Handler_MainMenu ,"","")
-  LDCall.Function5( Function_UI_Add , Register, ASCDESC_CB,"" ,"","")
-  LDCall.Function5( Function_UI_Add , Register, SortByCB ,"" ,"","")
+  LDCall.Function5( Function_UI_Add , Register, SortButton , Function_Handler_MainMenu ,"Iniates a sort based on user set parameters","") '//Localize 
+  LDCall.Function5( Function_UI_Add , Register, ASCDESC_CB,"" ,"Sorts Ascending and Decending based on position","") '//Localize 
+  LDCall.Function5( Function_UI_Add , Register, SortByCB ,"" ,"","") 
   
   'Search
   SearchByCB = LDControls.AddComboBox(List,200,120)
