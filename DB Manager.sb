@@ -38,19 +38,20 @@
 
 'v1118
 'Added over a better failsafe system for EULA not being accessiable due to internet outages
-'Added a Menu.txt file that follows Add_UI_Controls argument pattern that allows Plugins to add UI Items without being loaded . Hence reducing Startup Time
-'     An additonal item 6 represents whether or not an item has been localized. By setting it to 1 the Program will attempt to use the localiztion set in the relavent localization file
+'Added a Menu.txt file that follows Add_UI_Controls argument pattern that allows Plugins to add UI Items without being loaded . Hence reducing Startup Time for setups with plugins that utilize this new feature
+'     An additonal item 6 represents whether or not an item has been localized. By setting it to 0 the Program will NOT attempt to use the localiztion set in the relavent localization file. By default this value is 1 unless specified.
 'Version 1118 is the last version that will have any obselete functions . All obselete functions will be commented out
 'Added a pusedo stack trace system that has been implemented into  nearly all parts of the program
 
 'v1119
-'Support for TEMP Tables has been added to the underlying dll and to his program as well.
+'Support for TEMP Tables has been added by a Third Party dev to the underlying dll and to hene this program as well.
 'New Table Menu added through Plugin Interface . You must copy and paste the SQL Code until a further revision
 'Refactored Load Settings so manually editing the settings file looks less messy
 'Save Settings : File will not be rewritten unless changes have been made
 'LOAD DB and GET Path have been made into functions.
 'Revised ADD UI Function to add for the ability to set tooltips and the like.
 'Added Support for toggling between multiple database connections
+'Fixed Font Size Related bugs
 
 '_____________________________________________________________________________
 '                                                                                                 To do Elevated Priority 
@@ -170,6 +171,7 @@ List_DB_Tracker = "DB_Tracking"
 '                                                                                     Variables
 '______________________________________________________________________________
 Register = "Register"
+NO_DB = "<None>"
 
 LDUtilities.ShowErrors = "False"
 LDUtilities.ShowFileErrors= "False"
@@ -237,7 +239,7 @@ OnlineEULAHTMLPath = "https://drive.google.com/uc?export=download&id=0B2v4xbFnpK
 OnlineDB_Refrence_Location = "https://docs.google.com/uc?id=0B2v4xbFnpKvRVmNVODZ4bnppd3c&export=download" 'Update DB Path 
 
 Ping = LDNetwork.Ping("8.8.8.8",500)
-If Ping <> "-1" Then 'Pings Google DNS Server
+If Ping <> "-1" Then 'Pings Google DNS Server ; This server will probably never be down
   StartTime[1] = Clock.ElapsedMilliseconds
   LDNetwork.DownloadFile(EULAFile,OnlineEULaPath)
   LDNetwork.DownloadFile(EULA_HTML_File,OnlineEULAHTMLPath)
@@ -266,11 +268,11 @@ NEULA_Version =""
 '______________________________________________________________________________
 Startup()
 
-Sub Startup
-  LDList.Add(List_Stack_Trace,"Startup")
+Sub Startup 'Akin to Main in C#
+  LDList.Add(List_Stack_Trace,"Startup") 'Adds subroutine used for better debugging purposes 
   LoadSettings()
   Int_DB() 'Creates The Databases used for logging error and transactions 
-  MOD_Find_All() 
+  MOD_Find_All() 'Finds all Mods Placed in the Mod Folder
   Localization_XML()
   LDCall.Function2( Function_Log , "Program Started",LangList["Application"]) '// Localize 
   
@@ -303,6 +305,11 @@ Sub Int_DB
   
   LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
   TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 'Creates Transaction DB Path
+  
+  LDList.Add(List_DB_Path, "<None>" ) '//Localize
+  LDList.Add(List_DB_Name, "<None>" ) 
+  LDList.Add(List_DB_ShortName,"<None>") '//Localize
+  
   
   LDList.Add(List_DB_Path, LogDBpath ) 
   LDList.Add(List_DB_Name, Log_DB ) 
@@ -517,10 +524,15 @@ Sub Load_DB
   ElseIf LOAD_DB_Args[1] = 5 Then '//To DO
     ' LDDataBase.ConnectSqlServer(Server , SQLServer_DB )
   Else
-    If LOAD_DB_Args[1] = 4 Then 
+    If LOAD_DB_Args[1] = 4 And LOAD_DB_Args[2] <> "<None>" Then '//Localize
       LDCall.Function2(Function_Log, "Program Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
+      GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
+    Else 
+      If LOAD_DB_Args[2] <> "<None>" Then 
+        GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
+      EndIf 
     EndIf 
-    GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
+    
   Endif
 EndSub
 
@@ -733,22 +745,22 @@ Sub ComboBoxChanged
   ElseIf LastClickedCB = DataBaseCB Then 
     
     If LDList.GetAt(List_DB_Tracker,LDList.Count(List_DB_Tracker)) <> LastCBIndex Then 
-      TextWindow.WriteLine( LDList.ToArray(List_DB_ShortName) )
-      TextWindow.WriteLine( LDList.GetAt(List_DB_ShortName , LastCBIndex) )
       LDList.Add( List_DB_Tracker , LDList.GetAt(List_DB_ShortName,LastCBIndex))
       LDCall.Function2( Function_Load_DB , 4, LDList.GetAt(List_DB_Path,LastCBIndex) )
-      Get_SCHEMA()
-      Get_SCHEMA_Private()
+      Get_SCHEMA() 'Fetches Schema of everything in the new DB
+      Get_SCHEMA_Private() 'Fetches Schema of Current Default Table
       LDCall.Function(Function_Handler_ComboBox,TableCB)
       LDCall.Function(Function_Handler_ComboBox,SortByCB)
-      If SortByMode <> 4 Then 
+      If SortByMode <> 4 Then 'Sets Defalt Table in most instances to the first table that exists
         LDControls.ComboBoxContent(TableCB,SCHEMA_TableList)
         LDControls.ComboBoxSelect(TableCB,1)
+        LDControls.ComboBoxSelect(SortsCB,1)
         Default_Table = SCHEMA_TableList[1]
       Else 
         Default_Table = "sqlite_master" 
         LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";")
       EndIf 
+      Get_SCHEMA_Private() 'Fetches Schema of Current Default Table
       LDCall.Function( Function_Handler_Universal , ViewDB_Button )
     EndIf 
   ElseIf LastClickedCB = SortsCB Then 
@@ -1438,7 +1450,11 @@ EndSub
 
 Sub Set_Title
   LDList.Add(List_Stack_Trace,"Set_Title")
-  GraphicsWindow.Title = title + " " + database_ShortName +"("+database+") " +LangList[ "Table" ] +": " + Default_Table 
+  If database <> "" Then 
+    GraphicsWindow.Title = title + " " + database_ShortName +"("+database+") : " +LangList[ "Table" ] +" : " + Default_Table 
+  Else 
+    GraphicsWindow.Title = title 
+    EndIf 
 EndSub
 
 Sub XML_Fetch_All
@@ -1484,8 +1500,7 @@ Sub Add_UI_Controls '5 Args needed
     
     If Add_UI_Args[4] <> "" Then 'Prevents a blank tooltip from being set!
       LDDialogs.ToolTip( Add_UI_Args[2] , Add_UI_Args[4] )
-    EndIf 
-    
+    EndIf    
     return = 1 'Ends Function
   Else 
     LDCall.Function2(Function_Log ,"Function UI ADD: Parameters unknown" + Add_UI_Args , LangList["App"] ) 
@@ -1638,15 +1653,17 @@ EndSub
 Sub Query
   LDList.Add(List_Stack_Trace,"Query")
   QueryArgs = args
-  If database <> "" Then 
+  If database <> "" And database <> NO_DB Then 
     If Text.IsSubText(QueryArgs[5] , "SCHEMA" ) <> "True" Then 
       LDCall.Function5( TransactionFunction, QueryArgs[4] , database , QueryArgs[1] , "Query" , QueryArgs[5] ) 
     EndIf
     return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
   Else 
-    LDCall.Function2(Function_Log, LangList["Query Error"] + ": " + LangList["Error No DB"]  , LangList["UI"] )
-    GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Query Error"] ) 
-    return = LangList["Error No DB"]
+    If database <> NO_DB Then 
+      LDCall.Function2(Function_Log, LangList["Query Error"] + ": " + LangList["Error No DB"]  , LangList["UI"] )
+      GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Query Error"] ) 
+      return = LangList["Error No DB"]
+    EndIf 
   EndIf 
 EndSub
 '______________________________________________________________________________
