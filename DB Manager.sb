@@ -49,6 +49,8 @@
 'Refactored Load Settings so manually editing the settings file looks less messy
 'Save Settings : File will not be rewritten unless changes have been made
 'LOAD DB and GET Path have been made into functions.
+'Revised ADD UI Function to add for the ability to set tooltips and the like.
+'Added Support for toggling between multiple database connections
 
 '_____________________________________________________________________________
 '                                                                                                 To do Elevated Priority 
@@ -56,6 +58,7 @@
 'Add ability to change ALL Flexible File Settings Through UI
 'Add Instrumentation that tells how long the program spends in each subroutine or function
 'Change Export.SQL to support a more PRAGMA Schema data.
+'Add support for multiple DB conncetions
 
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding - Normal Priority
@@ -157,6 +160,11 @@ List_Stack_Trace = "Stack_Trace"
 List_SCHEMA_Table = "SCHEMA_TABLE"
 List_SCHEMA_View = "SCHEMA_VIEW"
 List_Schema_Index = " SCHEMA_INDEX"
+
+List_DB_Path = "DB_Path"
+List_DB_Name = "DB_Name"
+List_DB_ShortName = "DB_SName"
+List_DB_Tracker = "DB_Tracking"
 
 '______________________________________________________________________________
 '                                                                                     Variables
@@ -294,13 +302,15 @@ Sub Int_DB
   EndIf 
   
   LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
-  TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 
+  TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 'Creates Transaction DB Path
   
-  LDList.Add("DB_Path", LogDBpath ) 
-  LDList.Add("DB_Name", Log_DB ) 
+  LDList.Add(List_DB_Path, LogDBpath ) 
+  LDList.Add(List_DB_Name, Log_DB ) 
+  LDList.Add(List_DB_ShortName,"Master Log")
   
-  LDList.Add("DB_Path", TransactionDBpath ) 
-  LDList.Add("DB_Name", TransactionDB ) 
+  LDList.Add(List_DB_Path, TransactionDBpath ) 
+  LDList.Add(List_DB_Name, TransactionDB )
+  LDList.Add(List_DB_ShortName,"Master Transaction Log") 
   
   LDDataBase.Command( TransactionDB , Transactions_SQL)
   LDCall.Function4( CommandFunction , LOG_DB , LOG_DB_SQL,"App","Auto Creation Statements" ) ' Cannot be Localized 
@@ -440,7 +450,6 @@ Sub LoadSettings
     Transaction_DB_Path_Temp = Settings["Transaction_DB"]
   EndIf 
   
-  
   SaveSettings()
 EndSub
 
@@ -484,18 +493,32 @@ Sub Load_DB
   ElseIf LOAD_DB_Args[1] = 3 Then '//To DO
     '  LDDataBase.ConnectOleDb( OLDB_Provider , Server , OLDB_DB)
   ElseIf LOAD_DB_Args[1] = 4 And LDFile.Exists(LOAD_DB_Args[2]) = "True" Then
-    database =  LDDataBase.ConnectSQLite(LOAD_DB_Args[2])
-    LDCall.Function2(Function_Log, "Program Started - OPENED : " + LOAD_DB_Args[2] ,LangList["Application"])'//Localize
-    Settings["LastFolder"] = LDFile.GetFolder(LOAD_DB_Args[2])
-    SaveSettings()
-    LDList.Add("DB_Path", LOAD_DB_Args[2] ) 
-    LDList.Add("DB_Name", database  ) 
-    databasepath = LOAD_DB_Args[2] 
+    
+    If LDList.IndexOf(List_DB_Path,LOAD_DB_Args[2]) = 0 Then 'New Database Connection :)
+      databasepath = LOAD_DB_Args[2] 
+      database =  LDDataBase.ConnectSQLite(LOAD_DB_Args[2])
+      database_ShortName =   LDFile.GetFile(LOAD_DB_Args[2])
+      LDCall.Function2(Function_Log, "OPENED : " + LOAD_DB_Args[2] ,LangList["Application"])'//Localize
+      Settings["LastFolder"] = LDFile.GetFolder(LOAD_DB_Args[2])
+      SaveSettings()
+      LDList.Add(List_DB_Path, LOAD_DB_Args[2] ) 
+      LDList.Add(List_DB_Name, database  ) 
+      LDList.Add(List_DB_ShortName, database_ShortName ) 
+      LDList.Add(List_DB_Tracker,database_ShortName)
+    Else 'Existing Database connection 
+      Load_DB_Index = LDList.IndexOf(List_DB_Path,LOAD_DB_Args[2])
+      databasepath = LDList.GetAt(List_DB_Path, Load_DB_Index )
+      database = LDList.GetAt(List_DB_Name, Load_DB_Index )
+      database_ShortName = LDList.GetAt(List_DB_ShortName, Load_DB_Index )
+      LDList.Add(List_DB_Tracker,database_ShortName)
+      LDCall.Function2(Function_Log, "OPENED : " + LOAD_DB_Args[2] ,LangList["Application"])'//Localize
+    EndIf 
+    
   ElseIf LOAD_DB_Args[1] = 5 Then '//To DO
     ' LDDataBase.ConnectSqlServer(Server , SQLServer_DB )
   Else
     If LOAD_DB_Args[1] = 4 Then 
-      LDCall.Function2(Function_Log, "Program Started - Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
+      LDCall.Function2(Function_Log, "Program Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
     EndIf 
     GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
   Endif
@@ -623,7 +646,6 @@ Sub MainMenuUI
   GraphicsWindow.CanResize = "True"
   LDGraphicsWindow.ExitButtonMode(GraphicsWindow.Title,"Enabled")
   
-  
   If debug_mode = 1 Then 
     CheckList[ LangList["Toggle Debug"]] = "True"
     LDCall.Function2( Function_Log , "Debug Mode is ON","UI")
@@ -637,7 +659,6 @@ Sub MainMenuUI
     CheckList[LangList["Toggle Transaction Log"]] = "False" 
   EndIf
   
-  'GraphicsWindow.Clear() 'Is this nessecarry ?? //TO DO //LOCALIZE //FLAG 
   LDGraphicsWindow.State = 2
   GraphicsWindow.Title = title + " " 
   
@@ -656,17 +677,20 @@ Sub MainMenuUI
   GraphicsWindow.FontSize = Default_FontSize
   TableCB =  LDControls.AddComboBox(SCHEMA_TableList,100,100) 
   SortsCB =  LDControls.AddComboBox(TypesOfSorts,100,100) 
+  DataBaseCB = LDControls.AddComboBox( LDList.ToArray(List_DB_ShortName),100,100 ) 
   
-  Controls.Move(TableCB,970,5)
-  Controls.Move(SortsCB,1075,5) 
+  Controls.Move(TableCB,970+85,5)
+  Controls.Move(SortsCB,1075+85,5) 
+  Controls.Move(DataBaseCB,950,5)
   
   LDCall.Function5( Function_UI_Add , Register , TableCB , Function_Handler_ComboBox ,"","")
   LDCall.Function5( Function_UI_Add , Register , SortsCB , Function_Handler_ComboBox ,"","")
+  LDCall.Function5( Function_UI_Add , Register , DataBaseCB , Function_Handler_ComboBox ,"","")
   
   LastClickedButton = ViewDB_Button 'Acts like a Virtual Function Call  
   MainMenuHandler()
   
-  GraphicsWindow.Title = title + " " +LangList[ "Table" ] +": " + Default_Table 
+  Set_Title()
   
   Ldcontrols.MenuClicked = Universal_MenuClicked 
   LDControls.ComboBoxItemChanged = Universal_ComboBoxChanged
@@ -692,7 +716,7 @@ Sub ComboBoxChanged
   
   LastCBIndex = LDControls.LastComboBoxIndex
   If LastClickedCB = TableCB Then 
-    If  LDList.GetAt(TrackDefaultTable,LDList.Count(TrackDefaultTable)) <> LastCBIndex Then
+    If  LDList.GetAt(TrackDefaultTable,LDList.Count(TrackDefaultTable)) <> LastCBIndex Then 'Prevents Loading the same table if it is currently on screen
       LDList.Add(TrackDefaultTable,LastCBIndex)
       Default_Table = SCHEMA_CurrentList[ LastCBIndex ]
       
@@ -702,9 +726,30 @@ Sub ComboBoxChanged
       LDControls.ComboBoxContent(SortByCB ,SchemaList)
       LDControls.ComboBoxContent(SearchByCB, SchemaList )
       LDControls.ComboBoxContent(ColumnListCB, SchemaList )
-      GraphicsWindow.Title = title + TypesOfSorts[SortByMode] +": "  + Default_Table
+      Set_Title()
       LastClickedButton = ViewDB_Button
       MainMenuHandler()
+    EndIf 
+  ElseIf LastClickedCB = DataBaseCB Then 
+    
+    If LDList.GetAt(List_DB_Tracker,LDList.Count(List_DB_Tracker)) <> LastCBIndex Then 
+      TextWindow.WriteLine( LDList.ToArray(List_DB_ShortName) )
+      TextWindow.WriteLine( LDList.GetAt(List_DB_ShortName , LastCBIndex) )
+      LDList.Add( List_DB_Tracker , LDList.GetAt(List_DB_ShortName,LastCBIndex))
+      LDCall.Function2( Function_Load_DB , 4, LDList.GetAt(List_DB_Path,LastCBIndex) )
+      Get_SCHEMA()
+      Get_SCHEMA_Private()
+      LDCall.Function(Function_Handler_ComboBox,TableCB)
+      LDCall.Function(Function_Handler_ComboBox,SortByCB)
+      If SortByMode <> 4 Then 
+        LDControls.ComboBoxContent(TableCB,SCHEMA_TableList)
+        LDControls.ComboBoxSelect(TableCB,1)
+        Default_Table = SCHEMA_TableList[1]
+      Else 
+        Default_Table = "sqlite_master" 
+        LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";")
+      EndIf 
+      LDCall.Function( Function_Handler_Universal , ViewDB_Button )
     EndIf 
   ElseIf LastClickedCB = SortsCB Then 
     SortsCB_IndexList[1] = SCHEMA_TableList
@@ -735,14 +780,12 @@ Sub ComboBoxChanged
       LDList.Add(TrackDefaultTable,1)
       Get_SCHEMA_Private()
       Hide_Display_Results()
-      List = SchemaList
       LDControls.ComboBoxContent(SortByCB ,SchemaList)
       LDControls.ComboBoxContent(SearchByCB, SchemaList )
       LDControls.ComboBoxContent(ColumnListCB, SchemaList )
-      GraphicsWindow.Title = title + TypesOfSorts[SortByMode] +": "  + Default_Table
+      Set_Title()
       LDCall.Function( Function_Handler_Universal , ViewDB_Button )
-      
-      GraphicsWindow.Title = title + " "+ TypesOfSorts[SortByMode] +": "  + Default_Table
+      Set_Title()
     Else
       LDCall.Function2(Function_Log,"In the current database no "+LangList[ TypesOfSorts[SortByMode] ]+"s can be found.","UI") '//Localize  
       GraphicsWindow.ShowMessage("In the current database no "+ LangList[ TypesOfSorts[SortByMode] ] +"s can be found." , "Error" ) '//Localize 
@@ -831,10 +874,15 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
     Dataview = ""
+    
     LoadSettings() 'Reloads Settings 
+    LDList.Add(List_Stack_Trace,"MainMenuHandler.OPEN")
     LDCall.Function2(Function_Load_DB,4, LDCall.Function(Function_Get_DB,"") )
+    LDList.Add(List_Stack_Trace,"MainMenuHandler.OPEN")
     SaveSettings()
+    LDList.Add(List_Stack_Trace,"MainMenuHandler.OPEN")
     Pre_MainMenuUI()
+    LDList.Add(List_Stack_Trace,"MainMenuHandler.OPEN")
     MainMenuUI()
   Elseif LastClickedButton = SaveButton  Then 'Save Button   
     If database <> "" and Dataview <> "" Then 
@@ -1323,7 +1371,7 @@ EndSub
 Sub Get_SCHEMA
   LDList.Add(List_Stack_Trace,"Get_SCHEMA")
   If database <> "" Then 'Prevents Application from querying a nonexistent db 
-
+    
     TableList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='table';","","True",LangList["App"],"SCHEMA")
     ViewList  = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='view';","","True",LangList["App"],"SCHEMA")
     IndexList = LDCall.Function5(QueryFunction,"SELECT tbl_name , name FROM sqlite_master WHERE type ='index';","","True",LangList["App"],"SCHEMA")
@@ -1386,6 +1434,11 @@ EndSub
 '______________________________________________________________________________
 '                                                                                    Utilities 
 '______________________________________________________________________________
+
+Sub Set_Title
+  LDList.Add(List_Stack_Trace,"Set_Title")
+  GraphicsWindow.Title = title + " " + database_ShortName +"("+database+") " +LangList[ "Table" ] +": " + Default_Table 
+EndSub
 
 Sub XML_Fetch_All
   LDList.Add(List_Stack_Trace,"XML_Fetch_All")
@@ -1710,7 +1763,7 @@ EndSub
 Sub ErrorHandler 
   TextWindow.ForegroundColor = "YELLOW"
   TextWindow.Write("Error Caught : " )
-  TextWindow.Write( LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +":" ) 
+  TextWindow.Write( LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :" ) 
   TextWindow.ForegroundColor = "WHITE"
   TextWindow.WriteLine(LangList["System"]+":" + LDEvents.LastError ) 
   
@@ -1739,6 +1792,7 @@ Sub Log
     
     If debug_mode = 1 And ( Text.IsSubText(LogEvent,"LDDataBase.Query") = "True" Or Text.IsSubText(LogEvent,"LDDataBase.Command") = "True" ) Then 
       TextWindow.ForegroundColor = "RED"
+      TextWindow.WriteLine( database_ShortName+"("+ database +")" )
       TextWindow.WriteLine( LogEvent )
       TextWindow.WriteLine(QueryArgs )
     EndIf 
