@@ -40,7 +40,7 @@ Sub CSV_TO_SQL
   
   Import_CSV_SQL = "" 
   For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
-    Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + I_CSV_Name + " VALUES ('"
+    Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO [" + I_CSV_Name + "] VALUES ('"
     CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[I] )
     For II = 1 To Array.GetItemCount(I_CSV_Array[I])
       CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
@@ -70,11 +70,11 @@ Sub CSV_Headers
   CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
   
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_Headers")
-  Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + I_CSV_Name +" ("
+  Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS [" + I_CSV_Name +"] ("
   Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
   
   For I = 1 To Array.GetItemCount(I_CSV_Array[1])
-    Import_CSV_HSQL = Import_CSV_HSQL +I_CSV_Array[1][I] + " " 
+    Import_CSV_HSQL = " "+ Import_CSV_HSQL + "["+I_CSV_Array[1][I] + "] " 
     Import_CSV_HSQL = Import_CSV_HSQL + CSV_Headers_Types[ CSV_Int_Array[I] ] 
     
     If I < Array.GetItemCount(I_CSV_Array[1]) Then 

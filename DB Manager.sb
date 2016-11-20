@@ -881,7 +881,7 @@ Sub MainMenuHandler
     EndIf
     CurrentControl = listview
     If Default_Table <> "" Then 
-      LDCall.Function5(QueryFunction,"SELECT * FROM " + Default_Table +";",CurrentControl,"False" ,LangList["App"],LangList[ "View Function"])
+      LDCall.Function5(QueryFunction,"SELECT * FROM [" + Default_Table +"];",CurrentControl,"False" ,LangList["App"],LangList[ "View Function"])
     EndIf 
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
@@ -1357,7 +1357,7 @@ Sub GenerateQuery
   SearchTextGQ = LDText.Replace( Controls.GetTextBoxText(SearchTextTB) ,"'","''")  'Protects from SQL injection attacks and the like
   
   CMD = "" 'Techincally not needed , keep it in for clarity 
-  CMD = "SELECT * FROM " +Default_Table +" "
+  CMD = "SELECT * FROM [" +Default_Table +"] "
   If Results_Sort = 1 Then ' Do Nothing :) 
   ElseIf Results_Search = 1 Then
     CMD = CMD + "WHERE "+ List[SearchByGQ]
@@ -1367,7 +1367,7 @@ Sub GenerateQuery
       CMD = CMD +"='" + SearchTextGQ+"' "
     EndIf
   ElseIf Results_Function = 1 Then
-    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" +"[" + List[ColumnListGQ]+"]" +") FROM " +Default_Table +" "
+    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" +"[" + List[ColumnListGQ]+"]" +") FROM [" +Default_Table +"] "
   EndIf
   
   'Apply Sort Constraints
@@ -1437,7 +1437,7 @@ Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View
   LDList.Add(List_Stack_Trace,"Get_SCHEMA_Private")
   SchemaList = ""
   LDList.Clear("SCHEMA")
-  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],"SCHEMA-PRIVATE") '//Localize 
+  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info(["+Default_Table+"]);","","True",LangList["App"],"SCHEMA-PRIVATE") '//Localize 
   For Get_SCHEMA_I = 1 To Array.GetItemCount(SCHEMA)
     LDList.Add("SCHEMA",SCHEMA[Get_SCHEMA_I]["name"] )
   EndFor
