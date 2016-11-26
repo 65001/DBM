@@ -1,7 +1,11 @@
 Main()
 Sub Main
+  LDWindows.Create()
   GraphicsWindow.Clear()
   GraphicsWindow.Show()
+  LDGraphicsWindow.CancelClose = "True"
+  LDGraphicsWindow.ExitOnClose = "False"
+  
   DataView = LDControls.AddDataView(1000,900,"1=Field;2=Type;3=PK;4=AI;5=Unique;6=Not_Null;")
   GraphicsWindow.DrawText(1,4,"Name: " )
   Controls.Move( DataView , 1 ,30 )
@@ -33,9 +37,11 @@ Sub KD
     For I = 1 To  Max
       New_Schemap[I] = LDControls.DataViewGetRow(DataView,I ) 
       If New_Schemap[I][1] <> "" Then 
+        
         If New_Schemap[I][4] = "True" Then 
           New_Schemap[I][3] = "True" 
         EndIf 
+        
         SQL = SQL +"[" + LDText.Replace( LDText.Replace( New_Schemap[I][1] ,"[","") ,"]","")+ "] " + Text.ConvertToUpperCase( New_Schemap[I][2] )
         
         If New_Schemap[I][6] = "True" Then 
@@ -58,11 +64,14 @@ Sub KD
           SQL = SQL + ","
         Else 
           SQL = SQL + ");"
-          
         EndIf 
+        
       EndIf 
     EndFor
+    
     If database <> "" Then 
+      TextWindow.WriteLine(database)
+      TextWindow.WriteLine(SQL)
       LDCall.Function4(Function_Command,database,SQL, LDFile.UserName ,"Database Wizard : New Table")
       LDCall.Function("MainMenuHandler",LangList["View"])
     Else 

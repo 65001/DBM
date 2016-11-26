@@ -6,25 +6,40 @@ Sub VOID
   LangList = LangList 
   List_Command_Parser_Status = List_Command_Parser_Status 
   List_Stack_Trace = List_Stack_Trace
+  Settings = Settings
 EndSub
 
 Sub CSV_Interface
+  TextWindow.WriteLine("Plugin : Import CSV File!")
+  GraphicsWindow.Title = "CSV : " + Settings["TimeOut"]
+  CSV_Start_Time = Clock.ElapsedMilliseconds
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV")
   Import_CSV_Path = LDDialogs.OpenFile("csv","")
-  I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
+  
+  TextWindow.WriteLine("Trimming....")
   I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
+  TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(Import_CSV_Path) ) 
+  TextWindow.WriteLine("Reading....")
+  I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
+  TextWindow.WriteLine("Processing...")
   CSV()
+  TextWindow.WriteLine("Total Time : " +( Clock.ElapsedMilliseconds - CSV_Start_Time ) )
 EndSub
 
 Sub CSV 'Make this a function in the future
+  TextWindow.WriteLine("Pre Calculations")
   For I = 1 to Array.GetItemCount(I_CSV_Array[1])
     I_CSV_Int_Array[I] = 1  
   EndFor 
-  
+  TextWindow.WriteLine("Proccessing Main")
   CSV_TO_SQL()
-  CSV_Headers() 'First Line becomes header information
+  TextWindow.WriteLine("Converting Headers")
   
+  CSV_Headers() 'First Line becomes header information
+  Import_CSV_SQL_Final = "BEGIN;" + Import_CSV_SQL_Final+"COMMIT;"
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
+  
+  TextWindow.WriteLine("Sending to Parser")
   records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV") '//Localize  
   Percentage = records/ Array.GetItemCount( LDText.FindAll(Import_CSV_SQL_Final,";") )
   Percentage = Percentage * 100
@@ -39,10 +54,12 @@ Sub CSV_TO_SQL
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_TO_SQL")
   
   Import_CSV_SQL = "" 
-  For I = 2 To Array.GetItemCount(I_CSV_Array) 'I=1 is Assumed to be the header row
+  Import_CSV_Max[0] = Array.GetItemCount(I_CSV_Array)
+  For I = 2 To Import_CSV_Max[0] 'I=1 is Assumed to be the header row
     Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO [" + I_CSV_Name + "] VALUES ('"
     CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[I] )
-    For II = 1 To Array.GetItemCount(I_CSV_Array[I])
+    Import_CSV_Max[I] = Array.GetItemCount(I_CSV_Array[I])
+    For II = 1 To Import_CSV_Max[I]
       CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
       CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
       
@@ -56,12 +73,14 @@ Sub CSV_TO_SQL
         CSV_Int_Array[II] = 0 
       EndIf 
       
-      If II < Array.GetItemCount(I_CSV_Array[i]) Then 
+      If II < Import_CSV_Max[I] Then 
         Import_CSV_SQL = Import_CSV_SQL + "','"
       EndIf
-      
     EndFor
     
+    If ( Clock.ElapsedMilliseconds - CSV_Start_Time ) < Settings["TimeOut"] Then 
+      TextWindow.WriteLine("("+ I +"/" + Import_CSV_Max[0]+") " + Math.Floor( (I/Import_CSV_Max[0]) * 100 ) + "%" ) 
+    EndIf 
     Import_CSV_SQL = Import_CSV_SQL + "');" + Text.GetCharacter(10)
   EndFor
 EndSub
@@ -71,13 +90,15 @@ Sub CSV_Headers
   
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_Headers")
   Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS [" + I_CSV_Name +"] ("
+  
+  Import_CSV_Max[1] = Array.GetItemCount(I_CSV_Array[1])
   Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
   
-  For I = 1 To Array.GetItemCount(I_CSV_Array[1])
+  For I = 1 To Import_CSV_Max[1]
     Import_CSV_HSQL = " "+ Import_CSV_HSQL + "["+I_CSV_Array[1][I] + "] " 
     Import_CSV_HSQL = Import_CSV_HSQL + CSV_Headers_Types[ CSV_Int_Array[I] ] 
     
-    If I < Array.GetItemCount(I_CSV_Array[1]) Then 
+    If I < Import_CSV_Max[1] Then 
       Import_CSV_HSQL = Import_CSV_HSQL + ","
     EndIf
     

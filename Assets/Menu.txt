@@ -16,6 +16,7 @@
 #File
 1=Menu;2=New;3=MainMenuHandler;4=File;
 1=Menu;2=Open;3=MainMenuHandler;4=File;
+1=Menu;2=Define New Table ;3=MainMenuHandler;4=File;6=0;
 1=Menu;2=-;3=MainMenuHandler;4=File;
 
 #Import
@@ -42,7 +43,7 @@
 1=Menu;2=Toggle Debug;3=MainMenuHandler;4=Settings;
 1=Menu;2=Toggle Transaction Log;3=MainMenuHandler;4=Settings;6=0;
 1=Menu;2=-;3=MainMenuHandler;4=Toggle Transaction Log;
-1=Menu;2=Refresh;3=MainMenuHandler;4=Settings;
+1=Menu;2=Refresh Schema;3=MainMenuHandler;4=Settings;
 1=Menu;2=Check for Updates;3=<Mod Parser>;4=Settings;5=Updater.Main;
 1=Menu;2=-;3=MainMenuHandler;4=Settings;
 
@@ -50,7 +51,7 @@
 1=Menu;2=Developer;3=MainMenuHandler;4=Main;6=0;
 1=Menu;2=Stack Trace;3=MainMenuHandler;4=Developer;6=0;
 1=Menu;2=Close TW;3=MainMenuHandler;4=Developer;6=0;
-1=Menu;2=Define New Table;3=<Mod Parser>;4=Developer;5=New Table Menu.Main;6=0;
+1=Menu;2=Define New Table;3=MainMenuHandler;4=Developer;6=0;
 
 #Plugin Section
 1=Menu;2=Mod;4=Main;6=0;
