@@ -19,7 +19,7 @@
     <Settings_Editor language="de">Einstellungen-Editor</Settings_Editor>
     <Toggle_Debug language="de">Toggle Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="de">Toggle Transaktionsprotokoll</Toggle_Transaction_Log>
-    <Refresh language="de">Aktualisieren</Refresh>
+    <Refresh_Schema language="de">Schema aktualisieren</Refresh_Schema>
     <Check_for_Updates language="de">Nach Updates suchen</Check_for_Updates>
     <PXML language="de">XML</PXML>
     <PRGM_Start language="de">Programm gestartet</PRGM_Start>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="de">Fehler beim Laden von Online-EULA</Failed_Load_Online_EULA>
     <Auto_Log language="de">Auto Login</Auto_Log>
     <Export_HTML_Schema language="de">HTML-SCHEMA für Export </Export_HTML_Schema>
-    <Export_HTML_Data language="de">Export von HTML-Daten im Auftrag von </Export_HTML_Data>
+    <Export_HTML_Data language="de">Export von HTML-DATEN im Auftrag von </Export_HTML_Data>
     <Check_Log language="de">Fehler: Bitte überprüfen Sie das Protokoll für details</Check_Log>
     <Query_Error language="de">Abfragefehler</Query_Error>
     <Export_CSV language="de">EXPORT-CSV IM AUFTRAG VON </Export_CSV>

@@ -19,7 +19,7 @@
     <Settings_Editor language="it">Editor di impostazioni</Settings_Editor>
     <Toggle_Debug language="it">Attiva/disattiva Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="it">Log delle transazioni attiva/disattiva</Toggle_Transaction_Log>
-    <Refresh language="it">Aggiornamento</Refresh>
+    <Refresh_Schema language="it">Aggiornamento Schema</Refresh_Schema>
     <Check_for_Updates language="it">Controlla aggiornamenti</Check_for_Updates>
     <PXML language="it">XML</PXML>
     <PRGM_Start language="it">Programma di avvio</PRGM_Start>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="it">Impossibile caricare online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="it">Registro auto</Auto_Log>
     <Export_HTML_Schema language="it">Esportazione HTML SCHEMA per conto di </Export_HTML_Schema>
-    <Export_HTML_Data language="it">Esportazione HTML dati per conto di </Export_HTML_Data>
+    <Export_HTML_Data language="it">Esportazione HTML DATI per conto di </Export_HTML_Data>
     <Check_Log language="it">Errore: Si prega di controllare il registro per i dettagli</Check_Log>
     <Query_Error language="it">Errore di query</Query_Error>
     <Export_CSV language="it">ESPORTAZIONE CSV PER CONTO DI </Export_CSV>

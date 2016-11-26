@@ -19,7 +19,7 @@
     <Settings_Editor language="cs">Editor nastavení</Settings_Editor>
     <Toggle_Debug language="cs">Zapnout ladění</Toggle_Debug>
     <Toggle_Transaction_Log language="cs">Přepnout transakční protokol</Toggle_Transaction_Log>
-    <Refresh language="cs">Aktualizovat</Refresh>
+    <Refresh_Schema language="cs">Aktualizovat schéma</Refresh_Schema>
     <Check_for_Updates language="cs">Vyhledat aktualizace</Check_for_Updates>
     <PXML language="cs">XML</PXML>
     <PRGM_Start language="cs">Program začal</PRGM_Start>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="cs">Zavřít bez uložení</Close_wo_saving>
     <Failed_Load_Online_EULA language="cs">Nepodařilo se načíst online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="cs">Auto Log</Auto_Log>
-    <Export_HTML_Schema language="cs">Exportovat schéma HTML jménem </Export_HTML_Schema>
+    <Export_HTML_Schema language="cs">Exportovat SCHÉMA HTML jménem </Export_HTML_Schema>
     <Export_HTML_Data language="cs">Exportovat DATA HTML jménem </Export_HTML_Data>
     <Check_Log language="cs">Chyba: Zkontrolujte podrobnosti v protokolu</Check_Log>
     <Query_Error language="cs">Chyba dotazu</Query_Error>
     <Export_CSV language="cs">EXPORTOVAT CSV JMÉNEM </Export_CSV>
-    <Export_SQL_SCHEMA language="cs">Exportovat SQL - schématu - jménem </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="cs">Exportovat SQL - SCHÉMATU - jménem </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="cs">Exportovat SQL - SQL - jménem </Export_SQL_SQL>
     <Export_XML language="cs">EXPORTOVAT XML JMÉNEM</Export_XML>
     <System language="cs">Systém</System>

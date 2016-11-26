@@ -19,7 +19,7 @@
     <Settings_Editor language="tr">Ayarları Düzenleyicisi</Settings_Editor>
     <Toggle_Debug language="tr">İki durumlu hata ayıklama</Toggle_Debug>
     <Toggle_Transaction_Log language="tr">İki durumlu işlem günlüğü</Toggle_Transaction_Log>
-    <Refresh language="tr">Yenileme</Refresh>
+    <Refresh_Schema language="tr">Şema yenileme</Refresh_Schema>
     <Check_for_Updates language="tr">Kontrol için güncelleştirmek</Check_for_Updates>
     <PXML language="tr">XML</PXML>
     <PRGM_Start language="tr">Başlatan program</PRGM_Start>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="tr">Kaydetmeden kapatın</Close_wo_saving>
     <Failed_Load_Online_EULA language="tr">Online EULA yüklenemedi</Failed_Load_Online_EULA>
     <Auto_Log language="tr">Otomatik günlük</Auto_Log>
-    <Export_HTML_Schema language="tr">İhracat HTML şema adına </Export_HTML_Schema>
-    <Export_HTML_Data language="tr">İhracat HTML veri adına </Export_HTML_Data>
+    <Export_HTML_Schema language="tr">İhracat HTML ŞEMA adına </Export_HTML_Schema>
+    <Export_HTML_Data language="tr">İhracat HTML VERİ adına </Export_HTML_Data>
     <Check_Log language="tr">Hata: Lütfen ayrıntılar için günlüğünü denetleyin</Check_Log>
     <Query_Error language="tr">Sorgu hatası</Query_Error>
     <Export_CSV language="tr">ADINA CSV VERME </Export_CSV>
-    <Export_SQL_SCHEMA language="tr">Adına SQL - şema - ihracat </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="tr">Adına SQL - ŞEMA - ihracat </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="tr">Adına SQL - SQL - ihracat </Export_SQL_SQL>
     <Export_XML language="tr">ADINA XML VERME</Export_XML>
     <System language="tr">Sistem</System>

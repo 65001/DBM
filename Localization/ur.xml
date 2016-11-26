@@ -19,7 +19,7 @@
     <Settings_Editor language="ur">سیٹنگیں تدوین کار</Settings_Editor>
     <Toggle_Debug language="ur">ٹوگل ٹھیک کریں</Toggle_Debug>
     <Toggle_Transaction_Log language="ur">ٹوگل لین دین لاگ ان کریں</Toggle_Transaction_Log>
-    <Refresh language="ur">تازہ کریں</Refresh>
+    <Refresh_Schema language="ur">شجرہ کی تازہ کاری کریں</Refresh_Schema>
     <Check_for_Updates language="ur">پڑتال برائے تازہ کاریاں</Check_for_Updates>
     <PXML language="ur">XML</PXML>
     <PRGM_Start language="ur">پروگرام کا آغاز</PRGM_Start>

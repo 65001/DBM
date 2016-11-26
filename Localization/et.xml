@@ -19,7 +19,7 @@
     <Settings_Editor language="et">Seaded toimetaja</Settings_Editor>
     <Toggle_Debug language="et">Lülita Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="et">Lülita tehingute register</Toggle_Transaction_Log>
-    <Refresh language="et">Värskenda</Refresh>
+    <Refresh_Schema language="et">Värskenda skeem</Refresh_Schema>
     <Check_for_Updates language="et">Värskenduste otsimine</Check_for_Updates>
     <PXML language="et">XML</PXML>
     <PRGM_Start language="et">Programmi käivitumist</PRGM_Start>

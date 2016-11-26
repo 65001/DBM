@@ -19,7 +19,7 @@
     <Settings_Editor language="sw">Mipangilio ya mhariri</Settings_Editor>
     <Toggle_Debug language="sw">Utatuaji wa Togo</Toggle_Debug>
     <Toggle_Transaction_Log language="sw">Togoa shughuli logi</Toggle_Transaction_Log>
-    <Refresh language="sw">Onyesha upya</Refresh>
+    <Refresh_Schema language="sw">Onyesha upya Schema</Refresh_Schema>
     <Check_for_Updates language="sw">Kagua sasishi</Check_for_Updates>
     <PXML language="sw">XML</PXML>
     <PRGM_Start language="sw">Programu kuanza</PRGM_Start>

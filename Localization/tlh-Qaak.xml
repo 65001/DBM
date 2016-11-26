@@ -19,7 +19,7 @@
     <Settings_Editor language="tlh-Qaak"> </Settings_Editor>
     <Toggle_Debug language="tlh-Qaak"> </Toggle_Debug>
     <Toggle_Transaction_Log language="tlh-Qaak">  </Toggle_Transaction_Log>
-    <Refresh language="tlh-Qaak"></Refresh>
+    <Refresh_Schema language="tlh-Qaak"> </Refresh_Schema>
     <Check_for_Updates language="tlh-Qaak"> </Check_for_Updates>
     <PXML language="tlh-Qaak"></PXML>
     <PRGM_Start language="tlh-Qaak"> </PRGM_Start>

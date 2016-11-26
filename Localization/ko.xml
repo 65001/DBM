@@ -19,7 +19,7 @@
     <Settings_Editor language="ko">설정 편집기</Settings_Editor>
     <Toggle_Debug language="ko">전환 디버그</Toggle_Debug>
     <Toggle_Transaction_Log language="ko">전환 트랜잭션 로그</Toggle_Transaction_Log>
-    <Refresh language="ko">새로 고침</Refresh>
+    <Refresh_Schema language="ko">스키마 새로 고침</Refresh_Schema>
     <Check_for_Updates language="ko">업데이트 확인</Check_for_Updates>
     <PXML language="ko">XML</PXML>
     <PRGM_Start language="ko">프로그램 시작</PRGM_Start>

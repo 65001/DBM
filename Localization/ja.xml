@@ -19,7 +19,7 @@
     <Settings_Editor language="ja">設定エディター</Settings_Editor>
     <Toggle_Debug language="ja">トグルのデバッグ</Toggle_Debug>
     <Toggle_Transaction_Log language="ja">トグル トランザクション ログ</Toggle_Transaction_Log>
-    <Refresh language="ja">更新</Refresh>
+    <Refresh_Schema language="ja">スキーマを更新します。</Refresh_Schema>
     <Check_for_Updates language="ja">更新プログラムの確認</Check_for_Updates>
     <PXML language="ja">XML</PXML>
     <PRGM_Start language="ja">プログラムを開始</PRGM_Start>

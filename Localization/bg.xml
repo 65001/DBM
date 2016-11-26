@@ -19,7 +19,7 @@
     <Settings_Editor language="bg">Настройки редактор</Settings_Editor>
     <Toggle_Debug language="bg">Превключване Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="bg">Превключване на РКООНИК</Toggle_Transaction_Log>
-    <Refresh language="bg">Обновяване</Refresh>
+    <Refresh_Schema language="bg">Обнови схемата</Refresh_Schema>
     <Check_for_Updates language="bg">Проверка за актуализации</Check_for_Updates>
     <PXML language="bg">XML</PXML>
     <PRGM_Start language="bg">Програмата стартира</PRGM_Start>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="bg">Затвори без записване</Close_wo_saving>
     <Failed_Load_Online_EULA language="bg">Неуспешно зареждане на онлайн ЛСКП</Failed_Load_Online_EULA>
     <Auto_Log language="bg">Автоматичен вход</Auto_Log>
-    <Export_HTML_Schema language="bg">Експортиране на HTML схема от името на </Export_HTML_Schema>
-    <Export_HTML_Data language="bg">Експортиране на HTML данни от името на </Export_HTML_Data>
+    <Export_HTML_Schema language="bg">Експортиране на HTML СХЕМА от името на </Export_HTML_Schema>
+    <Export_HTML_Data language="bg">Експортиране на HTML ДАННИ от името на </Export_HTML_Data>
     <Check_Log language="bg">Грешка: Моля Проверете регистрационния файл за подробни данни</Check_Log>
     <Query_Error language="bg">Запитване грешка</Query_Error>
     <Export_CSV language="bg">CSV ИЗНОС ОТ ИМЕТО НА </Export_CSV>
-    <Export_SQL_SCHEMA language="bg">Експортиране на SQL - схема - от името на </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="bg">Експортиране на SQL - СХЕМА - от името на </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="bg">Експортиране на SQL - SQL - от името на </Export_SQL_SQL>
     <Export_XML language="bg">ЕКСПОРТИРАНЕ НА XML ОТ ИМЕТО НА</Export_XML>
     <System language="bg">Система</System>

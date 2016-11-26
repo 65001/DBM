@@ -19,7 +19,7 @@
     <Settings_Editor language="sl">Nastavitve urednik</Settings_Editor>
     <Toggle_Debug language="sl">Debug za preklop</Toggle_Debug>
     <Toggle_Transaction_Log language="sl">Preklop dnevnikom</Toggle_Transaction_Log>
-    <Refresh language="sl">Osveži</Refresh>
+    <Refresh_Schema language="sl">Osveži shemo</Refresh_Schema>
     <Check_for_Updates language="sl">Preveri za posodobitve</Check_for_Updates>
     <PXML language="sl">XML</PXML>
     <PRGM_Start language="sl">Program se je začel</PRGM_Start>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="sl">Zapreti brez shranjevanja</Close_wo_saving>
     <Failed_Load_Online_EULA language="sl">Pri nalaganju online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="sl">Auto Log</Auto_Log>
-    <Export_HTML_Schema language="sl">Izvozi shemo HTML za </Export_HTML_Schema>
-    <Export_HTML_Data language="sl">Izvoz HTML podatke za </Export_HTML_Data>
+    <Export_HTML_Schema language="sl">Izvozi SHEMO HTML za </Export_HTML_Schema>
+    <Export_HTML_Data language="sl">Izvoz HTML PODATKE za </Export_HTML_Data>
     <Check_Log language="sl">Napaka: Prosimo, da preverite dnevnik za podrobnosti</Check_Log>
     <Query_Error language="sl">Napaka poizvedb</Query_Error>
     <Export_CSV language="sl">IZVOZ V CSV ZA </Export_CSV>
-    <Export_SQL_SCHEMA language="sl">Izvoz SQL - sheme - za </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="sl">Izvoz SQL - SHEME - za </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="sl">Izvoz SQL - SQL - za </Export_SQL_SQL>
     <Export_XML language="sl">IZVOZ XML ZA</Export_XML>
     <System language="sl">Sistem</System>
