@@ -12,6 +12,8 @@ EndSub
 
 Sub CSV_Interface
   debug_mode = 1 
+  CLLF = Text.GetCharacter(10) '+ Text.GetCharacter(13)
+  
   TextWindow.WriteLine("Plugin : Import CSV File!")
   ' GraphicsWindow.Title = "CSV : " + Settings["TimeOut"]
   CSV_Start_Time = Clock.ElapsedMilliseconds
@@ -51,7 +53,7 @@ Sub CSV 'Make this a function in the future
   TextWindow.WriteLine("Converting Headers")
   
   CSV_Headers() 'First Line becomes header information
-  Import_CSV_SQL_Final = "BEGIN;" + Import_CSV_SQL_Final+"COMMIT;"
+  Import_CSV_SQL_Final = "BEGIN;" + CLLF + Import_CSV_SQL_Final+"COMMIT;"
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
   
   TextWindow.WriteLine("Sending to Parser")
@@ -62,7 +64,8 @@ Sub CSV 'Make this a function in the future
   ' GraphicsWindow.ShowMessage(records + " records updated out of " + LDList.Count(List_Command_Parser_Status ) + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
   
   ' LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file",LangList["Application"])'//Localize 
-  ' File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+TextWindow.WriteLine("Path : " + Program.Directory+"\CSV Import DUMP.sql" )
+File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
 EndSub 
 
 Sub CSV_TO_SQL
@@ -96,7 +99,7 @@ Sub CSV_TO_SQL
       
     EndFor
     TextWindow.WriteLine("("+ I +"/" + Import_CSV_Max[0]+") " + Math.Floor( (I/Import_CSV_Max[0]) * 100 ) + "%" ) 
-    Import_CSV_SQL = Import_CSV_SQL + "');" + Text.GetCharacter(10)
+    Import_CSV_SQL = Import_CSV_SQL + "');" + CLLF
   EndFor
 EndSub
 
@@ -106,16 +109,17 @@ Sub CSV_Headers
   ' LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_Headers")
   Import_CSV_HSQL = Text.Append( Text.Append("CREATE TABLE IF NOT EXISTS [" , I_CSV_Name ) , "] (")
   Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
+  Import_CSV_Max[1] = Array.GetItemCount(I_CSV_Array[1])
   
-  For I = 1 To Array.GetItemCount(I_CSV_Array[1])
+  For I = 1 To Import_CSV_Max[1]
     Import_CSV_HSQL = " "+ Import_CSV_HSQL + "["+I_CSV_Array[1][I] + "] " 
     Import_CSV_HSQL = Import_CSV_HSQL + CSV_Headers_Types[ CSV_Int_Array[I] ] 
     
-    If I < Array.GetItemCount(I_CSV_Array[1]) Then 
+    If I < Import_CSV_Max[1] Then 
       Import_CSV_HSQL = Text.Append( Import_CSV_HSQL , "," )
     EndIf
     
   EndFor
-  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
+  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ CLLF
   Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
 EndSub

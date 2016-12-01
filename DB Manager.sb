@@ -22,6 +22,11 @@
 'Add ability to change ALL Flexible File Settings Through UI
 'Add Instrumentation that tells how long the program spends in each subroutine or function
 'Change Export.SQL to support a more PRAGMA Schema data.
+'Statistics Page
+'   Create Table Statistics ([Row] Text,[SUM] INT,[AVG] INT,[COUNT] INT,[MAX] INT,[MIN] INT,[TYPE] TEXT);
+'   Insert into Statistics 
+'       Select 'ID',SUM(ID),AVG(ID),COUNT(ID),MAX(ID),MIN(ID),typeOf(ID) FROM Employees;; Select * From Statistics;
+
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding - Normal Priority
 '______________________________________________________________________________
@@ -719,6 +724,7 @@ Sub ComboBoxChanged
         LDControls.ComboBoxSelect(TableCB,1)
         LDControls.ComboBoxSelect(SortsCB,1)
         Default_Table = SCHEMA_TableList[1]
+        SortByMode = 1 
       Else 
         Default_Table = "sqlite_master" 
         LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";")

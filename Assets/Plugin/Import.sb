@@ -7,6 +7,7 @@ Sub VOID
   List_Command_Parser_Status = List_Command_Parser_Status 
   List_Stack_Trace = List_Stack_Trace
   Settings = Settings
+  CLLF = CLLF 
 EndSub
 
 Sub CSV_Interface
@@ -36,7 +37,7 @@ Sub CSV 'Make this a function in the future
   TextWindow.WriteLine("Converting Headers")
   
   CSV_Headers() 'First Line becomes header information
-  Import_CSV_SQL_Final = "BEGIN;" + Import_CSV_SQL_Final+"COMMIT;"
+  Import_CSV_SQL_Final = "BEGIN;" + CLLF + Import_CSV_SQL_Final+"COMMIT;"
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
   
   TextWindow.WriteLine("Sending to Parser")
@@ -81,7 +82,7 @@ Sub CSV_TO_SQL
     If ( Clock.ElapsedMilliseconds - CSV_Start_Time ) < Settings["TimeOut"] Then 
       TextWindow.WriteLine("("+ I +"/" + Import_CSV_Max[0]+") " + Math.Floor( (I/Import_CSV_Max[0]) * 100 ) + "%" ) 
     EndIf 
-    Import_CSV_SQL = Import_CSV_SQL + "');" + Text.GetCharacter(10)
+    Import_CSV_SQL = Import_CSV_SQL + "');" + CLLF
   EndFor
 EndSub
 
@@ -103,6 +104,6 @@ Sub CSV_Headers
     EndIf
     
   EndFor
-  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ Text.GetCharacter(10)
+  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ CLLF
   Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
 EndSub
