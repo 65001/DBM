@@ -23,10 +23,6 @@
 'Add Instrumentation that tells how long the program spends in each subroutine or function
 'Change Export.SQL to support a more PRAGMA Schema data.
 'Statistics Page
-'   Create Table Statistics ([Row] Text,[SUM] INT,[AVG] INT,[COUNT] INT,[MAX] INT,[MIN] INT,[TYPE] TEXT);
-'   Insert into Statistics 
-'       Select 'ID',SUM(ID),AVG(ID),COUNT(ID),MAX(ID),MIN(ID),typeOf(ID) FROM Employees;; Select * From Statistics;
-
 '______________________________________________________________________________
 '                                                                                                 To do - Non Modding - Normal Priority
 '______________________________________________________________________________
@@ -90,6 +86,7 @@ Function_Handler_EULA = "EULA_Handler"
 Function_Handler_MainMenu = "MainMenuHandler" 
 Function_Handler_ExportCB = "Export_CB_Handler"
 Function_Handler_DefineTable = "Create_Table_UI_CMDS"
+Function_Handler_CreateStatistics = "Create_Statistics_Page"
 
 Function_UI_Add = "Add_UI_Controls"
 Function_UI_Query = "Query_UI_Controls"
@@ -158,6 +155,8 @@ title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " "
 Self = Program.Directory +"\DB Manager.exe"
 
 Booleans ="True=1;False=0;0=False;1=True;"
+
+UserName = LDFile.UserName
 '______________________________________________________________________________
 '                                                                                    Not to be set by Settings
 '______________________________________________________________________________
@@ -250,6 +249,13 @@ Sub Startup 'Akin to Main in C#
   If  (EULA_Accepted = "True") And (EULA_Accepted_By = LDFile.UserName)  And (EULA_Version = EULA_Accepted_Version) And (VersionID = PrgmVersionID) And EULA_Test = 0   Then
     Startup_GUI()
   Else 'Passes to EULA
+    If debug_mode = 1 Then 
+      TextWindow.WriteLine( EULA_Accepted ) 
+      TextWindow.WriteLine( EULA_Accepted_By ) 
+      TextWindow.WriteLine( EULA_Version +":" + EULA_Accepted_Version )
+      TextWindow.WriteLine( VersionID +":"+ PrgmVersionID )
+      TextWindow.WriteLine( EULA_Test)
+    EndIf 
     SaveSettings()
     EULA_UI()
   EndIf
@@ -567,6 +573,7 @@ Sub EULA_Handler
   If args[1] <> "" Then
     LastClickedButton = args[1] 
   EndIf 
+  
   Settings["EULA_By"]  = LDFile.UserName
   Settings["EULA_Version"] = EULA_Version
   Settings["VersionID"] = PrgmVersionID
@@ -615,7 +622,8 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   
   CLoseTW_Button = "Close TW" '// Localize
   Export_UI_Button = "Export UI" '// Localize
-  Define_New_Table_Button = "Define New Table"
+  Define_New_Table_Button = "Define New Table"'// Localize
+  Create_Statistics_Button = "Create Statistics Page"'// Localize
   
   MOD_External_Menu()
 EndSub
@@ -803,7 +811,7 @@ Sub MainMenuHandler
       ' TextWindow.Write("Creation Statement:")
       ' UserSQL  = TextWindow.Read()
       
-      ' LDCall.Function4( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ,LDFile.UserName ,"NEW DB") 
+      ' LDCall.Function4( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ,Username ,"NEW DB") 
       LDCall.Function2(Function_Log, "Created DB : " + NewFileSavePath,"Application")
       
       listview = "" 
@@ -885,13 +893,13 @@ Sub MainMenuHandler
     Results_Function = 1
     GenerateQuery()
   ElseIF LastClickedButton = CustomQueryButton Then 'USER Custom Query SQL 
-    LDCall.Function5(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False",LDFile.UserName,LangList["User Requested"])
+    LDCall.Function5(QueryFunction,Controls.GetTextBoxText(CustomQuery),CurrentControl,"False",Username,LangList["User Requested"])
   ElseIf LastClickedButton = CommandButton Then 'User Custom Run SQL 
-    updated = LDCall.Function4(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) , LDFile.UserName,LangList[ "User Requested" ]) 
+    updated = LDCall.Function4(CommandFunction , database , Controls.GetTextBoxText(CustomQuery) , Username,LangList[ "User Requested" ]) 
     GraphicsWindow.ShowMessage(" " + updated + " number of rows were updated.","") '//Localize 
   ElseIf LastClickedButton = ImportSQL_Button Then ' Imports SQL 
     CurrentFolder = LDFile.GetFolder(databasepath)
-    records =  LDCall.Function4( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) , LDFile.UserName ,"Import SQL") '//Localize 
+    records =  LDCall.Function4( CommandFunction , database, File.ReadContents( LDDialogs.OpenFile("sql",CurrentFolder  ) ) , Username ,"Import SQL") '//Localize 
     LDCall.Function2(Function_Log, "Imported data into: " + databasepath +" From sql file","Application") '//Localize 
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT") '//Localize 
   ElseIf LastClickedButton = ExportCSV_Button Then
@@ -1021,6 +1029,9 @@ Sub MainMenuHandler
     LDList.Print( List_Stack_Trace ) 
   ElseIf LastClickedButton = Define_New_Table_Button Then 
     Create_Table_UI()
+  ElseIf LastClickedButton = Create_Statistics_Button Then 
+    return = LDCall.Function2( Function_Handler_CreateStatistics, Default_Table , SchemaList)
+    LDCall.Function4(Function_Query ,"Select * FROM " + return +";",CurrentControl,UserName,LangList[ "User Requested" ])
   Else
     GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
@@ -1346,7 +1357,7 @@ Sub GenerateQuery
   'Apply Sort Constraints
   CMD = CMD + "ORDER BY [" + List[OrderByGQ] +"] " + GQ_Sorts[SortOrder] +";"
   
-  LDCall.Function5(QueryFunction,CMD,CurrentControl,"False",LangList["App"],"Auto Generated Query on behalf of " + LDFile.UserName) '//Localize 
+  LDCall.Function5(QueryFunction,CMD,CurrentControl,"False",LangList["App"],"Auto Generated Query on behalf of " + Username) '//Localize 
 EndSub
 
 Sub Get_SCHEMA
@@ -1467,7 +1478,7 @@ Sub Create_Table_UI_CMDS
       If database <> "" Then 
         TextWindow.WriteLine(database)
         TextWindow.WriteLine(Defines_SQL)
-        LDCall.Function4(Function_Command,database,Defines_SQL, LDFile.UserName ,"Database Wizard : New Table")
+        LDCall.Function4(Function_Command,database,Defines_SQL, Username ,"Database Wizard : New Table")
         LDCall.Function("MainMenuHandler",LangList["View"])
       EndIf
       
@@ -1723,16 +1734,24 @@ Sub Command 'Runs A Command Function
       InString = 0 
       Command_Counter = 0 
       Command_Parser_Length = Text.GetLength( CommandArgs[2] ) 
+      
       For I = 1 to Command_Parser_Length
         Character = Text.GetSubText( CommandArgs[2] , I , 1 )
+        Character2 = Text.GetSubText( CommandArgs[2] , I , 2 )
         
         If debug_Parser = 1 Or (Clock.ElapsedMilliseconds - CMD_StartTime ) > Settings["TimeOut"] Then 
           TextWindow.Title = I + "/" + Command_Parser_Length + " " + Math.Floor( I/ Command_Parser_Length ) * 100 +"%"
         EndIf 
         
-        If  Character = ";" And InString = 0   Then
+        If  Character = ";" And Character2 <> ";;" AND InString = 0   Then
           LDList.Add(List_Command_Parser , String +";")
           String = ""
+          Character = ""
+        ElseIf Character = ";" And Character2 = ";;" AND InString = 0 Then 
+          LDList.Add(List_Command_Parser , String +";;")
+          String = ""
+          Character = ""
+          I = I + 2
         ElseIf Character ="'" Then 
           If InString = 0 Then 
             InString = 1 
@@ -1773,29 +1792,52 @@ Sub Command 'Runs A Command Function
   Else
     debug_mode = 1 
     TextWindow.WriteLine("FORCE DEBUG : ON " + CLLF + "Function_Command : Expected 4 Arguments but recievied " + Array.GetItemCount( CommandArgs ))
+    TextWindow.WriteLine( CommandArgs ) 
   EndIf 
 EndSub
 
 Sub TransactionRecord 'Direct SQL Commands are used to prevent a possible cycle of loops going to commands and then back to this Function
   LDList.Add(List_Stack_Trace,"TransactionRecord")
   TransactionArgs = args 
+  RunTransaction = 0
   If Transactions_mode = 1 Or ( Transactions_mode_Cmd = 1 Or Transactions_mode_Query = 1)  Then 
     If Array.GetItemCount(TransactionArgs ) = 5 Then
       If (TransactionArgs[4] = "CMD" And Transactions_mode_Cmd = 1 ) Or ( TransactionArgs[4] = "Query" And Transactions_mode_Query = 1 )Then 'Known Parameters
-        Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
-        Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,UTC_DATE,UTC_TIME,PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
-        LDDataBase.Command( TransactionDB , Transactions_SQL ) 
+        RunTransaction = 1 
       ElseIf TransactionArgs[4] <> "Query" AND TransactionArgs[4] <> "CMD" Then 'Unknown Parameters. Logging just in case a plugin is passing the Paramters.
+        RunTransaction = 1
+      EndIf 
+      
+      If RunTransaction = 1 Then
         Transaction_DB_Path_Temp = LDList.GetAt("DB_Path",  LDList.IndexOf("DB_Name",TransactionArgs[2] ) )
         Transactions_SQL = "INSERT INTO Transactions (USER,DB,SQL,TYPE,Reason,[UTC DATE],[UTC TIME],PATH,SNAME) VALUES('"+TransactionArgs[1] +"','"+TransactionArgs[2]+"','"+ LDText.Replace(TransactionArgs[3],"'","''")+"','"+TransactionArgs[4]+"','"+ TransactionArgs[5]+"',Date(),TIME(),'" + Transaction_DB_Path_Temp+"','"+ LDFile.GetFile(Transaction_DB_Path_Temp) +"');" 
-        LDDataBase.Command( TransactionDB , Transactions_SQL )  
+        LDDataBase.Command( TransactionDB , Transactions_SQL )
+        RunTransaction = 0
       EndIf 
+      
     Else 
       debug_mode = 1 
       TextWindow.WriteLine("FORCE DEBUG : ON " + CLLF + "Function_Transaction : Expected 5 Arguments but recievied  " + Array.GetItemCount( TransactionArgs ) )
     EndIf 
   EndIf 
 EndSub 
+
+Sub Create_Statistics_Page
+  LDList.Add(List_Stack_Trace,"Create_Statistics_Page")
+  If Array.GetItemCount( args ) = 2 Then  
+    Statistics_Page_Args = args 
+    Statistics_Page_Name = "[Statistics " + Statistics_Page_Args[1] +"]
+    Statistics_Page_SQL = "Drop Table IF EXISTS " + Statistics_Page_Name + ";" +CLLF +"Create Table " + Statistics_Page_Name +" ([Row] Text,[SUM] INT,[AVG] INT,[COUNT] INT,[MAX] INT,[MIN] INT,[TYPE] TEXT,[DATE STAMP] TEXT,[UTC TIME] TEXT);"+ CLLF
+    For I = 1 To Array.GetItemCount(Statistics_Page_Args[2])
+      Statistics_Temp = Statistics_Page_Args[2][i]
+      Statistics_Page_SQL = Statistics_Page_SQL +"Insert into " + Statistics_Page_Name + " Select '" + Statistics_Temp+"',SUM("+Statistics_Temp+"),AVG("+Statistics_Temp+"),COUNT("+Statistics_Temp+"),MAX("+Statistics_Temp+"),MIN("+Statistics_Temp+")"
+      Statistics_Page_SQL = Statistics_Page_SQL +",typeOf("+Statistics_Temp+"),DATE(),TIME() From " + Statistics_Page_Args[1] +";;" + CLLF
+    EndFor
+    data_Return = LDCall.Function4(CommandFunction, database ,Statistics_Page_SQL, Username ,LangList["Application"]+":" + LangList[ "User Requested" ] + "Statistics Page")'//Localize
+    
+    return = "[Statistics " + Statistics_Page_Args[1] +"]
+  EndIf 
+EndSub
 
 '______________________________________________________________________________
 '                                                                                     Logging
@@ -1851,10 +1893,10 @@ Sub Log
     EndIf 
     
     LogNumber = LogNumber + 1
-    File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( LDFile.UserName , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)
+    File.AppendContents(logpath,LogNumber +"," + Clock.Date + "," + Clock.Time +"," + DoubleQuotesCharacter + LDText.Replace( Username , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter +"," + ProductID +","+ VersionID+"," + DoubleQuotesCharacter +  LDText.Replace( TypeofError , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) +DoubleQuotesCharacter +","+  DoubleQuotesCharacter +  LDText.Replace( LogEvent , DoubleQuotesCharacter , DoubleQuotesCharacter + DoubleQuotesCharacter ) + DoubleQuotesCharacter)
     
     If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 'To Prevent Stackoverflow Errors. Without this an error can cascade forever.
-      LOG_CMD = "INSERT INTO LOG ([UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES(DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+LDFile.UserName+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
+      LOG_CMD = "INSERT INTO LOG ([UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES(DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+Username+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');"
       LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log")  '//Localize  
     EndIf 
     
