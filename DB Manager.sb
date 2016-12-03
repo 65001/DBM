@@ -15,6 +15,7 @@
 'v1120
 'Refactorization
 'Moved Define New Table Function into the Main Program due to bugs
+'Fixed Generate Query Function
 
 '_____________________________________________________________________________
 '                                                                                                 To do Elevated Priority 
@@ -1351,11 +1352,11 @@ Sub GenerateQuery
       CMD = CMD +"='" + SearchTextGQ+"' "
     EndIf
   ElseIf Results_Function = 1 Then
-    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" +"[" + List[ColumnListGQ]+"]" +") FROM [" +Default_Table +"] "
+    CMD = "SELECT " + SQLFunctionsList[FunctionListGQ] +"(" +"[" + SchemaList[ColumnListGQ]+"]" +") FROM [" +Default_Table +"] "
   EndIf
   
   'Apply Sort Constraints
-  CMD = CMD + "ORDER BY [" + List[OrderByGQ] +"] " + GQ_Sorts[SortOrder] +";"
+  CMD = CMD + "ORDER BY [" + SchemaList[OrderByGQ] +"] " + GQ_Sorts[SortOrder] +";"
   
   LDCall.Function5(QueryFunction,CMD,CurrentControl,"False",LangList["App"],"Auto Generated Query on behalf of " + Username) '//Localize 
 EndSub
