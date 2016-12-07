@@ -70,5 +70,6 @@
     <System language="sv">Systemet</System>
     <Views_Read_Only language="sv">Vyer är skrivskyddade och kan inte redigeras</Views_Read_Only>
     <Dataview_Error language="sv">Den databas eller Dataview existerar inte eller har inte lästs in ännu</Dataview_Error>
+    <Browse language="sv">Bläddra</Browse>
   </Language>
 </root>

@@ -70,5 +70,6 @@
     <System language="th">ระบบ</System>
     <Views_Read_Only language="th">จะอ่านอย่างเดียว และไม่สามารถแก้ไขได้</Views_Read_Only>
     <Dataview_Error language="th">ฐานข้อมูลหรือมุมมองข้อมูลไม่มีอยู่ หรือไม่ได้โหลดยัง</Dataview_Error>
+    <Browse language="th">เรียกดู</Browse>
   </Language>
 </root>

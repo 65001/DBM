@@ -70,5 +70,6 @@
     <System language="hu">Rendszer</System>
     <Views_Read_Only language="hu">Nézetek írásvédett, és nem lehet szerkeszteni</Views_Read_Only>
     <Dataview_Error language="hu">Az adatbázis vagy a Dataview nem létezik, vagy még nem volt betöltve</Dataview_Error>
+    <Browse language="hu">Tallózás</Browse>
   </Language>
 </root>

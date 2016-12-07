@@ -70,5 +70,6 @@
     <System language="el">Σύστημα</System>
     <Views_Read_Only language="el">Απόψεις που είναι μόνο για ανάγνωση και δεν είναι δυνατή η επεξεργασία</Views_Read_Only>
     <Dataview_Error language="el">Η βάση δεδομένων ή το Dataview δεν υπάρχει ή δεν έχει φορτωθεί ακόμη</Dataview_Error>
+    <Browse language="el">Αναζήτηση</Browse>
   </Language>
 </root>

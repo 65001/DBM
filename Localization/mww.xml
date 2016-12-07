@@ -70,5 +70,6 @@
     <System language="mww">Lawv</System>
     <Views_Read_Only language="mww">Views yog readonly thiab edited tsis tau yuav</Views_Read_Only>
     <Dataview_Error language="mww">Tus Database los Dataview tsis muaj nyob los tsis tau loaded tsis tau</Dataview_Error>
+    <Browse language="mww">Xauj</Browse>
   </Language>
 </root>

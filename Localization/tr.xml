@@ -70,5 +70,6 @@
     <System language="tr">Sistem</System>
     <Views_Read_Only language="tr">Görünümler salt okunur olan ve düzenlenemez</Views_Read_Only>
     <Dataview_Error language="tr">Dataview ve veritabanı yok veya henüz yüklü olmamıştır</Dataview_Error>
+    <Browse language="tr">Gözat</Browse>
   </Language>
 </root>

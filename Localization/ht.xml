@@ -70,5 +70,6 @@
     <System language="ht">Sistèm</System>
     <Views_Read_Only language="ht">Pwen de vi yo readonly epi pa kapab modifié</Views_Read_Only>
     <Dataview_Error language="ht">Bazdone la oubyen Dataview pa egziste oubyen pa te Nouy ankò</Dataview_Error>
+    <Browse language="ht">Parcourir</Browse>
   </Language>
 </root>

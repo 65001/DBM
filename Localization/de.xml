@@ -70,5 +70,6 @@
     <System language="de">System</System>
     <Views_Read_Only language="de">Ansichten sind schreibgeschützt und können nicht bearbeitet werden</Views_Read_Only>
     <Dataview_Error language="de">Die Datenbank oder den Dataview existiert nicht oder ist noch nicht geladen worden</Dataview_Error>
+    <Browse language="de">Durchsuchen</Browse>
   </Language>
 </root>

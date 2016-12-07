@@ -70,5 +70,6 @@
     <System language="fi">Järjestelmän</System>
     <Views_Read_Only language="fi">Näkymät ovat vain luku ja ei voi muokata</Views_Read_Only>
     <Dataview_Error language="fi">Tietokannan tai Dataview ei ole tai ei ole ladattu vielä</Dataview_Error>
+    <Browse language="fi">Selaa</Browse>
   </Language>
 </root>

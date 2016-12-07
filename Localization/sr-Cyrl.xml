@@ -70,5 +70,6 @@
     <System language="sr-Cyrl">Систем</System>
     <Views_Read_Only language="sr-Cyrl">Прикази су реадонлy и не може се уређивати</Views_Read_Only>
     <Dataview_Error language="sr-Cyrl">База података или Датавиеw не постоји или није био напуњен још</Dataview_Error>
+    <Browse language="sr-Cyrl">Потражи</Browse>
   </Language>
 </root>

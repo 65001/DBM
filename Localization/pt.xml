@@ -70,5 +70,6 @@
     <System language="pt">Sistema</System>
     <Views_Read_Only language="pt">Opiniões são somente leitura e não podem ser editados</Views_Read_Only>
     <Dataview_Error language="pt">O banco de dados ou Dataview não existe ou não foi carregado ainda</Dataview_Error>
+    <Browse language="pt">Procurar</Browse>
   </Language>
 </root>

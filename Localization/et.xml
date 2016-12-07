@@ -70,5 +70,6 @@
     <System language="et">Süsteemi</System>
     <Views_Read_Only language="et">Vaated on kirjutuskaitstud ja ei saa redigeerida</Views_Read_Only>
     <Dataview_Error language="et">Andmebaasi või Andmevaate pole olemas või ei ole veel koormatud</Dataview_Error>
+    <Browse language="et">Sirvi</Browse>
   </Language>
 </root>

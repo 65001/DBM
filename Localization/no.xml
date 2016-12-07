@@ -70,5 +70,6 @@
     <System language="no">Systemet</System>
     <Views_Read_Only language="no">Visninger er skrivebeskyttet og kan ikke redigeres</Views_Read_Only>
     <Dataview_Error language="no">Databasen eller Dataview finnes ikke eller har ikke blitt lastet ennå</Dataview_Error>
+    <Browse language="no">Bla gjennom</Browse>
   </Language>
 </root>

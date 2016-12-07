@@ -70,5 +70,6 @@
     <System language="sw">Mfumo</System>
     <Views_Read_Only language="sw">Maoni ni readonly na haiwezi kuhaririwa</Views_Read_Only>
     <Dataview_Error language="sw">Hazina data au Dataview hakipo au haijawahi pakizwa bado</Dataview_Error>
+    <Browse language="sw">Vinjari</Browse>
   </Language>
 </root>

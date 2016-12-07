@@ -70,5 +70,6 @@
     <System language="sk">Systém</System>
     <Views_Read_Only language="sk">Zobrazení sú len na čítanie a nemôžu sa upravovať</Views_Read_Only>
     <Dataview_Error language="sk">Databázy alebo Dataview neexistuje alebo nebol načítaný ešte</Dataview_Error>
+    <Browse language="sk">Prehľadávať</Browse>
   </Language>
 </root>

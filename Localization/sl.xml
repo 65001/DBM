@@ -70,5 +70,6 @@
     <System language="sl">Sistem</System>
     <Views_Read_Only language="sl">Stališča so samo za branje in ga ni mogoče urejati</Views_Read_Only>
     <Dataview_Error language="sl">Zbirke podatkov ali Dataview ne obstaja ali ni bil naložen še</Dataview_Error>
+    <Browse language="sl">Prebrskaj</Browse>
   </Language>
 </root>

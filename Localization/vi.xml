@@ -70,5 +70,6 @@
     <System language="vi">Hệ thống</System>
     <Views_Read_Only language="vi">Lượt xem là readonly và không được biên tập</Views_Read_Only>
     <Dataview_Error language="vi">Cơ sở dữ liệu hoặc Dataview không tồn tại hoặc đã không nạp được</Dataview_Error>
+    <Browse language="vi">Trình duyệt</Browse>
   </Language>
 </root>

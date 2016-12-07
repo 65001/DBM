@@ -70,5 +70,6 @@
     <System language="en">System</System>
     <Views_Read_Only language="en">Views are readonly and cannot be edited</Views_Read_Only>
     <Dataview_Error language="en">The Database or Dataview does not exist or has not been loaded yet</Dataview_Error>
+    <Browse language="en">Browse</Browse>
   </Language>
 </root>

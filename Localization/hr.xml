@@ -70,5 +70,6 @@
     <System language="hr">Sustav</System>
     <Views_Read_Only language="hr">Stavovi su samo za čitanje i ne može se uređivati</Views_Read_Only>
     <Dataview_Error language="hr">Baze podataka ili Dataview ne postoji ili nije učitan još</Dataview_Error>
+    <Browse language="hr">Pregledaj</Browse>
   </Language>
 </root>

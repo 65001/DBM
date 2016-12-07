@@ -70,5 +70,6 @@
     <System language="yue">系統</System>
     <Views_Read_Only language="yue">视图係只讀嘅無法編輯</Views_Read_Only>
     <Dataview_Error language="yue">數據庫或數據视图唔存在或者尚未加载</Dataview_Error>
+    <Browse language="yue">瀏覽</Browse>
   </Language>
 </root>

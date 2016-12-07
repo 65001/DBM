@@ -70,5 +70,6 @@
     <System language="ru">Система</System>
     <Views_Read_Only language="ru">Представления являются только для чтения и не могут быть изменены</Views_Read_Only>
     <Dataview_Error language="ru">База данных или объект Dataview не существует или еще не загружен</Dataview_Error>
+    <Browse language="ru">Обзор</Browse>
   </Language>
 </root>

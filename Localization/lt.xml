@@ -70,5 +70,6 @@
     <System language="lt">Sistemos</System>
     <Views_Read_Only language="lt">Nuomonės yra tik skaitomas ir jo redaguoti negalima</Views_Read_Only>
     <Dataview_Error language="lt">Duomenų bazės arba trukmė nėra arba dar nebuvo įkelta</Dataview_Error>
+    <Browse language="lt">Naršyti</Browse>
   </Language>
 </root>

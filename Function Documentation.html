@@ -9,6 +9,9 @@
 			th,td {padding: 15px;}
 			tr:hover{background-color:#f5f5f5}
 			th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}
+			
+			body {counter-reset: section;}
+			td#ID::before {counter-increment:section;content: counters(section,".");}
 		</style>
 		<meta charset = "UTF-8">
 		<meta name="generator" content="DBM v1116">
@@ -35,7 +38,7 @@
 					<th>Parameter # Mismatch Check </th>
 				</tr>
 				<tr>
-					<td>1</td>
+					<td id="ID"> </td>
 					<td>Log</td>
 					<td>Logs Events handed to it to LOG.db and LOG.CSV </td>
 					<td>( Log Event , Type of Error )</td>
@@ -46,7 +49,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>2</td>
+					<td id="ID"> </td>
 					<td>Query</td>
 					<td>Querys the current user defined db </td>
 					<td>( Query , Listview , GetRecords , User ,Reason for Query )</td>
@@ -57,7 +60,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>3</td>
+					<td id="ID"> </td>
 					<td>Command</td>
 					<td>Inserts data into define db with the defined SQL code. Parses the code first.</td>
 					<td>(DB ,SQL , User , Reason for command )</td>
@@ -68,7 +71,7 @@
 					<td>✓</td>
 				</tr>
 				<tr>
-					<td>4</td>
+					<td id="ID"> </td>
 					<td>TransactionRecord</td>
 					<td>Keeps a record of all transactions</td>
 					<td>(User , DB , SQL , Type , Reason )</td>
@@ -79,7 +82,7 @@
 					<td>✓</td>
 				</tr>
 				<tr>
-					<td>5</td>
+					<td id="ID"> </td>
 					<td>MOD_RUN_Parser</td>
 					<td>Runs external precomipled SB program</td>
 					<td>(ModName.SubName) OR (Modname , SubName) </td>
@@ -90,7 +93,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>6</td>
+					<td id="ID"> </td>
 					<td>XML_Fetch_All</td>
 					<td>Fetches XML Attributes</td>
 					<td>None</td>
@@ -101,7 +104,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>7</td>
+					<td id="ID"> </td>
 					<td>MainMenuHandler</td>
 					<td>Passes Events to the Main Menu UI Handler</td>
 					<td>( LastClickedButton)</td>
@@ -112,7 +115,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>8</td>
+					<td id="ID"> </td>
 					<td>Add_UI_Controls</td>
 					<td>Adds a UI Control</td>
 					<td>
@@ -130,7 +133,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>9</td>
+					<td id="ID"> </td>
 					<td>Load_DB</td>
 					<td>Loads a database</td>
 					<td>
@@ -144,7 +147,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>10</td>
+					<td id="ID"> </td>
 					<td>GetPath</td>
 					<td>Gets the URI of a Database by getting the user to select a Database file to load in.</td>
 					<td>
@@ -157,7 +160,7 @@
 					<td>✕</td>
 				</tr>
 				<tr>
-					<td>11</td>
+					<td id="ID"> </td>
 					<td>Create Statistics Page</td>
 					<td>Creates a Statistics Table based on arguments</td>
 					<td>(Table,Schema)</td>

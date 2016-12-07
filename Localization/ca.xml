@@ -70,5 +70,6 @@
     <System language="ca">Sistema</System>
     <Views_Read_Only language="ca">Opinions són readonly i no es pot editar</Views_Read_Only>
     <Dataview_Error language="ca">La base de dades o la visualització de dades no existeix o no ha carregat encara</Dataview_Error>
+    <Browse language="ca">Navegar</Browse>
   </Language>
 </root>

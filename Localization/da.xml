@@ -70,5 +70,6 @@
     <System language="da">System</System>
     <Views_Read_Only language="da">Synspunkter er skrivebeskyttet og kan ikke redigeres</Views_Read_Only>
     <Dataview_Error language="da">Den Database eller Dataview findes ikke eller er ikke blevet indlæst endnu</Dataview_Error>
+    <Browse language="da">Gennemse</Browse>
   </Language>
 </root>

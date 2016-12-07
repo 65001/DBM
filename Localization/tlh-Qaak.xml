@@ -70,5 +70,6 @@
     <System language="tlh-Qaak"></System>
     <Views_Read_Only language="tlh-Qaak">    </Views_Read_Only>
     <Dataview_Error language="tlh-Qaak">        </Dataview_Error>
+    <Browse language="tlh-Qaak"></Browse>
   </Language>
 </root>

@@ -70,5 +70,6 @@
     <System language="pl">Systemu</System>
     <Views_Read_Only language="pl">Widoki są tylko do odczytu i nie można edytować</Views_Read_Only>
     <Dataview_Error language="pl">Bazy danych lub widoku danych nie istnieje lub jeszcze nie został załadowany</Dataview_Error>
+    <Browse language="pl">Przeglądaj</Browse>
   </Language>
 </root>

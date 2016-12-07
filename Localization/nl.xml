@@ -70,5 +70,6 @@
     <System language="nl">Systeem</System>
     <Views_Read_Only language="nl">Meningen zijn readonly en kunnen niet worden bewerkt</Views_Read_Only>
     <Dataview_Error language="nl">De Database of Dataview bestaat niet of nog niet geladen is geweest</Dataview_Error>
+    <Browse language="nl">Bladeren</Browse>
   </Language>
 </root>
