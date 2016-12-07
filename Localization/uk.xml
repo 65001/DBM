@@ -71,5 +71,6 @@
     <Views_Read_Only language="uk">Переглядів є readonly та не підлягає редагуванню</Views_Read_Only>
     <Dataview_Error language="uk">База даних або Dataview не існує або не було завантажено ще</Dataview_Error>
     <Browse language="uk">Огляд</Browse>
+    <Statistics_Page language="uk">Сторінка статистики</Statistics_Page>
   </Language>
 </root>

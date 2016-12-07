@@ -71,5 +71,6 @@
     <Views_Read_Only language="cy">Barn readonly ac ni ellir ei olygu</Views_Read_Only>
     <Dataview_Error language="cy">Mae cronfa ddata neu Dataview ddim yn bodoli neu nid yw wedi llwytho eto</Dataview_Error>
     <Browse language="cy">Pori</Browse>
+    <Statistics_Page language="cy">Dudalen ystadegau</Statistics_Page>
   </Language>
 </root>

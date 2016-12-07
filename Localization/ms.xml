@@ -71,5 +71,6 @@
     <Views_Read_Only language="ms">Pandangan yang readonly dan tidak boleh diedit</Views_Read_Only>
     <Dataview_Error language="ms">Pangkalan data atau Dataview tidak wujud atau masih belum dimuatkan lagi</Dataview_Error>
     <Browse language="ms">Semak seimbas</Browse>
+    <Statistics_Page language="ms">Statistik Laman</Statistics_Page>
   </Language>
 </root>

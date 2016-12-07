@@ -71,5 +71,6 @@
     <Views_Read_Only language="sm">Manatu e readonly ma mafai ona toe faasaoina</Views_Read_Only>
     <Dataview_Error language="sm">O le utuofaamatalaga po o Dataview le o i ai po o le e lei uta ae</Dataview_Error>
     <Browse language="sm">Saili</Browse>
+    <Statistics_Page language="sm">Faitau faafuainumera o itulau</Statistics_Page>
   </Language>
 </root>

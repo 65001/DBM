@@ -71,5 +71,6 @@
     <Views_Read_Only language="otq">Vistas ya ho̲ntho da ne hingi ar tsa̲ da editar</Views_Read_Only>
     <Dataview_Error language="otq">Ar base ar datos wa Dataview hingi nuna ar dängo wa hi'nä ar xi cargado aún mi</Dataview_Error>
     <Browse language="otq">Di nu'i</Browse>
+    <Statistics_Page language="otq">Página estadísticas</Statistics_Page>
   </Language>
 </root>

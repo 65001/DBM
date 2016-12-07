@@ -71,5 +71,6 @@
     <Views_Read_Only language="zh-CHS">视图是只读的无法编辑</Views_Read_Only>
     <Dataview_Error language="zh-CHS">数据库或数据视图不存在或尚未加载</Dataview_Error>
     <Browse language="zh-CHS">浏览</Browse>
+    <Statistics_Page language="zh-CHS">统计页</Statistics_Page>
   </Language>
 </root>

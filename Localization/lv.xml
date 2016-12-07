@@ -71,5 +71,6 @@
     <Views_Read_Only language="lv">Skatos ir tikai lasāms un to nevar rediģēt</Views_Read_Only>
     <Dataview_Error language="lv">Datu bāzi vai Dataview nepastāv vai vēl nav ielādēts</Dataview_Error>
     <Browse language="lv">Pārlūkot</Browse>
+    <Statistics_Page language="lv">Lapā statistika</Statistics_Page>
   </Language>
 </root>

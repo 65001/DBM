@@ -71,5 +71,6 @@
     <Views_Read_Only language="hi">बार देखे गए केवल पढ़ने योग्य हैं और संपादित नहीं किया जा सकता</Views_Read_Only>
     <Dataview_Error language="hi">Dataview या डेटाबेस मौजूद नहीं है या अभी तक लोड नहीं किया गया है</Dataview_Error>
     <Browse language="hi">ब्राउज़ करें</Browse>
+    <Statistics_Page language="hi">आँकड़े पृष्ठ</Statistics_Page>
   </Language>
 </root>

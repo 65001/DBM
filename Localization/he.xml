@@ -71,5 +71,6 @@
     <Views_Read_Only language="he">תצוגות לקריאה בלבד, לא ניתן לערוך</Views_Read_Only>
     <Dataview_Error language="he">מסד הנתונים או Dataview אינו קיים או שלא היה טעון עדיין</Dataview_Error>
     <Browse language="he">עיון</Browse>
+    <Statistics_Page language="he">דף הסטטיסטיקה</Statistics_Page>
   </Language>
 </root>

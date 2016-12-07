@@ -71,5 +71,6 @@
     <Views_Read_Only language="sr-Latn">Prikazi su readonly i ne može se uređivati</Views_Read_Only>
     <Dataview_Error language="sr-Latn">Baza podataka ili Dataview ne postoji ili nije bio napunjen još</Dataview_Error>
     <Browse language="sr-Latn">Potraži</Browse>
+    <Statistics_Page language="sr-Latn">Statistika stranice</Statistics_Page>
   </Language>
 </root>

@@ -71,5 +71,6 @@
     <Views_Read_Only language="mg">Dia readonly ny fomba fijery sy tsy avoaka arakaraky ny</Views_Read_Only>
     <Dataview_Error language="mg">Ny tahirin-Kevitra na Dataview tsy misy na dia tsy mbola novesarana zavatra mbola</Dataview_Error>
     <Browse language="mg">Karohy</Browse>
+    <Statistics_Page language="mg">Pejy antontan' isa</Statistics_Page>
   </Language>
 </root>

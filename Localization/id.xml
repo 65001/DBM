@@ -71,5 +71,6 @@
     <Views_Read_Only language="id">Pandangan adalah readonly dan tidak dapat diedit</Views_Read_Only>
     <Dataview_Error language="id">Database atau Dataview tidak ada atau belum dimuat</Dataview_Error>
     <Browse language="id">Jelajahi</Browse>
+    <Statistics_Page language="id">Halaman Statistik</Statistics_Page>
   </Language>
 </root>

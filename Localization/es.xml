@@ -71,5 +71,6 @@
     <Views_Read_Only language="es">Vistas son de sólo lectura y no se puede editar</Views_Read_Only>
     <Dataview_Error language="es">La base de datos o Dataview no existe o no se ha cargado aún</Dataview_Error>
     <Browse language="es">Ver</Browse>
+    <Statistics_Page language="es">Página de estadísticas</Statistics_Page>
   </Language>
 </root>

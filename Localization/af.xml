@@ -71,5 +71,6 @@
     <Views_Read_Only language="af">Sienings is readonly en kan nie geredigeer word nie</Views_Read_Only>
     <Dataview_Error language="af">Die databasis of Dataview nie bestaan nie of is nog nie gelaai nie</Dataview_Error>
     <Browse language="af">Blaai</Browse>
+    <Statistics_Page language="af">Statistiek bladsy</Statistics_Page>
   </Language>
 </root>

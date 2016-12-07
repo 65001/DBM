@@ -71,5 +71,6 @@
     <Views_Read_Only language="mt">Veduti huma readonly u ma jistgħux jiġu editjati</Views_Read_Only>
     <Dataview_Error language="mt">-Database jew Dataview ma jeżistix jew ma tkunx ġiet mgħobbija għadhom</Dataview_Error>
     <Browse language="mt">Ibbrawżja</Browse>
+    <Statistics_Page language="mt">Paġna ta ' l-istatistika</Statistics_Page>
   </Language>
 </root>

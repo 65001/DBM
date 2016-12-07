@@ -71,5 +71,6 @@
     <Views_Read_Only language="fa">فقط خواندنی است و حذف نمی شود</Views_Read_Only>
     <Dataview_Error language="fa">پایگاه داده و یا Dataview وجود ندارد یا هنوز بارگذاری نشده است</Dataview_Error>
     <Browse language="fa">مرور</Browse>
+    <Statistics_Page language="fa">آمار صفحه</Statistics_Page>
   </Language>
 </root>

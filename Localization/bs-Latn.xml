@@ -71,5 +71,6 @@
     <Views_Read_Only language="bs-Latn">Stavovi su samo za čitanje i ne može se uređivati</Views_Read_Only>
     <Dataview_Error language="bs-Latn">Baza podataka ili Dataview ne postoji ili nije učitan još</Dataview_Error>
     <Browse language="bs-Latn">Pregledaj</Browse>
+    <Statistics_Page language="bs-Latn">Statistika stranica</Statistics_Page>
   </Language>
 </root>

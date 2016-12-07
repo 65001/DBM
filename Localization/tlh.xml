@@ -71,5 +71,6 @@
     <Views_Read_Only language="tlh">readonly 'ej pagh edited jIH</Views_Read_Only>
     <Dataview_Error language="tlh">wej nIv'e' pagh wej load 'ach Database dataview pagh</Dataview_Error>
     <Browse language="tlh">browse</Browse>
+    <Statistics_Page language="tlh">statistics page</Statistics_Page>
   </Language>
 </root>

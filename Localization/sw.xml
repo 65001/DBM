@@ -71,5 +71,6 @@
     <Views_Read_Only language="sw">Maoni ni readonly na haiwezi kuhaririwa</Views_Read_Only>
     <Dataview_Error language="sw">Hazina data au Dataview hakipo au haijawahi pakizwa bado</Dataview_Error>
     <Browse language="sw">Vinjari</Browse>
+    <Statistics_Page language="sw">Takwimu ukurasa</Statistics_Page>
   </Language>
 </root>

@@ -71,5 +71,6 @@
     <Views_Read_Only language="ja">ビューは読み取り専用、編集できません。</Views_Read_Only>
     <Dataview_Error language="ja">データベースまたは Dataview が存在しないまたはまだ読み込まれていません</Dataview_Error>
     <Browse language="ja">[参照]</Browse>
+    <Statistics_Page language="ja">統計ページ</Statistics_Page>
   </Language>
 </root>

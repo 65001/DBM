@@ -71,5 +71,6 @@
     <Views_Read_Only language="fr">Points de vue sont en lecture seule et ne peut pas être modifiées</Views_Read_Only>
     <Dataview_Error language="fr">La base de données ou Dataview n’existe pas ou n’a pas été chargé encore</Dataview_Error>
     <Browse language="fr">Parcourir</Browse>
+    <Statistics_Page language="fr">Page de statistiques</Statistics_Page>
   </Language>
 </root>

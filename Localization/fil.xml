@@ -71,5 +71,6 @@
     <Views_Read_Only language="fil">Pananaw ay readonly at hindi na maaaring i-edit</Views_Read_Only>
     <Dataview_Error language="fil">Ang Database o Dataview ay hindi umiiral o hindi naging punung-punong pa</Dataview_Error>
     <Browse language="fil">Mag-browse</Browse>
+    <Statistics_Page language="fil">Estadistika ng pahina</Statistics_Page>
   </Language>
 </root>

@@ -71,5 +71,6 @@
     <Views_Read_Only language="bg">Мненията са само за четене и не може да бъде редактирана</Views_Read_Only>
     <Dataview_Error language="bg">Базата данни или Dataview не съществува или не е бил натоварен още</Dataview_Error>
     <Browse language="bg">Преглед</Browse>
+    <Statistics_Page language="bg">Статистика страница</Statistics_Page>
   </Language>
 </root>

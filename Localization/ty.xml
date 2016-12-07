@@ -71,5 +71,6 @@
     <Views_Read_Only language="ty">Te mau hioraa e i te readonly e na te reira e eita e nehenehe e tauihia</Views_Read_Only>
     <Dataview_Error language="ty">Te pue itepiri e aore ra, i te Dataview e vai ra e aore ra, aita i loaded ra</Dataview_Error>
     <Browse language="ty">Browse</Browse>
+    <Statistics_Page language="ty">Numera api</Statistics_Page>
   </Language>
 </root>

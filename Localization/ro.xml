@@ -71,5 +71,6 @@
     <Views_Read_Only language="ro">Vedere sunt readonly si nu poate fi editat</Views_Read_Only>
     <Dataview_Error language="ro">Baza de date sau Dataview nu exista sau nu a fost încărcat încă</Dataview_Error>
     <Browse language="ro">Răsfoire</Browse>
+    <Statistics_Page language="ro">Pagina de statistici</Statistics_Page>
   </Language>
 </root>

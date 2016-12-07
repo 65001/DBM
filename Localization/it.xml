@@ -71,5 +71,6 @@
     <Views_Read_Only language="it">Viste sono readonly e non possono essere modificate</Views_Read_Only>
     <Dataview_Error language="it">Il Database o Dataview non esiste o non è stato ancora caricato</Dataview_Error>
     <Browse language="it">Sfoglia</Browse>
+    <Statistics_Page language="it">Statistiche pagina</Statistics_Page>
   </Language>
 </root>

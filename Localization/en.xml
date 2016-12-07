@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
-  <Language language="en">
+ <Language language="en">
     <File language="en">File</File>
     <New language="en">New</New>
     <Open language="en">Open</Open>
@@ -71,5 +71,6 @@
     <Views_Read_Only language="en">Views are readonly and cannot be edited</Views_Read_Only>
     <Dataview_Error language="en">The Database or Dataview does not exist or has not been loaded yet</Dataview_Error>
     <Browse language="en">Browse</Browse>
+	<Statistics_Page>Statistics Page</Statistics_Page>
   </Language>
 </root>

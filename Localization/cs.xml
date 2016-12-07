@@ -71,5 +71,6 @@
     <Views_Read_Only language="cs">Názory jsou jen pro čtení a nelze upravit</Views_Read_Only>
     <Dataview_Error language="cs">Databáze nebo Dataview neexistuje nebo nebyla dosud načtena</Dataview_Error>
     <Browse language="cs">Procházet</Browse>
+    <Statistics_Page language="cs">Statistika stránky</Statistics_Page>
   </Language>
 </root>
