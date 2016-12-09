@@ -21,7 +21,7 @@ Sub CSV_Interface
   'Import_CSV_Path =  LDDialogs.OpenFile("csv","")
   
   Import_CSV_Path = "C:\Users\Abhishek\Downloads\Album Table.csv"
-   Import_CSV_Path = "C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Log.csv"
+  Import_CSV_Path = "C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Log.csv"
   TextWindow.WriteLine("Trimming....")
   I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
   TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(Import_CSV_Path) ) 
@@ -63,8 +63,8 @@ Sub CSV 'Make this a function in the future
   ' GraphicsWindow.ShowMessage(records + " records updated out of " + LDList.Count(List_Command_Parser_Status ) + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
   
   ' LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file",LangList["Application"])'//Localize 
-TextWindow.WriteLine("Path : " + Program.Directory+"\CSV Import DUMP.sql" )
-File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+  TextWindow.WriteLine("Path : " + Program.Directory+"\CSV Import DUMP.sql" )
+  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
 EndSub 
 
 Sub CSV_TO_SQL

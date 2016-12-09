@@ -1,5 +1,5 @@
 BEGIN;
-CREATE TABLE IF NOT EXISTS [Album] ([AlbumId] ,[Title] TEXT,[ArtistId] TEXT);
+   CREATE TABLE IF NOT EXISTS [Album] ([AlbumId] ,[Title] TEXT,[ArtistId] TEXT);
 INSERT INTO [Album] VALUES ('1','For Those About To Rock We Salute You','1');
 INSERT INTO [Album] VALUES ('2','Balls to the Wall','2');
 INSERT INTO [Album] VALUES ('3','Restless and Wild','2');
