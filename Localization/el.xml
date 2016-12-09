@@ -19,7 +19,7 @@
     <Settings_Editor language="el">Ρυθμίσεων, ο Editor</Settings_Editor>
     <Toggle_Debug language="el">Εναλλαγή εντοπισμού σφαλμάτων</Toggle_Debug>
     <Toggle_Transaction_Log language="el">Εναλλαγή καταγραφής συναλλαγών</Toggle_Transaction_Log>
-    <Refresh language="el">Ανανέωση</Refresh>
+    <Refresh_Schema language="el">Ανανέωση σχήματος</Refresh_Schema>
     <Check_for_Updates language="el">Έλεγχος για ενημερωμένες εκδόσεις</Check_for_Updates>
     <PXML language="el">XML</PXML>
     <PRGM_Start language="el">Ξεκίνησε το πρόγραμμα</PRGM_Start>
@@ -57,18 +57,20 @@
     <Language language="el">Γλώσσα</Language>
     <Save_and_Close language="el">Αποθήκευση και κλείσιμο</Save_and_Close>
     <Close_wo_saving language="el">Κλείστε χωρίς Αποθήκευση</Close_wo_saving>
-    <Failed_Load_Online_EULA language="el">Απέτυχε η φόρτωση ηλεκτρονική άδεια χρήσης τελικού χρήστη</Failed_Load_Online_EULA>
+    <Failed_Load_Online_EULA language="el">Απέτυχε η φόρτωση ηλεκτρονική άδεια χρήσης τελικού ΧΡΉΣΤΗ</Failed_Load_Online_EULA>
     <Auto_Log language="el">Auto Log</Auto_Log>
     <Export_HTML_Schema language="el">Εξαγωγή HTML ΣΧΉΜΑΤΟΣ εκ μέρους του </Export_HTML_Schema>
-    <Export_HTML_Data language="el">Εξαγωγή δεδομένων HTML εκ μέρους του </Export_HTML_Data>
+    <Export_HTML_Data language="el">Εξαγωγή ΔΕΔΟΜΈΝΩΝ HTML εκ μέρους του </Export_HTML_Data>
     <Check_Log language="el">Σφάλμα: Παρακαλώ ελέγξτε το αρχείο καταγραφής για λεπτομέρειες</Check_Log>
     <Query_Error language="el">Σφάλμα ερωτήματος</Query_Error>
     <Export_CSV language="el">ΕΞΑΓΩΓΙΚΈΣ CSV ΕΚ ΜΈΡΟΥΣ ΤΟΥ </Export_CSV>
-    <Export_SQL_SCHEMA language="el">Εξαγωγή SQL - σχήμα - εκ μέρους του </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="el">Εξαγωγή SQL - ΣΧΉΜΑ - εκ μέρους του </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="el">Εξαγωγή SQL - SQL - εκ μέρους του </Export_SQL_SQL>
     <Export_XML language="el">ΕΞΑΓΩΓΉ XML ΕΚ ΜΈΡΟΥΣ ΤΟΥ</Export_XML>
     <System language="el">Σύστημα</System>
     <Views_Read_Only language="el">Απόψεις που είναι μόνο για ανάγνωση και δεν είναι δυνατή η επεξεργασία</Views_Read_Only>
     <Dataview_Error language="el">Η βάση δεδομένων ή το Dataview δεν υπάρχει ή δεν έχει φορτωθεί ακόμη</Dataview_Error>
+    <Browse language="el">Αναζήτηση</Browse>
+    <Statistics_Page language="el">Στατιστικά Σελίδας</Statistics_Page>
   </Language>
 </root>

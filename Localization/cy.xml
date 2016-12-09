@@ -19,7 +19,7 @@
     <Settings_Editor language="cy">Gosodiadau'r Golygydd</Settings_Editor>
     <Toggle_Debug language="cy">Toglo difa chwilod</Toggle_Debug>
     <Toggle_Transaction_Log language="cy">Log Trafodion Toglo</Toggle_Transaction_Log>
-    <Refresh language="cy">Adnewyddu</Refresh>
+    <Refresh_Schema language="cy">Adnewyddu sgema</Refresh_Schema>
     <Check_for_Updates language="cy">Chwilio am ddiweddariadau</Check_for_Updates>
     <PXML language="cy">XML</PXML>
     <PRGM_Start language="cy">Dechreuodd y rhaglen</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="cy">System</System>
     <Views_Read_Only language="cy">Barn readonly ac ni ellir ei olygu</Views_Read_Only>
     <Dataview_Error language="cy">Mae cronfa ddata neu Dataview ddim yn bodoli neu nid yw wedi llwytho eto</Dataview_Error>
+    <Browse language="cy">Pori</Browse>
+    <Statistics_Page language="cy">Dudalen ystadegau</Statistics_Page>
   </Language>
 </root>

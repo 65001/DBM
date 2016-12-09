@@ -19,7 +19,7 @@
     <Settings_Editor language="no">Innstillinger Editor</Settings_Editor>
     <Toggle_Debug language="no">Aktiver/deaktiver Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="no">Veksle transaksjonslogg</Toggle_Transaction_Log>
-    <Refresh language="no">Oppdater</Refresh>
+    <Refresh_Schema language="no">Oppdater skjema</Refresh_Schema>
     <Check_for_Updates language="no">Se etter oppdateringer</Check_for_Updates>
     <PXML language="no">XML</PXML>
     <PRGM_Start language="no">Programmet startet</PRGM_Start>
@@ -57,18 +57,20 @@
     <Language language="no">Språk</Language>
     <Save_and_Close language="no">Lagre og Lukk</Save_and_Close>
     <Close_wo_saving language="no">Lukk uten å lagre</Close_wo_saving>
-    <Failed_Load_Online_EULA language="no">Kan ikke laste inn online lisensavtalen</Failed_Load_Online_EULA>
+    <Failed_Load_Online_EULA language="no">Kan ikke laste inn online LISENSAVTALEN</Failed_Load_Online_EULA>
     <Auto_Log language="no">Automatisk Logg</Auto_Log>
-    <Export_HTML_Schema language="no">Eksportere HTML-skjemaet på vegne av </Export_HTML_Schema>
+    <Export_HTML_Schema language="no">Eksportere HTML-SKJEMAET på vegne av </Export_HTML_Schema>
     <Export_HTML_Data language="no">Eksport HTML-DATA på vegne av </Export_HTML_Data>
     <Check_Log language="no">Feil: Kontroller log for detaljer</Check_Log>
     <Query_Error language="no">Spørsmål feil</Query_Error>
     <Export_CSV language="no">EKSPORTERE CSV PÅ VEGNE AV </Export_CSV>
-    <Export_SQL_SCHEMA language="no">Eksportere SQL - skjema - på vegne av </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="no">Eksportere SQL - SKJEMA - på vegne av </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="no">Eksportere SQL - SQL - på vegne av </Export_SQL_SQL>
     <Export_XML language="no">EKSPORT XML PÅ VEGNE AV</Export_XML>
     <System language="no">Systemet</System>
     <Views_Read_Only language="no">Visninger er skrivebeskyttet og kan ikke redigeres</Views_Read_Only>
     <Dataview_Error language="no">Databasen eller Dataview finnes ikke eller har ikke blitt lastet ennå</Dataview_Error>
+    <Browse language="no">Bla gjennom</Browse>
+    <Statistics_Page language="no">Statistikk side</Statistics_Page>
   </Language>
 </root>

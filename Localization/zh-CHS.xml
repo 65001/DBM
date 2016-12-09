@@ -19,7 +19,7 @@
     <Settings_Editor language="zh-CHS">设置编辑器</Settings_Editor>
     <Toggle_Debug language="zh-CHS">切换调试</Toggle_Debug>
     <Toggle_Transaction_Log language="zh-CHS">切换事务日志</Toggle_Transaction_Log>
-    <Refresh language="zh-CHS">刷新</Refresh>
+    <Refresh_Schema language="zh-CHS">刷新架构</Refresh_Schema>
     <Check_for_Updates language="zh-CHS">检查更新</Check_for_Updates>
     <PXML language="zh-CHS">XML</PXML>
     <PRGM_Start language="zh-CHS">启动的程序</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="zh-CHS">系统</System>
     <Views_Read_Only language="zh-CHS">视图是只读的无法编辑</Views_Read_Only>
     <Dataview_Error language="zh-CHS">数据库或数据视图不存在或尚未加载</Dataview_Error>
+    <Browse language="zh-CHS">浏览</Browse>
+    <Statistics_Page language="zh-CHS">统计页</Statistics_Page>
   </Language>
 </root>

@@ -19,7 +19,7 @@
     <Settings_Editor language="ko">설정 편집기</Settings_Editor>
     <Toggle_Debug language="ko">전환 디버그</Toggle_Debug>
     <Toggle_Transaction_Log language="ko">전환 트랜잭션 로그</Toggle_Transaction_Log>
-    <Refresh language="ko">새로 고침</Refresh>
+    <Refresh_Schema language="ko">스키마 새로 고침</Refresh_Schema>
     <Check_for_Updates language="ko">업데이트 확인</Check_for_Updates>
     <PXML language="ko">XML</PXML>
     <PRGM_Start language="ko">프로그램 시작</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="ko">시스템</System>
     <Views_Read_Only language="ko">조회 읽기 전용 이며 편집할 수 없습니다.</Views_Read_Only>
     <Dataview_Error language="ko">데이터베이스 또는 Dataview 존재 하지 않거나 아직 로드 되지 않았습니다.</Dataview_Error>
+    <Browse language="ko">찾아보기</Browse>
+    <Statistics_Page language="ko">통계 페이지</Statistics_Page>
   </Language>
 </root>

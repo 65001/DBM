@@ -19,7 +19,7 @@
     <Settings_Editor language="yua">Editor configuración</Settings_Editor>
     <Toggle_Debug language="yua">Depuración palanca</Toggle_Debug>
     <Toggle_Transaction_Log language="yua">Registro transacciones palanca</Toggle_Transaction_Log>
-    <Refresh language="yua">Ka'</Refresh>
+    <Refresh_Schema language="yua">Actualizar esquema</Refresh_Schema>
     <Check_for_Updates language="yua">Kaxant actualizaciones</Check_for_Updates>
     <PXML language="yua">XML</PXML>
     <PRGM_Start language="yua">Cha'ana' iniciado</PRGM_Start>
@@ -59,16 +59,18 @@
     <Close_wo_saving language="yua">Muts'ik in xma' ooks le cambios</Close_wo_saving>
     <Failed_Load_Online_EULA language="yua">Ma' u páajchaj kuuch u EULA ti' internet ichil</Failed_Load_Online_EULA>
     <Auto_Log language="yua">Registro kiis</Auto_Log>
-    <Export_HTML_Schema language="yua">Jo'osa'al bisbil ba'alche'obo' HTML esquema te' k'aaba' u </Export_HTML_Schema>
-    <Export_HTML_Data language="yua">Jo'osa'al bisbil ba'alche'obo' u datos HTML te' k'aaba' u </Export_HTML_Data>
+    <Export_HTML_Schema language="yua">Jo'osa'al bisbil ba'alche'obo' HTML ESQUEMA te' k'aaba' u </Export_HTML_Schema>
+    <Export_HTML_Data language="yua">Jo'osa'al bisbil ba'alche'obo' u DATOS HTML te' k'aaba' u </Export_HTML_Data>
     <Check_Log language="yua">Ba'alo': Much compruebe le registro utia'al u asab detalles</Check_Log>
     <Query_Error language="yua">Consulta ba'alo'</Query_Error>
     <Export_CSV language="yua">EXPORTAR CSV U NOMBRE U </Export_CSV>
-    <Export_SQL_SCHEMA language="yua">Exportar SQL ti'-esquema - ti' k'aaba' u </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="yua">Exportar SQL - ESQUEMA - ti' k'aaba' u </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="yua">Exportar u SQL ti'-SQL - ti' k'aaba' u </Export_SQL_SQL>
     <Export_XML language="yua">JO'OSA'AL BISBIL BA'ALCHE'OBO' XML TI' K'AABA' U</Export_XML>
     <System language="yua">Yaan u</System>
     <Views_Read_Only language="yua">Vistas ku chéen xooka' yéetel ma' u páajtal editar</Views_Read_Only>
     <Dataview_Error language="yua">Le k'oja'ano'obo' datos wa Dataview ma' yaan wa ma' u ts'o'ok cargado láayli'</Dataview_Error>
+    <Browse language="yua">Wil</Browse>
+    <Statistics_Page language="yua">Linki abas kaambal u estadísticas</Statistics_Page>
   </Language>
 </root>

@@ -19,7 +19,7 @@
     <Settings_Editor language="otq">Editor configuración</Settings_Editor>
     <Toggle_Debug language="otq">Depuración palanca</Toggle_Debug>
     <Toggle_Transaction_Log language="otq">Registro transacciones palanca</Toggle_Transaction_Log>
-    <Refresh language="otq">Actualización</Refresh>
+    <Refresh_Schema language="otq">Actualizar esquema</Refresh_Schema>
     <Check_for_Updates language="otq">Honi actualizaciones</Check_for_Updates>
     <PXML language="otq">XML</PXML>
     <PRGM_Start language="otq">Programa iniciado</PRGM_Start>
@@ -59,16 +59,18 @@
     <Close_wo_saving language="otq">Cerrar hinda guardar ar tse̲ yá mpa̲ti</Close_wo_saving>
     <Failed_Load_Online_EULA language="otq">Hingi ar himbí cargar da EULA jar 'ñu</Failed_Load_Online_EULA>
     <Auto_Log language="otq">Registro auto</Auto_Log>
-    <Export_HTML_Schema language="otq">Exportación HTML esquema jar thuhuu ar </Export_HTML_Schema>
-    <Export_HTML_Data language="otq">Exportación datos HTML jar thuhuu ar </Export_HTML_Data>
+    <Export_HTML_Schema language="otq">Exportación HTML ESQUEMA jar thuhuu ar </Export_HTML_Schema>
+    <Export_HTML_Data language="otq">Exportación DATOS HTML jar thuhuu ar </Export_HTML_Data>
     <Check_Log language="otq">Error: Jaki ar mäte, compruebe registro pa mäs detalles</Check_Log>
     <Query_Error language="otq">Consulta Error</Query_Error>
     <Export_CSV language="otq">EXPORTAR CSV A NOMBRE AR </Export_CSV>
-    <Export_SQL_SCHEMA language="otq">Exportar SQL — esquema — jar thuhuu ar </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="otq">Exportar SQL — ESQUEMA — jar thuhuu ar </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="otq">Exportar da SQL — SQL — jar thuhuu ar </Export_SQL_SQL>
     <Export_XML language="otq">EXPORTACIÓN XML JAR THUHUU AR</Export_XML>
     <System language="otq">Ko ar</System>
     <Views_Read_Only language="otq">Vistas ya ho̲ntho da ne hingi ar tsa̲ da editar</Views_Read_Only>
     <Dataview_Error language="otq">Ar base ar datos wa Dataview hingi nuna ar dängo wa hi'nä ar xi cargado aún mi</Dataview_Error>
+    <Browse language="otq">Di nu'i</Browse>
+    <Statistics_Page language="otq">Página estadísticas</Statistics_Page>
   </Language>
 </root>

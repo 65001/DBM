@@ -19,7 +19,7 @@
     <Settings_Editor language="fa">تنظیمات ویرایشگر</Settings_Editor>
     <Toggle_Debug language="fa">اشکالزدایی آمار بازدید</Toggle_Debug>
     <Toggle_Transaction_Log language="fa">تغییر چگونگی وارد معامله</Toggle_Transaction_Log>
-    <Refresh language="fa">تازه کردن</Refresh>
+    <Refresh_Schema language="fa">تازه کردن طرح کلی</Refresh_Schema>
     <Check_for_Updates language="fa">بررسی برای به روز رسانی</Check_for_Updates>
     <PXML language="fa">XML</PXML>
     <PRGM_Start language="fa">برنامه آغاز شده</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="fa">سیستم</System>
     <Views_Read_Only language="fa">فقط خواندنی است و حذف نمی شود</Views_Read_Only>
     <Dataview_Error language="fa">پایگاه داده و یا Dataview وجود ندارد یا هنوز بارگذاری نشده است</Dataview_Error>
+    <Browse language="fa">مرور</Browse>
+    <Statistics_Page language="fa">آمار صفحه</Statistics_Page>
   </Language>
 </root>

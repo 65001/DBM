@@ -19,7 +19,7 @@
     <Settings_Editor language="he">עורך הגדרות</Settings_Editor>
     <Toggle_Debug language="he">החלף מצב איתור באגים</Toggle_Debug>
     <Toggle_Transaction_Log language="he">יומן הטרנזקציות של דו-מצבי</Toggle_Transaction_Log>
-    <Refresh language="he">רענון</Refresh>
+    <Refresh_Schema language="he">רענון סכימה</Refresh_Schema>
     <Check_for_Updates language="he">בדוק אם קיימים עדכונים</Check_for_Updates>
     <PXML language="he">XML</PXML>
     <PRGM_Start language="he">התוכנית החלה</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="he">מערכת</System>
     <Views_Read_Only language="he">תצוגות לקריאה בלבד, לא ניתן לערוך</Views_Read_Only>
     <Dataview_Error language="he">מסד הנתונים או Dataview אינו קיים או שלא היה טעון עדיין</Dataview_Error>
+    <Browse language="he">עיון</Browse>
+    <Statistics_Page language="he">דף הסטטיסטיקה</Statistics_Page>
   </Language>
 </root>

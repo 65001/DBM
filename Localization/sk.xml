@@ -19,7 +19,7 @@
     <Settings_Editor language="sk">Nastavenie editora</Settings_Editor>
     <Toggle_Debug language="sk">Prepínač Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="sk">Prepínanie transakcie denníka</Toggle_Transaction_Log>
-    <Refresh language="sk">Obnoviť</Refresh>
+    <Refresh_Schema language="sk">Obnoviť schému</Refresh_Schema>
     <Check_for_Updates language="sk">Skontrolovať aktualizácie</Check_for_Updates>
     <PXML language="sk">XML</PXML>
     <PRGM_Start language="sk">Program začal</PRGM_Start>
@@ -59,16 +59,18 @@
     <Close_wo_saving language="sk">Zavrieť bez uloženia</Close_wo_saving>
     <Failed_Load_Online_EULA language="sk">Nepodarilo sa načítať online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="sk">Auto Log</Auto_Log>
-    <Export_HTML_Schema language="sk">Exportovať HTML schémy v </Export_HTML_Schema>
-    <Export_HTML_Data language="sk">Exportovať údaje HTML v </Export_HTML_Data>
+    <Export_HTML_Schema language="sk">Exportovať HTML SCHÉMY v </Export_HTML_Schema>
+    <Export_HTML_Data language="sk">Exportovať ÚDAJE HTML v </Export_HTML_Data>
     <Check_Log language="sk">Chyba: Prosím skontrolujte Podrobnosti v denníku</Check_Log>
     <Query_Error language="sk">Dotaz chyba</Query_Error>
     <Export_CSV language="sk">EXPORT CSV V </Export_CSV>
-    <Export_SQL_SCHEMA language="sk">Export SQL - schéma - v </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="sk">Export SQL - SCHÉMA - v </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="sk">Export SQL - SQL - v </Export_SQL_SQL>
     <Export_XML language="sk">EXPORT XML V</Export_XML>
     <System language="sk">Systém</System>
     <Views_Read_Only language="sk">Zobrazení sú len na čítanie a nemôžu sa upravovať</Views_Read_Only>
     <Dataview_Error language="sk">Databázy alebo Dataview neexistuje alebo nebol načítaný ešte</Dataview_Error>
+    <Browse language="sk">Prehľadávať</Browse>
+    <Statistics_Page language="sk">Štatistika stránky</Statistics_Page>
   </Language>
 </root>

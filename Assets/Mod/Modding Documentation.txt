@@ -1,8 +1,0 @@
-	Limitations
-		1.You can only call subs in the DBM by calling it through a function call. 
-		2.To my understanding you cannot edit the UI as it requires a universal button handler which has not yet been implemented
-			Note : Though a universal even handler has been implemented it is recommended to only mod the menu. Also note that you right now cannot override a inbuilt command
-			as any updates to the GW will cause the program to call up its hard-coded defines . So make up new buttons and Menu options etc
-	Warning
-		1. The Command Function Parses your SQL statements before inserting them. This can result in slower speeds.
-		

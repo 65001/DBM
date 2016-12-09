@@ -19,7 +19,7 @@
     <Settings_Editor language="bs-Latn">Postavke uređivača</Settings_Editor>
     <Toggle_Debug language="bs-Latn">Uključi/isključi Debug</Toggle_Debug>
     <Toggle_Transaction_Log language="bs-Latn">Uključi/isključi Transakcijski zapisnik</Toggle_Transaction_Log>
-    <Refresh language="bs-Latn">Osvježi</Refresh>
+    <Refresh_Schema language="bs-Latn">Osvježi shemu</Refresh_Schema>
     <Check_for_Updates language="bs-Latn">Provjeri ima li ažuriranja</Check_for_Updates>
     <PXML language="bs-Latn">XML</PXML>
     <PRGM_Start language="bs-Latn">Program je započeo</PRGM_Start>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="bs-Latn">Nije uspjelo Učitavanje on-line EULA</Failed_Load_Online_EULA>
     <Auto_Log language="bs-Latn">Automatska prijava</Auto_Log>
     <Export_HTML_Schema language="bs-Latn">Izvoz HTML SHEME u ime </Export_HTML_Schema>
-    <Export_HTML_Data language="bs-Latn">Izvoz HTML podataka u ime </Export_HTML_Data>
+    <Export_HTML_Data language="bs-Latn">Izvoz HTML PODATAKA u ime </Export_HTML_Data>
     <Check_Log language="bs-Latn">Greška: Molimo provjerite dnevnik za detalje</Check_Log>
     <Query_Error language="bs-Latn">Pogreška upita</Query_Error>
     <Export_CSV language="bs-Latn">IZVEZI CSV U IME </Export_CSV>
@@ -70,5 +70,7 @@
     <System language="bs-Latn">Sustav</System>
     <Views_Read_Only language="bs-Latn">Stavovi su samo za čitanje i ne može se uređivati</Views_Read_Only>
     <Dataview_Error language="bs-Latn">Baza podataka ili Dataview ne postoji ili nije učitan još</Dataview_Error>
+    <Browse language="bs-Latn">Pregledaj</Browse>
+    <Statistics_Page language="bs-Latn">Statistika stranica</Statistics_Page>
   </Language>
 </root>

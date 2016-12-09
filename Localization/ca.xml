@@ -19,7 +19,7 @@
     <Settings_Editor language="ca">Editor de la configuració</Settings_Editor>
     <Toggle_Debug language="ca">Depuració de tanca</Toggle_Debug>
     <Toggle_Transaction_Log language="ca">Toggle Log de transacció</Toggle_Transaction_Log>
-    <Refresh language="ca">L'actualització</Refresh>
+    <Refresh_Schema language="ca">Actualitzar l'esquema</Refresh_Schema>
     <Check_for_Updates language="ca">Buscar actualitzacions</Check_for_Updates>
     <PXML language="ca">XML</PXML>
     <PRGM_Start language="ca">Programa iniciat</PRGM_Start>
@@ -60,15 +60,17 @@
     <Failed_Load_Online_EULA language="ca">No ha pogut carregar l'EULA en línia</Failed_Load_Online_EULA>
     <Auto_Log language="ca">Registre d'auto</Auto_Log>
     <Export_HTML_Schema language="ca">ESQUEMA de HTML d'exportació en nom de </Export_HTML_Schema>
-    <Export_HTML_Data language="ca">Exportar dades de HTML en nom de </Export_HTML_Data>
+    <Export_HTML_Data language="ca">Exportar DADES de HTML en nom de </Export_HTML_Data>
     <Check_Log language="ca">Error: Si us plau comprovar el registre per a més detalls</Check_Log>
     <Query_Error language="ca">Error de pregunta de</Query_Error>
     <Export_CSV language="ca">EXPORTACIÓ DE CSV EN NOM DE </Export_CSV>
-    <Export_SQL_SCHEMA language="ca">Exportació SQL - esquema - en nom de </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="ca">Exportació SQL - ESQUEMA - en nom de </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="ca">Exportació SQL - SQL - en nom de </Export_SQL_SQL>
     <Export_XML language="ca">EXPORTACIÓ eD XML EN NOM DE</Export_XML>
     <System language="ca">Sistema</System>
     <Views_Read_Only language="ca">Opinions són readonly i no es pot editar</Views_Read_Only>
     <Dataview_Error language="ca">La base de dades o la visualització de dades no existeix o no ha carregat encara</Dataview_Error>
+    <Browse language="ca">Navegar</Browse>
+    <Statistics_Page language="ca">Pàgina d'estadístiques</Statistics_Page>
   </Language>
 </root>

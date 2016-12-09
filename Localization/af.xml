@@ -19,7 +19,7 @@
     <Settings_Editor language="af">Instellings redakteur</Settings_Editor>
     <Toggle_Debug language="af">Wissel vir foutopspoor</Toggle_Debug>
     <Toggle_Transaction_Log language="af">Wissel transaksie Log</Toggle_Transaction_Log>
-    <Refresh language="af">Verfris</Refresh>
+    <Refresh_Schema language="af">Verfris skema valideer nie</Refresh_Schema>
     <Check_for_Updates language="af">Kontroleer vir bywerkings</Check_for_Updates>
     <PXML language="af">XML</PXML>
     <PRGM_Start language="af">Program begin</PRGM_Start>
@@ -59,16 +59,18 @@
     <Close_wo_saving language="af">Sluit sonder om te stoor</Close_wo_saving>
     <Failed_Load_Online_EULA language="af">Kon nie laai nie aanlyn EINDGEBRUIKERLISENSIEOOREENKOMS</Failed_Load_Online_EULA>
     <Auto_Log language="af">Outomatiese aanteken</Auto_Log>
-    <Export_HTML_Schema language="af">Uitvoer HTML skema valideer nie namens </Export_HTML_Schema>
+    <Export_HTML_Schema language="af">Uitvoer HTML skema valideer NIE namens </Export_HTML_Schema>
     <Export_HTML_Data language="af">Uitvoer HTML DATA namens </Export_HTML_Data>
     <Check_Log language="af">Fout: Kyk asseblief die teken vir besonderhede</Check_Log>
     <Query_Error language="af">Navraag fout</Query_Error>
     <Export_CSV language="af">UITVOER CSV NAMENS </Export_CSV>
-    <Export_SQL_SCHEMA language="af">SQL - skema valideer nie - uitvoer namens </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="af">SQL - skema valideer NIE - uitvoer namens </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="af">Uitvoer SQL - SQL - namens </Export_SQL_SQL>
     <Export_XML language="af">UITVOER XML NAMENS</Export_XML>
     <System language="af">Stelsel</System>
     <Views_Read_Only language="af">Sienings is readonly en kan nie geredigeer word nie</Views_Read_Only>
     <Dataview_Error language="af">Die databasis of Dataview nie bestaan nie of is nog nie gelaai nie</Dataview_Error>
+    <Browse language="af">Blaai</Browse>
+    <Statistics_Page language="af">Statistiek bladsy</Statistics_Page>
   </Language>
 </root>

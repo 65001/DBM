@@ -19,7 +19,7 @@
     <Settings_Editor language="ar">إعدادات محرر</Settings_Editor>
     <Toggle_Debug language="ar">تبديل التصحيح</Toggle_Debug>
     <Toggle_Transaction_Log language="ar">تبديل سجل المعاملات</Toggle_Transaction_Log>
-    <Refresh language="ar">قم بتحديث</Refresh>
+    <Refresh_Schema language="ar">تحديث المخطط</Refresh_Schema>
     <Check_for_Updates language="ar">التحقق من وجود تحديثات</Check_for_Updates>
     <PXML language="ar">إكس أم ال</PXML>
     <PRGM_Start language="ar">البرنامج بدأ</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="ar">نظام</System>
     <Views_Read_Only language="ar">وجهات النظر هي القراءة فقط ولا يمكن تحريره</Views_Read_Only>
     <Dataview_Error language="ar">في قاعدة البيانات أو Dataview غير موجود أو لم يتم تحميل حتى الآن</Dataview_Error>
+    <Browse language="ar">تصفح</Browse>
+    <Statistics_Page language="ar">صفحة الإحصاءات</Statistics_Page>
   </Language>
 </root>

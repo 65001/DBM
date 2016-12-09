@@ -1,0 +1,12 @@
+Drop Table IF EXISTS [Statistics Log];
+Create Table [Statistics Log] ([Row] Text,[SUM] INT,[AVG] INT,[COUNT] INT,[MAX] INT,[MIN] INT,[TYPE] TEXT,[DATE STAMP] TEXT,[UTC TIME] TEXT);
+Insert into [Statistics Log] Select 'ID',SUM(ID),AVG(ID),COUNT(ID),MAX(ID),MIN(ID),typeOf(ID),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'UTC DATE',SUM(UTC DATE),AVG(UTC DATE),COUNT(UTC DATE),MAX(UTC DATE),MIN(UTC DATE),typeOf(UTC DATE),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'UTC TIME',SUM(UTC TIME),AVG(UTC TIME),COUNT(UTC TIME),MAX(UTC TIME),MIN(UTC TIME),typeOf(UTC TIME),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'Date',SUM(Date),AVG(Date),COUNT(Date),MAX(Date),MIN(Date),typeOf(Date),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'Time',SUM(Time),AVG(Time),COUNT(Time),MAX(Time),MIN(Time),typeOf(Time),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'USER',SUM(USER),AVG(USER),COUNT(USER),MAX(USER),MIN(USER),typeOf(USER),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'ProductID',SUM(ProductID),AVG(ProductID),COUNT(ProductID),MAX(ProductID),MIN(ProductID),typeOf(ProductID),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'ProductVersion',SUM(ProductVersion),AVG(ProductVersion),COUNT(ProductVersion),MAX(ProductVersion),MIN(ProductVersion),typeOf(ProductVersion),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'Type',SUM(Type),AVG(Type),COUNT(Type),MAX(Type),MIN(Type),typeOf(Type),DATE(),TIME() From Log;;
+Insert into [Statistics Log] Select 'Event',SUM(Event),AVG(Event),COUNT(Event),MAX(Event),MIN(Event),typeOf(Event),DATE(),TIME() From Log;;

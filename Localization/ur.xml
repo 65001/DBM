@@ -19,7 +19,7 @@
     <Settings_Editor language="ur">سیٹنگیں تدوین کار</Settings_Editor>
     <Toggle_Debug language="ur">ٹوگل ٹھیک کریں</Toggle_Debug>
     <Toggle_Transaction_Log language="ur">ٹوگل لین دین لاگ ان کریں</Toggle_Transaction_Log>
-    <Refresh language="ur">تازہ کریں</Refresh>
+    <Refresh_Schema language="ur">شجرہ کی تازہ کاری کریں</Refresh_Schema>
     <Check_for_Updates language="ur">پڑتال برائے تازہ کاریاں</Check_for_Updates>
     <PXML language="ur">XML</PXML>
     <PRGM_Start language="ur">پروگرام کا آغاز</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="ur">نظام</System>
     <Views_Read_Only language="ur">خیالات ریڈونل ہیں اور تدوین نہیں کی جا سکتی</Views_Read_Only>
     <Dataview_Error language="ur">کوائفیہ یا داتویو موجود نہیں یا ابھی تک لوڈ نہیں کی گئی ہے</Dataview_Error>
+    <Browse language="ur">براؤز کریں</Browse>
+    <Statistics_Page language="ur">اعداد و شمار صفحہ</Statistics_Page>
   </Language>
 </root>

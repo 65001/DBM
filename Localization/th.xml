@@ -19,7 +19,7 @@
     <Settings_Editor language="th">ตัวแก้ไขการตั้งค่า</Settings_Editor>
     <Toggle_Debug language="th">ตรวจแก้จุดบกพร่องสลับ</Toggle_Debug>
     <Toggle_Transaction_Log language="th">สลับล็อกธุรกรรม</Toggle_Transaction_Log>
-    <Refresh language="th">รีเฟรช</Refresh>
+    <Refresh_Schema language="th">รีเฟรช Schema</Refresh_Schema>
     <Check_for_Updates language="th">ตรวจสอบปรับปรุง</Check_for_Updates>
     <PXML language="th">XML</PXML>
     <PRGM_Start language="th">โปรแกรมเริ่มต้น</PRGM_Start>
@@ -70,5 +70,7 @@
     <System language="th">ระบบ</System>
     <Views_Read_Only language="th">จะอ่านอย่างเดียว และไม่สามารถแก้ไขได้</Views_Read_Only>
     <Dataview_Error language="th">ฐานข้อมูลหรือมุมมองข้อมูลไม่มีอยู่ หรือไม่ได้โหลดยัง</Dataview_Error>
+    <Browse language="th">เรียกดู</Browse>
+    <Statistics_Page language="th">หน้าสถิติ</Statistics_Page>
   </Language>
 </root>

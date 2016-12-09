@@ -19,7 +19,7 @@
     <Settings_Editor language="es">Editor de configuración</Settings_Editor>
     <Toggle_Debug language="es">Depuración de palanca</Toggle_Debug>
     <Toggle_Transaction_Log language="es">Registro de transacciones de palanca</Toggle_Transaction_Log>
-    <Refresh language="es">Actualización</Refresh>
+    <Refresh_Schema language="es">Actualizar esquema</Refresh_Schema>
     <Check_for_Updates language="es">Buscar actualizaciones</Check_for_Updates>
     <PXML language="es">XML</PXML>
     <PRGM_Start language="es">Programa iniciado</PRGM_Start>
@@ -59,16 +59,18 @@
     <Close_wo_saving language="es">Cerrar sin guardar los cambios</Close_wo_saving>
     <Failed_Load_Online_EULA language="es">No se pudo cargar a EULA en línea</Failed_Load_Online_EULA>
     <Auto_Log language="es">Registro de auto</Auto_Log>
-    <Export_HTML_Schema language="es">Exportación HTML esquema en nombre de </Export_HTML_Schema>
-    <Export_HTML_Data language="es">Exportación de datos HTML en nombre de </Export_HTML_Data>
+    <Export_HTML_Schema language="es">Exportación HTML ESQUEMA en nombre de </Export_HTML_Schema>
+    <Export_HTML_Data language="es">Exportación de DATOS HTML en nombre de </Export_HTML_Data>
     <Check_Log language="es">Error: Por favor, compruebe el registro para más detalles</Check_Log>
     <Query_Error language="es">Consulta Error</Query_Error>
     <Export_CSV language="es">EXPORTAR CSV A NOMBRE DE </Export_CSV>
-    <Export_SQL_SCHEMA language="es">Exportar SQL - esquema - en nombre de </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="es">Exportar SQL - ESQUEMA - en nombre de </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="es">Exportar a SQL - SQL - en nombre de </Export_SQL_SQL>
     <Export_XML language="es">EXPORTACIÓN XML EN NOMBRE DE</Export_XML>
     <System language="es">Sistema de</System>
     <Views_Read_Only language="es">Vistas son de sólo lectura y no se puede editar</Views_Read_Only>
     <Dataview_Error language="es">La base de datos o Dataview no existe o no se ha cargado aún</Dataview_Error>
+    <Browse language="es">Ver</Browse>
+    <Statistics_Page language="es">Página de estadísticas</Statistics_Page>
   </Language>
 </root>

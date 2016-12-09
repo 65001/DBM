@@ -1,0 +1,211 @@
+'Export Module 
+'v1000
+'HTML , SQL ,CSV , XML Support 
+
+Sub VOID
+  TypesOfSorts = TypesOfSorts
+  QueryFunction = QueryFunction 
+  LangList = LangList
+  databasepath = databasepath 
+  Default_Table = Default_Table
+  CLLF = CLLF 
+  TabKey = TabKey 
+  DoubleQuotesCharacter = DoubleQuotesCharacter 
+  SortByMode = SortByMode 
+  PrgmVersionID = PrgmVersionID 
+  
+  SCHEMA = SCHEMA 
+  SchemaList = SchemaList
+  
+  deliminator = deliminator 
+  querycmd = querycmd 
+  
+  XML_Version_Number = XML_Version_Number 
+  Function_XML_Attributes = Function_XML_Attributes 
+  XML_Array = XML_Array 
+  List_Stack_Trace = List_Stack_Trace
+  
+  logfunction = logfunction
+  DQC = DQC 
+EndSub
+
+
+Sub HTML
+  LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
+  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+ DQC + Default_Table+ DQC +");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
+  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
+  EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
+  
+  HTML_Statement = "" 
+  HTML_Statement = "<!DOCTYPE html>"+CLLF+"<html>"+CLLF+TabKey+"<title>" + Default_Table +" Exported</title>" +CLLF + CLLF
+  HTML_Statement = HTML_Statement + TabKey + "<meta name=" + DoubleQuotesCharacter +"viewport" +  DoubleQuotesCharacter + "content=" + DoubleQuotesCharacter + "width=device-width, initial-scale=1" + DoubleQuotesCharacter  +">"
+  HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}" +CLLF+TabKey+TabKey+TabKey+"table {border-collapse: collapse; width: 100%;}" +CLLF+TabKey+TabKey+TabKey+"th,td {padding: 5px;}" 'Padding is now much better
+  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}"
+  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
+  HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
+  HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->" + CLLF 
+  HTML_Statement = HTML_Statement + TabKey +"</head>" + CLLF + CLLF  
+  HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"
+  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr> "  +CLLF + TabKey+TabKey+Tabkey+Tabkey+ TabKey + "<td id = " +DoubleQuotesCharacter +"Main"+ DoubleQuotesCharacter +" + colspan = " + DoubleQuotesCharacter + Array.GetItemCount(Export_HTML_SCHEMA ) + DoubleQuotesCharacter +">" + Default_Table +"</td>"
+  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+"</tr>" +CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr>"+CLLF 
+  
+  For EXPORT_HTML_I = 1 To  Array.GetItemCount(Export_HTML_SCHEMA)
+    HTML_Statement = HTML_Statement + TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I]["name"] +"</th>" + CLLF
+  EndFor 
+  HTML_Statement = HTML_Statement +TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF
+  
+  For EXPORT_HTML_I = 1 To Array.GetItemCount(EXPORT_HTML_DATA)
+    HTML_Statement = HTML_Statement +TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF
+    For EXPORT_HTML_II = 1 To Array.GetItemCount(Export_HTML_SCHEMA)
+      HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + EXPORT_HTML_DATA[EXPORT_HTML_I][Export_HTML_SCHEMA[EXPORT_HTML_II]["name"]] +"</td>" + CLLF
+    EndFor
+    HTML_Statement = HTML_Statement +TabKey + TabKey+Tabkey+Tabkey+"</tr>"+CLLF 
+  EndFor
+  HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
+  File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
+  LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO HTML",LangList["Application"]) '//Localize 
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO HTML", LangList[ "Export"]) '//Localize  
+EndSub
+
+Sub Export_SQL
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL")
+  SQL_Dump_Fetch()
+  SQL_Dump_WRITE()
+  LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO SQL",LangList["Application"]) '//Localize 
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO SQL" , LangList[ "Export"]) '//Localize  
+EndSub
+
+Sub SQL_Dump_Fetch 
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Fetch")
+  LDList.Clear("EXPORT_SQL")
+  LDList.Clear("EXPORT_SQL_PK")
+  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+DQC +Default_Table+ DQC +");","","True",LangList["App"],LangList["Export SQL SCHEMA"]  + LDFile.UserName) 
+  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+ DQC + Default_Table+ DQC +";","","True",LangList["App"],LangList["Export SQL SQL"] + LDFile.UserName)
+  EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
+  
+  For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
+    LDList.Add("EXPORT_SQL",SCHEMA[Export_SQL_I]["type"] ) 'Type of Data 
+    LDList.Add("EXPORT_SQL_PK",SCHEMA[Export_SQL_I]["pk"] ) 
+  EndFor
+  
+  Export_SQL_DUMP_SCHEMA = LDList.ToArray("EXPORT_SQL")
+  EXPORT_SQL_DUMP_PK = LDList.ToArray("EXPORT_SQL_PK")
+  LDList.Clear("EXPORT_SQL")
+  LDList.Clear("EXPORT_SQL_PK")
+EndSub
+
+Sub SQL_Dump_WRITE
+  LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Write")
+  'Generates Create Table Schema with proper Schema
+  Dump_SQL = "CREATE TABLE " + Default_Table +"("
+  For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
+    DUMP_SQL = DUMP_SQL +DQC + SchemaList[Export_SQL_I]+DQC +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
+    If EXPORT_SQL_DUMP_PK[Export_SQL_I] = 1 Then
+      Dump_SQL = Dump_SQL +" " + "PRIMARY KEY"
+    EndIf 
+    If Export_SQL_I < Array.GetItemCount(SchemaList) Then
+      DUMP_SQL = DUMP_SQL +","
+    EndIf
+  EndFor
+  
+  DUMP_SQL = DUMP_SQL +");"
+  DUMP_SQL_INSERT = "("
+  For Export_SQL_I = 1 To Array.GetItemCount(SchemaList) 
+    DUMP_SQL_INSERT = DUMP_SQL_INSERT + DQC + SchemaList[Export_SQL_I] + DQC 
+    If Export_SQL_I < Array.GetItemCount(SchemaList) Then
+      DUMP_SQL_INSERT = DUMP_SQL_INSERT +","
+    EndIf
+  EndFor
+  DUMP_SQL_INSERT = DUMP_SQL_INSERT +")"
+  
+  'Exports Data from SQL Table
+  For Export_SQL_I = 1 To Array.GetItemCount(EXPORT_SQL_DATA)
+    DUMP_SQL = DUMP_SQL +"INSERT INTO " +Default_Table +DUMP_SQL_INSERT + " VALUES ('"
+    For Export_SQL_II = 1 To Array.GetItemCount(EXPORT_SQL_DATA[Export_SQL_I])
+      DUMP_SQL =DUMP_SQL + LDText.Replace(EXPORT_SQL_DATA[Export_SQL_I][SchemaList[Export_SQL_II]],"'","''")
+      If Export_SQL_II < Array.GetItemCount(SchemaList) Then
+        DUMP_SQL = DUMP_SQL +"','"
+      EndIf
+    EndFor
+    DUMP_SQL = DUMP_SQL +"');" + CLLF
+  EndFor
+  
+  Dump_SQL = LDText.Replace( Dump_SQL ,"' '","NULL")
+  Dump_SQL = LDText.Replace( Dump_SQL ,"''","NULL")
+  
+  File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
+EndSub
+
+Sub CSV
+  LDList.Add(List_Stack_Trace,"Plugin : Export.CSV")
+  TextWindow.WriteLine("")
+  
+  If deliminator = "" then
+    LDUtilities.CSVDeliminator = "," 
+  Else
+    LDUtilities.CSVDeliminator = deliminator
+  EndIf
+  
+  return =  LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],LangList["EXPORT CSV"]  + LDFile.UserName)
+  csvdata = return 
+  
+  return2 = Array.GetAllIndices(return)
+  return2 = return [return2[1] ]
+  return2 = Array.GetAllIndices(return2)
+  
+  csvpath = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.csv"
+  
+  For i = 1 To Array.GetItemCount(return2) 'Gets Column Names  Headers
+    csvdata[0][i] =  return2[i]
+  EndFor
+  
+  For i = 0 To Array.GetItemCount(csvdata) + 1 'Puts Column Names into Data
+    csvdataREAL[i+1] = csvdata[i]
+  EndFor
+  
+  LDFile.WriteCSV(csvpath,csvdataREAL )
+  csvdata = ""
+EndSub
+
+Sub XML
+  LDList.Add(List_Stack_Trace,"Plugin : Export.XML")
+  EXPORTDATA = LDCall.Function5(QueryFunction,querycmd,"","True",LangList["App"],LangList["Export XML"] + LDFile.UserName ) 
+  
+  XML_Path = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " Table.xml"
+  XML_Createment_Statement = "<?xml version=" +DoubleQuotesCharacter+ XML_Version_Number+DoubleQuotesCharacter+" encoding="+DoubleQuotesCharacter+ "UTF-8"+DoubleQuotesCharacter+" standalone="+DoubleQuotesCharacter+"yes" + DoubleQuotesCharacter +"?>"
+  XML_Createment_Statement = XML_Createment_Statement +"<root></root>"
+  File.WriteContents(XML_Path,XML_Createment_Statement)
+  XML_Document = LDxml.Open(XML_Path)
+  XML_Parent = LDxml.Parent()
+  LDxml.FirstChild()
+  GO = 1
+  
+  XML_Array = LDCall.Function( Function_XML_Attributes , "")
+  While Go = 1
+    If XML_Array[5] = "XmlDeclaration" Or XML_Array[5] ="root" Then 'Ignores Root and XMLDeclaration
+      LDxml.NextSibling()
+      XML_Array = LDCall.Function( Function_XML_Attributes , "")
+    Else
+      XML_Array = LDCall.Function( Function_XML_Attributes , "")
+      XML_Write()
+      LDxml.Save(XML_Path)
+      GO = 0
+    EndIf
+  EndWhile
+  
+EndSub
+
+Sub XML_Write 'Writes Data Out. 
+  LDList.Add(List_Stack_Trace,"Plugin : Export.XML_Write")
+  For I = 1 To Array.GetItemCount(EXPORTDATA)
+    data["id"] = I
+    LDxml.AddNode("record",I,"","Append")
+    Child = LDxml.LastChild()
+    XML_Array = LDCall.Function( Function_XML_Attributes , "")
+    For II = 1 To Array.GetItemCount(EXPORTDATA[I])
+      LDxml.AddNode(LDText.Replace(SchemaList[II]," ","_"),"",EXPORTDATA[I][SchemaList[II]],"Append")
+    EndFor
+    LDxml.Parent()
+  EndFor
+  XML_Array = LDCall.Function( Function_XML_Attributes , "")
+EndSub

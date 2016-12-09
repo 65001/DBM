@@ -11,7 +11,7 @@
 			th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}
 		</style>
 		<meta charset = "UTF-8">
-		<meta name="generator" content="DBM v1119">
+		<meta name="generator" content="DBM v1120">
 		<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->
 	</head>
 
@@ -19,7 +19,7 @@
 		<div style="overflow-x:auto;">
 			<table>
 				<tr> 
-					<td id = "Main" + colspan = "5">Change Log</td>
+					<td id = "Main" + colspan = "5">Change_Log</td>
 				</tr>
 				<tr>
 					<th>ID</th>
@@ -165,6 +165,13 @@
 					<td>20</td>
 					<td>1118</td>
 					<td><ul><li>Added over a better fail-safe system for EULA not being accessible due to internet outages</li><li>Added a Menu.txt file that follows Add_UI_Controls argument pattern that allows Plugins to add UI Items without being loaded . Hence reducing Start-up Time</li><li>&nbsp; An additional item 6 represents whether or not an item has been localized. By setting it to 1 the Program will attempt to use the localization set in the relevant localization file</li><li>Version 1118 is the last version that will have any obsolete functions . All obsolete functions will be commented out</li><li>Added a pseudo stack trace system that has been implemented into  nearly all parts of the program</li></ul></td>
+					<td>Supported </td>
+					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
+				</tr>
+				<tr>
+					<td>21</td>
+					<td>1119</td>
+					<td><ul><li>Support for TEMP Tables has been added by a Third Party dev to the underlying dll and to hene this program as well.</li><li>New Table Menu added through Plugin Interface . You must copy and paste the SQL Code until a further revision</li><li>Refactored Load Settings so manually editing the settings file looks less messy</li><li>Save Settings : File will not be rewritten unless changes have been made</li><li>LOAD DB and GET Path have been made into functions.</li><li>Revised ADD UI Function to add for the ability to set tooltips and the like.</li><li>Added Support for toggling between multiple database connections</li><li>Fixed Font Size Related bugs</li></ul></td>
 					<td>Supported </td>
 					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
 				</tr>

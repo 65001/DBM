@@ -19,7 +19,7 @@
     <Settings_Editor language="pl">Ustawienia edytora</Settings_Editor>
     <Toggle_Debug language="pl">Przełącz debugowania</Toggle_Debug>
     <Toggle_Transaction_Log language="pl">Dziennik transakcji przełączania</Toggle_Transaction_Log>
-    <Refresh language="pl">Odświeżania</Refresh>
+    <Refresh_Schema language="pl">Odświeżenie schematu</Refresh_Schema>
     <Check_for_Updates language="pl">Sprawdź aktualizacje</Check_for_Updates>
     <PXML language="pl">XML</PXML>
     <PRGM_Start language="pl">Program uruchomiony</PRGM_Start>
@@ -59,16 +59,18 @@
     <Close_wo_saving language="pl">Zamknąć bez zapisywania</Close_wo_saving>
     <Failed_Load_Online_EULA language="pl">Nie można załadować online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="pl">Auto Log</Auto_Log>
-    <Export_HTML_Schema language="pl">Eksportu HTML schematu w imieniu </Export_HTML_Schema>
-    <Export_HTML_Data language="pl">Eksportowanie danych HTML w imieniu </Export_HTML_Data>
+    <Export_HTML_Schema language="pl">Eksportu HTML SCHEMATU w imieniu </Export_HTML_Schema>
+    <Export_HTML_Data language="pl">Eksportowanie DANYCH HTML w imieniu </Export_HTML_Data>
     <Check_Log language="pl">Błąd: Proszę sprawdzić szczegóły w dzienniku</Check_Log>
     <Query_Error language="pl">Błąd kwerendy</Query_Error>
     <Export_CSV language="pl">EKSPORT CSV W IMIENIU </Export_CSV>
-    <Export_SQL_SCHEMA language="pl">Wyeksportować SQL - schemat - w imieniu </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="pl">Wyeksportować SQL - SCHEMAT - w imieniu </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="pl">Wyeksportować SQL - SQL - w imieniu </Export_SQL_SQL>
     <Export_XML language="pl">EKSPORTOWANIE DANYCH XML W IMIENIU</Export_XML>
     <System language="pl">Systemu</System>
     <Views_Read_Only language="pl">Widoki są tylko do odczytu i nie można edytować</Views_Read_Only>
     <Dataview_Error language="pl">Bazy danych lub widoku danych nie istnieje lub jeszcze nie został załadowany</Dataview_Error>
+    <Browse language="pl">Przeglądaj</Browse>
+    <Statistics_Page language="pl">Statystyki strony</Statistics_Page>
   </Language>
 </root>

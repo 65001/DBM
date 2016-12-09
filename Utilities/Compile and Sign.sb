@@ -46,7 +46,7 @@ While Exist = "True"
     TextWindow.WriteLine("Byte Total : " + Size_Bits ) 
     TextWindow.WriteLine("Press Any Key to Compile and Sign all .exe ")
     While LDQueue.GetCount("File") <> 0 
-      Name = LDQueue.Dequeue("File")
+      Name = LDText.Replace( LDQueue.Dequeue("File") ,".exe",".sb")
       Path = LDCall.Compile( Name )
       BatchCNTS = BatchCNTS + signtool + Quotes + Path + Quotes + CLLF 
     EndWhile
@@ -56,6 +56,8 @@ While Exist = "True"
     TextWindow.WriteLine( BatchCNTS ) 
     File.WriteContents( BatchFile , BatchCNTS )
     Program.Delay(500)
+    TextWindow.WriteLine("Press any key to sign")
+    TextWindow.Pause()
     LDProcess.Start( BatchFile , "" )
     TextWindow.Pause()
     Run = 0 

@@ -5,6 +5,17 @@ language_mode = "en"
 ListOfLanguages =  Array.GetAllIndices(MListOfLanguages ) 
 File.CreateDirectory(Program.Directory + "\xml\" ) 
 File.CreateDirectory( Program.Directory +"\lang\" )
+
+File_XML_DATA = Program.Directory + "\DATA.txt" 
+File_XML_Tag =  Program.Directory + "\TAG.txt" 
+If LDFile.Exists( File_XML_DATA ) = "False" Then 
+File.AppendContents(File_XML_DATA,"")
+EndIf 
+
+If LDFile.Exists( File_XML_Tag ) = "False" Then
+File.AppendContents(File_XML_Tag,"")
+EndIF 
+
 CompileLanguageDefines = 0
 CompileAll = 1
 Debug = 1 'Writess data directly to localization folder when 1 
@@ -22,21 +33,12 @@ Sub Translate_Languages
     TextWindow.Title = "Translating (" + ListOfLanguages[II] +" to " + Language_mode +") (" +XML_I + "/" + Max +") (" + II + "/" + Max +")"  
     TextWindow.WriteLine( List_TLangauges[ Language_mode][ListOfLanguages[II]] ) 
   EndFor 
-  File.WriteContents( Program.Directory +"\lang\" + Language_mode +".txt" , List_TLangauges[ Language_mode] ) 
-  Is_Array = Array.IsArray(  File.ReadContents( Program.Directory +"\lang\" + Language_mode +".txt" ) )
-  If Is_Array = "True" Then 
-    TextWindow.ForegroundColor = "GREEN"
-  Else 
-    TextWindow.ForegroundColor = "RED"
-  endif 
-  TextWindow.WriteLine("ARRAY : " +  Is_Array) 
-  TextWindow.ForegroundColor = "WHITE"
-  TextWindow.WriteLine("") 
 EndSub 
 
 If CompileLanguageDefines = 1 Then 
   Translate_Languages() 
 EndIf 
+
 Master() 'Compiles the English XML File 
 If CompileAll = 1 Then 
   For XML_I = 1 to Array.GetItemCount(ListOfLanguages ) 
@@ -47,16 +49,15 @@ If CompileAll = 1 Then
       Translate_Languages() 
     EndIf 
     
-    
     For XML_II = 2 to Array.GetItemCount(XML_Data["en"] ) + 1 
       XML_Data[ language_mode ][XML_II] = LDTranslate.Translate( XML_Data["en"][XML_II] , "en" , language_mode ) 
       
       If XML_Data[ language_mode ][ XML_II] = ""  Or Text.GetLength (XML_Data[ language_mode ][ XML_II] ) = 0   Then 'If you cannot translate something across inherit the English XML Data
         XML_Data[ language_mode ][ XML_II] = XML_Data["en"][XML_II] 
         TextWindow.ForegroundColor = "RED"
-        TextWindow.WriteLine( language_mode + ":" + XML_II ) 
+        TextWindow.WriteLine( language_mode + ":" + XML_II +":"+ XML_Data["en"][XML_II] +":"+  XML_Tag[XML_II]  ) 
         Sound.PlayBellRing() 
-        TextWindow.Pause() 
+        'TextWindow.Pause() 
         TextWindow.ForegroundColor = "WHITE"
       EndIf 
     EndFor 
@@ -89,19 +90,22 @@ Sub Master
   TextWindow.WriteLine( Language_Localized  ) 
   TextWindow.WriteLine( Language_Localized_Path +":" + LDFile.Exists( Language_Localized_Path ) ) 
   
-  XML_Data["en"]= "2=File;3=New;4=Open;5=Edit;6=View;7=Save;8=Import;9=CSV;10=SQL;11=Export;12=HTML;13=Settings;14=Help;15=About;16=Show Help;17=Settings Editor;18=Toggle Debug;19=Toggle Transaction Log;20=Refresh;21=Check for Updates;"
-  XML_Data["en"] = XML_Data["en"] + "22=XML;23=Program Started;24=Application;25=Failed to Save Settings;26=Error;27=Failed;28=Table;29=Index;30=View;31=Master Table;32=Sort;" 
-  XML_Data["en"] = XML_Data["en"] + "33=Ascending;34=Descending;35=Display Settings;36=Sort By;37=Search In;38=Search;39=Functions;40=Strict Search;41=Run Function;42=Query;43=Command;" 
-  XML_Data["en"] = XML_Data["en"] + "44=Error : No Database has been loaded;45=UI;46=Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table;47=Access denied;48=App;49=View Function;"
-  XML_Data["en"] = XML_Data["en"] + "50=User Requested;51=Listview Width;52=Listview Height;53=Extensions;54=Deliminator;55=Language;56=Save and Close;57=Close without Saving;58=Failed to load online EULA;59=Auto Log;60=Export HTML SCHEMA on behalf of ;61=Export HTML DATA on behalf of ;"
-  XML_Data["en"] = XML_Data["en"] + "62=Error : Please check the log for details;63=Query Error;64=EXPORT CSV ON BEHALF OF ;65=Export SQL - SCHEMA - On behalf of ;66=Export SQL - SQL - On behalf of ;67=EXPORT XML ON BEHALF OF;68=System;69=Views are readonly and cannot be edited;"
-  XML_Data["en"] = XML_Data["en"] + "70=The Database or Dataview does not exist or has not been loaded yet;" 
+  XML_Data["en"] = LDFile.ReadToArray(File_XML_DATA)
+  XML_Tag = LDFile.ReadToArray(File_XML_Tag)
   
-  XML_Tag = "1=Language;2=File;3=New;4=Open;5=Edit;6=View;7=Save;8=Import;9=CSV;10=SQL;11=Export;12=HTML;13=Settings;14=Help;15=About;16=Show_Help;"
-  XML_Tag = XML_Tag + "17=Settings_Editor;18=Toggle_Debug;19=Toggle_Transaction_Log;20=Refresh;21=Check_for_Updates;22=PXML;23=PRGM_Start;24=Application;25=Failed_Save_Settings;26=Error;27=Failed;28=Table;29=Index;30=View;31=Master_Table;"
-  XML_Tag = XML_Tag + "32=Sort;33=Asc;34=Desc;35=Display_Settings;36=Sort_by;37=Search_in;38=Search;39=Functions;40=Strict_Search;41=Run_Function;42=Query;43=Command;44=Error_No_DB;45=UI;46=Master_Table_Protected;47=Access_Denied;48=App;49=View_Function;"
-  XML_Tag = XML_Tag + "50=User_Requested;51=Listview_Width;52=Listview_Height;53=Extensions;54=Deliminator;55=Language;56=Save_and_Close;57=Close_wo_saving;58=Failed_Load_Online_EULA;59=Auto_Log;60=Export_HTML_Schema;61=Export_HTML_Data;62=Check_Log;"
-  XML_Tag = XML_Tag + "63=Query_Error;64=Export_CSV;65=Export_SQL_SCHEMA;66=Export_SQL_SQL;67=Export_XML;68=System;69=Views_Read_Only;70=Dataview_Error;"
+ ' XML_Data["en"]= "2=File;3=New;4=Open;5=Edit;6=View;7=Save;8=Import;9=CSV;10=SQL;11=Export;12=HTML;13=Settings;14=Help;15=About;16=Show Help;17=Settings Editor;18=Toggle Debug;19=Toggle Transaction Log;20=Refresh Schema;21=Check for Updates;"
+ ' XML_Data["en"] = XML_Data["en"] + "22=XML;23=Program Started;24=Application;25=Failed to Save Settings;26=Error;27=Failed;28=Table;29=Index;30=View;31=Master Table;32=Sort;" 
+ ' XML_Data["en"] = XML_Data["en"] + "33=Ascending;34=Descending;35=Display Settings;36=Sort By;37=Search In;38=Search;39=Functions;40=Strict Search;41=Run Function;42=Query;43=Command;" 
+ ' XML_Data["en"] = XML_Data["en"] + "44=Error : No Database has been loaded;45=UI;46=Sqlite_mastertable or 'Master Table' is a protected table. To protect the integrity of the db you cannot edit this table;47=Access denied;48=App;49=View Function;"
+ ' XML_Data["en"] = XML_Data["en"] + "50=User Requested;51=Listview Width;52=Listview Height;53=Extensions;54=Deliminator;55=Language;56=Save and Close;57=Close without Saving;58=Failed to load online EULA;59=Auto Log;60=Export HTML SCHEMA on behalf of ;61=Export HTML DATA on behalf of ;"
+ ' XML_Data["en"] = XML_Data["en"] + "62=Error : Please check the log for details;63=Query Error;64=EXPORT CSV ON BEHALF OF ;65=Export SQL - SCHEMA - On behalf of ;66=Export SQL - SQL - On behalf of ;67=EXPORT XML ON BEHALF OF;68=System;69=Views are readonly and cannot be edited;"
+ ' XML_Data["en"] = XML_Data["en"] + "70=The Database or Dataview does not exist or has not been loaded yet;71=Browse;" 
+  
+ ' XML_Tag = "1=Language;2=File;3=New;4=Open;5=Edit;6=View;7=Save;8=Import;9=CSV;10=SQL;11=Export;12=HTML;13=Settings;14=Help;15=About;16=Show_Help;"
+ ' XML_Tag = XML_Tag + "17=Settings_Editor;18=Toggle_Debug;19=Toggle_Transaction_Log;20=Refresh_Schema;21=Check_for_Updates;22=PXML;23=PRGM_Start;24=Application;25=Failed_Save_Settings;26=Error;27=Failed;28=Table;29=Index;30=View;31=Master_Table;"
+ ' XML_Tag = XML_Tag + "32=Sort;33=Asc;34=Desc;35=Display_Settings;36=Sort_by;37=Search_in;38=Search;39=Functions;40=Strict_Search;41=Run_Function;42=Query;43=Command;44=Error_No_DB;45=UI;46=Master_Table_Protected;47=Access_Denied;48=App;49=View_Function;"
+ ' XML_Tag = XML_Tag + "50=User_Requested;51=Listview_Width;52=Listview_Height;53=Extensions;54=Deliminator;55=Language;56=Save_and_Close;57=Close_wo_saving;58=Failed_Load_Online_EULA;59=Auto_Log;60=Export_HTML_Schema;61=Export_HTML_Data;62=Check_Log;"
+ ' XML_Tag = XML_Tag + "63=Query_Error;64=Export_CSV;65=Export_SQL_SCHEMA;66=Export_SQL_SQL;67=Export_XML;68=System;69=Views_Read_Only;70=Dataview_Error;71=Browse;"
   
   For I = 1 to Array.GetItemCount(XML_Tag )
     XML_Location[I] = "Append"
