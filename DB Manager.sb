@@ -171,7 +171,7 @@ Functions_Support_Obselete = 0 'If set to true then the program will run Obselet
 
 copyrightDate = 2016
 ProductID = "DBM"
-PrgmVersionID = 1120
+PrgmVersionID = 1121
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
 Self = Program.Directory +"\DB Manager.exe"
 
