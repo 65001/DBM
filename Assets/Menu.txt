@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Default Bindings 
 #Do not edit unless you know what you are doing !!!
 #Save yourself a copy of this before editing it ! 
