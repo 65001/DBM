@@ -14,7 +14,6 @@ EndSub
 Sub CSV_Interface
   LDDialogs.Wait("Please Wait","Red")
   TextWindow.WriteLine("Plugin : Import CSV File!")
-  GraphicsWindow.Title = "CSV : " + Settings["TimeOut"]
   CSV_Start_Time = Clock.ElapsedMilliseconds
   LDList.Add(List_Stack_Trace,"Plugin : Import.CSV")
   Import_CSV_Path = LDDialogs.OpenFile("csv","")
