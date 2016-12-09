@@ -45,7 +45,7 @@ Error_No_DB
 UI
 Master_Table_Protected
 Access_Denied
-App
+Application
 View_Function
 User_Requested
 Listview_Width

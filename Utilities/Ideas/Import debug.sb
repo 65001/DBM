@@ -20,9 +20,8 @@ Sub CSV_Interface
   ' LDList.Add(List_Stack_Trace,"Plugin : Import.CSV")
   'Import_CSV_Path =  LDDialogs.OpenFile("csv","")
   
-  Import_CSV_Path = "C:\Users\Abhishek\Downloads\SampleCSVFile_1109kb.csv"
   Import_CSV_Path = "C:\Users\Abhishek\Downloads\Album Table.csv"
-  
+   Import_CSV_Path = "C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Log.csv"
   TextWindow.WriteLine("Trimming....")
   I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
   TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(Import_CSV_Path) ) 

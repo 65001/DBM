@@ -26,12 +26,13 @@ Sub VOID
   List_Stack_Trace = List_Stack_Trace
   
   logfunction = logfunction
+  DQC = DQC 
 EndSub
 
 
 Sub HTML
   LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
-  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
+  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+ DQC + Default_Table+ DQC +");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
   EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
   
@@ -78,14 +79,15 @@ Sub SQL_Dump_Fetch
   LDList.Add(List_Stack_Trace,"Plugin : Export.SQL_Dump_Fetch")
   LDList.Clear("EXPORT_SQL")
   LDList.Clear("EXPORT_SQL_PK")
-  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+Default_Table+");","","True",LangList["App"],LangList["Export SQL SCHEMA"]  + LDFile.UserName) 
-  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export SQL SQL"] + LDFile.UserName)
+  Export_SQL_DUMP_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+DQC +Default_Table+ DQC +");","","True",LangList["App"],LangList["Export SQL SCHEMA"]  + LDFile.UserName) 
+  EXPORT_SQL_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+ DQC + Default_Table+ DQC +";","","True",LangList["App"],LangList["Export SQL SQL"] + LDFile.UserName)
   EXPORT_SQL_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " " + TypesOfSorts[SortByMode] +".sql"
   
   For Export_SQL_I = 1  To Array.GetItemCount(SCHEMA)
     LDList.Add("EXPORT_SQL",SCHEMA[Export_SQL_I]["type"] ) 'Type of Data 
     LDList.Add("EXPORT_SQL_PK",SCHEMA[Export_SQL_I]["pk"] ) 
   EndFor
+  
   Export_SQL_DUMP_SCHEMA = LDList.ToArray("EXPORT_SQL")
   EXPORT_SQL_DUMP_PK = LDList.ToArray("EXPORT_SQL_PK")
   LDList.Clear("EXPORT_SQL")
@@ -97,7 +99,7 @@ Sub SQL_Dump_WRITE
   'Generates Create Table Schema with proper Schema
   Dump_SQL = "CREATE TABLE " + Default_Table +"("
   For Export_SQL_I = 1 To Array.GetItemCount(SCHEMA)
-    DUMP_SQL = DUMP_SQL +"[" + SchemaList[Export_SQL_I]+"]" +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
+    DUMP_SQL = DUMP_SQL +DQC + SchemaList[Export_SQL_I]+DQC +" " + Export_SQL_DUMP_SCHEMA[Export_SQL_I]
     If EXPORT_SQL_DUMP_PK[Export_SQL_I] = 1 Then
       Dump_SQL = Dump_SQL +" " + "PRIMARY KEY"
     EndIf 
@@ -107,9 +109,18 @@ Sub SQL_Dump_WRITE
   EndFor
   
   DUMP_SQL = DUMP_SQL +");"
+  DUMP_SQL_INSERT = "("
+  For Export_SQL_I = 1 To Array.GetItemCount(SchemaList) 
+    DUMP_SQL_INSERT = DUMP_SQL_INSERT + DQC + SchemaList[Export_SQL_I] + DQC 
+    If Export_SQL_I < Array.GetItemCount(SchemaList) Then
+      DUMP_SQL_INSERT = DUMP_SQL_INSERT +","
+    EndIf
+  EndFor
+  DUMP_SQL_INSERT = DUMP_SQL_INSERT +")"
+  
   'Exports Data from SQL Table
   For Export_SQL_I = 1 To Array.GetItemCount(EXPORT_SQL_DATA)
-    DUMP_SQL = DUMP_SQL +"INSERT INTO " +Default_Table + " VALUES ('"
+    DUMP_SQL = DUMP_SQL +"INSERT INTO " +Default_Table +DUMP_SQL_INSERT + " VALUES ('"
     For Export_SQL_II = 1 To Array.GetItemCount(EXPORT_SQL_DATA[Export_SQL_I])
       DUMP_SQL =DUMP_SQL + LDText.Replace(EXPORT_SQL_DATA[Export_SQL_I][SchemaList[Export_SQL_II]],"'","''")
       If Export_SQL_II < Array.GetItemCount(SchemaList) Then

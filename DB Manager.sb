@@ -17,6 +17,11 @@
 'Moved Define New Table Function into the Main Program due to bugs
 'Fixed Generate Query Function
 'Statistics Page Function
+'Updated All Plugins to become SQL Compliant
+'Updated Import CSV to hopefully work better
+'       WARNING Import CSV does not work in the following situations:
+'             1) 1 Line of Data spans 2 Lines seperated by a CLLF
+'             2)IMPORT CSV IS Prone to cause the application to stop responding for larger files
 
 '_____________________________________________________________________________
 '                                                                                                 To do Elevated Priority 
@@ -109,6 +114,8 @@ Function_Command_Parser = "Command_Parse"
 Function_Query = QueryFunction
 Function_Log = "Log"
 
+Function_FileRead = "FileRead"
+
 Function_Transaction = TransactionFunction 
 
 logfunction = Function_Log
@@ -142,6 +149,8 @@ List_DB_Name = "DB_Name"
 List_DB_ShortName = "DB_SName"
 List_DB_Tracker = "DB_Tracking"
 
+List_File_Read = "File_Read"
+
 '______________________________________________________________________________
 '                                                                                     Variables
 '______________________________________________________________________________
@@ -165,6 +174,7 @@ title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " "
 Self = Program.Directory +"\DB Manager.exe"
 
 Booleans ="True=1;False=0;0=False;1=True;"
+Toggle_Booleans = "0=1;1=0;True=False;False=True;"
 
 UserName = LDFile.UserName
 '______________________________________________________________________________
@@ -635,6 +645,7 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   CLoseTW_Button = "Close TW" '// Localize
   Export_UI_Button = "Export UI" '// Localize
   Define_New_Table_Button = "Define New Table"'// Localize
+  Define_New_Table_Button2 = "Define New Table "'// Localize
   Create_Statistics_Button = "Create Statistics Page"'// Localize
   
   MOD_External_Menu()
@@ -929,13 +940,12 @@ Sub MainMenuHandler
     TextWindow.Hide()
     LDCall.Function( Function_RunMod_Parser , "Export.XML" )
   ElseIf LastClickedButton = ToggleDebug_Button Then 
-    If debug_mode = 1 Then 
-      debug_mode = 0
-    ElseIf debug_mode = 0 Then
-      debug_mode = 1
-    EndIf 
+    debug_mode = Toggle_Booleans [ debug_mode ]
   ElseIf LastClickedButton = AboutButton Then 
-    GraphicsWindow.ShowMessage("DBM is a Database Mangement Program developed by Abhishek Sathiabalan. Copyright " + copyrightDate + ". All rights reserved." + CLLF + CLLF +"You are running : " + ProductID +" v" + VersionID ,"About") 'DO NOT LOCALIZE 
+    About_Data = LDCall.Function5( Function_Query , "SELECT SQLITE_VERSION(),sqlite_source_id();","","True",UserName, LangList["User Requested"] +":" + LangList["App"] )
+    About_Msg = "DBM is a Database Mangement Program developed by Abhishek Sathiabalan. Copyright " + copyrightDate + ". All rights reserved." + CLLF + CLLF +"You are running : " + ProductID +" v" + VersionID + CLLF
+    About_Msg = About_Msg + CLLF + "SQLITE VERSION : " + About_Data[1]["SQLITE_VERSION()"] + CLLF + "SQLITE Source ID : " +About_Data[1]["sqlite_source_id()"] 
+    GraphicsWindow.ShowMessage(About_Msg  ,"About") 'DO NOT LOCALIZE 
   ElseIf LastClickedButton = ShowHelp Then
     LDProcess.Start(HelpPath,"") 
   ElseIf LastClickedButton = SettingsButton Then 
@@ -1009,7 +1019,7 @@ Sub MainMenuHandler
     debug_mode = 1 
     TextWindow.WriteLine("Debug Mode turned on due to current action")
     LDList.Print( List_Stack_Trace ) 
-  ElseIf LastClickedButton = Define_New_Table_Button Then 
+  ElseIf LastClickedButton = Define_New_Table_Button OR LastClickedButton = Define_New_Table_Button2 Then  
     Create_Table_UI()
   ElseIf LastClickedButton = Create_Statistics_Button Then 
     Get_SCHEMA_Private()
@@ -1274,7 +1284,6 @@ Sub Get_SCHEMA 'Fetches all tables,views,indexs ets from the Current DB
 EndSub
 
 Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View 
-  debug_mode = 1 
   LDList.Add(List_Stack_Trace,"Get_SCHEMA_Private")
   SCHEMA_Private_Args[1] = Default_Table
   SchemaList = ""
@@ -1399,6 +1408,24 @@ Sub Set_Title
   EndIf 
 EndSub
 
+Sub FileRead 'File Reader that ignores # and Empty Lines. Function( Path) Returns Array of Data
+  FileRead_Args = args
+  If LDFile.Exists( FileRead_Args[1] ) = "True" Then 
+    LDList.Clear( List_File_Read ) 
+    FileRead_Cnts = LDFile.ReadToArray( FileRead_Args[1]  ) 
+    For FileRead_I = 1 To Array.GetItemCount( FileRead_Cnts) 
+      If Text.StartsWith(FileRead_Cnts[FileRead_I ],"#") <> "True" AND FileRead_Cnts[FileRead_I ] <> " " Then 'Ignores Line 
+        LDList.Add( List_File_Read , FileRead_Cnts[FileRead_I] )
+      EndIf 
+    EndFor
+    FileRead_Cnts = ""
+    FileRead_I = ""
+    return = LDList.ToArray(List_File_Read)
+  Else 
+    return = "URI isn't accessable or incorrect Parameters given."
+  EndIf 
+EndSub
+
 Sub XML_Fetch_All
   LDList.Add(List_Stack_Trace,"XML_Fetch_All")
   XML_Array ="1="+ LDText.Replace( LDText.Replace( LDxml.Attributes ,"=","\=") ,";","\;") + ";2=" +LDxml.AttributesCount+";3="+LDxml.ChildrenCount+";4="+LDxml.NodeName+";5="+LDxml.NodeType+";6=" +LDxml.NodeInnerText +";"
@@ -1499,36 +1526,28 @@ EndSub
 Sub MOD_External_Menu 'Lets External Entities add Menu Items by mainpulating a Menu.txt file with an array of items
   LDList.Add(List_Stack_Trace,"MOD_External_Menu")
   If LDFile.Exists( External_Menu_Items_Path ) = "True" Then 
-    External_Menu_Cnts = LDFile.ReadToArray( External_Menu_Items_Path )
+    External_Menu_Cnts = LDCall.Function(Function_FileRead,External_Menu_Items_Path )
     For I = 1 To Array.GetItemCount( External_Menu_Cnts ) 
-      If Text.StartsWith(External_Menu_Cnts[I],"#") <> "True" AND External_Menu_Cnts[I] <> " " Then 'Ignores Line
-        
-        If (External_Menu_Cnts[I][6] = 1 Or External_Menu_Cnts[I][6] = "" ) AND LangList[ External_Menu_Cnts[I][2] ] <> ""  Then 'Localization Tag
-          External_Menu_Cnts[i][2] = LangList[ External_Menu_Cnts[I][2] ] 
-        EndIf  
-        
-        If LangList[ External_Menu_Cnts[I][4] ] <> "" Then
-          External_Menu_Cnts[i][4] = LangList[ External_Menu_Cnts[I][4] ] 
-        EndIf  
-        
-        External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Mod Parser>",Function_RunMod_Parser )
-        External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Main Menu>",Function_RunMod_Parser )
-        LDCall.Function5(Function_UI_Add,External_Menu_Cnts[i][1] ,External_Menu_Cnts[i][2], External_Menu_Cnts[i][3] , External_Menu_Cnts[i][4],External_Menu_Cnts[i][5])
-      EndIf 
+      If (External_Menu_Cnts[I][6] = 1 Or External_Menu_Cnts[I][6] = "" ) AND LangList[ External_Menu_Cnts[I][2] ] <> ""  Then 'Localization Tag
+        External_Menu_Cnts[i][2] = LangList[ External_Menu_Cnts[I][2] ] 
+      EndIf  
+      
+      If LangList[ External_Menu_Cnts[I][4] ] <> "" Then
+        External_Menu_Cnts[i][4] = LangList[ External_Menu_Cnts[I][4] ] 
+      EndIf  
+      
+      External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Mod Parser>",Function_RunMod_Parser )
+      External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Main Menu>",Function_Handler_MainMenu)
+      LDCall.Function5(Function_UI_Add,External_Menu_Cnts[i][1] ,External_Menu_Cnts[i][2], External_Menu_Cnts[i][3] , External_Menu_Cnts[i][4],External_Menu_Cnts[i][5])
     EndFor 
-  Else
+  Else 'Creates a Menu File if it does not exist
     File.AppendContents( External_Menu_Items_Path, "")
   EndIf 
 EndSub
 
 Sub MOD_READ_AutoRunFile 'Reads all the Plugins the Application should run
   LDList.Add(List_Stack_Trace,"MOD_READ_AutoRunFile")
-  AutoRunModFile_Cnts = LDFile.ReadToArray( AutoRunMod_Path ) 
-  For I = 1 To Array.GetItemCount(AutoRunModFile_Cnts)
-    If Text.StartsWith(AutoRunModFile_Cnts[I] ,"#" ) <> "True" And AutoRunModFile_Cnts[I] <> " " Then 'Lines to Skip
-      AutoRunMod_Cnts[ ( Array.GetItemCount( AutoRunMod_Cnts ) + 1 ) ] = AutoRunModFile_Cnts[I]
-    EndIf 
-  EndFor
+  AutoRunMod_Cnts = LDCall.Function( Function_FileRead , AutoRunMod_Path )
 EndSub
 
 Sub MOD_AutoRun 'Runs all the plugins the Application should run.
@@ -1664,7 +1683,6 @@ Sub Command_Parse '(Command); returns Data in a list;
   Parser_InString = 0 
   Parser_Length = Text.GetLength( ParseArgs[1] ) 
   Parser_String =""
-  Parser_CONST_InString = "0=1;1=0;"
   
   For Parser_I = 1 to Parser_Length
     Parser_Character = Text.GetSubText( ParseArgs[1] , Parser_I , 1 )
@@ -1686,7 +1704,7 @@ Sub Command_Parse '(Command); returns Data in a list;
       Parser_I = Parser_I + 2
     ElseIf Parser_Character ="'" Then 
       Parser_Append = 1
-      Parser_InString = Parser_CONST_InString[Parser_InString]
+      Parser_InString = Toggle_Booleans[Parser_InString]
     Else  
       Parser_Append = 1
     EndIf
@@ -1739,16 +1757,14 @@ Sub Create_Statistics_Page
   If Array.GetItemCount( args ) = 2 Then  
     Statistics_Page_Args = args 
     Statistics_Page_Name = DQC + "Statistics " + Statistics_Page_Args[1] +DQC
-    Statistics_Page_SQL = "Drop Table IF EXISTS " + Statistics_Page_Name + ";" +CLLF +"Create TEMP Table " + Statistics_Page_Name +" (" + DQC + "Row" + DQC +" Text,[SUM] INT,[AVG] INT,[COUNT] INT,[MAX] INT,[MIN] INT,[TYPE] TEXT,[DATE STAMP] TEXT,[UTC TIME] TEXT);"+ CLLF '//TODO
-    
+    Statistics_Page_SQL = "Drop Table IF EXISTS " + Statistics_Page_Name + ";" +CLLF +"Create TEMP Table " + Statistics_Page_Name +" (" + DQC + "Row" + DQC +" Text," + DQC +"SUM" + DQC+" INT," + DQC +"AVG" + DQC +" INT,"
+    Statistics_Page_SQL = Statistics_Page_SQL + DQC +"COUNT" + DQC +" INT," + DQC +"MAX" + DQC +" INT," +DQC +"MIN" + DQC +" INT,"+ DQC +"TYPE" + DQC +" TEXT,"+ DQC +"Length" + DQC +" TEXT," + DQC +"DATE STAMP" +DQC + " TEXT," + DQC +"UTC TIME" + DQC +" TEXT);"+ CLLF 
     Statistics_Page_Index=   Array.GetAllIndices( Statistics_Page_Args[2])
-    TextWindow.WriteLine( Statistics_Page_Index)
-    TextWindow.WriteLine( Statistics_Page_Args[2] ) 
     
     For I = 1 To Array.GetItemCount(Statistics_Page_Args[2])
-      Statistics_Temp = Statistics_Page_Args[2][I]
+      Statistics_Temp = DQC + Statistics_Page_Args[2][I] + DQC 
       Statistics_Page_SQL = Statistics_Page_SQL +"Insert into " + Statistics_Page_Name + " Select '" + Statistics_Temp+"',SUM("+Statistics_Temp+"),AVG("+Statistics_Temp+"),COUNT("+Statistics_Temp+"),MAX("+Statistics_Temp+"),MIN("+Statistics_Temp+")"
-      Statistics_Page_SQL = Statistics_Page_SQL +",typeOf("+Statistics_Temp+"),DATE(),TIME() From [" + Statistics_Page_Args[1] +"];;" + CLLF
+      Statistics_Page_SQL = Statistics_Page_SQL +",typeOf("+Statistics_Temp+"),Length(" + Statistics_Temp +"),DATE(),TIME() From " + DQC + Statistics_Page_Args[1] + DQC +";;" + CLLF
     EndFor
     
     data_Return = LDCall.Function4(CommandFunction, database ,Statistics_Page_SQL, Username ,LangList["Application"]+":" + LangList[ "User Requested" ] +":"+ LangList["Statistics Page"])'//Localize

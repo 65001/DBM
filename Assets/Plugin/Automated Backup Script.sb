@@ -7,6 +7,7 @@ Sub ABS_VOID
   listview = listview 
   UIx = UIx 
   List_Stack_Trace = List_Stack_Trace
+  DQC = DQC
 EndSub 
 
 Sub ABS_UI
@@ -82,7 +83,7 @@ Sub ABS_Setup
   database = database
   
   creatationofdatabsecmd = "DROP TABLE IF EXISTS Files; Create Table Files"
-  creatationofdatabsecmd = creatationofdatabsecmd + "(ID Integer,Title Text,Path Text,MD5 Text,Last_Change Text,Sizes Integer,Lines Integer,CNTS Text);VACUUM;Create VIEW Files_View AS Select ID,Title,Path,MD5,Sizes,Lines FROM Files;"
+  creatationofdatabsecmd = creatationofdatabsecmd + "(ID Integer,Title Text,Path Text,MD5 Text,Last_Change Text,Sizes Integer,Lines Integer,CNTS Text);VACUUM;Create VIEW " + DQC +"Files View" + DQC +" AS Select ID,Title,Path,MD5,Sizes,Lines FROM Files;"
   LDCall.Function4( Function_Command , database , creatationofdatabsecmd , LDFile.UserName , "ABS Creation")
   creatationofdatabsecmd = "" 
 EndSub 
