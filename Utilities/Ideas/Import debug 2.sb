@@ -1,17 +1,12 @@
-Sub VOID
-  CommandFunction = CommandFunction 
-  database = database 
-  logfunction = logfunction 
-  databasepath = databasepath 
-  LangList = LangList 
-  List_Command_Parser_Status = List_Command_Parser_Status 
-  List_Stack_Trace = List_Stack_Trace
-  Settings = Settings
-  CLLF = CLLF 
-  DQC = DQC 
-EndSub
-
+If Program.ArgumentCount = 1 Then 
+  CSV_Path =  Program.GetArgument(1)
+EndIf 
+TextWindow.Title = ""
+CSV_Interface()
 Sub CSV_Interface
+  CLLF = Text.GetCharacter(10)
+  DQC  = Text.GetCharacter(34) 
+  
   List_CSV_Integers = "CSV_INT"
   List_CSV_Length = "CSV_Length"
   CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
@@ -87,17 +82,10 @@ Sub CSV_Interface
   TextWindow.WriteLine("Total Time : " + ElappsedTime + CLLF  ) 
   TextWindow.WriteLine("Bytes Per (ms) : " + (LDFile.Size(CSV_Path) / ElappsedTime) )  
   
-  File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", CSV_SQL ) 
-  
-  records =  LDCall.Function4(CommandFunction , database,CSV_SQL, LDFile.UserName,"Import CSV") '//Localize  
-  Percentage = records/ Array.GetItemCount( LDText.FindAll(CSV_SQL,";") )
-  Percentage = Percentage * 100
-  Percentage = Math.Round( Percentage )
-  GraphicsWindow.ShowMessage(records + " records updated out of " + LDList.Count(List_Command_Parser_Status ) + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
-  
-  LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + CSV_Path +" csv file",LangList["Application"])'//Localize 
-  
-  TextWindow.WriteLine("Total Time : " +( Clock.ElapsedMilliseconds - Time_Start ) )
+  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", CSV_SQL ) 
+  If LDDialogs.Confirm("Do you wish to open the converted SQL code","Confirm") = "Yes" Then 
+    LDProcess.Start(Program.Directory+"\CSV Import DUMP.sql","")
+  EndIf   
 EndSub
 
 Sub ArrayToSQL

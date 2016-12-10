@@ -55,6 +55,7 @@
 'Automated Backup Script for DBs ?
 'Custom Connection Strings
 'Rewrite Export XML to use XML Schema Information ?
+'Track Time in Subroutines using LDStopwatch
 
 '______________________________________________________________________________
 '                                                                                                   Localize Iniative 
@@ -760,7 +761,8 @@ Sub ComboBoxChanged
     Else 
       Default_Table = "sqlite_master" 
       Get_SCHEMA_Private()
-      LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";")
+      
+      LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";2=sqlite_temp_master;")
     EndIf 
     LDCall.Function( Function_Handler_Universal , ViewDB_Button )
     'EndIf 
@@ -785,6 +787,8 @@ Sub ComboBoxChanged
       LDControls.ComboBoxContent(TableCB, SCHEMA_IndexList )
     ElseIf LastCBIndex = 4 then 
       Default_Table = "sqlite_master" 
+      Get_SCHEMA_Private()
+      LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";2=sqlite_temp_master;")
     EndIf 
     
     If (LastCBIndex = 1 OR LastCBIndex = 2 OR LastCBIndex = 3 Or LastCBIndex = 4) and Default_Table <> "" Then 

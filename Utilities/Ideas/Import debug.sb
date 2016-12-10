@@ -7,7 +7,7 @@ CSV_Interface()
 Sub CSV_Interface
   CLLF = Text.GetCharacter(10)
   DQC = Text.GetCharacter(34) 
- 
+  
   TextWindow.WriteLine("Plugin : Import CSV File!")
   If LDFile.Exists( Import_CSV_Path) = "False" Or Import_CSV_Path = "" Then 
     Import_CSV_Path = LDDialogs.OpenFile("csv","")
@@ -22,6 +22,13 @@ Sub CSV_Interface
   TextWindow.WriteLine("Processing...")
   CSV()
   TextWindow.WriteLine("Total Time : " +( Clock.ElapsedMilliseconds - CSV_Start_Time ) )
+  
+  TextWindow.WriteLine("Sending to Parser")
+  
+  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+  If LDDialogs.Confirm("Do you wish to open the converted SQL code","Confirm") = "Yes" Then 
+    LDProcess.Start(Program.Directory+"\CSV Import DUMP.sql","")
+  EndIf  
 EndSub
 
 Sub CSV 'Make this a function in the future
@@ -33,6 +40,8 @@ Sub CSV 'Make this a function in the future
   
   TextWindow.WriteLine("Proccessing Main")
   CSV_TO_SQL()
+  
+  
   TextWindow.WriteLine("Creating Headers") 
   CSV_Headers() 'First Line becomes header information
   
@@ -41,12 +50,6 @@ Sub CSV 'Make this a function in the future
   Import_CSV_SQL_Final = "BEGIN;" + CLLF + Import_CSV_SQL_Final+ CLLF +"COMMIT;"
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "<HEADERS>" ,Import_CSV_Headers )
-  TextWindow.WriteLine("Sending to Parser")
-  
-  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
-  If LDDialogs.Confirm("Do you wish to open the converted SQL code","Confirm") = "Yes" Then 
-    LDProcess.Start(Program.Directory+"\CSV Import DUMP.sql","")
-  EndIf  
 EndSub 
 
 Sub CSV_TO_SQL
