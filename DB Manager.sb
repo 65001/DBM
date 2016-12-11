@@ -761,8 +761,8 @@ Sub ComboBoxChanged
     Else 
       Default_Table = "sqlite_master" 
       Get_SCHEMA_Private()
-      
-      LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";2=sqlite_temp_master;")
+      SCHEMA_TableList = "1="+Default_Table+";2=sqlite_temp_master;"
+      LDControls.ComboBoxContent(TableCB, SCHEMA_TableList)
     EndIf 
     LDCall.Function( Function_Handler_Universal , ViewDB_Button )
     'EndIf 
@@ -787,8 +787,9 @@ Sub ComboBoxChanged
       LDControls.ComboBoxContent(TableCB, SCHEMA_IndexList )
     ElseIf LastCBIndex = 4 then 
       Default_Table = "sqlite_master" 
+      SCHEMA_TableList = "1="+Default_Table+";2=sqlite_temp_master;"
+      LDControls.ComboBoxContent(TableCB,SCHEMA_TableList)
       Get_SCHEMA_Private()
-      LDControls.ComboBoxContent(TableCB,"1="+Default_Table+";2=sqlite_temp_master;")
     EndIf 
     
     If (LastCBIndex = 1 OR LastCBIndex = 2 OR LastCBIndex = 3 Or LastCBIndex = 4) and Default_Table <> "" Then 
@@ -836,10 +837,6 @@ Sub MainMenuHandler
     If NewFileSavePath <> "" Then
       lastFolder = LDFile.GetFolder(NewFileSavePath)
       SaveSettings()
-      ' TextWindow.Write("Creation Statement:")
-      ' UserSQL  = TextWindow.Read()
-      
-      ' LDCall.Function4( CommandFunction , LDDataBase.ConnectSQLite(NewFileSavePath)  , UserSQL ,Username ,"NEW DB") 
       LDCall.Function2(Function_Log, "Created DB : " + NewFileSavePath,"Application")
       
       listview = "" 

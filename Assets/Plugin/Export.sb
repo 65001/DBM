@@ -33,7 +33,7 @@ EndSub
 Sub HTML
   LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
   Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+ DQC + Default_Table+ DQC +");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
-  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+Default_Table+";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
+  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+DQC + Default_Table+ DQC +";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
   
   HTML_Statement = "" 
@@ -43,7 +43,7 @@ Sub HTML
   HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}"
   HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
   HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
-  HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->" + CLLF 
+  HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://github.com/65001/DBM -->" + CLLF 
   HTML_Statement = HTML_Statement + TabKey +"</head>" + CLLF + CLLF  
   HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"
   HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr> "  +CLLF + TabKey+TabKey+Tabkey+Tabkey+ TabKey + "<td id = " +DoubleQuotesCharacter +"Main"+ DoubleQuotesCharacter +" + colspan = " + DoubleQuotesCharacter + Array.GetItemCount(Export_HTML_SCHEMA ) + DoubleQuotesCharacter +">" + Default_Table +"</td>"

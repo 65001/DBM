@@ -12,6 +12,7 @@ Sub VOID
 EndSub
 
 Sub CSV_Interface
+  GraphicsWindow.Hide()
   List_CSV_Integers = "CSV_INT"
   List_CSV_Length = "CSV_Length"
   CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
@@ -20,6 +21,7 @@ Sub CSV_Interface
   If LDFile.Exists( CSV_Path) = "False" Or CSV_Path = "" Then 
     CSV_Path = LDDialogs.OpenFile("csv","")
   EndIf 
+  TextWindow.WriteLine("CSV Lines : " + LDFile.Length(CSV_Path)) 
   TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(CSV_Path) + CLLF ) 
   
   Time_Start = Clock.ElapsedMilliseconds
@@ -93,6 +95,8 @@ Sub CSV_Interface
   Percentage = records/ Array.GetItemCount( LDText.FindAll(CSV_SQL,";") )
   Percentage = Percentage * 100
   Percentage = Math.Round( Percentage )
+  
+  GraphicsWindow.Show()
   GraphicsWindow.ShowMessage(records + " records updated out of " + LDList.Count(List_Command_Parser_Status ) + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
   
   LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + CSV_Path +" csv file",LangList["Application"])'//Localize 
