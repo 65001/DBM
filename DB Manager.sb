@@ -60,6 +60,7 @@ Function_Get_DB = "GetPath"
 Function_RunMod_Parser = RunModParserFunction 
 Function_Command = CommandFunction
 Function_Query = QueryFunction
+Function_Query_Emulator ="Query_SQLITE_Emulator"
 Function_Log = "Log"
 
 Function_FileRead = "FileRead"
@@ -432,9 +433,7 @@ Sub Load_DB
   '1 = Engine Mode (Integer)
   '2 = All other Arguments { Array | String } 
   
-  LOAD_DB_Args = args 
-  LDList.Add(List_Stack_Trace,"Load_DB")
-  
+  LOAD_DB_Args = args  
   If LOAD_DB_Args[1] = 1 Then '//To DO
     '  LDDataBase.ConnectMySQL(Server, Username , Password , MySqlDB)
   ElseIf LOAD_DB_Args[1] = 2 Then '//To DO
@@ -1554,13 +1553,40 @@ Sub Query
     If Text.IsSubText(QueryArgs[5] , "SCHEMA" ) <> "True" Then 
       LDCall.Function5( TransactionFunction, QueryArgs[4] , database , QueryArgs[1] , "Query" , QueryArgs[5] ) 
     EndIf
-    return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
+    If Text.StartsWith( LDText.Trim( QueryArgs[1] ) ,".") = "False" Then 
+      return  =  LDDataBase.Query(database,Queryargs[1],Queryargs[2],Queryargs[3])
+    Else 
+      LDCall.Function(Function_Query_Emulator,QueryArgs[1]) 
+    EndIf 
   Else 
     If database <> NO_DB Then 
       LDCall.Function2(Function_Log, LangList["Query Error"] + ": " + LangList["Error No DB"]  , LangList["UI"] )
       GraphicsWindow.ShowMessage(LangList["Error No DB"] , LangList["Query Error"] ) 
       return = LangList["Error No DB"]
     EndIf 
+  EndIf 
+EndSub
+
+Sub Query_SQLITE_Emulator
+  QueryEmulatorArgs =Text.ConvertToLowerCase( args )
+  Emulator_SQL = ""
+  Emulator_Table = ""
+  If QueryEmulatorArgs[1] = ".help" Then 
+    Emulator_Table = "HELP"
+    Emulator_SQL = "CREATE TEMP TABLE HELP (Arguments TEXT,Description TEXT);"
+    Emulator_SQL = Emulator_SQL + "INSERT INTO HELP  VALUES ('.help','displays this table');INSERT INTO HELP VALUES ('.databases','Displays a list of databases');"
+  ElseIf QueryEmulatorArgs[1] = ".databases" Then
+    Emulator_Table = "Databases" 
+    Emulator_SQL = "CREATE TEMP TABLE Databases (SEQ INTEGER PRIMARY KEY,"+ DQC + "NAME" + DQC +"TEXT,FILE Text);"
+    For I = 1 To LDList.Count( List_DB_Name )
+      Emulator_SQL = Emulator_SQL + "INSERT INTO Databases (NAME,FILE) VALUES ('"  + LDList.GetAt(List_DB_Name,I)  +"','" + LDList.GetAt(List_DB_Path,I) +"');"
+    EndFor 
+  EndIf 
+  If Emulator_Table = "" Then 
+    GraphicsWindow.ShowMessage("Not Supported!","") 'Localize 
+  Else 
+    LDCall.Function4(Function_Command,database,Emulator_SQL,UserName,LangList["User Requested"] +": CLI EMULATOR")
+    LDCall.Function5(Function_Query,"Select * From " + DQC + Emulator_Table + DQC +";",CurrentControl,"False",UserName,LangList["User Requested"] +": CLI EMULATOR")
   EndIf 
 EndSub
 '______________________________________________________________________________
@@ -1576,7 +1602,7 @@ Sub Command 'Runs A Command Function
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 'Sends Data to Transaction Function. (Logs SQL Commands)
       
       LDList.Add(List_Stack_Trace,"Command")
-      If debug_Parser = 1 Then 
+      If debug_Parser = 1  Then 
         LDCall.Function( Function_Command_Parser , CommandArgs[2]) 'Transforms String into List
         LDList.Add(List_Stack_Trace,"Command")
       Else 
