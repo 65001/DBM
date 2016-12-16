@@ -1,5 +1,4 @@
 'Copyrighted Software 2016. Abhishek Sathiabalan . All Rights Reserved. Governed by EULA. 
-
 'For a timeline of release information please check Assets\Change_Log Table 
 
 'v1119
@@ -24,59 +23,7 @@
 '             2)IMPORT CSV IS Prone to cause the application to stop responding for larger files
 
 'v1121
-
-'_____________________________________________________________________________
-'                                                                                                 To do Elevated Priority 
-'______________________________________________________________________________
-'Add ability to change ALL Flexible File Settings Through UI
-'Add Instrumentation that tells how long the program spends in each subroutine or function
-'Change Export.SQL to support a more PRAGMA Schema data.
-'Change Export.SQL subroutine to better support Standard SQL 
-'     Change [] to " 
-'     Add Colums in the INSERT Part of the Data
-'Convert [] to " for SQL Standard Compliance
-
-'______________________________________________________________________________
-'                                                                                                 To do - Non Modding - Normal Priority
-'______________________________________________________________________________
-'Cross Engine Support 
-
-'Add more Core Functions to sqlite sys
-'Resarch custom functions in sqlite 
-
-'Dataview bug report | Dataview Crash Bug 
-'Automatic Limiter on Dataview ? Using SQL Limit ? 
-
-'Export Menu
-'Access Table 
-'SQL Functions List
-'Make the mastertable a view and remove the program only restrictions on it ?
-
-'Automated Backup Script for DBs ?
-'Custom Connection Strings
-'Rewrite Export XML to use XML Schema Information ?
-'Track Time in Subroutines using LDStopwatch
-
-'______________________________________________________________________________
-'                                                                                                   Localize Iniative 
-'______________________________________________________________________________
-'Localize Self
-'Localize Import Module
-'Localize Everything
-
-'______________________________________________________________________________
-'                                                                                                 To do - Modding 
-'______________________________________________________________________________
-'Server - Client Iniative 
-'     Make a Server Mod ? 
-'     Make a Client Mod ? 
-'GUI For a Mod Manager 
-
-'______________________________________________________________________________
-'                                                                                     Module Iniative
-'______________________________________________________________________________
-'   Make the Core Engine more modular
-'   Make all plugins more modular!
+' Removed CMD Parser for default use
 
 
 StartTime[0] = Clock.ElapsedMilliseconds
@@ -109,16 +56,14 @@ Function_UI_Query = "Query_UI_Controls"
 Function_Load_DB = "Load_DB"
 Function_Get_DB = "GetPath"
 
-'Function_Get_Schema_OfTable = "Get_SCHEMA_Private"
 
 Function_RunMod_Parser = RunModParserFunction 
 Function_Command = CommandFunction
-Function_Command_Parser = "Command_Parse"
 Function_Query = QueryFunction
 Function_Log = "Log"
 
 Function_FileRead = "FileRead"
-
+Function_Command_Parser = "Command_Parse"
 Function_Transaction = TransactionFunction 
 
 logfunction = Function_Log
@@ -153,7 +98,6 @@ List_DB_ShortName = "DB_SName"
 List_DB_Tracker = "DB_Tracking"
 
 List_File_Read = "File_Read"
-
 '______________________________________________________________________________
 '                                                                                     Variables
 '______________________________________________________________________________
@@ -430,7 +374,7 @@ Sub LoadSettings
       RestoreSettings = 1 
     EndIf 
     
-    If debug_mode = 1 And ( Setting_Files[I] = 1 AND  LDFile.Exists( Setting_Files[I] ) = "False" ) Then 'Run this check only in debug mode
+    If ( Setting_Files[I] = 1 AND  LDFile.Exists( Setting_Files[I] ) = "False" ) Then 'Run this check only in debug mode
       Settings[ Null_Settings[I] ] = Setting_Default[I] 
       RestoreSettings = 1 
     EndIf 
@@ -1340,7 +1284,7 @@ Sub Create_Table_UI_CMDS
     If Controls.GetTextBoxText(Table_Name ) <> "" Then 
       Name = Controls.GetTextBoxText( Table_Name )
       Max = LDControls.DataViewRowCount(DataView)
-      Defines_SQL = "CREATE TABLE " + DQC + LDText.Replace( LDText.Replace( Name,"[","") ,"]","" ) + DQC + " (" 
+      Defines_SQL = "CREATE TABLE " + DQC + LDText.Replace( LDText.Replace( LDText.Replace( New_Schemap[I][1] ,"[","") ,"]",""),DQC,"") + DQC + " (" 
       TextWindow.Clear()
       New_Schemap = ""
       For I = 1 To  Max
@@ -1351,7 +1295,7 @@ Sub Create_Table_UI_CMDS
             New_Schemap[I][3] = "True" 
           EndIf 
           
-          Defines_SQL = Defines_SQL + DQC + LDText.Replace( LDText.Replace( New_Schemap[I][1] ,"[","") ,"]","")+ DQC +" " + Text.ConvertToUpperCase( New_Schemap[I][2] )
+          Defines_SQL = Defines_SQL + DQC +LDText.Replace( LDText.Replace( LDText.Replace( New_Schemap[I][1] ,"[","") ,"]",""),DQC,"") + DQC +" " + Text.ConvertToUpperCase( New_Schemap[I][2] )
           
           If New_Schemap[I][6] = "True" Then 
             Defines_SQL = Defines_SQL + " NOT NULL"
@@ -1477,20 +1421,16 @@ EndSub
 Sub Query_UI_Controls
   LDList.Add(List_Stack_Trace,"Query_UI_Controls | Function UI Query")
   Query_UI_Args = args  
-  If Query_UI_Args[1] = "Menu" Or Query_UI_Args[1] = Register Then 
+  Query_UI_Array = "Register=" + List_UI_Handler+";Menu="+List_UI_Handler+";Action="+ List_UI_Action+";"
+  If Query_UI_Array[ Query_UI_Args[1] ] <> "" Then 
     Query_UI_Index = LDList.IndexOf( List_UI_Name , Query_UI_Args[2] )
     If Query_UI_Index <> 0 Then 'Protects from calling a nonexistent entry
-      return =  LDList.GetAt( List_UI_Handler , Query_UI_Index )
+      return =  LDList.GetAt( Query_UI_Array[ Query_UI_Args[1] ] , Query_UI_Index )
     EndIf 
-  ElseIf Query_UI_Args[1] = "Action" Then
-    Query_UI_Index = LDList.IndexOf( List_UI_Name , Query_UI_Args[2] )
-    If Query_UI_Index <> 0 Then 'Protects from calling a nonexistent entry
-      return = LDList.GetAt( List_UI_Action ,Query_UI_Index )
-    EndIf 
-  Else
+  Else 
     LDCall.Function2(Function_Log ,"UI QUERY: Parameters unknown " + Query_UI_Args , LangList["App"] ) 
     return = "Parameters unknown"
-  EndIf    
+  EndIf   
 EndSub
 
 Sub Universal_BD
@@ -1636,8 +1576,13 @@ Sub Command 'Runs A Command Function
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 'Sends Data to Transaction Function. (Logs SQL Commands)
       
       LDList.Add(List_Stack_Trace,"Command")
-      LDCall.Function( Function_Command_Parser , CommandArgs[2]) 'Transforms String into List
-      LDList.Add(List_Stack_Trace,"Command")
+      If debug_Parser = 1 Then 
+        LDCall.Function( Function_Command_Parser , CommandArgs[2]) 'Transforms String into List
+        LDList.Add(List_Stack_Trace,"Command")
+      Else 
+        LDList.Clear( List_Command_Parser )
+        LDList.Add( List_Command_Parser , CommandArgs[2] ) 
+      EndIf 
       
       Command_Counter = 0 
       LDList.Clear( List_Command_Parser_OnFail ) 
@@ -1671,16 +1616,13 @@ Sub Command 'Runs A Command Function
     EndIf
   Else
     debug_mode = 1 
-    TextWindow.WriteLine("FORCE DEBUG : ON " + CLLF + "Function_Command : Expected 4 Arguments but recievied " + Array.GetItemCount( CommandArgs ) )
-    TextWindow.WriteLine( CommandArgs ) 
+    TextWindow.WriteLine("FORCE DEBUG : ON " + CLLF + "Function_Command : Expected 4 Arguments but recievied " + Array.GetItemCount( CommandArgs ) + CLLF + CommandArgs  )
   EndIf 
 EndSub
 
 Sub Command_Parse '(Command); returns Data in a list;
   LDList.Add(List_Stack_Trace,"Command_Parse")
-  ParseArgs = args
-  ParseArgs[1] = LDText.Trim( ParseArgs[1] ) 
-  
+  ParseArgs = args 
   LDList.Clear( List_Command_Parser ) 
   
   Parser_InString = 0 
