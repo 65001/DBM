@@ -26,6 +26,8 @@
 ' Removed CMD Parser for default use
 'Fixed bug with Master Table Combo Box
 'Made Import CSV roughly 4x faster on all file sizes. Real savings seen in larger files
+'Added default Extensions
+'Added .plugins to DBM CLI
 
 StartTime[0] = Clock.ElapsedMilliseconds
 GraphicsWindow.Show()
@@ -360,6 +362,7 @@ Sub LoadSettings
   Null_Settings = Null_Settings +"13=LastFolder;14=OS_Dir;15=Asset_Dir;16=Log_Path;17=Log_DB_Path;18=Transaction_DB;"
   
   Setting_Default = "1=" + (Desktop.Width - 400 ) +";2=" + (Desktop.Height - 150) +";3="+PrgmVersionID+";5=en;6=0;7=0;8=0;9=0;10=0;11=,;12=10000;"
+  Setting_Default[4] = "1=db;2=sqlite;3=sqlite3;4=db3;5=*;"
   Setting_Default[13] = LDFile.DocumentsFolder
   Setting_Default[14] = "C:\Windows\System32\"
   Setting_Default[15] = Program.Directory +"\Assets\"
@@ -1565,7 +1568,8 @@ Sub Query_SQLITE_Emulator
   If QueryEmulatorArgs[1] = ".help" Then 
     Emulator_Table = "HELP"
     Emulator_SQL = "CREATE TEMP TABLE HELP (Arguments TEXT,Description TEXT);"
-    Emulator_SQL = Emulator_SQL + "INSERT INTO HELP  VALUES ('.help','displays this table. Note: The following commands are being interpreted by the DBM CLI Parser not the SQLITE CLI.');INSERT INTO HELP VALUES ('.databases','Displays a list of databases');"
+    Emulator_SQL = Emulator_SQL + "INSERT INTO HELP VALUES ('.help','displays this table. Note: The following commands are being interpreted by the DBM CLI Parser not the SQLITE CLI.');INSERT INTO HELP VALUES ('.databases','Displays a list of databases');"
+    Emulator_SQL = Emulator_SQL + "INSERT INTO HELP VALUES('.plugins','Lists all plugins that have been called up to this point');"
   ElseIf QueryEmulatorArgs[1] = ".databases" Then
     Emulator_Table = "Databases" 
     Emulator_SQL = "CREATE TEMP TABLE Databases (SEQ INTEGER PRIMARY KEY,"+ DQC + "NAME" + DQC +"TEXT," + DQC + "DBM NAME" + DQC +" TEXT,FILE Text);"
@@ -1573,17 +1577,23 @@ Sub Query_SQLITE_Emulator
       Emulator_SQL = Emulator_SQL + "INSERT INTO Databases (NAME," + DQC + "DBM NAME" + DQC +",FILE) VALUES ('"  + LDList.GetAt(List_DB_Name,I)  +"','" + LDList.GetAt(List_DB_ShortName,I) + "','" + LDList.GetAt(List_DB_Path,I) +"');"
     EndFor 
   ElseIf QueryEmulatorArgs[1] = ".tables" Then 
-     '  Emulator_Table = "List_Tables"
+    '  Emulator_Table = "List_Tables"
     '  Emulator_SQL = "CREATE TEMP TABLE List_Tables (ID INTEGER PRIMARY KEY,"+ DQC + "NAME" + DQC +"TEXT," + DQC + "DBM NAME" + DQC +"TEXT,Table TEXT);"
     ''  For I = 1 To Array.GetItemCount( SCHEMA_TableList )
     '   Emulator_SQL = Emulator_SQL = "INSERT INTO List_Tables (NAME," + DQC + "DBM NAME" + DQC +",Table) VALUES ('" + 
     ' EndFor
   ElseIf QueryEmulatorArgs[1] = ".plugins" Then 
+    Emulator_Table = "List_Plugins"
+    Emulator_SQL = "CREATE TEMP TABLE " + Emulator_Table +" (INCLUDE TEXT,NAME TEXT,PATH TEXT);"
+    Mod_Name_Index = Array.GetAllIndices( Mod_Name )
+    For I = 1 To Array.GetItemCount(Mod_Name_Index ) 
+      Emulator_SQL = Emulator_SQL + "INSERT INTO " + Emulator_Table + " VALUES ('"+ Mod_Name[Mod_Name_Index[i]] +"','"+ Mod_Name_Index[i] +"','" + LDList.GetAt(List_Mod_Path,LDList.IndexOf( List_Mod_Name , Mod_Name_Index[i])) +"');"
+    Endfor 
   EndIf 
   If Emulator_Table = "" Then 
     GraphicsWindow.ShowMessage("Not Supported!","") 'Localize 
   Else 
-    LDCall.Function4(Function_Command,database,Emulator_SQL,UserName,LangList["User Requested"] +": CLI EMULATOR")
+    LDCall.Function4(Function_Command,database,"DROP TABLE IF EXISTS " + Emulator_Table +";"+ Emulator_SQL,UserName,LangList["User Requested"] +": CLI EMULATOR")
     LDCall.Function5(Function_Query,"Select * From " + DQC + Emulator_Table + DQC +";",CurrentControl,"False",UserName,LangList["User Requested"] +": CLI EMULATOR")
   EndIf 
 EndSub
