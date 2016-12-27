@@ -82,9 +82,9 @@ Sub CSV_Interface
   TextWindow.WriteLine("Total Time : " + ElappsedTime + CLLF  ) 
   TextWindow.WriteLine("Bytes Per (ms) : " + (LDFile.Size(CSV_Path) / ElappsedTime) )  
   
-  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", CSV_SQL ) 
+  File.WriteContents(Program.Directory+"\CSV Import DUMP v2.sql", CSV_SQL ) 
   If LDDialogs.Confirm("Do you wish to open the converted SQL code","Confirm") = "Yes" Then 
-    LDProcess.Start(Program.Directory+"\CSV Import DUMP.sql","")
+    LDProcess.Start(Program.Directory+"\CSV Import DUMP v2.sql","")
   EndIf   
 EndSub
 

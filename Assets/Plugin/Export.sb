@@ -1,7 +1,6 @@
 'Export Module 
 'v1000
 'HTML , SQL ,CSV , XML Support 
-
 Sub VOID
   TypesOfSorts = TypesOfSorts
   QueryFunction = QueryFunction 
@@ -32,14 +31,15 @@ EndSub
 
 Sub HTML
   LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
-  Export_HTML_SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+ DQC + Default_Table+ DQC +");","","True",LangList["App"],LangList["Export HTML Schema"]  + LDFile.UserName) 
-  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+DQC + Default_Table+ DQC +";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName )
+  TextWindow.WriteLine("EXPORT.HTML()")
+  EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+DQC + Default_Table+ DQC +";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName ) 
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
   
-  HTML_Statement = "" 
+  Export_HTML_SCHEMA = SchemaList 
   HTML_Statement = "<!DOCTYPE html>"+CLLF+"<html>"+CLLF+TabKey+"<title>" + Default_Table +" Exported</title>" +CLLF + CLLF
   HTML_Statement = HTML_Statement + TabKey + "<meta name=" + DoubleQuotesCharacter +"viewport" +  DoubleQuotesCharacter + "content=" + DoubleQuotesCharacter + "width=device-width, initial-scale=1" + DoubleQuotesCharacter  +">"
   HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}" +CLLF+TabKey+TabKey+TabKey+"table {border-collapse: collapse; width: 100%;}" +CLLF+TabKey+TabKey+TabKey+"th,td {padding: 5px;}" 'Padding is now much better
+  
   HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}"
   HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
   HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
@@ -50,20 +50,22 @@ Sub HTML
   HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+"</tr>" +CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr>"+CLLF 
   
   For EXPORT_HTML_I = 1 To  Array.GetItemCount(Export_HTML_SCHEMA)
-    HTML_Statement = HTML_Statement + TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I]["name"] +"</th>" + CLLF
+    TextWindow.WriteLine("(" +EXPORT_HTML_I +"\" + Array.GetItemCount(Export_HTML_SCHEMA) +")") 
+    HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I] +"</th>" + CLLF )
   EndFor 
-  HTML_Statement = HTML_Statement +TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF
-  
+  HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF )
   For EXPORT_HTML_I = 1 To Array.GetItemCount(EXPORT_HTML_DATA)
-    HTML_Statement = HTML_Statement +TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF
+    TextWindow.WriteLine("(" + EXPORT_HTML_I +"\" + Array.GetItemCount(EXPORT_HTML_DATA) +")")
+    HTML_Statement = Text.Append( HTML_Statement , TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF )
     For EXPORT_HTML_II = 1 To Array.GetItemCount(Export_HTML_SCHEMA)
-      HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + EXPORT_HTML_DATA[EXPORT_HTML_I][Export_HTML_SCHEMA[EXPORT_HTML_II]["name"]] +"</td>" + CLLF
+      HTML_Statement =Text.Append( HTML_Statement , TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + EXPORT_HTML_DATA[EXPORT_HTML_I][Export_HTML_SCHEMA[EXPORT_HTML_II]] +"</td>" + CLLF )
     EndFor
     HTML_Statement = HTML_Statement +TabKey + TabKey+Tabkey+Tabkey+"</tr>"+CLLF 
   EndFor
   HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
   File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
   LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO HTML",LangList["Application"]) '//Localize 
+  TextWindow.Hide()
   GraphicsWindow.ShowMessage("RAN EXPORT INTO HTML", LangList[ "Export"]) '//Localize  
 EndSub
 

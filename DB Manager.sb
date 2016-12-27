@@ -24,7 +24,8 @@
 
 'v1121
 ' Removed CMD Parser for default use
-
+'Fixed bug with Master Table Combo Box
+'Made Import CSV roughly 4x faster on all file sizes. Real savings seen in larger files
 
 StartTime[0] = Clock.ElapsedMilliseconds
 GraphicsWindow.Show()
@@ -66,7 +67,6 @@ Function_Log = "Log"
 Function_FileRead = "FileRead"
 Function_Command_Parser = "Command_Parse"
 Function_Transaction = TransactionFunction 
-
 logfunction = Function_Log
 '______________________________________________________________________________
 '                                                                                     List Names 
@@ -500,8 +500,7 @@ Sub EULA_UI
   Controls.Move(eulatextbox,10,10)
   LDControls.RichTextBoxReadOnly = "False"
   
-  OnlineEULACnts  = File.ReadContents( EULAFile)
-  OnlineEULACnts = LDText.Replace(OnlineEULACnts,"<date>",copyrightDate )
+  OnlineEULACnts  = LDText.Replace( File.ReadContents( EULAFile) , "<date>",copyrightDate )
   
   If Ping = "-1" Then 'If Ping to Google DNS has failed add the following
     LDCall.Function2( Function_Log ,LangList["Failed Load Online EULA"],LangList["Error"])
@@ -672,8 +671,7 @@ Sub ComboBoxChanged
   EndIf 
   
   LastCBIndex = LDControls.LastComboBoxIndex
-  If LastClickedCB = TableCB Then 
-    'If  LDList.GetAt(TrackDefaultTable,LDList.Count(TrackDefaultTable)) <> LastCBIndex Then 'Prevents Loading the same table if it is currently on screen
+  If LastClickedCB = TableCB Then '
     LDList.Add(TrackDefaultTable,LastCBIndex)
     Default_Table = SCHEMA_CurrentList[ LastCBIndex ]
     Get_SCHEMA_Private()
@@ -684,10 +682,7 @@ Sub ComboBoxChanged
     Set_Title()
     LastClickedButton = ViewDB_Button
     MainMenuHandler()
-    ' EndIf 
   ElseIf LastClickedCB = DataBaseCB Then 
-    
-    'If LDList.GetAt(List_DB_Tracker,LDList.Count(List_DB_Tracker)) <> LastCBIndex Then 
     LDList.Add( List_DB_Tracker , LDList.GetAt(List_DB_ShortName,LastCBIndex))
     LDCall.Function2( Function_Load_DB , 4, LDList.GetAt(List_DB_Path,LastCBIndex) )
     Get_SCHEMA() 'Fetches Schema of everything in the new DB
@@ -708,7 +703,6 @@ Sub ComboBoxChanged
       LDControls.ComboBoxContent(TableCB, SCHEMA_TableList)
     EndIf 
     LDCall.Function( Function_Handler_Universal , ViewDB_Button )
-    'EndIf 
   ElseIf LastClickedCB = SortsCB Then 
     SortsCB_IndexList[1] = SCHEMA_TableList
     SortsCB_IndexList[2] = SCHEMA_ViewList
@@ -730,8 +724,6 @@ Sub ComboBoxChanged
       LDControls.ComboBoxContent(TableCB, SCHEMA_IndexList )
     ElseIf LastCBIndex = 4 then 
       Default_Table = "sqlite_master" 
-      SCHEMA_TableList = "1="+Default_Table+";2=sqlite_temp_master;"
-      LDControls.ComboBoxContent(TableCB,SCHEMA_TableList)
       Get_SCHEMA_Private()
     EndIf 
     
@@ -832,7 +824,6 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = OpenDB_Button Then 'Opens a DB
     listview = ""
     Dataview = ""
-    
     LoadSettings() 'Reloads Settings 
     LDList.Add(List_Stack_Trace,"MainMenuHandler.OPEN")
     LDCall.Function2(Function_Load_DB,4, LDCall.Function(Function_Get_DB,"") )
@@ -970,7 +961,7 @@ Sub MainMenuHandler
   ElseIf LastClickedButton = Create_Statistics_Button Then 
     Get_SCHEMA_Private()
     return = LDCall.Function2( Function_Handler_CreateStatistics, Default_Table ,SchemaList)
-    LDCall.Function4(Function_Query ,"Select * FROM " + return +";",CurrentControl,UserName,LangList[ "User Requested" ])
+    LDCall.Function4(Function_Query ,"Select * FROM " + return +";",CurrentControl,UserName,LangList[ "User Requested" ] )
   Else
     GraphicsWindow.ShowMessage ( LastClickedButton + " Caption : " + Controls.GetButtonCaption(LastClickedButton) + " Handler:"+ LDCall.Function2( Function_UI_Query , Register , LastClickedButton )  ,"") 
   EndIf
@@ -1270,10 +1261,9 @@ Sub Create_Table_UI
   LDCall.Function5(Function_UI_Add,"Register",Exit_Button,Function_Handler_DefineTable,"","")
   
   LDControls.DataViewSetColumnComboBox(DataView,2,"1=Integer;2=Text;3=Blob;4=Real;5=Numeric;")
-  LDControls.DataViewSetColumnCheckBox(DataView,3)
-  LDControls.DataViewSetColumnCheckBox(DataView,4)
-  LDControls.DataViewSetColumnCheckBox(DataView,5)
-  LDControls.DataViewSetColumnCheckBox(DataView,6)
+  For I = 3 To 6
+    LDControls.DataViewSetColumnCheckBox(DataView,I)
+  EndFor
 EndSub
 
 Sub Create_Table_UI_CMDS
@@ -1513,6 +1503,7 @@ Sub MOD_RUN_Parser
   If LDList.IndexOf( List_Mod_Name , Mod_Run_Args[1] ) <> 0 AND Mod_Name[ Mod_Run_Args[1] ] = "" Then 'If the Mod Is known but has not yet been included
     Temp_Mod_Path = LDList.GetAt( List_Mod_Path , LDList.IndexOf( List_Mod_Name , Mod_Run_Args[1] ) ) 
     Temp_Mod_Name = Mod_Run_Args[1]
+    TextWindow.WriteLine ( Temp_Mod_Path ) 
     Mod_Name[  Mod_Run_Args[1] ]  =  LDCall.Include( Temp_Mod_Path ) 'Dynamically adds the MOD 
     Dynamically_Added_Mod = 1 
   EndIf 
@@ -1574,13 +1565,20 @@ Sub Query_SQLITE_Emulator
   If QueryEmulatorArgs[1] = ".help" Then 
     Emulator_Table = "HELP"
     Emulator_SQL = "CREATE TEMP TABLE HELP (Arguments TEXT,Description TEXT);"
-    Emulator_SQL = Emulator_SQL + "INSERT INTO HELP  VALUES ('.help','displays this table');INSERT INTO HELP VALUES ('.databases','Displays a list of databases');"
+    Emulator_SQL = Emulator_SQL + "INSERT INTO HELP  VALUES ('.help','displays this table. Note: The following commands are being interpreted by the DBM CLI Parser not the SQLITE CLI.');INSERT INTO HELP VALUES ('.databases','Displays a list of databases');"
   ElseIf QueryEmulatorArgs[1] = ".databases" Then
     Emulator_Table = "Databases" 
-    Emulator_SQL = "CREATE TEMP TABLE Databases (SEQ INTEGER PRIMARY KEY,"+ DQC + "NAME" + DQC +"TEXT,FILE Text);"
+    Emulator_SQL = "CREATE TEMP TABLE Databases (SEQ INTEGER PRIMARY KEY,"+ DQC + "NAME" + DQC +"TEXT," + DQC + "DBM NAME" + DQC +" TEXT,FILE Text);"
     For I = 1 To LDList.Count( List_DB_Name )
-      Emulator_SQL = Emulator_SQL + "INSERT INTO Databases (NAME,FILE) VALUES ('"  + LDList.GetAt(List_DB_Name,I)  +"','" + LDList.GetAt(List_DB_Path,I) +"');"
+      Emulator_SQL = Emulator_SQL + "INSERT INTO Databases (NAME," + DQC + "DBM NAME" + DQC +",FILE) VALUES ('"  + LDList.GetAt(List_DB_Name,I)  +"','" + LDList.GetAt(List_DB_ShortName,I) + "','" + LDList.GetAt(List_DB_Path,I) +"');"
     EndFor 
+  ElseIf QueryEmulatorArgs[1] = ".tables" Then 
+     '  Emulator_Table = "List_Tables"
+    '  Emulator_SQL = "CREATE TEMP TABLE List_Tables (ID INTEGER PRIMARY KEY,"+ DQC + "NAME" + DQC +"TEXT," + DQC + "DBM NAME" + DQC +"TEXT,Table TEXT);"
+    ''  For I = 1 To Array.GetItemCount( SCHEMA_TableList )
+    '   Emulator_SQL = Emulator_SQL = "INSERT INTO List_Tables (NAME," + DQC + "DBM NAME" + DQC +",Table) VALUES ('" + 
+    ' EndFor
+  ElseIf QueryEmulatorArgs[1] = ".plugins" Then 
   EndIf 
   If Emulator_Table = "" Then 
     GraphicsWindow.ShowMessage("Not Supported!","") 'Localize 
@@ -1729,12 +1727,12 @@ Sub Create_Statistics_Page
     Statistics_Page_Args = args 
     Statistics_Page_Name = DQC + "Statistics " + Statistics_Page_Args[1] +DQC
     Statistics_Page_SQL = "Drop Table IF EXISTS " + Statistics_Page_Name + ";" +CLLF +"Create TEMP Table " + Statistics_Page_Name +" (" + DQC + "Row" + DQC +" Text," + DQC +"SUM" + DQC+" INT," + DQC +"AVG" + DQC +" INT,"
-    Statistics_Page_SQL = Statistics_Page_SQL + DQC +"COUNT" + DQC +" INT," + DQC +"MAX" + DQC +" INT," +DQC +"MIN" + DQC +" INT,"+ DQC +"TYPE" + DQC +" TEXT,"+ DQC +"Length" + DQC +" TEXT," + DQC +"DATE STAMP" +DQC + " TEXT," + DQC +"UTC TIME" + DQC +" TEXT);"+ CLLF 
+    Statistics_Page_SQL = Statistics_Page_SQL + DQC +"COUNT" + DQC +" INT," +  DQC +"COUNT DISTINCT" + DQC +" INT," + DQC +"MAX" + DQC +" INT," +DQC +"MIN" + DQC +" INT,"+ DQC +"TYPE" + DQC +" TEXT,"+ DQC +"Length" + DQC +" TEXT," + DQC +"DATE STAMP" +DQC + " TEXT," + DQC +"UTC TIME" + DQC +" TEXT);"+ CLLF 
     Statistics_Page_Index=   Array.GetAllIndices( Statistics_Page_Args[2])
     
     For I = 1 To Array.GetItemCount(Statistics_Page_Args[2])
       Statistics_Temp = DQC + Statistics_Page_Args[2][I] + DQC 
-      Statistics_Page_SQL = Statistics_Page_SQL +"Insert into " + Statistics_Page_Name + " Select '" + Statistics_Temp+"',SUM("+Statistics_Temp+"),AVG("+Statistics_Temp+"),COUNT("+Statistics_Temp+"),MAX("+Statistics_Temp+"),MIN("+Statistics_Temp+")"
+      Statistics_Page_SQL = Statistics_Page_SQL +"Insert into " + Statistics_Page_Name + " Select '" + Statistics_Temp+"',SUM("+Statistics_Temp+"),AVG("+Statistics_Temp+"),COUNT("+Statistics_Temp+"),COUNT(DISTINCT " +Statistics_Temp +"),MAX("+Statistics_Temp+"),MIN("+Statistics_Temp+")"
       Statistics_Page_SQL = Statistics_Page_SQL +",typeOf("+Statistics_Temp+"),Length(" + Statistics_Temp +"),DATE(),TIME() From " + DQC + Statistics_Page_Args[1] + DQC +";;" + CLLF
     EndFor
     

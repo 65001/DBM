@@ -13,15 +13,15 @@ EndSub
 
 Sub CSV_Interface
   GraphicsWindow.Hide()
+  
   List_CSV_Integers = "CSV_INT"
   List_CSV_Length = "CSV_Length"
   CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
   
   TextWindow.WriteLine("Plugin : Import CSV File!")
-  If LDFile.Exists( CSV_Path) = "False" Or CSV_Path = "" Then 
+  If LDFile.Exists(CSV_Path) = "False" Or CSV_Path = "" Then 
     CSV_Path = LDDialogs.OpenFile("csv","")
   EndIf 
-  TextWindow.WriteLine("CSV Lines : " + LDFile.Length(CSV_Path)) 
   TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(CSV_Path) + CLLF ) 
   
   Time_Start = Clock.ElapsedMilliseconds
@@ -32,28 +32,28 @@ Sub CSV_Interface
   
   TextWindow.Write("Reading    :")
   Time_Read_Start = Clock.ElapsedMilliseconds 
-  CSV_Data = LDFile.ReadCSV( CSV_Path )
+  CSV_Data = LDFastArray.ReadCSV( CSV_Path )
   Time["Reading"] = Clock.ElapsedMilliseconds - Time_Read_Start
   TextWindow.WriteLine( Time["Reading"] ) 
   
-  TextWindow.Write("Casting to List : ")
-  Time_Cast_Start = Clock.ElapsedMilliseconds 
-  List_CSV_Data = LDList.FromArray( CSV_Data )
-  CSV_Data = ""
-  Time["Casting"] = Clock.ElapsedMilliseconds - Time_Cast_Start
-  TextWindow.WriteLine( Time["Casting"] ) 
-  
   CSV_Header_Types = "0=Text;1=INTEGER;"
-  CSV_Header_Data = LDList.GetAt(List_CSV_Data,1)
   
   TextWindow.Write("Pre Calculations:")
-  
   Time_PreCalcs = Clock.ElapsedMilliseconds
-  CSV_Count_Data = LDList.Count(List_CSV_Data )
-  For I = 1 to CSV_Count_Data ' Array.GetItemCount(I_CSV_Array[1])
-    LDList.Add( List_CSV_Integers , 1 ) 
-    LDList.Add( List_CSV_Length , Array.GetItemCount( LDList.GetAt(List_CSV_Data,I) ) ) 
+  CSV_Count_Data = LDFastArray.Dim1( CSV_Data )
+  
+  For I = 1 to CSV_Count_Data 
+    LDList.Add( List_CSV_Length , LDFastArray.Dim2(CSV_Data,I) ) 
   EndFor
+  
+  CSV_Standard_Length = LDList.GetAt(List_CSV_Length,1)
+  
+  For I = 1 To CSV_Standard_Length 
+    LDList.Add( List_CSV_Integers , 1 ) 
+  EndFor
+  CSV_Integers = LDList.ToArray( List_CSV_Integers )
+  
+  
   CSV_Count_Length = LDList.Count(List_CSV_Length )
   Time["PCalc"] = Clock.ElapsedMilliseconds - Time_PreCalcs
   TextWindow.WriteLine( Time["PCalc"] )
@@ -72,9 +72,8 @@ Sub CSV_Interface
   
   TextWindow.Write("Appending : " )
   Time_Append = Clock.ElapsedMilliseconds 
-  CSV_SQL = "BEGIN;" + CLLF + Text.Append( CSV_HSQL , CSV_SQL ) + "COMMIT;"
-  CSV_SQL = LDText.Replace( CSV_SQL ,"'NULL'","NULL")
-  CSV_SQL = LDText.Replace( CSV_SQL ,"<<HEADERS>>", CSV_Headers_WO_Type)
+  CSV_SQL = Text.Append( "BEGIN;" + CLLF , Text.Append( CSV_HSQL , CSV_SQL ) ) + "COMMIT;"
+  CSV_SQL = LDText.Replace( LDText.Replace( CSV_SQL ,"'NULL'","NULL") ,"<<HEADERS>>", CSV_Headers_WO_Type)
   Time["Appending"] = Clock.ElapsedMilliseconds - Time_Append 
   TextWindow.WriteLine( Time["Appending"] ) 
   
@@ -97,7 +96,7 @@ Sub CSV_Interface
   Percentage = Math.Round( Percentage )
   
   GraphicsWindow.Show()
-  GraphicsWindow.ShowMessage(records + " records updated out of " + LDList.Count(List_Command_Parser_Status ) + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
+  GraphicsWindow.ShowMessage(records + " records updated out of " + CSV_Dim1 + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
   
   LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + CSV_Path +" csv file",LangList["Application"])'//Localize 
   
@@ -106,48 +105,49 @@ EndSub
 
 Sub ArrayToSQL
   CSV_SQL = ""
-  For I = 2 To CSV_Count_Length 
-    CSV_TempArray_Data = LDList.GetAt( List_CSV_Data , I )
-    CSV_Indicides_ofData = Array.GetAllIndices( CSV_TempArray_Data ) 
-    CSV_SQL = CSV_SQL + "INSERT INTO " + DQC + CSV_Name + DQC +" <<HEADERS>>" + " VALUES('"
-    If LDList.GetAt(List_CSV_Length,I) = LDList.GetAt( List_CSV_Length , 1) Then 
-      For II = 1 To LDList.GetAt( List_CSV_Length , I ) 
-        CSV_TempArray_II = LDText.Replace( CSV_TempArray_Data[ CSV_Indicides_ofData[II] ] ,"'","''")
-        If CSV_TempArray_II = "" Or CSV_TempArray_II = " " Then 
-          CSV_TempArray_II = "NULL"
+  CSV_Dim1 = LDFastArray.Dim1( CSV_Data )
+  
+  For I = 2 To CSV_Dim1 
+    CSV_Current_Length = LDList.GetAt( List_CSV_Length,I)
+    If CSV_Current_Length = CSV_Standard_Length  Then 
+      CSV_SQL_InnerLoop = "INSERT INTO " + DQC + CSV_Name + DQC +" <<HEADERS>>" + " VALUES('" 
+      CSV_Dim2 = LDFastArray.Dim2( CSV_Data , I ) 
+      For II = 1 To CSV_Dim2  
+        CSV_Temp_Data = LDText.Replace( LDFastArray.Get2D( CSV_Data, I, II ) ,"'","''")
+        If CSV_Temp_Data = "" Or CSV_Temp_Data = " " Then 
+          CSV_Temp_Data = "NULL"
         EndIf 
-        CSV_SQL = CSV_SQL + CSV_TempArray_II
-        If ( CSV_TempArray_II <> 0 And  Math.SquareRoot(CSV_TempArray_II) = 0 ) Or (CSV_TempArray_II = 0 ) Then 
-          LDList.SetAt( List_CSV_Integers , II , 0 )
+        If CSV_Integers[ii] = 1 And  (( CSV_Temp_Data <> 0 And  Math.SquareRoot(CSV_Temp_Data) = 0 ) Or (CSV_Temp_Data = 0 )) Then 
+          CSV_Integers[ii] = 0 
         EndIf 
-        If II < LDList.GetAt( List_CSV_Length,I) Then 
-          CSV_SQL= CSV_SQL + "','"
-        EndIf 
+        CSV_SQL_InnerLoop =  CSV_SQL_InnerLoop + CSV_Temp_Data 
+        If II < CSV_Current_Length Then 
+          CSV_SQL_InnerLoop= CSV_SQL_InnerLoop + "','"
+        EndIf
       EndFor 
+      CSV_SQL_InnerLoop = Text.Append( CSV_SQL_InnerLoop , "');" + CLLF )
+      TextWindow.Title = ("("+ I +"/" + CSV_Count_Length +") " + Math.Floor( (I/CSV_Count_Length) * 100 ) + "%" ) 
     Else 
       TextWindow.ForegroundColor = "RED"
       TextWindow.WriteLine("SKIPPED : " + I + "(" +LDList.GetAt(List_CSV_Length,I) + "/" +LDList.GetAt( List_CSV_Length , 1) +")")
       TextWindow.ForegroundColor = "WHITE"
     EndIf 
-    CSV_SQL = CSV_SQL + "');" + CLLF
-    TextWindow.Title = ("("+ I +"/" + CSV_Count_Length +") " + Math.Floor( (I/CSV_Count_Length) * 100 ) + "%" ) 
-  EndFor
+    CSV_SQL = Text.Append( CSV_SQL, CSV_SQL_InnerLoop ) 
+  EndFor 
 EndSub 
 
 Sub CSVHeaders
   CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + DQC + CSV_Name + DQC +" "
-  CSV_HData = LDList.GetAt(List_CSV_Data,1)
-  CSV_HIndex = Array.GetAllIndices( CSV_HData )
   CSV_HSQL = CSV_HSQL +  "("
   CSV_Headers_WO_Type = "("
   For I = 1 To LDList.GetAt( List_CSV_Length , 1) 
-    CSV_HSQL = CSV_HSQL + DQC + CSV_HData[I] + DQC + " " + CSV_Header_Types [ LDList.GetAt( List_CSV_Integers , I ) ]
-    CSV_Headers_WO_Type = CSV_Headers_WO_Type + DQC + CSV_HData[I] + DQC
+    CSV_HSQL = Text.Append( CSV_HSQL , DQC + LDFastArray.Get2D(CSV_Data ,1,I) + DQC + " " + CSV_Header_Types [ CSV_Integers[I]  ] )
+    CSV_Headers_WO_Type = Text.Append( CSV_Headers_WO_Type , DQC + LDFastArray.Get2D(CSV_Data ,1,I) + DQC )
     If I < LDList.GetAt( List_CSV_Length , 1) Then 
       CSV_HSQL = CSV_HSQL +","
       CSV_Headers_WO_Type = CSV_Headers_WO_Type+","
     EndIf 
   EndFor 
-  CSV_HSQL = CSV_HSQL +");" + CLLF 
+  CSV_HSQL = Text.Append( CSV_HSQL , ");" + CLLF )
   CSV_Headers_WO_Type = CSV_Headers_WO_Type+")"
 EndSub
