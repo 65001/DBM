@@ -1,124 +1,126 @@
+If Program.ArgumentCount = 1 Then 
+  Import_CSV_Path =  Program.GetArgument(1)
+EndIf 
+
 CSV_Interface()
-Sub VOID
-  'CommandFunction = CommandFunction 
-  'database = database 
-  ' logfunction = logfunction 
-  ' databasepath = databasepath 
-  ' LangList = LangList 
-  ' List_Command_Parser_Status = List_Command_Parser_Status 
-  'List_Stack_Trace = List_Stack_Trace
-  ' Settings = Settings
-EndSub
 
 Sub CSV_Interface
-  debug_mode = 1 
-  CLLF = Text.GetCharacter(10) '+ Text.GetCharacter(13)
+  CLLF = Text.GetCharacter(10)
+  DQC = Text.GetCharacter(34) 
   
   TextWindow.WriteLine("Plugin : Import CSV File!")
-  ' GraphicsWindow.Title = "CSV : " + Settings["TimeOut"]
-  CSV_Start_Time = Clock.ElapsedMilliseconds
-  ' LDList.Add(List_Stack_Trace,"Plugin : Import.CSV")
-  'Import_CSV_Path =  LDDialogs.OpenFile("csv","")
+  If LDFile.Exists( Import_CSV_Path) = "False" Or Import_CSV_Path = "" Then 
+    Import_CSV_Path = LDDialogs.OpenFile("csv","")
+  EndIf 
   
-  Import_CSV_Path = "C:\Users\Abhishek\Downloads\Album Table.csv"
-  Import_CSV_Path = "C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Log.csv"
+  CSV_Start_Time = Clock.ElapsedMilliseconds
   TextWindow.WriteLine("Trimming....")
   I_CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(Import_CSV_Path),"Table","") )
   TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(Import_CSV_Path) ) 
   TextWindow.WriteLine("Reading....")
-  
-  Read_Start = Clock.ElapsedMilliseconds
-  ' I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
-  Temp_Path = File.GetTemporaryFilePath()
-  Length = LDFile.Length(Import_CSV_Path)
-  I_CSV_Array =  LDFile.ReadCSV( Import_CSV_Path)
-  Read_End = Clock.ElapsedMilliseconds
-  
-  
-  TextWindow.WriteLine( (Read_End - Read_Start)/1000 )
-  
+  I_CSV_Array = LDFile.ReadCSV(Import_CSV_Path)
   TextWindow.WriteLine("Processing...")
   CSV()
   TextWindow.WriteLine("Total Time : " +( Clock.ElapsedMilliseconds - CSV_Start_Time ) )
+  
+  TextWindow.WriteLine("Sending to Parser")
+  
+  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+  If LDDialogs.Confirm("Do you wish to open the converted SQL code","Confirm") = "Yes" Then 
+    LDProcess.Start(Program.Directory+"\CSV Import DUMP.sql","")
+  EndIf  
 EndSub
 
 Sub CSV 'Make this a function in the future
   TextWindow.WriteLine("Pre Calculations")
+  
   For I = 1 to Array.GetItemCount(I_CSV_Array[1])
-    I_CSV_Int_Array[I] = 1  
+    CSV_Int_Array[I] = 1  
   EndFor 
+  
   TextWindow.WriteLine("Proccessing Main")
   CSV_TO_SQL()
-  TextWindow.WriteLine("Converting Headers")
   
+  
+  TextWindow.WriteLine("Creating Headers") 
   CSV_Headers() 'First Line becomes header information
-  Import_CSV_SQL_Final = "BEGIN;" + CLLF + Import_CSV_SQL_Final+"COMMIT;"
+  
+  Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
+  
+  Import_CSV_SQL_Final = "BEGIN;" + CLLF + Import_CSV_SQL_Final+ CLLF +"COMMIT;"
   Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "'NULL'","NULL")
-  
-  TextWindow.WriteLine("Sending to Parser")
-  'records =  LDCall.Function4(CommandFunction , database,Import_CSV_SQL_Final , LDFile.UserName,"Import CSV") '//Localize  
-  'Percentage = records/ Array.GetItemCount( LDText.FindAll(Import_CSV_SQL_Final,";") )
-  'Percentage = Percentage * 100
-  'Percentage = Math.Round( Percentage )
-  ' GraphicsWindow.ShowMessage(records + " records updated out of " + LDList.Count(List_Command_Parser_Status ) + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
-  
-  ' LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + Import_CSV_Path +" csv file",LangList["Application"])'//Localize 
-  TextWindow.WriteLine("Path : " + Program.Directory+"\CSV Import DUMP.sql" )
-  File.WriteContents(Program.Directory+"\CSV Import DUMP.sql", Import_CSV_SQL_Final ) 
+  Import_CSV_SQL_Final = LDText.Replace( Import_CSV_SQL_Final , "<HEADERS>" ,Import_CSV_Headers )
 EndSub 
 
 Sub CSV_TO_SQL
-  'LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_TO_SQL")
   
   Import_CSV_SQL = "" 
   Import_CSV_Max[0] = Array.GetItemCount(I_CSV_Array)
+  Import_CSV_Max[1] = Array.GetItemCount(I_CSV_Array[1])
   
-  For I = 2 To Import_CSV_Max[0] 'I=1 is Assumed to be the header row
-    Import_CSV_SQL = Text.Append( Import_CSV_SQL ,Text.Append( Text.Append( "INSERT INTO [" , I_CSV_Name ) , "] VALUES ('") )
-    
-    CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[I] )
-    Import_CSV_Max[I] = Array.GetItemCount(I_CSV_Array[I])
-    For II = 1 To Import_CSV_Max[I]
-      CSV_Array_Temp =  I_CSV_Array[I][ CSV_Array_TempIndex[II] ]
-      CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
-      
-      If CSV_Array_Temp = "" Or CSV_Array_Temp = " " Then
-        CSV_Array_Temp = "NULL"
+  For ICSV = 2 To Import_CSV_Max[0] 'I=1 is Assumed to be the header row
+    CSV_Array_TempIndex = Array.GetAllIndices( I_CSV_Array[ICSV] )
+    Import_CSV_Max[ICSV] = Array.GetItemCount(I_CSV_Array[ICSV])
+    Import_CSV_SQL = Import_CSV_SQL + "INSERT INTO " + DQC  + I_CSV_Name + DQC +" " +"<HEADERS>" + " VALUES ('"
+    For IICSV = 1 To Import_CSV_Max[ICSV]
+      If Import_CSV_Max[ICSV] = Import_CSV_Max[1] Then 
+        CSV_Array_Temp =  I_CSV_Array[ICSV][ CSV_Array_TempIndex[IICSV] ] 'Value to be used in VALUES ()
+        CSV_Array_Temp = LDText.Replace( CSV_Array_Temp , "'", "''")
+        If CSV_Array_Temp = "" Or CSV_Array_Temp = " " Then
+          CSV_Array_Temp = "NULL"
+        EndIf 
+        
+        Import_CSV_SQL =  Import_CSV_SQL + CSV_Array_Temp
+        
+        If CSV_Array_Temp <> 0 And Math.SquareRoot(CSV_Array_Temp) = 0 Then
+          CSV_Int_Array[IICSV] = 0 
+        ElseIf CSV_Array_Temp = 0 Then 
+          CSV_Int_Array[IICSV] = 0 
+        EndIf 
+        
+        If IICSV < Import_CSV_Max[ICSV] Then 
+          Import_CSV_SQL = Import_CSV_SQL + "','" 
+        EndIf
+        
+      Else 
+        TextWindow.ForegroundColor = "RED"
+        TextWindow.WriteLine("SKIPPED : " + ICSV + "(" +Import_CSV_Max[ICSV] + "/" +Import_CSV_Max[1] +")")
+        TextWindow.ForegroundColor = "WHITE"
       EndIf 
-      
-      Import_CSV_SQL =  Text.Append( Import_CSV_SQL, CSV_Array_Temp )
-      
-      If CSV_Int_Array[II] <> 0  AND CSV_Array_Temp <> 0 And Math.SquareRoot(CSV_Array_Temp) = 0   Then
-        CSV_Int_Array[II] = 0 
-      EndIf 
-      
-      If II < Import_CSV_Max[I] Then 
-        Import_CSV_SQL = Text.Append( Import_CSV_SQL , "','" )
-      EndIf
-      
     EndFor
-    TextWindow.WriteLine("("+ I +"/" + Import_CSV_Max[0]+") " + Math.Floor( (I/Import_CSV_Max[0]) * 100 ) + "%" ) 
+    
+    TextWindow.Title = ("("+ ICSV +"/" + Import_CSV_Max[0]+") " + Math.Floor( (ICSV/Import_CSV_Max[0]) * 100 ) + "%" ) 
     Import_CSV_SQL = Import_CSV_SQL + "');" + CLLF
   EndFor
 EndSub
 
 Sub CSV_Headers
   CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
+  Import_CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + DQC + I_CSV_Name + DQC +" "
   
-  ' LDList.Add(List_Stack_Trace,"Plugin : Import.CSV_Headers")
-  Import_CSV_HSQL = Text.Append( Text.Append("CREATE TABLE IF NOT EXISTS [" , I_CSV_Name ) , "] (")
-  Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
   Import_CSV_Max[1] = Array.GetItemCount(I_CSV_Array[1])
+  Temp_Index = Array.GetAllIndices(I_CSV_Array[1])
   
+  Import_CSV_HSQL = Import_CSV_HSQL + "("
   For I = 1 To Import_CSV_Max[1]
-    Import_CSV_HSQL = " "+ Import_CSV_HSQL + "["+I_CSV_Array[1][I] + "] " 
+    Import_CSV_HSQL = " "+Import_CSV_HSQL + DQC +I_CSV_Array[1][I] + DQC + " " 
     Import_CSV_HSQL = Import_CSV_HSQL + CSV_Headers_Types[ CSV_Int_Array[I] ] 
     
     If I < Import_CSV_Max[1] Then 
-      Import_CSV_HSQL = Text.Append( Import_CSV_HSQL , "," )
+      Import_CSV_HSQL = Import_CSV_HSQL + ","
     EndIf
-    
   EndFor
-  Import_CSV_HSQL = Import_CSV_HSQL + ");"+ CLLF
-  Import_CSV_SQL_Final =  Text.Append( Import_CSV_HSQL, Import_CSV_SQL)
+  
+  Import_CSV_HSQL = Import_CSV_HSQL +");" + CLLF
+  
+  Import_CSV_Headers= "("
+  For I = 1 To Import_CSV_Max[1]
+    Import_CSV_Headers = " "+Import_CSV_Headers + DQC +I_CSV_Array[1][I] + DQC + " " 
+    
+    If I < Import_CSV_Max[1] Then 
+      Import_CSV_Headers = Import_CSV_Headers + ","
+    EndIf
+  EndFor
+  Import_CSV_Headers = Import_CSV_Headers +")"
+  
 EndSub

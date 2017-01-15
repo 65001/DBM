@@ -1,0 +1,68 @@
+Main()
+Sub Main
+  LDWindows.Create()
+  GraphicsWindow.Show()
+  GraphicsWindow.Title = "ENcryption!"
+  PRAGMA = "1=UID;3=Pasword;4=Salt;5=MD5;6=SHA512;"
+  
+  ID_Box = LDControls.AddComboBox(PRAGMA,400,100)
+  GraphicsWindow.DrawText(1,6,"ID : "  )
+  Controls.Move( ID_Box ,60,1)
+  
+  Encrypt_Box = LDControls.AddComboBox(PRAGMA,400,100)
+  GraphicsWindow.DrawText(1,33,"Encrypt:")
+  Controls.Move( Encrypt_Box , 60 , 30)
+  
+  Salt_Box = LDControls.AddComboBox(PRAGMA,400,100)
+  GraphicsWindow.DrawText(1,63,"Salt:")
+  Controls.Move( Salt_Box , 60 , 60)
+  
+  Type_Array = "1=AES;2=MD5;3=SHA512;"
+  Type_Decrypt ="1=1;2=0;3=0;"
+  Type_Box = LDControls.AddComboBox(Type_Array,400,100)
+  GraphicsWindow.DrawText(1,93,"Type:")
+  Controls.Move( Type_Box , 60 , 90)
+  
+  Encrypt_Button = Controls.AddButton("Encrypt!",100,150)
+  Decrypt_Button = Controls.AddButton("Decrypt!",200,150)
+  
+  Controls.ButtonClicked = BC
+EndSub
+
+
+Sub BC
+  LBC = Controls.LastClickedButton
+  ID = LDControls.ComboBoxGetSelected(ID_Box)
+  Encrypt = LDControls.ComboBoxGetSelected(Encrypt_Box)
+  Salt = LDControls.ComboBoxGetSelected(Salt_Box)
+  Type = LDControls.ComboBoxGetSelected(Type_Box)
+  
+  TextWindow.WriteLine(PRAGMA[ ID])
+  TextWindow.WriteLine(PRAGMA[ Encrypt])
+  TextWindow.WriteLine(PRAGMA[ Salt])
+  TextWindow.WriteLine(Type)
+  
+  If LBC = Decrypt_Button And Type_Decrypt[ Type ] = 1 Then 
+    'Decrypt()
+  ElseIf LBC = Decrypt_Button And Type_Decrypt[ Type ] = 0 Then 
+    GraphicsWindow.ShowMessage("Hashes cannot be decrypted!","Error")
+  ElseIf LBC =  Encrypt_Button And Type_Decrypt[ Type ] = 0  Then 
+    If LDDialogs.Confirm("The encryption type you have selected cannot be decrypted. Do you acknowldege and understand this fact and it's ramifications?","Warning") = "Yes" Then
+      Encryption()
+    EndIf 
+  ElseIf LBC =  Encrypt_Button And Type_Decrypt[ Type ] = 1  Then 'AES
+    
+  EndIf
+EndSub
+
+Sub Encryption
+ ' For I = 1 To () 
+ '   For II = 1 To ()
+ '   EndFor
+ ' EndFor
+  
+EndSub
+
+Sub Decrypt
+  
+EndSub
