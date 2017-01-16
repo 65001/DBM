@@ -23,7 +23,7 @@
     <Check_for_Updates language="mg">Hamarino ho anʼny vaovao Farany</Check_for_Updates>
     <PXML language="mg">XML</PXML>
     <PRGM_Start language="mg">Nanomboka ny fandaharan' asa</PRGM_Start>
-    <Application language="mg">Amporisiho ny fanaovana fampiharana</Application>
+    <App language="mg">Amporisiho ny fanaovana fampiharana</App>
     <Failed_Save_Settings language="mg">Tsy nahavita afa-Tsy toe-javatra Misy</Failed_Save_Settings>
     <Error language="mg">Nisy tsy fetezana</Error>
     <Failed language="mg">Tsy nahomby</Failed>
@@ -47,7 +47,7 @@
     <UI language="mg">UI</UI>
     <Master_Table_Protected language="mg">Sqlite_mastertable na 'Mpampianatra ô Latabatra' dia ny latabatra voaro. Tsy afaka hanova ity tabilao ity ianao mba hiarovana ny fahamarinan-toetra ao amin' ny db</Master_Table_Protected>
     <Access_Denied language="mg">Tsy nomena fahafahana hahazo</Access_Denied>
-    <App language="mg">Ny application</App>
+    <Application language="mg">Ny application</Application>
     <View_Function language="mg">Hijery ny Asany</View_Function>
     <User_Requested language="mg">Nangataka ny mpampiasa</User_Requested>
     <Listview_Width language="mg">Sakan' ny Listview</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="mg">Ny tahirin-Kevitra na Dataview tsy misy na dia tsy mbola novesarana zavatra mbola</Dataview_Error>
     <Browse language="mg">Karohy</Browse>
     <Statistics_Page language="mg">Pejy antontan' isa</Statistics_Page>
+    <Invert language="mg">Invert</Invert>
+    <Not_Supported language="mg">Tsy Mahazaka izany</Not_Supported>
+    <CMD_Tooltip language="mg">Executes mifanaraka aminy manokana SQL didy teny amin' ny tahirin-kevitra</CMD_Tooltip>
+    <LOG_CSV_Path language="mg">Vatan CSV Lalana</LOG_CSV_Path>
+    <LOG_DB_PATH language="mg">Hazo DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="mg">Fifanakalozana tahirin-Kevitra Lalana</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="mg">FANOVÀNA-MIAFINA</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="mg">Nisy tsy Fetezana Fahadisoana tena manan-danja</Critical_Fault_Error>
+    <Stack_Trace language="mg">Amboaran miisa Manoritra</Stack_Trace>
+    <Close_TW language="mg">Akatony ny TW</Close_TW>
+    <Export_UI language="mg">Export UI</Export_UI>
+    <Define_New_Table language="mg">Mamaritra ny Latabatra Vaovao</Define_New_Table>
+    <Create_Statistics_Page language="mg">Mamoròna Pejy antontan' Isa</Create_Statistics_Page>
+    <Debug language="mg">Mikasika ny fanitsiana</Debug>
+    <New_in_Memory_Db language="mg">Vaovao ao amin' ny Fahatsiarovana ny tahirin-Kevitra</New_in_Memory_Db>
+    <Import_SQL language="mg">Tena lanjan' SQL</Import_SQL>
   </Language>
 </root>

@@ -230,7 +230,7 @@ Sub Startup 'Akin to Main in C#
   Int_DB() 'Creates The Databases used for logging error and transactions 
   MOD_Find_All() 'Finds all Mods Placed in the Mod Folder
   Localization_XML()
-  LDCall.Function2( Function_Log , "Program Started",LangList["Application"]) '// Localize 
+  LDCall.Function2( Function_Log ,LangList["PRGM Start"],LangList["Application"])
   
   If Program.ArgumentCount  = 1  Then
     LDCall.Function2(Function_Load_DB,4, LDCall.Function( Function_Get_DB ,"") )
@@ -491,7 +491,7 @@ Sub Load_DB
     ' LDDataBase.ConnectSqlServer(Server , SQLServer_DB )
   Else
     If LOAD_DB_Args[1] = 4 And LOAD_DB_Args[2] <> "<None>" Then '//Localize
-      LDCall.Function2(Function_Log, "Program Failed to OPEN : " + LOAD_DB_Args[2],"Application" ) '//Localize
+      LDCall.Function2(Function_Log, "Program Failed to OPEN : " + LOAD_DB_Args[2],LangList["Application"] ) '//Localize
       GraphicsWindow.ShowMessage("File Could not be found or opened .", "Fatal Error" ) '//Localize
     Else 
       If LOAD_DB_Args[2] <> "<None>" Then 
@@ -610,15 +610,15 @@ Sub Pre_MainMenuUI 'Basically a List of Defines for the Main Menu UI
   CheckForUpdates = LangList["Check for Updates"]
   ToggleTransaction = LangList["Toggle Transaction Log"]
   
-  PrintStackTrace = "Stack Trace" '// Localize
+  PrintStackTrace = LangList["Stack Trace"] 
   
-  CLoseTW_Button = "Close TW" '// Localize
-  Export_UI_Button = "Export UI" '// Localize
-  Define_New_Table_Button = "Define New Table"'// Localize
-  Define_New_Table_Button2 = "Define New Table "'// Localize
-  Create_Statistics_Button = "Create Statistics Page"'// Localize
-  InMemDB_Button = "New in Memory Database" '// Localize
-  DebugButton = "Debug" '// Localize
+  CLoseTW_Button = LangList["Close TW"]
+  Export_UI_Button = LangList["Export UI"] 
+  Define_New_Table_Button = LangList["Define New Table"] 
+  Define_New_Table_Button2 = LangList["Define New Table"] +" "
+  Create_Statistics_Button = LangList["Create Statistics Page"]
+  InMemDB_Button = LangList["New in Memory Database"]
+  DebugButton = LangList["Debug"] 
   
   MOD_External_Menu()
 EndSub
@@ -892,8 +892,8 @@ Sub MainMenuHandler
     TextWindow.WriteLine( ImportSQLPath ) 
     TextWindow.WriteLine( Text.GetLength(ImportSQLCNTs ))
     GraphicsWindow.Hide()
-    records =  LDCall.Function4( CommandFunction , database, ImportSQLCNTs , Username ,"Import SQL") '//Localize 
-    LDCall.Function2(Function_Log, "Imported data into: " + databasepath +" From sql file","Application") '//Localize 
+    records =  LDCall.Function4( CommandFunction , database, ImportSQLCNTs , Username ,LangList["Import SQL"]) 
+    LDCall.Function2(Function_Log, "Imported data into: " + databasepath +" From sql file",LangList["Application"]) '//Localize 
     ImportSQLCNTs = ""
     GraphicsWindow.Show()
     GraphicsWindow.ShowMessage(records + " records updated","IMPORT") '//Localize 
@@ -1126,7 +1126,7 @@ Sub Display_Results 'Right Hand Panel with Functions and the like
   'Custom Query
   CustomQuery =  Controls.AddMultiLineTextBox(UIx,420)
   Controls.SetSize(CustomQuery,310, 150)
-  CustomQueryButton = Controls.AddButton(Text.ConvertToUpperCase( LangList[ "Query" ] ),UIx , 580) 
+  CustomQueryButton = Controls.AddButton(Text.ConvertToUpperCase( LangList["Query"] ),UIx , 580) 
   Controls.SetSize(CustomQueryButton, 310 ,25)
   CommandButton =  Controls.AddButton(Text.ConvertToUpperCase( LangList["Command"] ) ,UIx, 580 +35)
   Controls.SetSize(CommandButton, 310 ,25)
@@ -1168,9 +1168,9 @@ Sub Settings_UI
   
   GraphicsWindow.DrawText(10,165,LangList["Language"])
   
-  GraphicsWindow.DrawText(10,280,"Log CSV Path") '//Localize 
-  GraphicsWindow.DrawText(10,320,"Log DB Path") '//Localize
-  GraphicsWindow.DrawText(10,360,"Transaction DB Path") '//Localize 
+  GraphicsWindow.DrawText(10,280,LangList["Log CSV Path"]) 
+  GraphicsWindow.DrawText(10,320,LangList["Log DB Path"])
+  GraphicsWindow.DrawText(10,360,LangList["Transaction DB Path"]) 
   
   Settings_Buttons_LogCSVPath = Controls.AddButton(LangList["Browse"],250,280 ) 
   Settings_Buttons_LogDBPath = Controls.AddButton(LangList["Browse"],250,320)
@@ -1294,7 +1294,7 @@ Sub Get_SCHEMA_Private 'Fetches the rows from the Current Table , Index, or View
   SCHEMA_Private_Args[1] = Default_Table
   SchemaList = ""
   LDList.Clear("SCHEMA")
-  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+DQC + SCHEMA_Private_Args[1]+ DQC +");","","True",LangList["App"],"SCHEMA-PRIVATE") '//Localize 
+  SCHEMA = LDCall.Function5(QueryFunction,"PRAGMA table_info("+DQC + SCHEMA_Private_Args[1]+ DQC +");","","True",LangList["App"],LangList["SCHEMA-PRIVATE"])
   For Get_SCHEMA_I = 1 To Array.GetItemCount(SCHEMA)
     LDList.Add("SCHEMA",SCHEMA[Get_SCHEMA_I]["name"] )
   EndFor
@@ -1917,7 +1917,7 @@ Sub Log
     If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 'To Prevent Stackoverflow Errors. Without this an error can cascade forever.
       LOG_CMD = "INSERT INTO LOG ([UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES(DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+Username+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');" 'TODO
       
-      LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,"Auto Log")  '//Localize  
+      LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,LangList["Auto Log"])  
     EndIf 
     
   EndIf 
