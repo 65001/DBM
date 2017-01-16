@@ -23,14 +23,17 @@
 '             2)IMPORT CSV IS Prone to cause the application to stop responding for larger files
 
 'v1121
-' Removed CMD Parser for default use
+'Removed CMD Parser for default use
 'Fixed bug with Master Table Combo Box
 'Made Import CSV roughly 4x faster on all file sizes. Real savings seen in larger files
 'Added default Extensions
 'Added .plugins to DBM CLI
-'Added in Memory databases
+'Added in Memory database support
 'Added time taken to insert data for commands and fetch data for querys
 'Added invert Search function
+
+'v1122
+'
 
 StartTime[0] = Clock.ElapsedMilliseconds
 GraphicsWindow.Show()
