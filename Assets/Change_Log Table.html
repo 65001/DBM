@@ -11,8 +11,8 @@
 			th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}
 		</style>
 		<meta charset = "UTF-8">
-		<meta name="generator" content="DBM v1120">
-		<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://docs.google.com/uc?id=0B2v4xbFnpKvRNUg5UmVzeGxOcGs&export=download -->
+		<meta name="generator" content="DBM v1121">
+		<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://github.com/65001/DBM -->
 	</head>
 
 	<body>
@@ -158,20 +158,34 @@
 					<td>19</td>
 					<td>1117</td>
 					<td><ul><li>Moved Backup URL To GITHUB </li><li>Added more Settings Options to Settings Menu </li><li>Flexible File Settings for Logs , Asset Folder , and Transaction DB </li><li>Added Scroll Bars </li><li>Added a TimeOut Variable to Settings which tells you the status of the Command if the time to execute the Command exceeds the value <brAdd ability to change some Flexible File Settings Through UI </li><li>Fixed a Generate Query Bug that would occur for Columns with spaces </li><li>Added capability for Export SQL to differentiate between regular columns and Primary Keys. Added support for Columns with spaces in their names </li></ul></td>
-					<td>Supported </td>
+					<td>Depreciated </td>
 					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
 				</tr>
 				<tr>
 					<td>20</td>
 					<td>1118</td>
 					<td><ul><li>Added over a better fail-safe system for EULA not being accessible due to internet outages</li><li>Added a Menu.txt file that follows Add_UI_Controls argument pattern that allows Plugins to add UI Items without being loaded . Hence reducing Start-up Time</li><li>&nbsp; An additional item 6 represents whether or not an item has been localized. By setting it to 1 the Program will attempt to use the localization set in the relevant localization file</li><li>Version 1118 is the last version that will have any obsolete functions . All obsolete functions will be commented out</li><li>Added a pseudo stack trace system that has been implemented into  nearly all parts of the program</li></ul></td>
-					<td>Supported </td>
+					<td>Depreciated </td>
 					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
 				</tr>
 				<tr>
 					<td>21</td>
 					<td>1119</td>
 					<td><ul><li>Support for TEMP Tables has been added by a Third Party dev to the underlying dll and to hene this program as well.</li><li>New Table Menu added through Plugin Interface . You must copy and paste the SQL Code until a further revision</li><li>Refactored Load Settings so manually editing the settings file looks less messy</li><li>Save Settings : File will not be rewritten unless changes have been made</li><li>LOAD DB and GET Path have been made into functions.</li><li>Revised ADD UI Function to add for the ability to set tooltips and the like.</li><li>Added Support for toggling between multiple database connections</li><li>Fixed Font Size Related bugs</li></ul></td>
+					<td>Depreciated </td>
+					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
+				</tr>
+				<tr>
+					<td>22</td>
+					<td>1120</td>
+					<td><ul><li>Refactorization</li><li>Moved Define New Table Function into the Main Program due to bugs</li><li>Fixed Generate Query Function</li><li><li>Statistics Page Function</li><li>Updated All Plugins to become SQL Compliant</li><li>Updated Import CSV to hopefully work better</li><li>WARNING Import CSV does not work in the following situations:</li><ol><li> 1 Line of Data spans 2 Lines seperated by a CLLF</li><li> IMPORT CSV IS Prone to cause the application to stop responding for larger files</li></ol></ul></td>
+					<td>Supported </td>
+					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
+				</tr>
+				<tr>
+					<td>23</td>
+					<td>1121</td>
+					<td><ul><li>Removed CMD Parser for default use</li><li>Fixed bug with Master Table Combo Box</li><li>Made Import CSV roughly 4x faster on all file sizes. Real savings seen in larger files</li><li>Added default Extensions</li><li>Added .plugins to DBM CLI</li><li>Added in Memory database support</li><li>Added time taken to insert data for commands and fetch data for queries</li><li>Added invert Search function</li></ul></td>
 					<td>Supported </td>
 					<td>Data view bug Crash / Edit view hangs and crashes <br> Command Parser may choke on large chunks of data and cause the program to crash</td>
 				</tr>
