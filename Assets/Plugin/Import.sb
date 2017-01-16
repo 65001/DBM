@@ -1,0 +1,153 @@
+Sub VOID
+  CommandFunction = CommandFunction 
+  database = database 
+  logfunction = logfunction 
+  databasepath = databasepath 
+  LangList = LangList 
+  List_Command_Parser_Status = List_Command_Parser_Status 
+  List_Stack_Trace = List_Stack_Trace
+  Settings = Settings
+  CLLF = CLLF 
+  DQC = DQC 
+EndSub
+
+Sub CSV_Interface
+  GraphicsWindow.Hide()
+  
+  List_CSV_Integers = "CSV_INT"
+  List_CSV_Length = "CSV_Length"
+  CSV_Headers_Types = "0=TEXT;1=INTEGER;" 'Data Types
+  
+  TextWindow.WriteLine("Plugin : Import CSV File!")
+  If LDFile.Exists(CSV_Path) = "False" Or CSV_Path = "" Then 
+    CSV_Path = LDDialogs.OpenFile("csv","")
+  EndIf 
+  TextWindow.WriteLine("CSV Bytes : " + LDFile.Size(CSV_Path) + CLLF ) 
+  
+  Time_Start = Clock.ElapsedMilliseconds
+  TextWindow.Write("Trimming   :")
+  CSV_Name = LDText.Trim( LDText.Replace(LDFile.GetFile(CSV_Path),"Table","") )
+  Time["Trimming"] = Clock.ElapsedMilliseconds - Time_Start
+  TextWindow.WriteLine( Time["Trimming"])
+  
+  TextWindow.Write("Reading    :")
+  Time_Read_Start = Clock.ElapsedMilliseconds 
+  CSV_Data = LDFastArray.ReadCSV( CSV_Path )
+  Time["Reading"] = Clock.ElapsedMilliseconds - Time_Read_Start
+  TextWindow.WriteLine( Time["Reading"] ) 
+  
+  CSV_Header_Types = "0=Text;1=INTEGER;"
+  
+  TextWindow.Write("Pre Calculations:")
+  Time_PreCalcs = Clock.ElapsedMilliseconds
+  CSV_Count_Data = LDFastArray.Dim1( CSV_Data )
+  
+  For I = 1 to CSV_Count_Data 
+    LDList.Add( List_CSV_Length , LDFastArray.Dim2(CSV_Data,I) ) 
+  EndFor
+  
+  CSV_Standard_Length = LDList.GetAt(List_CSV_Length,1)
+  
+  For I = 1 To CSV_Standard_Length 
+    LDList.Add( List_CSV_Integers , 1 ) 
+  EndFor
+  CSV_Integers = LDList.ToArray( List_CSV_Integers )
+  
+  
+  CSV_Count_Length = LDList.Count(List_CSV_Length )
+  Time["PCalc"] = Clock.ElapsedMilliseconds - Time_PreCalcs
+  TextWindow.WriteLine( Time["PCalc"] )
+  
+  TextWindow.Write("Converting:")
+  Time_Convert = Clock.ElapsedMilliseconds 
+  ArrayToSQL()
+  Time["Converting"] = Clock.ElapsedMilliseconds - Time_Convert
+  TextWindow.WriteLine( Time["Converting"]) 
+  
+  TextWindow.Write("Creating Schema:")
+  Time_Schema = Clock.ElapsedMilliseconds 
+  CSVHeaders()
+  Time["Schema"] = Clock.ElapsedMilliseconds - Time_Schema 
+  TextWindow.WriteLine( Time["Schema"] ) 
+  
+  TextWindow.Write("Appending : " )
+  Time_Append = Clock.ElapsedMilliseconds 
+  CSV_SQL = Text.Append( "BEGIN;" + CLLF , Text.Append( CSV_HSQL , CSV_SQL ) ) + "COMMIT;"
+  CSV_SQL = LDText.Replace( LDText.Replace( CSV_SQL ,"'NULL'","NULL") ,"<<HEADERS>>", CSV_Headers_WO_Type)
+  Time["Appending"] = Clock.ElapsedMilliseconds - Time_Append 
+  TextWindow.WriteLine( Time["Appending"] ) 
+  
+  ElappsedTime = ( Clock.ElapsedMilliseconds - Time_Start )
+  LDStatistics.SetArray( Time )
+  Time["Misc"] = ElappsedTime - LDStatistics.Sum
+  If Time["Misc"] <> Math.Abs(Time["Misc"]) Then
+    Time["Misc"] = 0 
+  EndIf 
+  TextWindow.WriteLine("Misc Time : " + Time["Misc"] )
+  
+  TextWindow.WriteLine("Total Time : " + ElappsedTime + CLLF  ) 
+  TextWindow.WriteLine("Bytes Per (ms) : " + (LDFile.Size(CSV_Path) / ElappsedTime) )  
+  
+  File.WriteContents(LDFile.GetFolder(databasepath)+"\CSV Import DUMP.sql", CSV_SQL ) 
+  
+  records =  LDCall.Function4(CommandFunction , database,CSV_SQL, LDFile.UserName,"Import CSV") '//Localize  
+  Percentage = records/ Array.GetItemCount( LDText.FindAll(CSV_SQL,";") )
+  Percentage = Percentage * 100
+  Percentage = Math.Round( Percentage )
+  
+  GraphicsWindow.Show()
+  GraphicsWindow.ShowMessage(records + " records updated out of " + CSV_Dim1 + " requested. (" +  ( Percentage  ) +"%)",LangList["Import"]) '//Localize  
+  
+  LDCall.Function2(logfunction, "Imported data into: " + databasepath+ " From " + CSV_Path +" csv file",LangList["Application"])'//Localize 
+  
+  TextWindow.WriteLine("Total Time : " +( Clock.ElapsedMilliseconds - Time_Start ) )
+EndSub
+
+Sub ArrayToSQL
+  CSV_SQL = ""
+  CSV_Dim1 = LDFastArray.Dim1( CSV_Data )
+  
+  For I = 2 To CSV_Dim1 
+    CSV_Current_Length = LDList.GetAt( List_CSV_Length,I)
+    If CSV_Current_Length = CSV_Standard_Length  Then 
+      CSV_SQL_InnerLoop = "INSERT INTO " + DQC + CSV_Name + DQC +" <<HEADERS>>" + " VALUES('" 
+      CSV_Dim2 = LDFastArray.Dim2( CSV_Data , I ) 
+      For II = 1 To CSV_Dim2  
+        CSV_Temp_Data = LDText.Replace( LDFastArray.Get2D( CSV_Data, I, II ) ,"'","''")
+        If CSV_Temp_Data = "" Or CSV_Temp_Data = " " Then 
+          CSV_Temp_Data = "NULL"
+        EndIf 
+        If CSV_Integers[ii] = 1 And  (( CSV_Temp_Data <> 0 And  Math.SquareRoot(CSV_Temp_Data) = 0 ) Or (CSV_Temp_Data = 0 )) Then 
+          CSV_Integers[ii] = 0 
+        EndIf 
+        CSV_SQL_InnerLoop =  CSV_SQL_InnerLoop + CSV_Temp_Data 
+        If II < CSV_Current_Length Then 
+          CSV_SQL_InnerLoop= CSV_SQL_InnerLoop + "','"
+        EndIf
+      EndFor 
+      CSV_SQL_InnerLoop = Text.Append( CSV_SQL_InnerLoop , "');" + CLLF )
+      TextWindow.Title = ("("+ I +"/" + CSV_Count_Length +") " + Math.Floor( (I/CSV_Count_Length) * 100 ) + "%" ) 
+    Else 
+      TextWindow.ForegroundColor = "RED"
+      TextWindow.WriteLine("SKIPPED : " + I + "(" +LDList.GetAt(List_CSV_Length,I) + "/" +LDList.GetAt( List_CSV_Length , 1) +")")
+      TextWindow.ForegroundColor = "WHITE"
+    EndIf 
+    CSV_SQL = Text.Append( CSV_SQL, CSV_SQL_InnerLoop ) 
+  EndFor 
+EndSub 
+
+Sub CSVHeaders
+  CSV_HSQL = "CREATE TABLE IF NOT EXISTS " + DQC + CSV_Name + DQC +" "
+  CSV_HSQL = CSV_HSQL +  "("
+  CSV_Headers_WO_Type = "("
+  For I = 1 To LDList.GetAt( List_CSV_Length , 1) 
+    CSV_HSQL = Text.Append( CSV_HSQL , DQC + LDFastArray.Get2D(CSV_Data ,1,I) + DQC + " " + CSV_Header_Types [ CSV_Integers[I]  ] )
+    CSV_Headers_WO_Type = Text.Append( CSV_Headers_WO_Type , DQC + LDFastArray.Get2D(CSV_Data ,1,I) + DQC )
+    If I < LDList.GetAt( List_CSV_Length , 1) Then 
+      CSV_HSQL = CSV_HSQL +","
+      CSV_Headers_WO_Type = CSV_Headers_WO_Type+","
+    EndIf 
+  EndFor 
+  CSV_HSQL = Text.Append( CSV_HSQL , ");" + CLLF )
+  CSV_Headers_WO_Type = CSV_Headers_WO_Type+")"
+EndSub

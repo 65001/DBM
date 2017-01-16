@@ -1,0 +1,10 @@
+LDInline.
+
+Path[1] = "%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
+Path[2] = "%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe
+Path[3] = "%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell_ise.exe
+Path[4] = "%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell_ise.exe
+
+For I = 1 To 4
+  TextWindow.WriteLine( LDFile.Exists( Path[I] ) )
+  EndFor

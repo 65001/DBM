@@ -1,0 +1,36 @@
+XML_Path = File.GetTemporaryFilePath()
+XML_DOC= LDxml.Open("")
+LDxml.AddNode("Listview","","Heigth=950;Width=1500","Append")
+LDxml.AddNode("Version","","VID=1113;ID=DBM;","Append")
+LDxml.AddNode("Extensions","","1=db;2=sqlite;3=*;","Append")
+LDxml.AddNode("Last Folder","","C:\Users\Abhishek\Desktop","Append")
+
+LDxml.AddNode("EULA","","By=Abhishek;Version=EULAv2.7.2;Accepted=True;","Append")
+
+LDxml.Save(XML_Path ) 
+TextWindow.Clear()
+Load_Settings()
+LDProcess.Start( XML_Path , "")
+
+Sub XML
+  TextWindow.WriteLine("")
+  TextWindow.WriteLine( LDxml.NodeName +"|" + LDxml.NodeType ) 
+  TextWindow.WriteLine( LDxml.Attributes +"(" + LDxml.AttributesCount +")" ) 
+  ChildCount = LDxml.ChildrenCount
+  TextWindow.WriteLine( ChildCount )
+  TextWindow.WriteLine( LDxml.NodeInnerText )
+EndSub
+
+Sub Load_Settings
+  LDxml.FirstNode()
+  LDxml.FirstChild() 
+  XML()
+  While LDxml.NextSibling() = "SUCCESS"
+    While LDxml.FirstChild() = "SUCCESS" And ChildCount > 1
+      XML()
+    EndWhile
+    LDxml.Parent()
+    XML()
+  EndWhile
+
+EndSub

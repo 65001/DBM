@@ -1,0 +1,25 @@
+path = "C:\Users\Abhishek\Desktop\Movies.db"
+database =  LDDataBase.ConnectSQLite(path) 
+TextWindow.ForegroundColor = "WHITE" 
+ID = 1
+Data()
+sub Data
+  TextWindow.Clear()
+  TextWindow.Title = "DB MOVIES MANAGER" 
+  TextWindow.WriteLine("NAME:")
+  name = TextWindow.Read()
+  TextWindow.WriteLine("RATING:")
+  rating = TextWindow.Read()
+  TextWindow.WriteLine("LENGTH:")
+  lengtha = TextWindow.ReadNumber()
+  cmd = "CREATE TABLE IF NOT EXIST MOVIES(ID Integer,NAME Text,RATING Text,LENGTHA INTEGER;"
+  cmd = "INSERT INTO MOVIES (ID,NAME,RATING,LENGTHA) " 
+  cmd = cmd + "VALUES('"+ ID +"','"+name+"','"+rating+"','"+lengtha +"');"
+  Command()
+  Data()
+EndSub
+
+Sub Command
+  LDDataBase.Command(database,cmd) 
+  
+EndSub

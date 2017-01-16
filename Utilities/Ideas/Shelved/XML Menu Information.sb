@@ -1,0 +1,37 @@
+Insertions = "1=Append;2=Prepend;3=Before;4=After;"
+Path = Program.Directory + "Test.xml"
+File.WriteContents(Path,"<root></root>")
+XMLPath = LDxml.Open(Path)
+SCHEMA = "1=Action;2=Caption;3=Handler;4=MenuNode;5=Action;
+Data[1] = "1=Register;2=Langlist[];3=Self;4=NA;5=RUN;"
+Data[2] = "1=Menu;2=Help;3=Self;4=Main;5=Run;"
+
+For I = 1 To Array.GetItemCount(Data)
+  LDxml.FirstChild()
+  LDxml.AddNode("Control" ,Data[I],"Done",Insertions[1] )
+  LDxml.Parent()
+EndFor
+TextWindow.WriteLine( LDxml.Save(Path) )
+
+Parse()
+LDProcess.Start("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" ,Text.GetCharacter(34) + Path + Text.GetCharacter(34))
+Sub Parse
+  TextWindow.WriteLine( LDxml.Parent() )
+  TextWindow.WriteLine( LDxml.FirstChild() )
+  TextWindow.WriteLine( LDxml.FirstChild() )
+  
+  Children = LDxml.ChildrenCount
+  LDxml.FirstChild()
+  For I = 1 To Children
+    While LDxml.NextSibling() <> "FAILED"
+      While LDxml.ChildrenCount <> 0
+        TextWindow.WriteLine(LDxml.NodeType +":" + LDxml.NodeName +":" + LDxml.NodeInnerText)
+        TextWindow.WriteLine( LDxml.Attributes ) 
+        LDxml.FirstChild()
+      EndWhile
+      LDxml.Parent()
+    EndWhile
+   ' LDxml.
+    'LDxml.Parent() 
+  EndFor
+EndSub

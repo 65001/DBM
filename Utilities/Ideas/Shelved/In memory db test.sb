@@ -1,0 +1,18 @@
+LDDataBase.Connection = "Data Source=:memory:;Version=3;New=True;"
+database = LDDataBase.ConnectSQLite(":memory:" ) 
+Query[1] = LDDataBase.Query(database,"Select DATETIME();","","True")
+Query[2] = LDDataBase.Query(database,"Select * FROM sqlite_master;","","True")
+
+Command[1] = LDDataBase.Command(database , "Create TABLE CREATE TABLE employees( id integer,name text, designation text, manager integer, hired_on date,salary  integer,commission float,dept integer);")
+Query[3] = LDDataBase.Query( database , "PRAGMA table_info (employees);","","True")
+Command[2] = LDDataBase.Command( database , "INSERT INTO employees VALUES (1,'JOHNSON','ADMIN',6,'1990-12-17',18000,NULL,4);" )
+Query[4]  = LDDataBase.Query( database , "Select * From employees;" ,"","True")
+
+TextWindow.WriteLine(database )
+For I = 1 To Array.GetItemCount( Query ) 
+  TextWindow.WriteLine("Q"+I +" " + Query[I] )
+EndFor 
+
+
+TextWindow.WriteLine( Command )
+TextWindow.WriteLine( Query )

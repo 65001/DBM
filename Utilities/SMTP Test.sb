@@ -1,0 +1,50 @@
+args = args 
+IP = "74.125.21.27"
+Port = 25
+site = "aspmx.l.google.com"
+Server = IP + ":"+Port 
+CRLF = Text.GetCharacter(10) + Text.GetCharacter(13)
+Function = "Client_Send"
+Availabilty = LDClient.CheckServer( Server)
+Status = LDClient.Connect( Server , "False" ) 
+
+Data[1] = "EHLO " + site  + CRLF 
+Data[2] = "STARTTTLS" + CRLF 
+Data[3] = "auth login " + CRLF 
+
+'Data[3] = "MAIL FROM: <automatedbot2@gmail.com>" + CRLF 
+'Data[2] = "HELP" + CRLF 
+'Data[2] = "STARTTLS" +CRLF 
+'Data[3] = "QUIT" + CRLF 
+'Data[3] = "RCPT TO: <asathiabalan@gmail.com>"
+'Data[4] = "DATA"
+'Data[5] = "From: 
+
+TextWindow.WriteLine("Server : " + Availabilty )
+TextWindow.WriteLine("Connection Status : " + Status ) 
+I  = 1 
+Prepare()
+LDClient.Disconnected = Tick 
+LDClient.ServerMessage = SM
+
+Sub SM
+  TextWindow.WriteLine("S : " + LDClient.LastServerMessage )
+  I =I +1 
+  Prepare()
+EndSub
+
+Sub Prepare
+  TextWindow.Write("C : " + Data[I] +" " )
+  return = LDCall.Function( Function , Data[I]  )
+  If return <> "SUCCESS" Then 
+    TextWindow.WriteLine ( return )
+  EndIf
+EndSub
+
+Sub Client_Send
+  return = LDClient.SendMessage(args[1])
+EndSub 
+
+Sub Tick
+  TextWindow.WriteLine("Server Closed Connection " )
+EndSub
