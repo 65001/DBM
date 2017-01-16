@@ -129,11 +129,15 @@ debug_Parser = 0 'Debugs the CMD Function Parser . Seperated bc otherwise it cre
 EULA_Test = 0 'Default 0 
 Functions_Support_Obselete = 0 'If set to true then the program will run Obselete Functions , otherwise it will return an error . 
 
-copyrightDate = 2016
+'______________________________________________________________________________
+'                                                                                    Version Variables
+'______________________________________________________________________________
+copyrightDate = "2016 through 2017"
 ProductID = "DBM"
-PrgmVersionID = 1121
+PrgmVersionID = 1122
 title = "Database Manager (" + ProductID + ") v" + PrgmVersionID + " " 
 Self = Program.Directory +"\DB Manager.exe"
+
 
 Booleans ="True=1;False=0;0=False;1=True;"
 Toggle_Booleans = "0=1;1=0;True=False;False=True;"
@@ -511,7 +515,7 @@ Sub EULA_UI
   defaultWidth = GraphicsWindow.Width
   defaultHeight= GraphicsWindow.Height
   
-  LDControls.RichTextBoxReadOnly = "True"
+'  LDControls.RichTextBoxReadOnly = "True"
   
   If LDFile.GetExtension(EULAFile) = "html" Then 'For html files 
     eulatextbox =  LDControls.AddBrowser(600,350,"file:///"+EULAFile)
@@ -519,7 +523,7 @@ Sub EULA_UI
     eulatextbox =  LDControls.AddRichTextBox(600,350)
   EndIf 
   Controls.Move(eulatextbox,10,10)
-  LDControls.RichTextBoxReadOnly = "False"
+  'LDControls.RichTextBoxReadOnly = "False"
   
   OnlineEULACnts  = LDText.Replace( File.ReadContents( EULAFile) , "<date>",copyrightDate )
   
