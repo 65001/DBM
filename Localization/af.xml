@@ -23,7 +23,7 @@
     <Check_for_Updates language="af">Kontroleer vir bywerkings</Check_for_Updates>
     <PXML language="af">XML</PXML>
     <PRGM_Start language="af">Program begin</PRGM_Start>
-    <Application language="af">Aansoek</Application>
+    <App language="af">Aansoek</App>
     <Failed_Save_Settings language="af">Kon nie opsies stoor</Failed_Save_Settings>
     <Error language="af">Fout</Error>
     <Failed language="af">Het misluk</Failed>
@@ -47,7 +47,7 @@
     <UI language="af">UI</UI>
     <Master_Table_Protected language="af">Sqlite_mastertable of 'Meester tafel' is 'n beskermde tafel. Beskerm die integriteit van die db kan jy hierdie tabel redigeer</Master_Table_Protected>
     <Access_Denied language="af">Toegang geweier</Access_Denied>
-    <App language="af">App</App>
+    <Application language="af">App</Application>
     <View_Function language="af">Bekyk funksie</View_Function>
     <User_Requested language="af">Gebruiker het versoek</User_Requested>
     <Listview_Width language="af">Listview breedte</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="af">Sluit sonder om te stoor</Close_wo_saving>
     <Failed_Load_Online_EULA language="af">Kon nie laai nie aanlyn EINDGEBRUIKERLISENSIEOOREENKOMS</Failed_Load_Online_EULA>
     <Auto_Log language="af">Outomatiese aanteken</Auto_Log>
-    <Export_HTML_Schema language="af">Uitvoer HTML skema valideer NIE namens </Export_HTML_Schema>
+    <Export_HTML_Schema language="af">Uitvoer HTML skema valideer nie namens </Export_HTML_Schema>
     <Export_HTML_Data language="af">Uitvoer HTML DATA namens </Export_HTML_Data>
     <Check_Log language="af">Fout: Kyk asseblief die teken vir besonderhede</Check_Log>
     <Query_Error language="af">Navraag fout</Query_Error>
     <Export_CSV language="af">UITVOER CSV NAMENS </Export_CSV>
-    <Export_SQL_SCHEMA language="af">SQL - skema valideer NIE - uitvoer namens </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="af">SQL - skema valideer nie - uitvoer namens </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="af">Uitvoer SQL - SQL - namens </Export_SQL_SQL>
     <Export_XML language="af">UITVOER XML NAMENS</Export_XML>
     <System language="af">Stelsel</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="af">Die databasis of Dataview nie bestaan nie of is nog nie gelaai nie</Dataview_Error>
     <Browse language="af">Blaai</Browse>
     <Statistics_Page language="af">Statistiek bladsy</Statistics_Page>
+    <Invert language="af">Keer</Invert>
+    <Not_Supported language="af">Nie ondersteun nie</Not_Supported>
+    <CMD_Tooltip language="af">Voer pasgemaakte SQL bevel state op die databasis</CMD_Tooltip>
+    <LOG_CSV_Path language="af">CSV logpad</LOG_CSV_Path>
+    <LOG_DB_PATH language="af">Teken DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="af">Transaksie databasis pad</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="af">SKEMA VALIDEER NIE-PRIVATE</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="af">Kritieke fout kon</Critical_Fault_Error>
+    <Stack_Trace language="af">Stapel spoor</Stack_Trace>
+    <Close_TW language="af">Sluit TW</Close_TW>
+    <Export_UI language="af">Uitvoer UI</Export_UI>
+    <Define_New_Table language="af">Definieer nuwe tafel</Define_New_Table>
+    <Create_Statistics_Page language="af">Skep statistiek bladsy</Create_Statistics_Page>
+    <Debug language="af">Ontfout</Debug>
+    <New_in_Memory_Db language="af">Nuwe in geheue databasis</New_in_Memory_Db>
+    <Import_SQL language="af">Invoer SQL</Import_SQL>
   </Language>
 </root>

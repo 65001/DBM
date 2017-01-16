@@ -23,7 +23,7 @@
     <Check_for_Updates language="mt">Iċċekkja għal aġġornamenti</Check_for_Updates>
     <PXML language="mt">XML</PXML>
     <PRGM_Start language="mt">Il-programm beda</PRGM_Start>
-    <Application language="mt">Applikazzjoni</Application>
+    <App language="mt">Applikazzjoni</App>
     <Failed_Save_Settings language="mt">Ma rnexxilux jissejvja l-issettjar</Failed_Save_Settings>
     <Error language="mt">L-iżball</Error>
     <Failed language="mt">Ma rnexxiex</Failed>
@@ -47,7 +47,7 @@
     <UI language="mt">UI</UI>
     <Master_Table_Protected language="mt">Sqlite_mastertable jew "Kaptan tabella" hija tabella protetti. Biex tipproteġi l-integrità tal-db inti ma tistax teditja din it-tabella</Master_Table_Protected>
     <Access_Denied language="mt">Aċċess miċħud</Access_Denied>
-    <App language="mt">App</App>
+    <Application language="mt">App</Application>
     <View_Function language="mt">Funzjoni tara</View_Function>
     <User_Requested language="mt">L-utent talab</User_Requested>
     <Listview_Width language="mt">Wisa ta ' Listview</Listview_Width>
@@ -60,11 +60,11 @@
     <Failed_Load_Online_EULA language="mt">Ma rnexxilux jillowdja l-EULA onlajn</Failed_Load_Online_EULA>
     <Auto_Log language="mt">Illoggjar awtomatiku</Auto_Log>
     <Export_HTML_Schema language="mt">ISKEMA HTML għan-nom ta ' l-esportazzjoni </Export_HTML_Schema>
-    <Export_HTML_Data language="mt">HTML INFORMAZZJONI għan-nom ta ' l-esportazzjoni </Export_HTML_Data>
+    <Export_HTML_Data language="mt">HTML informazzjoni għan-nom ta ' l-esportazzjoni </Export_HTML_Data>
     <Check_Log language="mt">L-iżball: Iċċekkja r-reġistru għal dettalji</Check_Log>
     <Query_Error language="mt">Żball tal-query</Query_Error>
     <Export_CSV language="mt">CSV GĦAN-NOM TA ' L-ESPORTAZZJONI </Export_CSV>
-    <Export_SQL_SCHEMA language="mt">Esportazzjoni SQL - ISKEMA - f'isem </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="mt">Esportazzjoni SQL - iskema - f'isem </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="mt">Esportazzjoni SQL - SQL - f'isem </Export_SQL_SQL>
     <Export_XML language="mt">XML GĦAN-NOM TA ' L-ESPORTAZZJONI</Export_XML>
     <System language="mt">Is-sistema</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="mt">-Database jew Dataview ma jeżistix jew ma tkunx ġiet mgħobbija għadhom</Dataview_Error>
     <Browse language="mt">Ibbrawżja</Browse>
     <Statistics_Page language="mt">Paġna ta ' l-istatistika</Statistics_Page>
+    <Invert language="mt">Aqleb il-</Invert>
+    <Not_Supported language="mt">Mhux appoġġjat</Not_Supported>
+    <CMD_Tooltip language="mt">Tesegwixxi SQL personalizzat kmand dikjarazzjonijiet fuq id-database</CMD_Tooltip>
+    <LOG_CSV_Path language="mt">Log CSV mogħdija</LOG_CSV_Path>
+    <LOG_DB_PATH language="mt">Illoggja ' l DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="mt">Mogħdija tad-Database tat-transazzjoni</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="mt">ISKEMA PRIVATI</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="mt">Żball kritiku ħtija</Critical_Fault_Error>
+    <Stack_Trace language="mt">Mazz traċċa</Stack_Trace>
+    <Close_TW language="mt">Agħlaq TW</Close_TW>
+    <Export_UI language="mt">Esportazzjoni UI</Export_UI>
+    <Define_New_Table language="mt">Jiddefinixxu tabella ġodda</Define_New_Table>
+    <Create_Statistics_Page language="mt">Oħloq paġna istatistika</Create_Statistics_Page>
+    <Debug language="mt">Iddibaggjar</Debug>
+    <New_in_Memory_Db language="mt">Ġodda fil-memorja tad-Database</New_in_Memory_Db>
+    <Import_SQL language="mt">Importazzjoni SQL</Import_SQL>
   </Language>
 </root>

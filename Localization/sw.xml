@@ -23,7 +23,7 @@
     <Check_for_Updates language="sw">Kagua sasishi</Check_for_Updates>
     <PXML language="sw">XML</PXML>
     <PRGM_Start language="sw">Programu kuanza</PRGM_Start>
-    <Application language="sw">Programu tumizi</Application>
+    <App language="sw">Programu tumizi</App>
     <Failed_Save_Settings language="sw">Imeshindwa kuhifadhi vipimo</Failed_Save_Settings>
     <Error language="sw">Kosa</Error>
     <Failed language="sw">Imeshindwa</Failed>
@@ -47,7 +47,7 @@
     <UI language="sw">UI</UI>
     <Master_Table_Protected language="sw">Sqlite_mastertable au 'Mama Jedwali' ni Jedwali Lindwa. Ili kulinda uadilifu wa db ya Huwezi kuhariri Jedwali hili</Master_Table_Protected>
     <Access_Denied language="sw">Ufikivu umekataliwa</Access_Denied>
-    <App language="sw">Programu</App>
+    <Application language="sw">Programu</Application>
     <View_Function language="sw">Kazi ya Mwoneko</View_Function>
     <User_Requested language="sw">Mtumiaji aliomba</User_Requested>
     <Listview_Width language="sw">Upana wa OrodhaMwoneko</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="sw">Hazina data au Dataview hakipo au haijawahi pakizwa bado</Dataview_Error>
     <Browse language="sw">Vinjari</Browse>
     <Statistics_Page language="sw">Takwimu ukurasa</Statistics_Page>
+    <Invert language="sw">Pindua</Invert>
+    <Not_Supported language="sw">Haijategemezwa</Not_Supported>
+    <CMD_Tooltip language="sw">Lawaua geuzwa kukufaa SQL amri taarifa kwenye hazina data</CMD_Tooltip>
+    <LOG_CSV_Path language="sw">Logi CSV njia</LOG_CSV_Path>
+    <LOG_DB_PATH language="sw">Fungua DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="sw">Njia ya Hifadhidata ya shughuli</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="sw">MUUNDAMANO-BINAFSI</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="sw">Kosa kosa muhimu</Critical_Fault_Error>
+    <Stack_Trace language="sw">Kuwaeleza mpororo</Stack_Trace>
+    <Close_TW language="sw">Funga TW</Close_TW>
+    <Export_UI language="sw">Hamisha UI</Export_UI>
+    <Define_New_Table language="sw">Fasili jedwali jipya</Define_New_Table>
+    <Create_Statistics_Page language="sw">Unda ukurasa wa takwimu</Create_Statistics_Page>
+    <Debug language="sw">Rekebisha</Debug>
+    <New_in_Memory_Db language="sw">Mpya katika Hifadhidata ya kumbukumbu</New_in_Memory_Db>
+    <Import_SQL language="sw">Leta SQL</Import_SQL>
   </Language>
 </root>

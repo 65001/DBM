@@ -23,7 +23,7 @@
     <Check_for_Updates language="sm">Siaki mo faafouga</Check_for_Updates>
     <PXML language="sm">XML</PXML>
     <PRGM_Start language="sm">Na amata le polokalama</PRGM_Start>
-    <Application language="sm">Faaaogaaga</Application>
+    <App language="sm">Faaaogaaga</App>
     <Failed_Save_Settings language="sm">Le mafai ona sefe le nofoaga</Failed_Save_Settings>
     <Error language="sm">Sese</Error>
     <Failed language="sm">Le manuia</Failed>
@@ -47,7 +47,7 @@
     <UI language="sm">UI</UI>
     <Master_Table_Protected language="sm">Sqlite_mastertable po o le 'Matai laulau' o se laulau puipuia. E puipuia ai le amio sao o le db e le mafai ona tatou faasaoina lenei laulau</Master_Table_Protected>
     <Access_Denied language="sm">Teena le faaaogaina</Access_Denied>
-    <App language="sm">Polokalama o le</App>
+    <Application language="sm">Polokalama o le</Application>
     <View_Function language="sm">Matafaioi o le vaaiga</View_Function>
     <User_Requested language="sm">Faaaoga e talosagaina</User_Requested>
     <Listview_Width language="sm">Listview lautele</Listview_Width>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="sm">Le mafai ona sii EULA i le Initoneti</Failed_Load_Online_EULA>
     <Auto_Log language="sm">Auto ogalaau</Auto_Log>
     <Export_HTML_Schema language="sm">Auina atu le HTML SCHEMA i sui o </Export_HTML_Schema>
-    <Export_HTML_Data language="sm">Auina atu o FAAMATALAGA o le HTML i sui o </Export_HTML_Data>
+    <Export_HTML_Data language="sm">Auina atu o faamatalaga o le HTML i sui o </Export_HTML_Data>
     <Check_Log language="sm">Faaletonu: Faamolemole siaki le le ogalaau mo faamatalaga auiliili</Check_Log>
     <Query_Error language="sm">Mea sese o le fesili</Query_Error>
     <Export_CSV language="sm">LILIU CSV I SUI O </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="sm">O le utuofaamatalaga po o Dataview le o i ai po o le e lei uta ae</Dataview_Error>
     <Browse language="sm">Saili</Browse>
     <Statistics_Page language="sm">Faitau faafuainumera o itulau</Statistics_Page>
+    <Invert language="sm">Invert</Invert>
+    <Not_Supported language="sm">Lagolagoina le</Not_Supported>
+    <CMD_Tooltip language="sm">Executes suia SQL poloaiga faamatalaga i luga o le utuofaamatalaga</CMD_Tooltip>
+    <LOG_CSV_Path language="sm">Faamaumauga o le CSV ala</LOG_CSV_Path>
+    <LOG_DB_PATH language="sm">Alu i le DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="sm">Ala o le utuofaamatalaga o le faamatalaga o le faatau</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="sm">SCHEMA-TUMAOTI</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="sm">Mea sese i le faitio sese</Critical_Fault_Error>
+    <Stack_Trace language="sm">Lolomi o le faaputuga</Stack_Trace>
+    <Close_TW language="sm">Tapuni TW</Close_TW>
+    <Export_UI language="sm">Auina atu UI</Export_UI>
+    <Define_New_Table language="sm">Faamatala o laulau fou</Define_New_Table>
+    <Create_Statistics_Page language="sm">Fatu faamaumauga faafuainumera o itulau</Create_Statistics_Page>
+    <Debug language="sm">Faatonutonu</Debug>
+    <New_in_Memory_Db language="sm">Fou i manatuaga utuofaamatalaga</New_in_Memory_Db>
+    <Import_SQL language="sm">Import SQL</Import_SQL>
   </Language>
 </root>

@@ -23,7 +23,7 @@
     <Check_for_Updates language="sv">Sök efter uppdateringar</Check_for_Updates>
     <PXML language="sv">XML</PXML>
     <PRGM_Start language="sv">Programmet startas</PRGM_Start>
-    <Application language="sv">Ansökan</Application>
+    <App language="sv">Ansökan</App>
     <Failed_Save_Settings language="sv">Det gick inte att spara inställningarna</Failed_Save_Settings>
     <Error language="sv">Fel</Error>
     <Failed language="sv">Misslyckades</Failed>
@@ -47,7 +47,7 @@
     <UI language="sv">UI</UI>
     <Master_Table_Protected language="sv">Sqlite_mastertable eller 'Master bord' är en skyddad tabell. För att skydda integriteten hos db kan du inte redigera den här tabellen</Master_Table_Protected>
     <Access_Denied language="sv">Åtkomst nekad</Access_Denied>
-    <App language="sv">App</App>
+    <Application language="sv">App</Application>
     <View_Function language="sv">View-funktionen</View_Function>
     <User_Requested language="sv">Användaren som begärde</User_Requested>
     <Listview_Width language="sv">ListView bredd</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="sv">Den databas eller Dataview existerar inte eller har inte lästs in ännu</Dataview_Error>
     <Browse language="sv">Bläddra</Browse>
     <Statistics_Page language="sv">Statistiksida</Statistics_Page>
+    <Invert language="sv">Invertera</Invert>
+    <Not_Supported language="sv">Stöds inte</Not_Supported>
+    <CMD_Tooltip language="sv">Kör anpassade SQL kommando uttalanden på databasen</CMD_Tooltip>
+    <LOG_CSV_Path language="sv">CSV-loggsökvägen</LOG_CSV_Path>
+    <LOG_DB_PATH language="sv">Logga DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="sv">Databassökvägen för transaktion</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="sv">SCHEMA-PRIVAT</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="sv">Kritiska fel fel</Critical_Fault_Error>
+    <Stack_Trace language="sv">Stackspårning</Stack_Trace>
+    <Close_TW language="sv">Stäng TW</Close_TW>
+    <Export_UI language="sv">Exportera UI</Export_UI>
+    <Define_New_Table language="sv">Definiera ny tabell</Define_New_Table>
+    <Create_Statistics_Page language="sv">Skapa statistiksida</Create_Statistics_Page>
+    <Debug language="sv">Felsöka</Debug>
+    <New_in_Memory_Db language="sv">Nytt i Memory-databas</New_in_Memory_Db>
+    <Import_SQL language="sv">Importera SQL</Import_SQL>
   </Language>
 </root>

@@ -23,7 +23,7 @@
     <Check_for_Updates language="ro">A verifica pentru Updates</Check_for_Updates>
     <PXML language="ro">XML</PXML>
     <PRGM_Start language="ro">Programul a început</PRGM_Start>
-    <Application language="ro">Cerere</Application>
+    <App language="ro">Cerere</App>
     <Failed_Save_Settings language="ro">Nu a salva setările</Failed_Save_Settings>
     <Error language="ro">Eroare</Error>
     <Failed language="ro">Nu a reușit</Failed>
@@ -47,7 +47,7 @@
     <UI language="ro">UI</UI>
     <Master_Table_Protected language="ro">Sqlite_mastertable sau "Tabelul de Master" este un tabel protejate. Pentru a proteja integritatea db nu puteţi edita acest tabel</Master_Table_Protected>
     <Access_Denied language="ro">Acces interzis</Access_Denied>
-    <App language="ro">App</App>
+    <Application language="ro">App</Application>
     <View_Function language="ro">Vezi funcţia</View_Function>
     <User_Requested language="ro">Solicitată de utilizator</User_Requested>
     <Listview_Width language="ro">Listview lăţime</Listview_Width>
@@ -59,8 +59,8 @@
     <Close_wo_saving language="ro">Închide fără salvare</Close_wo_saving>
     <Failed_Load_Online_EULA language="ro">Failed la spre load online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="ro">Auto jurnal</Auto_Log>
-    <Export_HTML_Schema language="ro">Export HTML SCHEMĂ în numele </Export_HTML_Schema>
-    <Export_HTML_Data language="ro">Export DATE HTML în numele </Export_HTML_Data>
+    <Export_HTML_Schema language="ro">Export HTML schemă în numele </Export_HTML_Schema>
+    <Export_HTML_Data language="ro">Export date HTML în numele </Export_HTML_Data>
     <Check_Log language="ro">Eroare: Vă rugăm să verificaţi jurnalul pentru detalii</Check_Log>
     <Query_Error language="ro">Eroare de interogare</Query_Error>
     <Export_CSV language="ro">CSV ÎN NUMELE DE EXPORT </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="ro">Baza de date sau Dataview nu exista sau nu a fost încărcat încă</Dataview_Error>
     <Browse language="ro">Răsfoire</Browse>
     <Statistics_Page language="ro">Pagina de statistici</Statistics_Page>
+    <Invert language="ro">Invertit</Invert>
+    <Not_Supported language="ro">Nu este acceptat</Not_Supported>
+    <CMD_Tooltip language="ro">Execută declaraţii de comanda SQL personalizate pe baza de date</CMD_Tooltip>
+    <LOG_CSV_Path language="ro">Jurnal CSV calea</LOG_CSV_Path>
+    <LOG_DB_PATH language="ro">Jurnal DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="ro">Calea de date tranzacţie</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="ro">SCHEMĂ-PRIVAT</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="ro">Eroare critică vina</Critical_Fault_Error>
+    <Stack_Trace language="ro">Trasarea stivei</Stack_Trace>
+    <Close_TW language="ro">Închide TW</Close_TW>
+    <Export_UI language="ro">Export UI</Export_UI>
+    <Define_New_Table language="ro">Defini noul tabel</Define_New_Table>
+    <Create_Statistics_Page language="ro">Creaţi Pagina de statistici</Create_Statistics_Page>
+    <Debug language="ro">Depanare</Debug>
+    <New_in_Memory_Db language="ro">Nou în baza de date de memorie</New_in_Memory_Db>
+    <Import_SQL language="ro">Import SQL</Import_SQL>
   </Language>
 </root>

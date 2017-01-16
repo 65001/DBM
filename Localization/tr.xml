@@ -23,7 +23,7 @@
     <Check_for_Updates language="tr">Kontrol için güncelleştirmek</Check_for_Updates>
     <PXML language="tr">XML</PXML>
     <PRGM_Start language="tr">Başlatan program</PRGM_Start>
-    <Application language="tr">Uygulama</Application>
+    <App language="tr">Uygulama</App>
     <Failed_Save_Settings language="tr">Ayarlar kaydedilemedi</Failed_Save_Settings>
     <Error language="tr">Hata</Error>
     <Failed language="tr">Başarısız oldu</Failed>
@@ -47,7 +47,7 @@
     <UI language="tr">KULLANICI ARABİRİMİ</UI>
     <Master_Table_Protected language="tr">Sqlite_mastertable ya da 'Ana tablosu' korumalı bir tablodur. Db bütünlüğünü korumak için bu tablo düzenleyemezsiniz</Master_Table_Protected>
     <Access_Denied language="tr">Erişim engellendi</Access_Denied>
-    <App language="tr">App</App>
+    <Application language="tr">App</Application>
     <View_Function language="tr">View fonksiyonu</View_Function>
     <User_Requested language="tr">İstenen kullanıcı</User_Requested>
     <Listview_Width language="tr">ListView genişliği</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="tr">Kaydetmeden kapatın</Close_wo_saving>
     <Failed_Load_Online_EULA language="tr">Online EULA yüklenemedi</Failed_Load_Online_EULA>
     <Auto_Log language="tr">Otomatik günlük</Auto_Log>
-    <Export_HTML_Schema language="tr">İhracat HTML ŞEMA adına </Export_HTML_Schema>
-    <Export_HTML_Data language="tr">İhracat HTML VERİ adına </Export_HTML_Data>
+    <Export_HTML_Schema language="tr">İhracat HTML şema adına </Export_HTML_Schema>
+    <Export_HTML_Data language="tr">İhracat HTML veri adına </Export_HTML_Data>
     <Check_Log language="tr">Hata: Lütfen ayrıntılar için günlüğünü denetleyin</Check_Log>
     <Query_Error language="tr">Sorgu hatası</Query_Error>
     <Export_CSV language="tr">ADINA CSV VERME </Export_CSV>
-    <Export_SQL_SCHEMA language="tr">Adına SQL - ŞEMA - ihracat </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="tr">Adına SQL - şema - ihracat </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="tr">Adına SQL - SQL - ihracat </Export_SQL_SQL>
     <Export_XML language="tr">ADINA XML VERME</Export_XML>
     <System language="tr">Sistem</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="tr">Dataview ve veritabanı yok veya henüz yüklü olmamıştır</Dataview_Error>
     <Browse language="tr">Gözat</Browse>
     <Statistics_Page language="tr">İstatistik sayfası</Statistics_Page>
+    <Invert language="tr">Ters çevir</Invert>
+    <Not_Supported language="tr">Desteklenen değil</Not_Supported>
+    <CMD_Tooltip language="tr">Veritabanı üzerine özelleştirilmiş SQL komut ifadeleri yürütür</CMD_Tooltip>
+    <LOG_CSV_Path language="tr">Günlük CSV yolu</LOG_CSV_Path>
+    <LOG_DB_PATH language="tr">DatabasePath oturum</LOG_DB_PATH>
+    <Transaction_DB_Path language="tr">İşlem veritabanı yolu</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="tr">ŞEMA-ÖZEL</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="tr">Kritik hata hata</Critical_Fault_Error>
+    <Stack_Trace language="tr">Yığın izleme</Stack_Trace>
+    <Close_TW language="tr">TW kapatın</Close_TW>
+    <Export_UI language="tr">İhracat kullanıcı Arabirimi</Export_UI>
+    <Define_New_Table language="tr">Yeni tablo tanımlamak</Define_New_Table>
+    <Create_Statistics_Page language="tr">İstatistik sayfası oluşturma</Create_Statistics_Page>
+    <Debug language="tr">Hata ayıklama</Debug>
+    <New_in_Memory_Db language="tr">Yeni bellek veritabanı</New_in_Memory_Db>
+    <Import_SQL language="tr">Alma SQL</Import_SQL>
   </Language>
 </root>

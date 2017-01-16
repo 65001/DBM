@@ -23,7 +23,7 @@
     <Check_for_Updates language="hi">अद्यतनों के लिए जाँचें</Check_for_Updates>
     <PXML language="hi">XML</PXML>
     <PRGM_Start language="hi">कार्यक्रम शुरू</PRGM_Start>
-    <Application language="hi">अनुप्रयोग</Application>
+    <App language="hi">अनुप्रयोग</App>
     <Failed_Save_Settings language="hi">सेटिंग्स को सहेजने के लिए विफल</Failed_Save_Settings>
     <Error language="hi">त्रुटि</Error>
     <Failed language="hi">में विफल रहा</Failed>
@@ -47,7 +47,7 @@
     <UI language="hi">UI</UI>
     <Master_Table_Protected language="hi">Sqlite_mastertable या 'मास्टर तालिका' एक सुरक्षित तालिका है। Db की अखंडता की रक्षा करने के लिए आप इस तालिका को संपादित नहीं कर सकता</Master_Table_Protected>
     <Access_Denied language="hi">प्रवेश निषेध</Access_Denied>
-    <App language="hi">App</App>
+    <Application language="hi">App</Application>
     <View_Function language="hi">दृश्य समारोह</View_Function>
     <User_Requested language="hi">उपयोगकर्ता का अनुरोध किया</User_Requested>
     <Listview_Width language="hi">Listview चौड़ाई</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="hi">Dataview या डेटाबेस मौजूद नहीं है या अभी तक लोड नहीं किया गया है</Dataview_Error>
     <Browse language="hi">ब्राउज़ करें</Browse>
     <Statistics_Page language="hi">आँकड़े पृष्ठ</Statistics_Page>
+    <Invert language="hi">पलटना</Invert>
+    <Not_Supported language="hi">समर्थित नहीं</Not_Supported>
+    <CMD_Tooltip language="hi">अनुकूलित SQL आदेश कथनों डेटाबेस पर निष्पादित करता है</CMD_Tooltip>
+    <LOG_CSV_Path language="hi">लॉग CSV पथ</LOG_CSV_Path>
+    <LOG_DB_PATH language="hi">लॉग DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="hi">लेन-देन डेटाबेस का पथ</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="hi">स्कीमा-निजी</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="hi">महत्वपूर्ण गलती त्रुटि</Critical_Fault_Error>
+    <Stack_Trace language="hi">स्टैक ट्रेस</Stack_Trace>
+    <Close_TW language="hi">TW बंद करें</Close_TW>
+    <Export_UI language="hi">निर्यात UI</Export_UI>
+    <Define_New_Table language="hi">नई टेबल निर्धारित करें</Define_New_Table>
+    <Create_Statistics_Page language="hi">आँकड़े पृष्ठ बनाएँ</Create_Statistics_Page>
+    <Debug language="hi">डीबग करें</Debug>
+    <New_in_Memory_Db language="hi">स्मृति डेटाबेस में नए</New_in_Memory_Db>
+    <Import_SQL language="hi">आयात SQL</Import_SQL>
   </Language>
 </root>

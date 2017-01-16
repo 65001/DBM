@@ -23,7 +23,7 @@
     <Check_for_Updates language="lt">Tikrinti, ar yra naujinimų</Check_for_Updates>
     <PXML language="lt">XML</PXML>
     <PRGM_Start language="lt">Programa prasidėjo</PRGM_Start>
-    <Application language="lt">Programa</Application>
+    <App language="lt">Programa</App>
     <Failed_Save_Settings language="lt">Nepavyko įrašyti parametrus</Failed_Save_Settings>
     <Error language="lt">Klaida</Error>
     <Failed language="lt">Nepavyko</Failed>
@@ -47,7 +47,7 @@
     <UI language="lt">VARTOTOJO SĄSAJA</UI>
     <Master_Table_Protected language="lt">Sqlite_mastertable arba "Master lentelėje" yra saugomas lentelėje. Db vientisumui apsaugoti negalite redaguoti šią lentelę</Master_Table_Protected>
     <Access_Denied language="lt">Prieiga uždrausta</Access_Denied>
-    <App language="lt">App</App>
+    <Application language="lt">App</Application>
     <View_Function language="lt">View funkcija</View_Function>
     <User_Requested language="lt">Vartotojo prašoma</User_Requested>
     <Listview_Width language="lt">Sąrašo rodinys Plotis</Listview_Width>
@@ -59,7 +59,7 @@
     <Close_wo_saving language="lt">Neįrašęs</Close_wo_saving>
     <Failed_Load_Online_EULA language="lt">Nepavyko įkelti interneto GVLS</Failed_Load_Online_EULA>
     <Auto_Log language="lt">Automatinio žurnalo</Auto_Log>
-    <Export_HTML_Schema language="lt">Eksporto HTML SCHEMOS vardu </Export_HTML_Schema>
+    <Export_HTML_Schema language="lt">Eksporto HTML schemos vardu </Export_HTML_Schema>
     <Export_HTML_Data language="lt">EKSPORTUOKITE HTML vardu </Export_HTML_Data>
     <Check_Log language="lt">Klaida: Patikrinkite žurnalą daugiau informacijos</Check_Log>
     <Query_Error language="lt">Užklausos klaida</Query_Error>
@@ -72,5 +72,21 @@
     <Dataview_Error language="lt">Duomenų bazės arba trukmė nėra arba dar nebuvo įkelta</Dataview_Error>
     <Browse language="lt">Naršyti</Browse>
     <Statistics_Page language="lt">Statistikos puslapis</Statistics_Page>
+    <Invert language="lt">Apverskite</Invert>
+    <Not_Supported language="lt">Nepalaikomas</Not_Supported>
+    <CMD_Tooltip language="lt">Vykdo individualų SQL komandą ataskaitų į duomenų bazę</CMD_Tooltip>
+    <LOG_CSV_Path language="lt">Žurnalo CSV kelias</LOG_CSV_Path>
+    <LOG_DB_PATH language="lt">Prisijungti DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="lt">Operacijos duomenų bazės kelias</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="lt">SCHEMOS IR PRIVATAUS</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="lt">Kritinis gedimas klaida</Critical_Fault_Error>
+    <Stack_Trace language="lt">Dėklo stebėjimas</Stack_Trace>
+    <Close_TW language="lt">Uždaryti TW</Close_TW>
+    <Export_UI language="lt">Eksportuoti UI</Export_UI>
+    <Define_New_Table language="lt">Apibrėžti naują lentelės</Define_New_Table>
+    <Create_Statistics_Page language="lt">Sukurti statistikos puslapį</Create_Statistics_Page>
+    <Debug language="lt">Derinti</Debug>
+    <New_in_Memory_Db language="lt">Naujas atminties duomenų bazė</New_in_Memory_Db>
+    <Import_SQL language="lt">Importuoti SQL</Import_SQL>
   </Language>
 </root>

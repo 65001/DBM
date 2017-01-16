@@ -23,7 +23,7 @@
     <Check_for_Updates language="vi">Kiểm tra Cập Nhật</Check_for_Updates>
     <PXML language="vi">XML</PXML>
     <PRGM_Start language="vi">Chương trình bắt đầu</PRGM_Start>
-    <Application language="vi">Ứng dụng</Application>
+    <App language="vi">Ứng dụng</App>
     <Failed_Save_Settings language="vi">Không thể lưu thiết đặt</Failed_Save_Settings>
     <Error language="vi">Lỗi</Error>
     <Failed language="vi">Thất bại</Failed>
@@ -47,7 +47,7 @@
     <UI language="vi">GIAO DIỆN NGƯỜI DÙNG</UI>
     <Master_Table_Protected language="vi">Sqlite_mastertable hoặc 'Master bảng' là một bảng được bảo vệ. Để bảo vệ sự toàn vẹn của db, bạn không thể chỉnh sửa bảng này</Master_Table_Protected>
     <Access_Denied language="vi">Truy cập bị từ chối</Access_Denied>
-    <App language="vi">Ứng dụng</App>
+    <Application language="vi">Ứng dụng</Application>
     <View_Function language="vi">Xem chức năng</View_Function>
     <User_Requested language="vi">Người dùng được yêu cầu</User_Requested>
     <Listview_Width language="vi">Chiều rộng ListView</Listview_Width>
@@ -60,11 +60,11 @@
     <Failed_Load_Online_EULA language="vi">Thất bại để tải EULA trực tuyến</Failed_Load_Online_EULA>
     <Auto_Log language="vi">Đăng nhập tự động</Auto_Log>
     <Export_HTML_Schema language="vi">Xuất khẩu HTML SCHEMA thay mặt cho </Export_HTML_Schema>
-    <Export_HTML_Data language="vi">Xuất dữ LIỆU HTML thay mặt cho </Export_HTML_Data>
+    <Export_HTML_Data language="vi">Xuất dữ liệu HTML thay mặt cho </Export_HTML_Data>
     <Check_Log language="vi">Lỗi: Kiểm tra Xin vui lòng đăng nhập để xem chi tiết</Check_Log>
     <Query_Error language="vi">Truy vấn lỗi</Query_Error>
     <Export_CSV language="vi">CSV XUẤT KHẨU ĐẠI DIỆN CHO </Export_CSV>
-    <Export_SQL_SCHEMA language="vi">Xuất khẩu SQL - sơ ĐỒ - thay mặt cho </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="vi">Xuất khẩu SQL - sơ đồ - thay mặt cho </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="vi">Xuất khẩu SQL - SQL - thay mặt cho </Export_SQL_SQL>
     <Export_XML language="vi">XUẤT KHẨU XML THAY MẶT CHO</Export_XML>
     <System language="vi">Hệ thống</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="vi">Cơ sở dữ liệu hoặc Dataview không tồn tại hoặc đã không nạp được</Dataview_Error>
     <Browse language="vi">Trình duyệt</Browse>
     <Statistics_Page language="vi">Số liệu thống kê trang</Statistics_Page>
+    <Invert language="vi">Đảo ngược</Invert>
+    <Not_Supported language="vi">Không được hỗ trợ</Not_Supported>
+    <CMD_Tooltip language="vi">Thực hiện một tùy chỉnh câu lệnh SQL vào cơ sở dữ liệu</CMD_Tooltip>
+    <LOG_CSV_Path language="vi">Đăng nhập CSV Path</LOG_CSV_Path>
+    <LOG_DB_PATH language="vi">Đăng nhập DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="vi">Giao dịch cơ sở dữ liệu đường dẫn</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="vi">LƯỢC ĐỒ RIÊNG.</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="vi">Quan trọng lỗi lỗi</Critical_Fault_Error>
+    <Stack_Trace language="vi">Theo dõi stack</Stack_Trace>
+    <Close_TW language="vi">Đóng TW</Close_TW>
+    <Export_UI language="vi">Xuất khẩu các giao diện người dùng</Export_UI>
+    <Define_New_Table language="vi">Xác định bảng mới</Define_New_Table>
+    <Create_Statistics_Page language="vi">Tạo ra số liệu thống kê trang</Create_Statistics_Page>
+    <Debug language="vi">Gỡ lỗi</Debug>
+    <New_in_Memory_Db language="vi">Mới trong cơ sở dữ liệu bộ nhớ</New_in_Memory_Db>
+    <Import_SQL language="vi">Nhập khẩu SQL</Import_SQL>
   </Language>
 </root>

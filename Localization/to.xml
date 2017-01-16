@@ -23,7 +23,7 @@
     <Check_for_Updates language="to">Vakai'i e ngaahi fakamatala fakamuimuitaha</Check_for_Updates>
     <PXML language="to">XML 'O NGAUE 'AKI</PXML>
     <PRGM_Start language="to">Polokalama kamata</PRGM_Start>
-    <Application language="to">Faka'aonga'i</Application>
+    <App language="to">Faka'aonga'i</App>
     <Failed_Save_Settings language="to">Na'e 'ikai lava ke fakahaofi 'a e ngaahi tukunga</Failed_Save_Settings>
     <Error language="to">Fehalaaki</Error>
     <Failed language="to">Ne 'ikai lava</Failed>
@@ -47,7 +47,7 @@
     <UI language="to">UI</UI>
     <Master_Table_Protected language="to">Sqlite_mastertable pe 'Tepile 'a e 'Eiki' ko e ha tepile malu'i. He 'ikai lava ke fakatonutonu 'a e tepile ko 'eni ke malu'i e ngeia 'o e db</Master_Table_Protected>
     <Access_Denied language="to">'Ikai tali ke hu</Access_Denied>
-    <App language="to">App</App>
+    <Application language="to">App</Application>
     <View_Function language="to">Vakai ngaue</View_Function>
     <User_Requested language="to">Na'e kole 'a e tokotaha ngaue</User_Requested>
     <Listview_Width language="to">Maokupu 'o e Listview</Listview_Width>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="to">'Ikai lava 'o load e EULA 'i he 'Initaneti</Failed_Load_Online_EULA>
     <Auto_Log language="to">Lekooti 'o e me'alele</Auto_Log>
     <Export_HTML_Schema language="to">Hiki atu a e HTML ke paaki 'i he fakafofonga'i 'a </Export_HTML_Schema>
-    <Export_HTML_Data language="to">Hiki atu a e FAKAMATALA 'o e HTML 'i fakafofonga'i 'a </Export_HTML_Data>
+    <Export_HTML_Data language="to">Hiki atu a e fakamatala 'o e HTML 'i fakafofonga'i 'a </Export_HTML_Data>
     <Check_Log language="to">Fehalaaki: Kataki 'o vakai ki he log ki he fakaikiiki</Check_Log>
     <Query_Error language="to">Fehalaaki e fehu'i</Query_Error>
     <Export_CSV language="to">HIKI ATU A E CSV 'I FAKAFOFONGA'I 'A </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="to">E faile fakakomipiuta pe ko e Dataview 'oku 'ikai ma'u pe 'ikai kuo fonu ka</Dataview_Error>
     <Browse language="to">Vakai takai holo</Browse>
     <Statistics_Page language="to">Peesi 'o e fakamatala fakasitetisitika</Statistics_Page>
+    <Invert language="to">Fulihi hono</Invert>
+    <Not_Supported language="to">'Ikai poupou'i</Not_Supported>
+    <CMD_Tooltip language="to">Executes fakapatonu SQL fekau e ngaahi fakamatala ki he faile fakakomipiuta</CMD_Tooltip>
+    <LOG_CSV_Path language="to">Lekooti 'o e CSV hala</LOG_CSV_Path>
+    <LOG_DB_PATH language="to">Hu ki he polokalama DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="to">Fakatau Database hala</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="to">'IKAI FAKAHAHA-HOLO KE PAAKI.</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="to">Fehalaaki fo'ui mahu'inga</Critical_Fault_Error>
+    <Stack_Trace language="to">Ta 'o e fokotu'unga</Stack_Trace>
+    <Close_TW language="to">Tapuni 'a e TW</Close_TW>
+    <Export_UI language="to">'Ave 'a e UI</Export_UI>
+    <Define_New_Table language="to">Faka'uhinga'i 'a e tepile fo'ou</Define_New_Table>
+    <Create_Statistics_Page language="to">Fa'u ha ngaahi fakamatala fakasitetisitika 'a e peesi</Create_Statistics_Page>
+    <Debug language="to">'O e Debug</Debug>
+    <New_in_Memory_Db language="to">Fo'ou 'i he manatu 'a e Database</New_in_Memory_Db>
+    <Import_SQL language="to">Hiki mai a SQL</Import_SQL>
   </Language>
 </root>

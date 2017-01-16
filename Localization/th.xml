@@ -23,7 +23,7 @@
     <Check_for_Updates language="th">ตรวจสอบปรับปรุง</Check_for_Updates>
     <PXML language="th">XML</PXML>
     <PRGM_Start language="th">โปรแกรมเริ่มต้น</PRGM_Start>
-    <Application language="th">แอพลิเคชัน</Application>
+    <App language="th">แอพลิเคชัน</App>
     <Failed_Save_Settings language="th">ไม่สามารถบันทึกการตั้งค่า</Failed_Save_Settings>
     <Error language="th">ข้อผิดพลาด</Error>
     <Failed language="th">ล้มเหลว</Failed>
@@ -47,7 +47,7 @@
     <UI language="th">UI</UI>
     <Master_Table_Protected language="th">Sqlite_mastertable หรือ 'หลักตาราง' เป็นตารางได้รับการป้องกัน เพื่อปกป้องความสมบูรณ์ของฐานข้อมูลคุณไม่สามารถแก้ไขตารางนี้</Master_Table_Protected>
     <Access_Denied language="th">เข้าถึงถูกปฏิเสธ</Access_Denied>
-    <App language="th">แอ</App>
+    <Application language="th">แอ</Application>
     <View_Function language="th">ฟังก์ชั่น view</View_Function>
     <User_Requested language="th">ผู้ใช้ร้องขอ</User_Requested>
     <Listview_Width language="th">ความกว้างมุมมองรายการ</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="th">ฐานข้อมูลหรือมุมมองข้อมูลไม่มีอยู่ หรือไม่ได้โหลดยัง</Dataview_Error>
     <Browse language="th">เรียกดู</Browse>
     <Statistics_Page language="th">หน้าสถิติ</Statistics_Page>
+    <Invert language="th">สลับ</Invert>
+    <Not_Supported language="th">ไม่สนับสนุน</Not_Supported>
+    <CMD_Tooltip language="th">ดำเนินการคำสั่ง SQL คำสั่งกำหนดเองลงในฐานข้อมูล</CMD_Tooltip>
+    <LOG_CSV_Path language="th">เส้นทางบันทึก CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="th">บันทึก DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="th">เส้นทางฐานข้อมูลธุรกรรม</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="th">ส่วนตัวเค้าร่าง</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="th">ข้อผิดพลาดข้อบกพร่องสำคัญ</Critical_Fault_Error>
+    <Stack_Trace language="th">สแต็ค</Stack_Trace>
+    <Close_TW language="th">ปิด TW</Close_TW>
+    <Export_UI language="th">ส่งออก UI</Export_UI>
+    <Define_New_Table language="th">กำหนดตารางใหม่</Define_New_Table>
+    <Create_Statistics_Page language="th">สร้างหน้าสถิติ</Create_Statistics_Page>
+    <Debug language="th">ตรวจแก้จุดบกพร่อง</Debug>
+    <New_in_Memory_Db language="th">ใหม่ในฐานข้อมูลของหน่วยความจำ</New_in_Memory_Db>
+    <Import_SQL language="th">นำเข้า SQL</Import_SQL>
   </Language>
 </root>

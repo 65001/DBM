@@ -23,7 +23,7 @@
     <Check_for_Updates language="ar">التحقق من وجود تحديثات</Check_for_Updates>
     <PXML language="ar">إكس أم ال</PXML>
     <PRGM_Start language="ar">البرنامج بدأ</PRGM_Start>
-    <Application language="ar">التطبيق</Application>
+    <App language="ar">التطبيق</App>
     <Failed_Save_Settings language="ar">فشل في حفظ إعدادات</Failed_Save_Settings>
     <Error language="ar">خطأ</Error>
     <Failed language="ar">فشل</Failed>
@@ -47,7 +47,7 @@
     <UI language="ar">واجهة المستخدم</UI>
     <Master_Table_Protected language="ar">Sqlite_mastertable أو 'الجدول الرئيسي' جدول محمية. لا يمكنك تحرير هذا الجدول حماية سلامة الديسيبل</Master_Table_Protected>
     <Access_Denied language="ar">تم رفض الوصول</Access_Denied>
-    <App language="ar">التطبيق</App>
+    <Application language="ar">التطبيق</Application>
     <View_Function language="ar">عرض وظيفة</View_Function>
     <User_Requested language="ar">طلب المستخدم</User_Requested>
     <Listview_Width language="ar">عرض Listview</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="ar">في قاعدة البيانات أو Dataview غير موجود أو لم يتم تحميل حتى الآن</Dataview_Error>
     <Browse language="ar">تصفح</Browse>
     <Statistics_Page language="ar">صفحة الإحصاءات</Statistics_Page>
+    <Invert language="ar">عكس</Invert>
+    <Not_Supported language="ar">غير معتمد</Not_Supported>
+    <CMD_Tooltip language="ar">ينفذ SQL مخصصة الأمر البيانات إلى قاعدة البيانات</CMD_Tooltip>
+    <LOG_CSV_Path language="ar">مسار السجل CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="ar">تسجيل DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="ar">مسار قاعدة بيانات المعاملات</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="ar">المخطط الخاص</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="ar">خطأ خطأ حرجة</Critical_Fault_Error>
+    <Stack_Trace language="ar">تتبع مكدس الذاكرة المؤقتة</Stack_Trace>
+    <Close_TW language="ar">إغلاق TW</Close_TW>
+    <Export_UI language="ar">تصدير واجهة المستخدم</Export_UI>
+    <Define_New_Table language="ar">تعريف جدول جديد</Define_New_Table>
+    <Create_Statistics_Page language="ar">قم بإنشاء صفحة الإحصاءات</Create_Statistics_Page>
+    <Debug language="ar">التصحيح</Debug>
+    <New_in_Memory_Db language="ar">الجديد في قاعدة البيانات في الذاكرة</New_in_Memory_Db>
+    <Import_SQL language="ar">استيراد SQL</Import_SQL>
   </Language>
 </root>

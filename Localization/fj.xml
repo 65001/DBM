@@ -23,7 +23,7 @@
     <Check_for_Updates language="fj">Na jeke me baleta na vakavoui</Check_for_Updates>
     <PXML language="fj">XML</PXML>
     <PRGM_Start language="fj">Sa tekivu na parokaramu</PRGM_Start>
-    <Application language="fj">Ivolakerekere</Application>
+    <App language="fj">Ivolakerekere</App>
     <Failed_Save_Settings language="fj">Sega ni bokoci na veivanua eso</Failed_Save_Settings>
     <Error language="fj">Na cala</Error>
     <Failed language="fj">A sega ni</Failed>
@@ -47,7 +47,7 @@
     <UI language="fj">UI</UI>
     <Master_Table_Protected language="fj">Sqlite_mastertable se na 'Teveli ni ivakavuvuli' sai koya e dua na teveli taqomaki. Me taqomaki kina na dodonu ni na db o sa sega ni rawa ni vakataucokotaka kina na ituvatuva oqo</Master_Table_Protected>
     <Access_Denied language="fj">Rawa ni cakitaka</Access_Denied>
-    <App language="fj">App</App>
+    <Application language="fj">App</Application>
     <View_Function language="fj">Raica cakacaka</View_Function>
     <User_Requested language="fj">O koya e vakayagataka kerei</User_Requested>
     <Listview_Width language="fj">Na raba ni Listview</Listview_Width>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="fj">Sega ni rawa me katoni na EULA ena initaneti</Failed_Load_Online_EULA>
     <Auto_Log language="fj">IVola ni Auto</Auto_Log>
     <Export_HTML_Schema language="fj">Vakauta na SCHEMA ni HTML ena vukui ni </Export_HTML_Schema>
-    <Export_HTML_Data language="fj">Vakauta na ITUKUTUKU ni HTML ena vukui ni </Export_HTML_Data>
+    <Export_HTML_Data language="fj">Vakauta na itukutuku ni HTML ena vukui ni </Export_HTML_Data>
     <Check_Log language="fj">Na cala: Yalovinaka raica na vakayagataki baleta na matailalai ni veika e</Check_Log>
     <Query_Error language="fj">Na cala ni taro</Query_Error>
     <Export_CSV language="fj">VAKAUTA NA ISEMA CSV ENA VUKUI NI </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="fj">Na kato ni itukutuku se na Dataview e sega ni tiko se sa sega beka ni USA se bera</Dataview_Error>
     <Browse language="fj">Wilika</Browse>
     <Statistics_Page language="fj">Tabana ni iwiliwili</Statistics_Page>
+    <Invert language="fj">Invert</Invert>
+    <Not_Supported language="fj">Sega ni tokoni</Not_Supported>
+    <CMD_Tooltip language="fj">Executes na veiganiti SQL ivakaro itukutuku ki na kato ni itukutuku</CMD_Tooltip>
+    <LOG_CSV_Path language="fj">Sala ni CSV ni curu</LOG_CSV_Path>
+    <LOG_DB_PATH language="fj">Curu na DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="fj">Gaunisala ni kato ni itukutuku ni cakacaka</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="fj">SCHEMA-VAKAITAUKEI</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="fj">Na cala bibi na cala</Critical_Fault_Error>
+    <Stack_Trace language="fj">Rewa Trace</Stack_Trace>
+    <Close_TW language="fj">Sogota na TW</Close_TW>
+    <Export_UI language="fj">Vakauta na isema UI</Export_UI>
+    <Define_New_Table language="fj">Vakamatatataka na ituvatuva vou</Define_New_Table>
+    <Create_Statistics_Page language="fj">Tauyavutaka na tabana ni iwiliwili</Create_Statistics_Page>
+    <Debug language="fj">Vakavinakataki</Debug>
+    <New_in_Memory_Db language="fj">Vou ena vakanananu kato ni itukutuku</New_in_Memory_Db>
+    <Import_SQL language="fj">Vakacurumi SQL</Import_SQL>
   </Language>
 </root>

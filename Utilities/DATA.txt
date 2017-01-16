@@ -70,3 +70,19 @@ Views are readonly and cannot be edited
 The Database or Dataview does not exist or has not been loaded yet
 Browse
 Statistics Page
+Invert
+Not Supported
+Executes customized SQL command statements onto the database
+Log CSV Path
+Log DatabasePath
+Transaction Database Path
+SCHEMA-PRIVATE
+Critical Fault Error
+Stack Trace
+Close TW
+Export UI
+Define New Table
+Create Statistics Page
+Debug
+New in Memory Database
+Import SQL

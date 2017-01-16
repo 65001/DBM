@@ -23,7 +23,7 @@
     <Check_for_Updates language="sk">Skontrolovať aktualizácie</Check_for_Updates>
     <PXML language="sk">XML</PXML>
     <PRGM_Start language="sk">Program začal</PRGM_Start>
-    <Application language="sk">Aplikácia</Application>
+    <App language="sk">Aplikácia</App>
     <Failed_Save_Settings language="sk">Nepodarilo sa uložiť nastavenia</Failed_Save_Settings>
     <Error language="sk">Chyba</Error>
     <Failed language="sk">Zlyhalo</Failed>
@@ -47,7 +47,7 @@
     <UI language="sk">UI</UI>
     <Master_Table_Protected language="sk">Sqlite_mastertable alebo Hlavná tabuľka je chránená tabuľka. Chrániť integritu DB nemôžete upraviť túto tabuľku</Master_Table_Protected>
     <Access_Denied language="sk">Prístup bol odmietnutý</Access_Denied>
-    <App language="sk">Aplikácia</App>
+    <Application language="sk">Aplikácia</Application>
     <View_Function language="sk">Zobraziť funkcie</View_Function>
     <User_Requested language="sk">Požadované používateľom</User_Requested>
     <Listview_Width language="sk">ListView šírka</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="sk">Zavrieť bez uloženia</Close_wo_saving>
     <Failed_Load_Online_EULA language="sk">Nepodarilo sa načítať online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="sk">Auto Log</Auto_Log>
-    <Export_HTML_Schema language="sk">Exportovať HTML SCHÉMY v </Export_HTML_Schema>
-    <Export_HTML_Data language="sk">Exportovať ÚDAJE HTML v </Export_HTML_Data>
+    <Export_HTML_Schema language="sk">Exportovať HTML schémy v </Export_HTML_Schema>
+    <Export_HTML_Data language="sk">Exportovať údaje HTML v </Export_HTML_Data>
     <Check_Log language="sk">Chyba: Prosím skontrolujte Podrobnosti v denníku</Check_Log>
     <Query_Error language="sk">Dotaz chyba</Query_Error>
     <Export_CSV language="sk">EXPORT CSV V </Export_CSV>
-    <Export_SQL_SCHEMA language="sk">Export SQL - SCHÉMA - v </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="sk">Export SQL - schéma - v </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="sk">Export SQL - SQL - v </Export_SQL_SQL>
     <Export_XML language="sk">EXPORT XML V</Export_XML>
     <System language="sk">Systém</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="sk">Databázy alebo Dataview neexistuje alebo nebol načítaný ešte</Dataview_Error>
     <Browse language="sk">Prehľadávať</Browse>
     <Statistics_Page language="sk">Štatistika stránky</Statistics_Page>
+    <Invert language="sk">Invertovať</Invert>
+    <Not_Supported language="sk">Nie je podporovaný</Not_Supported>
+    <CMD_Tooltip language="sk">Spustí vlastné SQL príkazov a príkazov do databázy</CMD_Tooltip>
+    <LOG_CSV_Path language="sk">CSV cesta denníka</LOG_CSV_Path>
+    <LOG_DB_PATH language="sk">Denník DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="sk">Transakcie databázy cestu</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="sk">SCHÉMA-SÚKROMNÉ</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="sk">Critical Fault chyby</Critical_Fault_Error>
+    <Stack_Trace language="sk">Trasovanie zásobníka</Stack_Trace>
+    <Close_TW language="sk">Zatvorte TW</Close_TW>
+    <Export_UI language="sk">Export používateľského rozhrania</Export_UI>
+    <Define_New_Table language="sk">Definovanie novej tabuľky</Define_New_Table>
+    <Create_Statistics_Page language="sk">Vytvoriť štatistiky stránky</Create_Statistics_Page>
+    <Debug language="sk">Debug</Debug>
+    <New_in_Memory_Db language="sk">Nová databáze v pamäti</New_in_Memory_Db>
+    <Import_SQL language="sk">Importovať SQL</Import_SQL>
   </Language>
 </root>

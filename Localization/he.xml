@@ -23,7 +23,7 @@
     <Check_for_Updates language="he">בדוק אם קיימים עדכונים</Check_for_Updates>
     <PXML language="he">XML</PXML>
     <PRGM_Start language="he">התוכנית החלה</PRGM_Start>
-    <Application language="he">יישום</Application>
+    <App language="he">יישום</App>
     <Failed_Save_Settings language="he">שמירת הגדרות נכשלה</Failed_Save_Settings>
     <Error language="he">שגיאה</Error>
     <Failed language="he">נכשל</Failed>
@@ -47,7 +47,7 @@
     <UI language="he">ממשק משתמש</UI>
     <Master_Table_Protected language="he">Sqlite_mastertable או 'מאסטר טבלה' הוא טבלה מוגן. כדי להגן על שלמות במסד הנתונים לא ניתן לערוך את השולחן הזה</Master_Table_Protected>
     <Access_Denied language="he">הגישה נדחתה</Access_Denied>
-    <App language="he">App</App>
+    <Application language="he">App</Application>
     <View_Function language="he">הפונקציה תצוגה</View_Function>
     <User_Requested language="he">המשתמש המבוקש</User_Requested>
     <Listview_Width language="he">רוחב Listview</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="he">מסד הנתונים או Dataview אינו קיים או שלא היה טעון עדיין</Dataview_Error>
     <Browse language="he">עיון</Browse>
     <Statistics_Page language="he">דף הסטטיסטיקה</Statistics_Page>
+    <Invert language="he">' היפוך '</Invert>
+    <Not_Supported language="he">אין תמיכה</Not_Supported>
+    <CMD_Tooltip language="he">ביצוע מותאם אישית במשפטי SQL הפקודה אל מסד הנתונים</CMD_Tooltip>
+    <LOG_CSV_Path language="he">נתיב CSV יומן</LOG_CSV_Path>
+    <LOG_DB_PATH language="he">יומן DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="he">נתיב מסד הנתונים עסקת</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="he">סכימה-פרטי</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="he">שגיאה קריטית אשמתו</Critical_Fault_Error>
+    <Stack_Trace language="he">מעקב מחסנית</Stack_Trace>
+    <Close_TW language="he">סגור TW</Close_TW>
+    <Export_UI language="he">ייצוא UI</Export_UI>
+    <Define_New_Table language="he">הגדרת טבלה חדשה</Define_New_Table>
+    <Create_Statistics_Page language="he">ליצור דף הסטטיסטיקה</Create_Statistics_Page>
+    <Debug language="he">איתור באגים</Debug>
+    <New_in_Memory_Db language="he">חדש במסד נתונים בזיכרון</New_in_Memory_Db>
+    <Import_SQL language="he">ייבוא SQL</Import_SQL>
   </Language>
 </root>

@@ -23,7 +23,7 @@
     <Check_for_Updates language="fil">Magsuri para sa sunod-sa-panahon</Check_for_Updates>
     <PXML language="fil">XML</PXML>
     <PRGM_Start language="fil">Programa na nagsimula</PRGM_Start>
-    <Application language="fil">Aplikasyon</Application>
+    <App language="fil">Aplikasyon</App>
     <Failed_Save_Settings language="fil">Hindi na-save ang mga setting</Failed_Save_Settings>
     <Error language="fil">Mali</Error>
     <Failed language="fil">Nabigo</Failed>
@@ -47,7 +47,7 @@
     <UI language="fil">UI</UI>
     <Master_Table_Protected language="fil">Sqlite_mastertable o 'Master Table' ay isang protektadong mesa. Upang protektahan ang integridad ng mga db hindi mo mababago ang table na ito</Master_Table_Protected>
     <Access_Denied language="fil">Hindi pinayagan ang akses</Access_Denied>
-    <App language="fil">App</App>
+    <Application language="fil">App</Application>
     <View_Function language="fil">Tanaw Function</View_Function>
     <User_Requested language="fil">Gumagamit na hiniling</User_Requested>
     <Listview_Width language="fil">Listview lapad</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="fil">Ang Database o Dataview ay hindi umiiral o hindi naging punung-punong pa</Dataview_Error>
     <Browse language="fil">Mag-browse</Browse>
     <Statistics_Page language="fil">Estadistika ng pahina</Statistics_Page>
+    <Invert language="fil">Baligtarin</Invert>
+    <Not_Supported language="fil">Hindi suportadong</Not_Supported>
+    <CMD_Tooltip language="fil">Nagpapatupad ng mga customized SQL utos pahayag papunta sa database ng</CMD_Tooltip>
+    <LOG_CSV_Path language="fil">Log CSV landas</LOG_CSV_Path>
+    <LOG_DB_PATH language="fil">Mag-log ng mga DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="fil">Landas ng Database ng transaksyon</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="fil">ISKEMA-PRIBADONG</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="fil">Kritikal na mali mali</Critical_Fault_Error>
+    <Stack_Trace language="fil">Pagtunton ng stack</Stack_Trace>
+    <Close_TW language="fil">Isara ang TW</Close_TW>
+    <Export_UI language="fil">I-export ang mga UI</Export_UI>
+    <Define_New_Table language="fil">Bigyang kahulugan ang bagong mesa</Define_New_Table>
+    <Create_Statistics_Page language="fil">Lumikha ng mga istatistika ng pahina</Create_Statistics_Page>
+    <Debug language="fil">Debug</Debug>
+    <New_in_Memory_Db language="fil">Bagong sa Database ng Memory</New_in_Memory_Db>
+    <Import_SQL language="fil">Import SQL</Import_SQL>
   </Language>
 </root>

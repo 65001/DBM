@@ -23,7 +23,7 @@
     <Check_for_Updates language="fa">بررسی برای به روز رسانی</Check_for_Updates>
     <PXML language="fa">XML</PXML>
     <PRGM_Start language="fa">برنامه آغاز شده</PRGM_Start>
-    <Application language="fa">نرم افزار</Application>
+    <App language="fa">نرم افزار</App>
     <Failed_Save_Settings language="fa">عدم موفقیت در ذخیره تنظیمات</Failed_Save_Settings>
     <Error language="fa">خطا</Error>
     <Failed language="fa">انجام نشد</Failed>
@@ -47,7 +47,7 @@
     <UI language="fa">رابط کاربر</UI>
     <Master_Table_Protected language="fa">Sqlite_mastertable یا میز کارشناسی ارشد جدول محافظت شده است. برای حفاظت از یکپارچگی دسی بل این جدول ویرایش نمی باشد</Master_Table_Protected>
     <Access_Denied language="fa">دسترسی رد شد</Access_Denied>
-    <App language="fa">نرم افزار</App>
+    <Application language="fa">نرم افزار</Application>
     <View_Function language="fa">تابع های مشاهده</View_Function>
     <User_Requested language="fa">کاربر درخواست شده</User_Requested>
     <Listview_Width language="fa">عرض "نمای لیست"</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="fa">پایگاه داده و یا Dataview وجود ندارد یا هنوز بارگذاری نشده است</Dataview_Error>
     <Browse language="fa">مرور</Browse>
     <Statistics_Page language="fa">آمار صفحه</Statistics_Page>
+    <Invert language="fa">برعکس شود</Invert>
+    <Not_Supported language="fa">پشتیبانی نمی شود</Not_Supported>
+    <CMD_Tooltip language="fa">سفارشی اظهارات دستور SQL بر روی پایگاه داده را اعدام کرد</CMD_Tooltip>
+    <LOG_CSV_Path language="fa">مسیر ورود CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="fa">DatabasePath ورود به سیستم</LOG_DB_PATH>
+    <Transaction_DB_Path language="fa">معامله پایگاه داده مسیر</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="fa">طرح کلی خصوصی</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="fa">خطا بحرانی خطا</Critical_Fault_Error>
+    <Stack_Trace language="fa">مسیر بسته</Stack_Trace>
+    <Close_TW language="fa">بستن TW</Close_TW>
+    <Export_UI language="fa">صادرات رابط کاربر</Export_UI>
+    <Define_New_Table language="fa">تعریف جدول جدید</Define_New_Table>
+    <Create_Statistics_Page language="fa">ایجاد صفحه های آمار</Create_Statistics_Page>
+    <Debug language="fa">اشکال زدایی</Debug>
+    <New_in_Memory_Db language="fa">جدید در پایگاه داده حافظه</New_in_Memory_Db>
+    <Import_SQL language="fa">واردات SQL</Import_SQL>
   </Language>
 </root>

@@ -23,7 +23,7 @@
     <Check_for_Updates language="ms">Semak untuk pengemaskinian</Check_for_Updates>
     <PXML language="ms">XML</PXML>
     <PRGM_Start language="ms">Program yang dimulakan</PRGM_Start>
-    <Application language="ms">Permohonan</Application>
+    <App language="ms">Permohonan</App>
     <Failed_Save_Settings language="ms">Gagal untuk menyimpan pengesetan</Failed_Save_Settings>
     <Error language="ms">Ralat</Error>
     <Failed language="ms">Gagal</Failed>
@@ -47,7 +47,7 @@
     <UI language="ms">UI</UI>
     <Master_Table_Protected language="ms">Sqlite_mastertable atau 'Jadual induk' adalah satu jadual yang dilindungi. Untuk melindungi integriti db yang anda tidak boleh edit jadual ini</Master_Table_Protected>
     <Access_Denied language="ms">Capaian ditolak</Access_Denied>
-    <App language="ms">Aplikasi</App>
+    <Application language="ms">Aplikasi</Application>
     <View_Function language="ms">Fungsi paparan</View_Function>
     <User_Requested language="ms">Pengguna diminta</User_Requested>
     <Listview_Width language="ms">Lebar Listview</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="ms">Pangkalan data atau Dataview tidak wujud atau masih belum dimuatkan lagi</Dataview_Error>
     <Browse language="ms">Semak seimbas</Browse>
     <Statistics_Page language="ms">Statistik Laman</Statistics_Page>
+    <Invert language="ms">Songsang</Invert>
+    <Not_Supported language="ms">Tidak disokong</Not_Supported>
+    <CMD_Tooltip language="ms">Melaksanakan penyata arahan SQL disesuaikan ke dalam pangkalan data</CMD_Tooltip>
+    <LOG_CSV_Path language="ms">Laluan CSV log</LOG_CSV_Path>
+    <LOG_DB_PATH language="ms">Layari DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="ms">Jalan pangkalan data urus niaga</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="ms">SKEMA-SWASTA</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="ms">Ralat kritikal bersalah</Critical_Fault_Error>
+    <Stack_Trace language="ms">Kesan tindanan</Stack_Trace>
+    <Close_TW language="ms">Tutup TW</Close_TW>
+    <Export_UI language="ms">Eksport UI</Export_UI>
+    <Define_New_Table language="ms">Menentukan jadual baru</Define_New_Table>
+    <Create_Statistics_Page language="ms">Mencipta halaman statistik</Create_Statistics_Page>
+    <Debug language="ms">Nyahpepijat</Debug>
+    <New_in_Memory_Db language="ms">Baru dalam memori pangkalan data</New_in_Memory_Db>
+    <Import_SQL language="ms">Import SQL</Import_SQL>
   </Language>
 </root>

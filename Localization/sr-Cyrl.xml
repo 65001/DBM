@@ -23,7 +23,7 @@
     <Check_for_Updates language="sr-Cyrl">Проверите да ли</Check_for_Updates>
     <PXML language="sr-Cyrl">XМЛ</PXML>
     <PRGM_Start language="sr-Cyrl">Програм је почео</PRGM_Start>
-    <Application language="sr-Cyrl">Апликација</Application>
+    <App language="sr-Cyrl">Апликација</App>
     <Failed_Save_Settings language="sr-Cyrl">Сачувај поставке није успјело</Failed_Save_Settings>
     <Error language="sr-Cyrl">Грешка</Error>
     <Failed language="sr-Cyrl">Није успело</Failed>
@@ -47,7 +47,7 @@
     <UI language="sr-Cyrl">КОРИСНИЧКИ ИНТЕРФЕЈС</UI>
     <Master_Table_Protected language="sr-Cyrl">Сqлите_мастертабле или 'Господар табела' је заштићена сто. Да заштити интегритет у дб није могуће уређивати у овој табели</Master_Table_Protected>
     <Access_Denied language="sr-Cyrl">Приступ одбијен</Access_Denied>
-    <App language="sr-Cyrl">Апп</App>
+    <Application language="sr-Cyrl">Апп</Application>
     <View_Function language="sr-Cyrl">Приказ функција</View_Function>
     <User_Requested language="sr-Cyrl">Корисник је тражио</User_Requested>
     <Listview_Width language="sr-Cyrl">ЛистВиеw ширина</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="sr-Cyrl">Затворили без чувања</Close_wo_saving>
     <Failed_Load_Online_EULA language="sr-Cyrl">Онлине уговора ЕУЛА није успело</Failed_Load_Online_EULA>
     <Auto_Log language="sr-Cyrl">Аутоматске евиденције</Auto_Log>
-    <Export_HTML_Schema language="sr-Cyrl">Извоз ХТМЛ ШЕМЕ за </Export_HTML_Schema>
-    <Export_HTML_Data language="sr-Cyrl">Извоз ПОДАТАКА у ХТМЛ за </Export_HTML_Data>
+    <Export_HTML_Schema language="sr-Cyrl">Извоз ХТМЛ шеме за </Export_HTML_Schema>
+    <Export_HTML_Data language="sr-Cyrl">Извоз података у ХТМЛ за </Export_HTML_Data>
     <Check_Log language="sr-Cyrl">Грешка : Молим вас потражите у евиденцији детаље</Check_Log>
     <Query_Error language="sr-Cyrl">Грешка у упит</Query_Error>
     <Export_CSV language="sr-Cyrl">ИЗВОЗ ЦСВ НА ЧИЈЕ ИМЕ </Export_CSV>
-    <Export_SQL_SCHEMA language="sr-Cyrl">Извоз СQЛ - ШЕМА - за </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="sr-Cyrl">Извоз СQЛ - шема - за </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="sr-Cyrl">Извоз СQЛ - СQЛ - за </Export_SQL_SQL>
     <Export_XML language="sr-Cyrl">ИЗВОЗ XМЛ-А ЗА</Export_XML>
     <System language="sr-Cyrl">Систем</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="sr-Cyrl">База података или Датавиеw не постоји или није био напуњен још</Dataview_Error>
     <Browse language="sr-Cyrl">Потражи</Browse>
     <Statistics_Page language="sr-Cyrl">Статистика странице</Statistics_Page>
+    <Invert language="sr-Cyrl">Обрни</Invert>
+    <Not_Supported language="sr-Cyrl">Није подржано</Not_Supported>
+    <CMD_Tooltip language="sr-Cyrl">Извршава прилагођене СQЛ изразе команду на базу података</CMD_Tooltip>
+    <LOG_CSV_Path language="sr-Cyrl">Евиденција ЦСВ путању</LOG_CSV_Path>
+    <LOG_DB_PATH language="sr-Cyrl">Евиденције ДатабасеПатх</LOG_DB_PATH>
+    <Transaction_DB_Path language="sr-Cyrl">Путања базе података за трансакције</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="sr-Cyrl">ШЕМА-ПРИВАТНА</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="sr-Cyrl">Критична грешка грешка</Critical_Fault_Error>
+    <Stack_Trace language="sr-Cyrl">Праћење стека</Stack_Trace>
+    <Close_TW language="sr-Cyrl">Затворите ТW</Close_TW>
+    <Export_UI language="sr-Cyrl">Извоз корисничког Интерфејса</Export_UI>
+    <Define_New_Table language="sr-Cyrl">Дефиниши нову табелу</Define_New_Table>
+    <Create_Statistics_Page language="sr-Cyrl">Креирање статистике странице</Create_Statistics_Page>
+    <Debug language="sr-Cyrl">Отклањање грешака</Debug>
+    <New_in_Memory_Db language="sr-Cyrl">Ново у меморији базе података</New_in_Memory_Db>
+    <Import_SQL language="sr-Cyrl">Увоз СQЛ</Import_SQL>
   </Language>
 </root>

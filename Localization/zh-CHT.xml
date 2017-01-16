@@ -23,7 +23,7 @@
     <Check_for_Updates language="zh-CHT">檢查更新</Check_for_Updates>
     <PXML language="zh-CHT">XML</PXML>
     <PRGM_Start language="zh-CHT">啟動的程式</PRGM_Start>
-    <Application language="zh-CHT">應用程式</Application>
+    <App language="zh-CHT">應用程式</App>
     <Failed_Save_Settings language="zh-CHT">未能保存設置</Failed_Save_Settings>
     <Error language="zh-CHT">錯誤</Error>
     <Failed language="zh-CHT">失敗</Failed>
@@ -47,7 +47,7 @@
     <UI language="zh-CHT">使用者介面</UI>
     <Master_Table_Protected language="zh-CHT">Sqlite_mastertable 或主表是受保護的表。保護資料庫的完整性，您不能編輯此表</Master_Table_Protected>
     <Access_Denied language="zh-CHT">訪問被拒絕</Access_Denied>
-    <App language="zh-CHT">應用程式</App>
+    <Application language="zh-CHT">應用程式</Application>
     <View_Function language="zh-CHT">視圖功能</View_Function>
     <User_Requested language="zh-CHT">使用者請求</User_Requested>
     <Listview_Width language="zh-CHT">Listview 寬度</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="zh-CHT">資料庫或資料檢視不存在或尚未載入</Dataview_Error>
     <Browse language="zh-CHT">流覽</Browse>
     <Statistics_Page language="zh-CHT">統計頁</Statistics_Page>
+    <Invert language="zh-CHT">反轉</Invert>
+    <Not_Supported language="zh-CHT">不支援</Not_Supported>
+    <CMD_Tooltip language="zh-CHT">執行自訂到資料庫的 SQL 命令語句</CMD_Tooltip>
+    <LOG_CSV_Path language="zh-CHT">日誌 CSV 路徑</LOG_CSV_Path>
+    <LOG_DB_PATH language="zh-CHT">登錄 DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="zh-CHT">事務資料庫路徑</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="zh-CHT">架構和私營</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="zh-CHT">關鍵故障錯誤</Critical_Fault_Error>
+    <Stack_Trace language="zh-CHT">堆疊追蹤</Stack_Trace>
+    <Close_TW language="zh-CHT">關閉 TW</Close_TW>
+    <Export_UI language="zh-CHT">匯出使用者介面</Export_UI>
+    <Define_New_Table language="zh-CHT">定義新表</Define_New_Table>
+    <Create_Statistics_Page language="zh-CHT">創建統計頁</Create_Statistics_Page>
+    <Debug language="zh-CHT">調試</Debug>
+    <New_in_Memory_Db language="zh-CHT">記憶體資料庫中的新增功能</New_in_Memory_Db>
+    <Import_SQL language="zh-CHT">導入 SQL</Import_SQL>
   </Language>
 </root>

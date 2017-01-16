@@ -23,7 +23,7 @@
     <Check_for_Updates language="otq">Honi actualizaciones</Check_for_Updates>
     <PXML language="otq">XML</PXML>
     <PRGM_Start language="otq">Programa iniciado</PRGM_Start>
-    <Application language="otq">Nt'ot'e</Application>
+    <App language="otq">Nt'ot'e</App>
     <Failed_Save_Settings language="otq">Hingi ar himbí guardar ar configuración</Failed_Save_Settings>
     <Error language="otq">Error</Error>
     <Failed language="otq">Ar himbí pwede</Failed>
@@ -47,7 +47,7 @@
     <UI language="otq">INTERFAZ USUARIO</UI>
     <Master_Table_Protected language="otq">Sqlite_mastertable wa 'Master Table' ge 'nar tabla protegida. Pa proteger ntheki 'mui ar BD Hindi tsa̲ da editar nuna ar tabla</Master_Table_Protected>
     <Access_Denied language="otq">Nthogi denegado</Access_Denied>
-    <App language="otq">Nt'ot'e</App>
+    <Application language="otq">Nt'ot'e</Application>
     <View_Function language="otq">Función thandi</View_Function>
     <User_Requested language="otq">Usuario solicitado</User_Requested>
     <Listview_Width language="otq">Anchura ListView</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="otq">Cerrar hinda guardar ar tse̲ yá mpa̲ti</Close_wo_saving>
     <Failed_Load_Online_EULA language="otq">Hingi ar himbí cargar da EULA jar 'ñu</Failed_Load_Online_EULA>
     <Auto_Log language="otq">Registro auto</Auto_Log>
-    <Export_HTML_Schema language="otq">Exportación HTML ESQUEMA jar thuhuu ar </Export_HTML_Schema>
-    <Export_HTML_Data language="otq">Exportación DATOS HTML jar thuhuu ar </Export_HTML_Data>
+    <Export_HTML_Schema language="otq">Exportación HTML esquema jar thuhuu ar </Export_HTML_Schema>
+    <Export_HTML_Data language="otq">Exportación datos HTML jar thuhuu ar </Export_HTML_Data>
     <Check_Log language="otq">Error: Jaki ar mäte, compruebe registro pa mäs detalles</Check_Log>
     <Query_Error language="otq">Consulta Error</Query_Error>
     <Export_CSV language="otq">EXPORTAR CSV A NOMBRE AR </Export_CSV>
-    <Export_SQL_SCHEMA language="otq">Exportar SQL — ESQUEMA — jar thuhuu ar </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="otq">Exportar SQL — esquema — jar thuhuu ar </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="otq">Exportar da SQL — SQL — jar thuhuu ar </Export_SQL_SQL>
     <Export_XML language="otq">EXPORTACIÓN XML JAR THUHUU AR</Export_XML>
     <System language="otq">Ko ar</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="otq">Ar base ar datos wa Dataview hingi nuna ar dängo wa hi'nä ar xi cargado aún mi</Dataview_Error>
     <Browse language="otq">Di nu'i</Browse>
     <Statistics_Page language="otq">Página estadísticas</Statistics_Page>
+    <Invert language="otq">Invertir</Invert>
+    <Not_Supported language="otq">Hindi admite</Not_Supported>
+    <CMD_Tooltip language="otq">Ejecuta sentencias ya ts'edi SQL personalizadas dige ar base ar datos</CMD_Tooltip>
+    <LOG_CSV_Path language="otq">Ruta registro CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="otq">Registro DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="otq">Ruta ar base ar datos ar transacción</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="otq">ESQUEMA PRIVADO</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="otq">Nts'oki crítico Error</Critical_Fault_Error>
+    <Stack_Trace language="otq">Seguimiento ar pila</Stack_Trace>
+    <Close_TW language="otq">Njot'i TW</Close_TW>
+    <Export_UI language="otq">Interfaz usuario exportación</Export_UI>
+    <Define_New_Table language="otq">Definir ar 'ra'yo tabla</Define_New_Table>
+    <Create_Statistics_Page language="otq">Da t'ot'e página estadísticas</Create_Statistics_Page>
+    <Debug language="otq">Ar depuración</Debug>
+    <New_in_Memory_Db language="otq">'Ra'yo base ar datos ar memoria</New_in_Memory_Db>
+    <Import_SQL language="otq">Importación SQL</Import_SQL>
   </Language>
 </root>

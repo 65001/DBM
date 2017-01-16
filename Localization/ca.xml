@@ -23,7 +23,7 @@
     <Check_for_Updates language="ca">Buscar actualitzacions</Check_for_Updates>
     <PXML language="ca">XML</PXML>
     <PRGM_Start language="ca">Programa iniciat</PRGM_Start>
-    <Application language="ca">Aplicació</Application>
+    <App language="ca">Aplicació</App>
     <Failed_Save_Settings language="ca">No ha pogut desar la configuració</Failed_Save_Settings>
     <Error language="ca">Error</Error>
     <Failed language="ca">Ha fallat</Failed>
@@ -47,7 +47,7 @@
     <UI language="ca">INTERFÍCIE D'USUARI</UI>
     <Master_Table_Protected language="ca">Sqlite_mastertable o 'Taula de mestre' és una taula protegit. Per protegir la integritat de la db no podeu editar aquesta taula</Master_Table_Protected>
     <Access_Denied language="ca">Accés negat</Access_Denied>
-    <App language="ca">App</App>
+    <Application language="ca">App</Application>
     <View_Function language="ca">Funció de vista</View_Function>
     <User_Requested language="ca">L'usuari sol·licitat</User_Requested>
     <Listview_Width language="ca">Amplada Listview</Listview_Width>
@@ -60,11 +60,11 @@
     <Failed_Load_Online_EULA language="ca">No ha pogut carregar l'EULA en línia</Failed_Load_Online_EULA>
     <Auto_Log language="ca">Registre d'auto</Auto_Log>
     <Export_HTML_Schema language="ca">ESQUEMA de HTML d'exportació en nom de </Export_HTML_Schema>
-    <Export_HTML_Data language="ca">Exportar DADES de HTML en nom de </Export_HTML_Data>
+    <Export_HTML_Data language="ca">Exportar dades de HTML en nom de </Export_HTML_Data>
     <Check_Log language="ca">Error: Si us plau comprovar el registre per a més detalls</Check_Log>
     <Query_Error language="ca">Error de pregunta de</Query_Error>
     <Export_CSV language="ca">EXPORTACIÓ DE CSV EN NOM DE </Export_CSV>
-    <Export_SQL_SCHEMA language="ca">Exportació SQL - ESQUEMA - en nom de </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="ca">Exportació SQL - esquema - en nom de </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="ca">Exportació SQL - SQL - en nom de </Export_SQL_SQL>
     <Export_XML language="ca">EXPORTACIÓ eD XML EN NOM DE</Export_XML>
     <System language="ca">Sistema</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="ca">La base de dades o la visualització de dades no existeix o no ha carregat encara</Dataview_Error>
     <Browse language="ca">Navegar</Browse>
     <Statistics_Page language="ca">Pàgina d'estadístiques</Statistics_Page>
+    <Invert language="ca">Inverteix la</Invert>
+    <Not_Supported language="ca">No es dóna suport</Not_Supported>
+    <CMD_Tooltip language="ca">Executa personalitzats declaracions de comanda SQL a la base de dades</CMD_Tooltip>
+    <LOG_CSV_Path language="ca">Registre CSV camí</LOG_CSV_Path>
+    <LOG_DB_PATH language="ca">Registre DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="ca">Camí de base de dades de transacció</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="ca">ESQUEMA-PRIVADA</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="ca">Error crític culpa</Critical_Fault_Error>
+    <Stack_Trace language="ca">Rastreig de pila</Stack_Trace>
+    <Close_TW language="ca">Tancar TW</Close_TW>
+    <Export_UI language="ca">Exportació UI</Export_UI>
+    <Define_New_Table language="ca">Definir la nova taula</Define_New_Table>
+    <Create_Statistics_Page language="ca">Crear la pàgina d'estadístiques</Create_Statistics_Page>
+    <Debug language="ca">Depuració</Debug>
+    <New_in_Memory_Db language="ca">Nou a memòria base de dades</New_in_Memory_Db>
+    <Import_SQL language="ca">Importació SQL</Import_SQL>
   </Language>
 </root>

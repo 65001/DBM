@@ -23,7 +23,7 @@
     <Check_for_Updates language="et">Värskenduste otsimine</Check_for_Updates>
     <PXML language="et">XML</PXML>
     <PRGM_Start language="et">Programmi käivitumist</PRGM_Start>
-    <Application language="et">Taotlus</Application>
+    <App language="et">Taotlus</App>
     <Failed_Save_Settings language="et">Sätete salvestamine nurjus</Failed_Save_Settings>
     <Error language="et">Tõrge</Error>
     <Failed language="et">Nurjus</Failed>
@@ -47,7 +47,7 @@
     <UI language="et">UI</UI>
     <Master_Table_Protected language="et">Sqlite_mastertable või "Master tabelis" on kaitstud tabel. Db terviklikkust ei saa redigeerida selles tabelis</Master_Table_Protected>
     <Access_Denied language="et">Juurdepääs keelatud</Access_Denied>
-    <App language="et">App</App>
+    <Application language="et">App</Application>
     <View_Function language="et">View funktsioon</View_Function>
     <User_Requested language="et">Kasutaja soovis</User_Requested>
     <Listview_Width language="et">Loendivaade laius</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="et">Andmebaasi või Andmevaate pole olemas või ei ole veel koormatud</Dataview_Error>
     <Browse language="et">Sirvi</Browse>
     <Statistics_Page language="et">Lehe statistika</Statistics_Page>
+    <Invert language="et">Teistpidi</Invert>
+    <Not_Supported language="et">Ei toetata</Not_Supported>
+    <CMD_Tooltip language="et">Käivitab kohandatud SQL käsk-laused andmebaasi</CMD_Tooltip>
+    <LOG_CSV_Path language="et">Logi CSV tee</LOG_CSV_Path>
+    <LOG_DB_PATH language="et">Logi DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="et">Tehingute andmebaasi tee</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="et">SKEEMI JA ERASEKTORI</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="et">Kriitiline viga viga</Critical_Fault_Error>
+    <Stack_Trace language="et">Stack Trace</Stack_Trace>
+    <Close_TW language="et">Sulgege TW</Close_TW>
+    <Export_UI language="et">Eksportida UI</Export_UI>
+    <Define_New_Table language="et">Määratleda uue tabeli</Define_New_Table>
+    <Create_Statistics_Page language="et">Statistika lehe loomine</Create_Statistics_Page>
+    <Debug language="et">Siluda</Debug>
+    <New_in_Memory_Db language="et">Uus andmebaas</New_in_Memory_Db>
+    <Import_SQL language="et">Impordi SQL</Import_SQL>
   </Language>
 </root>

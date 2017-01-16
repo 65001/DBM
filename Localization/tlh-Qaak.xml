@@ -23,7 +23,7 @@
     <Check_for_Updates language="tlh-Qaak"> </Check_for_Updates>
     <PXML language="tlh-Qaak"></PXML>
     <PRGM_Start language="tlh-Qaak"> </PRGM_Start>
-    <Application language="tlh-Qaak"></Application>
+    <App language="tlh-Qaak"></App>
     <Failed_Save_Settings language="tlh-Qaak">  </Failed_Save_Settings>
     <Error language="tlh-Qaak"></Error>
     <Failed language="tlh-Qaak"></Failed>
@@ -47,7 +47,7 @@
     <UI language="tlh-Qaak"></UI>
     <Master_Table_Protected language="tlh-Qaak">_             </Master_Table_Protected>
     <Access_Denied language="tlh-Qaak"> </Access_Denied>
-    <App language="tlh-Qaak"></App>
+    <Application language="tlh-Qaak"></Application>
     <View_Function language="tlh-Qaak"> </View_Function>
     <User_Requested language="tlh-Qaak"> </User_Requested>
     <Listview_Width language="tlh-Qaak"> </Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="tlh-Qaak">        </Dataview_Error>
     <Browse language="tlh-Qaak"></Browse>
     <Statistics_Page language="tlh-Qaak"> </Statistics_Page>
+    <Invert language="tlh-Qaak"></Invert>
+    <Not_Supported language="tlh-Qaak"> </Not_Supported>
+    <CMD_Tooltip language="tlh-Qaak">      </CMD_Tooltip>
+    <LOG_CSV_Path language="tlh-Qaak">  </LOG_CSV_Path>
+    <LOG_DB_PATH language="tlh-Qaak"> </LOG_DB_PATH>
+    <Transaction_DB_Path language="tlh-Qaak">  </Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="tlh-Qaak">-</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="tlh-Qaak">  </Critical_Fault_Error>
+    <Stack_Trace language="tlh-Qaak"> </Stack_Trace>
+    <Close_TW language="tlh-Qaak"> </Close_TW>
+    <Export_UI language="tlh-Qaak"> </Export_UI>
+    <Define_New_Table language="tlh-Qaak">  </Define_New_Table>
+    <Create_Statistics_Page language="tlh-Qaak">  </Create_Statistics_Page>
+    <Debug language="tlh-Qaak"></Debug>
+    <New_in_Memory_Db language="tlh-Qaak">   </New_in_Memory_Db>
+    <Import_SQL language="tlh-Qaak"> </Import_SQL>
   </Language>
 </root>

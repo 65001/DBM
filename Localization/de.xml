@@ -23,7 +23,7 @@
     <Check_for_Updates language="de">Nach Updates suchen</Check_for_Updates>
     <PXML language="de">XML</PXML>
     <PRGM_Start language="de">Programm gestartet</PRGM_Start>
-    <Application language="de">Anwendung</Application>
+    <App language="de">Anwendung</App>
     <Failed_Save_Settings language="de">Fehler beim Speichern der Einstellungen</Failed_Save_Settings>
     <Error language="de">Fehler</Error>
     <Failed language="de">Fehler beim</Failed>
@@ -47,7 +47,7 @@
     <UI language="de">BENUTZEROBERFLÄCHE</UI>
     <Master_Table_Protected language="de">Sqlite_mastertable oder "Mastertabelle" ist eine geschützte Tabelle. Zum Schutz der Integrität der Db kann nicht in dieser Tabelle bearbeitet werden.</Master_Table_Protected>
     <Access_Denied language="de">Zugriff verweigert</Access_Denied>
-    <App language="de">App</App>
+    <Application language="de">App</Application>
     <View_Function language="de">View-Funktion</View_Function>
     <User_Requested language="de">Benutzer angefordert</User_Requested>
     <Listview_Width language="de">ListView-breite</Listview_Width>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="de">Fehler beim Laden von Online-EULA</Failed_Load_Online_EULA>
     <Auto_Log language="de">Auto Login</Auto_Log>
     <Export_HTML_Schema language="de">HTML-SCHEMA für Export </Export_HTML_Schema>
-    <Export_HTML_Data language="de">Export von HTML-DATEN im Auftrag von </Export_HTML_Data>
+    <Export_HTML_Data language="de">Export von HTML-Daten im Auftrag von </Export_HTML_Data>
     <Check_Log language="de">Fehler: Bitte überprüfen Sie das Protokoll für details</Check_Log>
     <Query_Error language="de">Abfragefehler</Query_Error>
     <Export_CSV language="de">EXPORT-CSV IM AUFTRAG VON </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="de">Die Datenbank oder den Dataview existiert nicht oder ist noch nicht geladen worden</Dataview_Error>
     <Browse language="de">Durchsuchen</Browse>
     <Statistics_Page language="de">Seite "Statistiken"</Statistics_Page>
+    <Invert language="de">Invertieren</Invert>
+    <Not_Supported language="de">Nicht unterstützt</Not_Supported>
+    <CMD_Tooltip language="de">Angepasste SQL-Befehl-Anweisungen auf der Datenbank ausgeführt wird</CMD_Tooltip>
+    <LOG_CSV_Path language="de">CSV-Protokollpfad</LOG_CSV_Path>
+    <LOG_DB_PATH language="de">Log-DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="de">Transaktion Datenbankpfad</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="de">SCHEMA-PRIVATE</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="de">Kritischer Fehler Fehler</Critical_Fault_Error>
+    <Stack_Trace language="de">Stack-Trace</Stack_Trace>
+    <Close_TW language="de">Schließen Sie TW</Close_TW>
+    <Export_UI language="de">Export UI</Export_UI>
+    <Define_New_Table language="de">Neue Tabelle definieren</Define_New_Table>
+    <Create_Statistics_Page language="de">Erstellen der Seite "Statistiken"</Create_Statistics_Page>
+    <Debug language="de">Debug</Debug>
+    <New_in_Memory_Db language="de">Neu im Memory-Datenbank</New_in_Memory_Db>
+    <Import_SQL language="de">Import von SQL</Import_SQL>
   </Language>
 </root>

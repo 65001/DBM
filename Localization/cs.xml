@@ -23,7 +23,7 @@
     <Check_for_Updates language="cs">Vyhledat aktualizace</Check_for_Updates>
     <PXML language="cs">XML</PXML>
     <PRGM_Start language="cs">Program začal</PRGM_Start>
-    <Application language="cs">Aplikace</Application>
+    <App language="cs">Aplikace</App>
     <Failed_Save_Settings language="cs">Nepodařilo se uložit nastavení</Failed_Save_Settings>
     <Error language="cs">Chyba</Error>
     <Failed language="cs">Se nezdařilo</Failed>
@@ -47,7 +47,7 @@
     <UI language="cs">UI</UI>
     <Master_Table_Protected language="cs">Sqlite_mastertable nebo "Hlavní tabulka" je chráněná tabulka. K ochraně integrity databáze nelze upravovat v této tabulce</Master_Table_Protected>
     <Access_Denied language="cs">Přístup byl odepřen</Access_Denied>
-    <App language="cs">Aplikace</App>
+    <Application language="cs">Aplikace</Application>
     <View_Function language="cs">Pohled zezadu funkce</View_Function>
     <User_Requested language="cs">Uživatel požaduje</User_Requested>
     <Listview_Width language="cs">Šířka ListView</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="cs">Zavřít bez uložení</Close_wo_saving>
     <Failed_Load_Online_EULA language="cs">Nepodařilo se načíst online EULA</Failed_Load_Online_EULA>
     <Auto_Log language="cs">Auto Log</Auto_Log>
-    <Export_HTML_Schema language="cs">Exportovat SCHÉMA HTML jménem </Export_HTML_Schema>
+    <Export_HTML_Schema language="cs">Exportovat schéma HTML jménem </Export_HTML_Schema>
     <Export_HTML_Data language="cs">Exportovat DATA HTML jménem </Export_HTML_Data>
     <Check_Log language="cs">Chyba: Zkontrolujte podrobnosti v protokolu</Check_Log>
     <Query_Error language="cs">Chyba dotazu</Query_Error>
     <Export_CSV language="cs">EXPORTOVAT CSV JMÉNEM </Export_CSV>
-    <Export_SQL_SCHEMA language="cs">Exportovat SQL - SCHÉMATU - jménem </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="cs">Exportovat SQL - schématu - jménem </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="cs">Exportovat SQL - SQL - jménem </Export_SQL_SQL>
     <Export_XML language="cs">EXPORTOVAT XML JMÉNEM</Export_XML>
     <System language="cs">Systém</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="cs">Databáze nebo Dataview neexistuje nebo nebyla dosud načtena</Dataview_Error>
     <Browse language="cs">Procházet</Browse>
     <Statistics_Page language="cs">Statistika stránky</Statistics_Page>
+    <Invert language="cs">Invertovat</Invert>
+    <Not_Supported language="cs">Není podporováno</Not_Supported>
+    <CMD_Tooltip language="cs">Provede vlastní příkazy příkaz SQL do databáze</CMD_Tooltip>
+    <LOG_CSV_Path language="cs">Cesta k protokolu CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="cs">Protokolovat DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="cs">Cesta k databázi transakce</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="cs">SCHÉMA SOUKROMÉ</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="cs">Kritická chyba</Critical_Fault_Error>
+    <Stack_Trace language="cs">Trasování zásobníku</Stack_Trace>
+    <Close_TW language="cs">Uzavřít TW</Close_TW>
+    <Export_UI language="cs">Uživatelské rozhraní pro export</Export_UI>
+    <Define_New_Table language="cs">Definovat novou tabulku</Define_New_Table>
+    <Create_Statistics_Page language="cs">Vytvořit stránku se statistikami</Create_Statistics_Page>
+    <Debug language="cs">Ladění</Debug>
+    <New_in_Memory_Db language="cs">Novinky v paměti databáze</New_in_Memory_Db>
+    <Import_SQL language="cs">Importovat SQL</Import_SQL>
   </Language>
 </root>

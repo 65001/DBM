@@ -17,7 +17,7 @@
 #File
 1=Menu;2=New;3=<Main Menu>;4=File;
 1=Menu;2=Open;3=<Main Menu>;4=File;
-1=Menu;2=Define New Table ;3=<Main Menu>;4=File;6=0;
+1=Menu;2=Define New Table ;3=<Main Menu>;4=File;
 1=Menu;2=-;3=<Main Menu>;4=File;
 
 #Import
@@ -49,11 +49,11 @@
 1=Menu;2=-;3=<Main Menu>;4=Settings;
 
 #Developer
-1=Menu;2=Developer;3=<Main Menu>;4=Main;6=0;
-1=Menu;2=Stack Trace;3=<Main Menu>;4=Developer;6=0;
-1=Menu;2=Close TW;3=<Main Menu>;4=Developer;6=0;
-1=Menu;2=Define New Table;3=<Main Menu>;4=Developer;6=0;
-1=Menu;2=Create Statistics Page;3=<Main Menu>;4=Developer;6=0;
+1=Menu;2=Developer;3=<Main Menu>;4=Main;
+1=Menu;2=Stack Trace;3=<Main Menu>;4=Developer;
+1=Menu;2=Close TW;3=<Main Menu>;4=Developer;
+1=Menu;2=Define New Table;3=<Main Menu>;4=Developer;
+1=Menu;2=Create Statistics Page;3=<Main Menu>;4=Developer;
 
 #Plugin Section
 1=Menu;2=Mod;4=Main;6=0;

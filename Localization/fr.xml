@@ -23,7 +23,7 @@
     <Check_for_Updates language="fr">Check for Updates</Check_for_Updates>
     <PXML language="fr">XML</PXML>
     <PRGM_Start language="fr">Débuté du programme</PRGM_Start>
-    <Application language="fr">Application</Application>
+    <App language="fr">Application</App>
     <Failed_Save_Settings language="fr">Impossible d’enregistrer les paramètres</Failed_Save_Settings>
     <Error language="fr">Erreur</Error>
     <Failed language="fr">A échoué</Failed>
@@ -47,7 +47,7 @@
     <UI language="fr">INTERFACE UTILISATEUR</UI>
     <Master_Table_Protected language="fr">Sqlite_mastertable ou « Master Table » est une table protégée. Pour protéger l’intégrité de la db, vous ne pouvez pas modifier ce tableau</Master_Table_Protected>
     <Access_Denied language="fr">Accès refusé</Access_Denied>
-    <App language="fr">App</App>
+    <Application language="fr">App</Application>
     <View_Function language="fr">Fonction de visualisation</View_Function>
     <User_Requested language="fr">Demandée par utilisateur</User_Requested>
     <Listview_Width language="fr">Largeur de ListView</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="fr">Fermer sans enregistrer les modifications</Close_wo_saving>
     <Failed_Load_Online_EULA language="fr">Impossible de charger le CLUF en ligne</Failed_Load_Online_EULA>
     <Auto_Log language="fr">Auto Journal</Auto_Log>
-    <Export_HTML_Schema language="fr">Exportation HTML SCHÉMA au nom de </Export_HTML_Schema>
-    <Export_HTML_Data language="fr">Exporter des DONNÉES HTML au nom de </Export_HTML_Data>
+    <Export_HTML_Schema language="fr">Exportation HTML schéma au nom de </Export_HTML_Schema>
+    <Export_HTML_Data language="fr">Exporter des données HTML au nom de </Export_HTML_Data>
     <Check_Log language="fr">Erreur : Veuillez consulter le journal pour plus de détails</Check_Log>
     <Query_Error language="fr">Erreur de requête</Query_Error>
     <Export_CSV language="fr">EXPORT CSV AU NOM DE </Export_CSV>
-    <Export_SQL_SCHEMA language="fr">Export SQL - SCHÉMA - au nom de </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="fr">Export SQL - schéma - au nom de </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="fr">Export SQL - SQL - au nom de </Export_SQL_SQL>
     <Export_XML language="fr">EXPORT XML POUR LE COMPTE DE</Export_XML>
     <System language="fr">Système</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="fr">La base de données ou Dataview n’existe pas ou n’a pas été chargé encore</Dataview_Error>
     <Browse language="fr">Parcourir</Browse>
     <Statistics_Page language="fr">Page de statistiques</Statistics_Page>
+    <Invert language="fr">Inverti</Invert>
+    <Not_Supported language="fr">Non pris en charge</Not_Supported>
+    <CMD_Tooltip language="fr">Exécute les instructions de commande SQL personnalisées sur la base de données</CMD_Tooltip>
+    <LOG_CSV_Path language="fr">Le chemin d’accès de journal CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="fr">DatabasePath Journal</LOG_DB_PATH>
+    <Transaction_DB_Path language="fr">Chemin d’accès de base de données de transactions</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="fr">SCHÉMA-PRIVÉ</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="fr">Erreur critique</Critical_Fault_Error>
+    <Stack_Trace language="fr">Trace de la pile</Stack_Trace>
+    <Close_TW language="fr">Fermez TW</Close_TW>
+    <Export_UI language="fr">Exporter l’interface utilisateur</Export_UI>
+    <Define_New_Table language="fr">Définir la nouvelle Table</Define_New_Table>
+    <Create_Statistics_Page language="fr">Créer la Page de statistiques</Create_Statistics_Page>
+    <Debug language="fr">Débogage</Debug>
+    <New_in_Memory_Db language="fr">Nouveau dans la mémoire de base de données</New_in_Memory_Db>
+    <Import_SQL language="fr">Importation SQL</Import_SQL>
   </Language>
 </root>

@@ -23,7 +23,7 @@
     <Check_for_Updates language="mww">Tshev tshiab</Check_for_Updates>
     <PXML language="mww">XML</PXML>
     <PRGM_Start language="mww">Kev pib</PRGM_Start>
-    <Application language="mww">Daim ntawv</Application>
+    <App language="mww">Daim ntawv</App>
     <Failed_Save_Settings language="mww">Tejyam uas muaj tseg tau tej chaw</Failed_Save_Settings>
     <Error language="mww">Yuam kev</Error>
     <Failed language="mww">Ua tsis tau tejyam</Failed>
@@ -47,7 +47,7 @@
     <UI language="mww">POVHWM POOB HAUJLWM</UI>
     <Master_Table_Protected language="mww">Sqlite_mastertable 'Tswv rooj' yog ib cov lus tiv thaiv. Tiv thaiv lub sam xeeb txog qhov uas cov db koj tsis tau hloov cov lus no</Master_Table_Protected>
     <Access_Denied language="mww">Ntawv tsis pom zoo</Access_Denied>
-    <App language="mww">APP</App>
+    <Application language="mww">APP</Application>
     <View_Function language="mww">Saib muaj nuj nqi</View_Function>
     <User_Requested language="mww">Neeg thov</User_Requested>
     <Listview_Width language="mww">Listview dav</Listview_Width>
@@ -60,7 +60,7 @@
     <Failed_Load_Online_EULA language="mww">Tejyam uas ntsaws hauv internet EULA</Failed_Load_Online_EULA>
     <Auto_Log language="mww">Nws pib cav</Auto_Log>
     <Export_HTML_Schema language="mww">Export HTML SCHEMA fill </Export_HTML_Schema>
-    <Export_HTML_Data language="mww">Cov ntaub NTAWV HTML export fill </Export_HTML_Data>
+    <Export_HTML_Data language="mww">Cov ntaub ntawv HTML export fill </Export_HTML_Data>
     <Check_Log language="mww">Yuam kev: Thov kos lub cav kom paub meej</Check_Log>
     <Query_Error language="mww">Lus nug yuam kev</Query_Error>
     <Export_CSV language="mww">EXPORT CSV FILL </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="mww">Tus Database los Dataview tsis muaj nyob los tsis tau loaded tsis tau</Dataview_Error>
     <Browse language="mww">Xauj</Browse>
     <Statistics_Page language="mww">Nplooj ntawv txheeb cais</Statistics_Page>
+    <Invert language="mww">Invert</Invert>
+    <Not_Supported language="mww">Tsis txaus siab</Not_Supported>
+    <CMD_Tooltip language="mww">Executes customized SQL hais kom ua ntawv mus rau tus database</CMD_Tooltip>
+    <LOG_CSV_Path language="mww">Cav txog kev CSV</LOG_CSV_Path>
+    <LOG_DB_PATH language="mww">Cav DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="mww">Tham txog kev Database</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="mww">SCHEMA-NTIAV</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="mww">Yuam kev txhaum thiaj mob nyav</Critical_Fault_Error>
+    <Stack_Trace language="mww">Pawg ib txoj lw</Stack_Trace>
+    <Close_TW language="mww">Kaw TW</Close_TW>
+    <Export_UI language="mww">Export povhwm poob haujlwm</Export_UI>
+    <Define_New_Table language="mww">Txhais tau cov lus tshiab</Define_New_Table>
+    <Create_Statistics_Page language="mww">Ua tau ib nplooj ntawv txheeb cais</Create_Statistics_Page>
+    <Debug language="mww">Debug</Debug>
+    <New_in_Memory_Db language="mww">Tshiab nyob hauv lub cim xeeb Database</New_in_Memory_Db>
+    <Import_SQL language="mww">Ntshuam SQL</Import_SQL>
   </Language>
 </root>

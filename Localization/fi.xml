@@ -23,7 +23,7 @@
     <Check_for_Updates language="fi">Tarkista päivitykset</Check_for_Updates>
     <PXML language="fi">XML</PXML>
     <PRGM_Start language="fi">Ohjelma alkoi</PRGM_Start>
-    <Application language="fi">Sovellus</Application>
+    <App language="fi">Sovellus</App>
     <Failed_Save_Settings language="fi">Asetusten tallentaminen ei onnistu</Failed_Save_Settings>
     <Error language="fi">Virhe</Error>
     <Failed language="fi">Epäonnistui</Failed>
@@ -47,7 +47,7 @@
     <UI language="fi">UI</UI>
     <Master_Table_Protected language="fi">Sqlite_mastertable tai Master taulukko on suojattu taulukko. Suojatakseen DB ei voi muokata tätä taulukkoa</Master_Table_Protected>
     <Access_Denied language="fi">Käyttö estetty</Access_Denied>
-    <App language="fi">App</App>
+    <Application language="fi">App</Application>
     <View_Function language="fi">Toiminnon</View_Function>
     <User_Requested language="fi">Käyttäjä</User_Requested>
     <Listview_Width language="fi">ListView leveys</Listview_Width>
@@ -57,10 +57,10 @@
     <Language language="fi">Kieli</Language>
     <Save_and_Close language="fi">Tallenna ja sulje</Save_and_Close>
     <Close_wo_saving language="fi">Sulje tallentamatta</Close_wo_saving>
-    <Failed_Load_Online_EULA language="fi">Online KÄYTTÖOIKEUSSOPIMUKSEN lataaminen epäonnistui</Failed_Load_Online_EULA>
+    <Failed_Load_Online_EULA language="fi">Online Käyttöoikeussopimuksen lataaminen epäonnistui</Failed_Load_Online_EULA>
     <Auto_Log language="fi">Automaattinen sisäänkirjaus</Auto_Log>
-    <Export_HTML_Schema language="fi">Vie HTML RAKENNE puolesta </Export_HTML_Schema>
-    <Export_HTML_Data language="fi">Vie HTML-TIETOJEN puolesta </Export_HTML_Data>
+    <Export_HTML_Schema language="fi">Vie HTML rakenne puolesta </Export_HTML_Schema>
+    <Export_HTML_Data language="fi">Vie HTML-tietojen puolesta </Export_HTML_Data>
     <Check_Log language="fi">Virhe: Tarkista halko ajaksi esittää tarkasti</Check_Log>
     <Query_Error language="fi">Kyselyn virhe</Query_Error>
     <Export_CSV language="fi">VIENTI CSV PUOLESTA </Export_CSV>
@@ -72,5 +72,21 @@
     <Dataview_Error language="fi">Tietokannan tai Dataview ei ole tai ei ole ladattu vielä</Dataview_Error>
     <Browse language="fi">Selaa</Browse>
     <Statistics_Page language="fi">Tilastot Page</Statistics_Page>
+    <Invert language="fi">Käännä</Invert>
+    <Not_Supported language="fi">Ei tueta</Not_Supported>
+    <CMD_Tooltip language="fi">Suorittaa mukautetun SQL komentoa lausuntoja päälle tietokanta</CMD_Tooltip>
+    <LOG_CSV_Path language="fi">CSV polun</LOG_CSV_Path>
+    <LOG_DB_PATH language="fi">Kirjaudu DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="fi">Tapahtuman tietokannan polku</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="fi">RAKENTEEN JA YKSITYISEN</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="fi">SNMP Laite vika virhe</Critical_Fault_Error>
+    <Stack_Trace language="fi">Pinon jäljitys</Stack_Trace>
+    <Close_TW language="fi">Sulje TW</Close_TW>
+    <Export_UI language="fi">Vienti käyttöliittymä</Export_UI>
+    <Define_New_Table language="fi">Määritä uusi taulukko</Define_New_Table>
+    <Create_Statistics_Page language="fi">Tilastot-sivun luominen</Create_Statistics_Page>
+    <Debug language="fi">Debug</Debug>
+    <New_in_Memory_Db language="fi">Uusi tietokanta</New_in_Memory_Db>
+    <Import_SQL language="fi">Tuo SQL</Import_SQL>
   </Language>
 </root>

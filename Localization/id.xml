@@ -23,7 +23,7 @@
     <Check_for_Updates language="id">Memeriksa pembaruan</Check_for_Updates>
     <PXML language="id">XML</PXML>
     <PRGM_Start language="id">Program dimulai</PRGM_Start>
-    <Application language="id">Aplikasi</Application>
+    <App language="id">Aplikasi</App>
     <Failed_Save_Settings language="id">Gagal untuk menyimpan pengaturan</Failed_Save_Settings>
     <Error language="id">Kesalahan</Error>
     <Failed language="id">Gagal</Failed>
@@ -47,7 +47,7 @@
     <UI language="id">UI</UI>
     <Master_Table_Protected language="id">Sqlite_mastertable atau 'Master tabel' adalah meja dilindungi. Untuk melindungi integritas db Anda tidak dapat mengedit tabel ini</Master_Table_Protected>
     <Access_Denied language="id">Akses ditolak</Access_Denied>
-    <App language="id">App</App>
+    <Application language="id">App</Application>
     <View_Function language="id">Lihat fungsi</View_Function>
     <User_Requested language="id">Pengguna diminta</User_Requested>
     <Listview_Width language="id">ListView lebar</Listview_Width>
@@ -64,7 +64,7 @@
     <Check_Log language="id">Kesalahan: Silakan periksa log untuk rincian</Check_Log>
     <Query_Error language="id">Permintaan kesalahan</Query_Error>
     <Export_CSV language="id">CSV EKSPOR BERTINDAK UNTUK </Export_CSV>
-    <Export_SQL_SCHEMA language="id">Ekspor SQL - SKEMA - bertindak untuk </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="id">Ekspor SQL - skema - bertindak untuk </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="id">Ekspor SQL - SQL - bertindak untuk </Export_SQL_SQL>
     <Export_XML language="id">EKSPOR XML BERTINDAK UNTUK</Export_XML>
     <System language="id">Sistem</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="id">Database atau Dataview tidak ada atau belum dimuat</Dataview_Error>
     <Browse language="id">Jelajahi</Browse>
     <Statistics_Page language="id">Halaman Statistik</Statistics_Page>
+    <Invert language="id">Balikkan</Invert>
+    <Not_Supported language="id">Tidak didukung</Not_Supported>
+    <CMD_Tooltip language="id">Mengeksekusi disesuaikan perintah SQL pernyataan ke database</CMD_Tooltip>
+    <LOG_CSV_Path language="id">Log CSV Path</LOG_CSV_Path>
+    <LOG_DB_PATH language="id">Log DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="id">Jalan Database transaksi</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="id">SKEMA-SWASTA</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="id">Kesalahan kesalahan kritis</Critical_Fault_Error>
+    <Stack_Trace language="id">Pelacakan stack</Stack_Trace>
+    <Close_TW language="id">Dekat TW</Close_TW>
+    <Export_UI language="id">Ekspor UI</Export_UI>
+    <Define_New_Table language="id">Mendefinisikan tabel baru</Define_New_Table>
+    <Create_Statistics_Page language="id">Membuat halaman statistik</Create_Statistics_Page>
+    <Debug language="id">Debug</Debug>
+    <New_in_Memory_Db language="id">Baru dalam memori Database</New_in_Memory_Db>
+    <Import_SQL language="id">Impor SQL</Import_SQL>
   </Language>
 </root>

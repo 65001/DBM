@@ -23,7 +23,7 @@
     <Check_for_Updates language="sr-Latn">Proverite da li</Check_for_Updates>
     <PXML language="sr-Latn">XML</PXML>
     <PRGM_Start language="sr-Latn">Program je počeo</PRGM_Start>
-    <Application language="sr-Latn">Aplikacija</Application>
+    <App language="sr-Latn">Aplikacija</App>
     <Failed_Save_Settings language="sr-Latn">Sačuvaj postavke nije uspjelo</Failed_Save_Settings>
     <Error language="sr-Latn">Greška</Error>
     <Failed language="sr-Latn">Nije uspelo</Failed>
@@ -47,7 +47,7 @@
     <UI language="sr-Latn">KORISNIČKI INTERFEJS</UI>
     <Master_Table_Protected language="sr-Latn">Sqlite_mastertable ili 'Gospodar tabela' je zaštićena sto. Da zaštiti integritet u db nije moguće uređivati u ovoj tabeli</Master_Table_Protected>
     <Access_Denied language="sr-Latn">Pristup odbijen</Access_Denied>
-    <App language="sr-Latn">App</App>
+    <Application language="sr-Latn">App</Application>
     <View_Function language="sr-Latn">Prikaz funkcija</View_Function>
     <User_Requested language="sr-Latn">Korisnik je tražio</User_Requested>
     <Listview_Width language="sr-Latn">ListView širina</Listview_Width>
@@ -59,12 +59,12 @@
     <Close_wo_saving language="sr-Latn">Zatvorili bez čuvanja</Close_wo_saving>
     <Failed_Load_Online_EULA language="sr-Latn">Online ugovora EULA nije uspelo</Failed_Load_Online_EULA>
     <Auto_Log language="sr-Latn">Automatske evidencije</Auto_Log>
-    <Export_HTML_Schema language="sr-Latn">Izvoz HTML ŠEME za </Export_HTML_Schema>
-    <Export_HTML_Data language="sr-Latn">Izvoz PODATAKA u HTML za </Export_HTML_Data>
+    <Export_HTML_Schema language="sr-Latn">Izvoz HTML šeme za </Export_HTML_Schema>
+    <Export_HTML_Data language="sr-Latn">Izvoz podataka u HTML za </Export_HTML_Data>
     <Check_Log language="sr-Latn">Greška: Molim vas potražite u evidenciji detalje</Check_Log>
     <Query_Error language="sr-Latn">Greška u upit</Query_Error>
     <Export_CSV language="sr-Latn">IZVOZ CSV NA ČIJE IME </Export_CSV>
-    <Export_SQL_SCHEMA language="sr-Latn">Izvoz SQL - ŠEMA - za </Export_SQL_SCHEMA>
+    <Export_SQL_SCHEMA language="sr-Latn">Izvoz SQL - šema - za </Export_SQL_SCHEMA>
     <Export_SQL_SQL language="sr-Latn">Izvoz SQL - SQL - za </Export_SQL_SQL>
     <Export_XML language="sr-Latn">IZVOZ XML-A ZA</Export_XML>
     <System language="sr-Latn">Sistem</System>
@@ -72,5 +72,21 @@
     <Dataview_Error language="sr-Latn">Baza podataka ili Dataview ne postoji ili nije bio napunjen još</Dataview_Error>
     <Browse language="sr-Latn">Potraži</Browse>
     <Statistics_Page language="sr-Latn">Statistika stranice</Statistics_Page>
+    <Invert language="sr-Latn">Obrni</Invert>
+    <Not_Supported language="sr-Latn">Nije podržano</Not_Supported>
+    <CMD_Tooltip language="sr-Latn">Izvršava prilagođene SQL izraze komandu na bazu podataka</CMD_Tooltip>
+    <LOG_CSV_Path language="sr-Latn">Evidencija CSV putanju</LOG_CSV_Path>
+    <LOG_DB_PATH language="sr-Latn">Evidencije DatabasePath</LOG_DB_PATH>
+    <Transaction_DB_Path language="sr-Latn">Putanja baze podataka za transakcije</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="sr-Latn">ŠEMA-PRIVATNA</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="sr-Latn">Kritična greška greška</Critical_Fault_Error>
+    <Stack_Trace language="sr-Latn">Praćenje steka</Stack_Trace>
+    <Close_TW language="sr-Latn">Zatvorite TW</Close_TW>
+    <Export_UI language="sr-Latn">Izvoz korisničkog Interfejsa</Export_UI>
+    <Define_New_Table language="sr-Latn">Definiši novu tabelu</Define_New_Table>
+    <Create_Statistics_Page language="sr-Latn">Kreiranje statistike stranice</Create_Statistics_Page>
+    <Debug language="sr-Latn">Otklanjanje grešaka</Debug>
+    <New_in_Memory_Db language="sr-Latn">Novo u memoriji baze podataka</New_in_Memory_Db>
+    <Import_SQL language="sr-Latn">Uvoz SQL</Import_SQL>
   </Language>
 </root>

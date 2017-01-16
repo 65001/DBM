@@ -23,7 +23,7 @@
     <Check_for_Updates language="yue">檢查更新</Check_for_Updates>
     <PXML language="yue">XML</PXML>
     <PRGM_Start language="yue">啟動的程序</PRGM_Start>
-    <Application language="yue">應用程序</Application>
+    <App language="yue">應用程序</App>
     <Failed_Save_Settings language="yue">未能保存設置</Failed_Save_Settings>
     <Error language="yue">錯誤</Error>
     <Failed language="yue">炒</Failed>
@@ -47,7 +47,7 @@
     <UI language="yue">用戶界面</UI>
     <Master_Table_Protected language="yue">sqlite_mastertable 或主表係受保護嘅錶。 保護數據庫的完整性, 你唔可以編輯此表</Master_Table_Protected>
     <Access_Denied language="yue">訪問食檸檬</Access_Denied>
-    <App language="yue">應用程序</App>
+    <Application language="yue">應用程序</Application>
     <View_Function language="yue">视图功能</View_Function>
     <User_Requested language="yue">用戶請求</User_Requested>
     <Listview_Width language="yue">listview 寬度</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="yue">數據庫或數據视图唔存在或者尚未加载</Dataview_Error>
     <Browse language="yue">瀏覽</Browse>
     <Statistics_Page language="yue">統計頁</Statistics_Page>
+    <Invert language="yue">反轉</Invert>
+    <Not_Supported language="yue">唔支持</Not_Supported>
+    <CMD_Tooltip language="yue">執行自定義到數據庫的 sql 命令語句</CMD_Tooltip>
+    <LOG_CSV_Path language="yue">日誌 csv 路徑</LOG_CSV_Path>
+    <LOG_DB_PATH language="yue">登錄 databasepath</LOG_DB_PATH>
+    <Transaction_DB_Path language="yue">事務數據庫路徑</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="yue">架構和私營</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="yue">關鍵故障錯誤</Critical_Fault_Error>
+    <Stack_Trace language="yue">堆棧跟蹤</Stack_Trace>
+    <Close_TW language="yue">關閉 tw</Close_TW>
+    <Export_UI language="yue">導出用戶界面</Export_UI>
+    <Define_New_Table language="yue">定義新表</Define_New_Table>
+    <Create_Statistics_Page language="yue">創建統計頁</Create_Statistics_Page>
+    <Debug language="yue">調試</Debug>
+    <New_in_Memory_Db language="yue">內存數據庫中新增功能</New_in_Memory_Db>
+    <Import_SQL language="yue">導入 sql</Import_SQL>
   </Language>
 </root>

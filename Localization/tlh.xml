@@ -23,7 +23,7 @@
     <Check_for_Updates language="tlh">check Updates</Check_for_Updates>
     <PXML language="tlh">XML</PXML>
     <PRGM_Start language="tlh">ghun Started</PRGM_Start>
-    <Application language="tlh">application</Application>
+    <App language="tlh">application</App>
     <Failed_Save_Settings language="tlh">Settings toD luj</Failed_Save_Settings>
     <Error language="tlh">Qagh</Error>
     <Failed language="tlh">luj</Failed>
@@ -47,7 +47,7 @@
     <UI language="tlh">UI</UI>
     <Master_Table_Protected language="tlh">sqlite_mastertable pIn'a' raS pagh SuvwI' QaD raS. integrity db QaD raS pagh edit SoH</Master_Table_Protected>
     <Access_Denied language="tlh">naw' tem</Access_Denied>
-    <App language="tlh">app</App>
+    <Application language="tlh">app</Application>
     <View_Function language="tlh">jIH Qap</View_Function>
     <User_Requested language="tlh">user Requested</User_Requested>
     <Listview_Width language="tlh">listview Width</Listview_Width>
@@ -72,5 +72,21 @@
     <Dataview_Error language="tlh">wej nIv'e' pagh wej load 'ach Database dataview pagh</Dataview_Error>
     <Browse language="tlh">browse</Browse>
     <Statistics_Page language="tlh">statistics page</Statistics_Page>
+    <Invert language="tlh">invert</Invert>
+    <Not_Supported language="tlh">wej ngaq</Not_Supported>
+    <CMD_Tooltip language="tlh">customize sql ra' statements onto database muH</CMD_Tooltip>
+    <LOG_CSV_Path language="tlh">QonoS csv Path</LOG_CSV_Path>
+    <LOG_DB_PATH language="tlh">databasepath QonoS</LOG_DB_PATH>
+    <Transaction_DB_Path language="tlh">transaction Database Path</Transaction_DB_Path>
+    <SCHEMA_PRIVATE language="tlh">SCHEMA-PRIVATE</SCHEMA_PRIVATE>
+    <Critical_Fault_Error language="tlh">critical pIch Qagh</Critical_Fault_Error>
+    <Stack_Trace language="tlh">stack Trace</Stack_Trace>
+    <Close_TW language="tlh">tw SoQ</Close_TW>
+    <Export_UI language="tlh">ui export</Export_UI>
+    <Define_New_Table language="tlh">chu' raS define</Define_New_Table>
+    <Create_Statistics_Page language="tlh">Statistics page chenmoH</Create_Statistics_Page>
+    <Debug language="tlh">debug</Debug>
+    <New_in_Memory_Db language="tlh">chu' qaStaHvIS lulIjbe'lu'bogh Database</New_in_Memory_Db>
+    <Import_SQL language="tlh">DughajmoH sql</Import_SQL>
   </Language>
 </root>
