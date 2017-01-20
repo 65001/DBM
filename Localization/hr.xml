@@ -88,5 +88,7 @@
     <Debug language="hr">Ispravljanje pogrešaka</Debug>
     <New_in_Memory_Db language="hr">Novo u memorijsku bazu podataka</New_in_Memory_Db>
     <Import_SQL language="hr">Uvoz SQL</Import_SQL>
+    <Plugin language="hr">Čep</Plugin>
+    <Opened language="hr">Otvoren</Opened>
   </Language>
 </root>

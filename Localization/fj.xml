@@ -88,5 +88,7 @@
     <Debug language="fj">Vakavinakataki</Debug>
     <New_in_Memory_Db language="fj">Vou ena vakanananu kato ni itukutuku</New_in_Memory_Db>
     <Import_SQL language="fj">Vakacurumi SQL</Import_SQL>
+    <Plugin language="fj">Plugin</Plugin>
+    <Opened language="fj">Dolavi</Opened>
   </Language>
 </root>

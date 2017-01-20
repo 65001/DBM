@@ -88,5 +88,7 @@
     <Debug language="sr-Cyrl">Отклањање грешака</Debug>
     <New_in_Memory_Db language="sr-Cyrl">Ново у меморији базе података</New_in_Memory_Db>
     <Import_SQL language="sr-Cyrl">Увоз СQЛ</Import_SQL>
+    <Plugin language="sr-Cyrl">Додатна компонента</Plugin>
+    <Opened language="sr-Cyrl">Отворена је</Opened>
   </Language>
 </root>

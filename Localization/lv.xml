@@ -88,5 +88,7 @@
     <Debug language="lv">Atkļūdošanas</Debug>
     <New_in_Memory_Db language="lv">Jaunu atmiņas datu bāzē</New_in_Memory_Db>
     <Import_SQL language="lv">Importēšana SQL</Import_SQL>
+    <Plugin language="lv">Spraudnis</Plugin>
+    <Opened language="lv">Atvēra</Opened>
   </Language>
 </root>

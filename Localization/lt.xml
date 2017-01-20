@@ -88,5 +88,7 @@
     <Debug language="lt">Derinti</Debug>
     <New_in_Memory_Db language="lt">Naujas atminties duomenų bazė</New_in_Memory_Db>
     <Import_SQL language="lt">Importuoti SQL</Import_SQL>
+    <Plugin language="lt">Įskiepis</Plugin>
+    <Opened language="lt">Atidarytas</Opened>
   </Language>
 </root>

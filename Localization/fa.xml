@@ -88,5 +88,7 @@
     <Debug language="fa">اشکال زدایی</Debug>
     <New_in_Memory_Db language="fa">جدید در پایگاه داده حافظه</New_in_Memory_Db>
     <Import_SQL language="fa">واردات SQL</Import_SQL>
+    <Plugin language="fa">پلاگین</Plugin>
+    <Opened language="fa">باز</Opened>
   </Language>
 </root>

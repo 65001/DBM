@@ -33,7 +33,9 @@
 'Added invert Search function
 
 'v1122
-'
+'Fixed a bug that could cause a stack overflow exception
+'Set a default table for Define New Table function
+
 
 StartTime[0] = Clock.ElapsedMilliseconds
 GraphicsWindow.Show()
@@ -515,7 +517,7 @@ Sub EULA_UI
   defaultWidth = GraphicsWindow.Width
   defaultHeight= GraphicsWindow.Height
   
-'  LDControls.RichTextBoxReadOnly = "True"
+  '  LDControls.RichTextBoxReadOnly = "True"
   
   If LDFile.GetExtension(EULAFile) = "html" Then 'For html files 
     eulatextbox =  LDControls.AddBrowser(600,350,"file:///"+EULAFile)
@@ -1249,7 +1251,7 @@ Sub GenerateQuery
       CMD = CMD +" LIKE '%" + SearchTextGQ+"%' "
     Else 'Strict Search
       If InvertSearch = "True" Then
-       CMD = CMD +"!='" + SearchTextGQ+"' " 
+        CMD = CMD +"!='" + SearchTextGQ+"' " 
       Else 
         CMD = CMD +"='" + SearchTextGQ+"' "
       EndIf 
@@ -1324,6 +1326,7 @@ Sub Create_Table_UI
   Controls.Move( DataView , 1 ,30 )
   
   Table_Name = Controls.AddTextBox(50,1) 
+  Controls.SetTextBoxText(Table_Name,"Table1")
   
   Commit_Button = Controls.AddButton("Commit",250,1)
   Exit_Button = Controls.AddButton("Exit",350,1)
@@ -1877,11 +1880,14 @@ EndSub
 
 Sub ErrorHandler 
   TextWindow.ForegroundColor = "YELLOW"
-  TextWindow.Write("Error Caught : " + LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :" )
-  TextWindow.ForegroundColor = "WHITE"
+  If LDList.Count(List_Stack_Trace) > 0 Then 'Prevents Errors that cause Stack over flow exception
+    TextWindow.Write("Error Caught : " + LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :" )
+    TextWindow.ForegroundColor = "WHITE"
+    LDCall.Function(Function_logCB,"Error Caught : " + LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :"  + LangList["System"]+":" + LDEvents.LastError )
+  EndIf 
+  
   TextWindow.WriteLine(LangList["System"]+":" + LDEvents.LastError ) 
   
-  LDCall.Function(Function_logCB,"Error Caught : " + LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :"  + LangList["System"]+":" + LDEvents.LastError )
   LDList.Add(List_Stack_Trace,"Error Handler")  
   LDCall.Function2(Function_Log, LDEvents.LastError ,LangList["System"])
 EndSub

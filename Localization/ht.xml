@@ -88,5 +88,7 @@
     <Debug language="ht">Déboguer</Debug>
     <New_in_Memory_Db language="ht">Nouvo nan bliye detabez</New_in_Memory_Db>
     <Import_SQL language="ht">Apwè ke SQL</Import_SQL>
+    <Plugin language="ht">Plugin</Plugin>
+    <Opened language="ht">Ouvè</Opened>
   </Language>
 </root>

@@ -88,5 +88,7 @@
     <Debug language="to">'O e Debug</Debug>
     <New_in_Memory_Db language="to">Fo'ou 'i he manatu 'a e Database</New_in_Memory_Db>
     <Import_SQL language="to">Hiki mai a SQL</Import_SQL>
+    <Plugin language="to">Plugin</Plugin>
+    <Opened language="to">Fakaava</Opened>
   </Language>
 </root>

@@ -88,5 +88,7 @@
     <Debug language="sk">Debug</Debug>
     <New_in_Memory_Db language="sk">Nová databáze v pamäti</New_in_Memory_Db>
     <Import_SQL language="sk">Importovať SQL</Import_SQL>
+    <Plugin language="sk">Plugin</Plugin>
+    <Opened language="sk">Otvoril</Opened>
   </Language>
 </root>

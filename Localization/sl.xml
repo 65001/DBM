@@ -88,5 +88,7 @@
     <Debug language="sl">Iskanje napak</Debug>
     <New_in_Memory_Db language="sl">Novo podatkovno bazo v pomnilniki</New_in_Memory_Db>
     <Import_SQL language="sl">Uvoz SQL</Import_SQL>
+    <Plugin language="sl">Plugin</Plugin>
+    <Opened language="sl">Odprl</Opened>
   </Language>
 </root>

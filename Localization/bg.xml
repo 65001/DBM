@@ -88,5 +88,7 @@
     <Debug language="bg">Отстраняване на грешки</Debug>
     <New_in_Memory_Db language="bg">Ново в паметта база данни</New_in_Memory_Db>
     <Import_SQL language="bg">Импортиране на SQL</Import_SQL>
+    <Plugin language="bg">Плъгин</Plugin>
+    <Opened language="bg">Отвори</Opened>
   </Language>
 </root>

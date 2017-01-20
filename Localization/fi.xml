@@ -88,5 +88,7 @@
     <Debug language="fi">Debug</Debug>
     <New_in_Memory_Db language="fi">Uusi tietokanta</New_in_Memory_Db>
     <Import_SQL language="fi">Tuo SQL</Import_SQL>
+    <Plugin language="fi">Plugin</Plugin>
+    <Opened language="fi">Avattu</Opened>
   </Language>
 </root>

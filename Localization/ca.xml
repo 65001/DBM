@@ -88,5 +88,7 @@
     <Debug language="ca">Depuració</Debug>
     <New_in_Memory_Db language="ca">Nou a memòria base de dades</New_in_Memory_Db>
     <Import_SQL language="ca">Importació SQL</Import_SQL>
+    <Plugin language="ca">Plugin</Plugin>
+    <Opened language="ca">Obert</Opened>
   </Language>
 </root>

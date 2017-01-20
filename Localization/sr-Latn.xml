@@ -88,5 +88,7 @@
     <Debug language="sr-Latn">Otklanjanje grešaka</Debug>
     <New_in_Memory_Db language="sr-Latn">Novo u memoriji baze podataka</New_in_Memory_Db>
     <Import_SQL language="sr-Latn">Uvoz SQL</Import_SQL>
+    <Plugin language="sr-Latn">Dodatna komponenta</Plugin>
+    <Opened language="sr-Latn">Otvorena je</Opened>
   </Language>
 </root>

@@ -86,3 +86,5 @@ Create Statistics Page
 Debug
 New in Memory Database
 Import SQL
+Plugin
+Opened

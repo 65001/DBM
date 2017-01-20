@@ -88,5 +88,7 @@
     <Debug language="id">Debug</Debug>
     <New_in_Memory_Db language="id">Baru dalam memori Database</New_in_Memory_Db>
     <Import_SQL language="id">Impor SQL</Import_SQL>
+    <Plugin language="id">Plugin</Plugin>
+    <Opened language="id">Dibuka</Opened>
   </Language>
 </root>

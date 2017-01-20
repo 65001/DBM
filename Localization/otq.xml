@@ -88,5 +88,7 @@
     <Debug language="otq">Ar depuración</Debug>
     <New_in_Memory_Db language="otq">'Ra'yo base ar datos ar memoria</New_in_Memory_Db>
     <Import_SQL language="otq">Importación SQL</Import_SQL>
+    <Plugin language="otq">Plugin</Plugin>
+    <Opened language="otq">Abierto</Opened>
   </Language>
 </root>

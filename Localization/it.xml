@@ -88,5 +88,7 @@
     <Debug language="it">Eseguire il debug</Debug>
     <New_in_Memory_Db language="it">Nuova banca dati memoria</New_in_Memory_Db>
     <Import_SQL language="it">Importazione SQL</Import_SQL>
+    <Plugin language="it">Plugin</Plugin>
+    <Opened language="it">Aperto</Opened>
   </Language>
 </root>

@@ -88,5 +88,7 @@
     <Debug language="fil">Debug</Debug>
     <New_in_Memory_Db language="fil">Bagong sa Database ng Memory</New_in_Memory_Db>
     <Import_SQL language="fil">Import SQL</Import_SQL>
+    <Plugin language="fil">Plugin</Plugin>
+    <Opened language="fil">Binuksan</Opened>
   </Language>
 </root>

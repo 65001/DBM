@@ -88,5 +88,7 @@
     <Debug language="pt">Depurar</Debug>
     <New_in_Memory_Db language="pt">Novo no banco de dados de memória</New_in_Memory_Db>
     <Import_SQL language="pt">Importação SQL</Import_SQL>
+    <Plugin language="pt">Plugin</Plugin>
+    <Opened language="pt">Abriu</Opened>
   </Language>
 </root>

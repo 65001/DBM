@@ -88,5 +88,7 @@
     <Debug language="mt">Iddibaggjar</Debug>
     <New_in_Memory_Db language="mt">Ġodda fil-memorja tad-Database</New_in_Memory_Db>
     <Import_SQL language="mt">Importazzjoni SQL</Import_SQL>
+    <Plugin language="mt">Plug-in</Plugin>
+    <Opened language="mt">Miftuħa</Opened>
   </Language>
 </root>

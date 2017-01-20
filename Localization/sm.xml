@@ -88,5 +88,7 @@
     <Debug language="sm">Faatonutonu</Debug>
     <New_in_Memory_Db language="sm">Fou i manatuaga utuofaamatalaga</New_in_Memory_Db>
     <Import_SQL language="sm">Import SQL</Import_SQL>
+    <Plugin language="sm">Plugin</Plugin>
+    <Opened language="sm">Tatalaina</Opened>
   </Language>
 </root>

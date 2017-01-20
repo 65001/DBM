@@ -88,5 +88,7 @@
     <Debug language="sw">Rekebisha</Debug>
     <New_in_Memory_Db language="sw">Mpya katika Hifadhidata ya kumbukumbu</New_in_Memory_Db>
     <Import_SQL language="sw">Leta SQL</Import_SQL>
+    <Plugin language="sw">Plugin</Plugin>
+    <Opened language="sw">Kufunguliwa</Opened>
   </Language>
 </root>

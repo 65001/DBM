@@ -88,5 +88,7 @@
     <Debug language="he">איתור באגים</Debug>
     <New_in_Memory_Db language="he">חדש במסד נתונים בזיכרון</New_in_Memory_Db>
     <Import_SQL language="he">ייבוא SQL</Import_SQL>
+    <Plugin language="he">תוסף</Plugin>
+    <Opened language="he">נפתח</Opened>
   </Language>
 </root>

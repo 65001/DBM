@@ -88,5 +88,7 @@
     <Debug language="cy">Difa chwilod</Debug>
     <New_in_Memory_Db language="cy">Newydd yn y gronfa ddata cof</New_in_Memory_Db>
     <Import_SQL language="cy">Mewnforio SQL</Import_SQL>
+    <Plugin language="cy">Ategyn</Plugin>
+    <Opened language="cy">Agor</Opened>
   </Language>
 </root>

@@ -88,5 +88,7 @@
     <Debug language="th">ตรวจแก้จุดบกพร่อง</Debug>
     <New_in_Memory_Db language="th">ใหม่ในฐานข้อมูลของหน่วยความจำ</New_in_Memory_Db>
     <Import_SQL language="th">นำเข้า SQL</Import_SQL>
+    <Plugin language="th">ปลั๊กอิน</Plugin>
+    <Opened language="th">เปิด</Opened>
   </Language>
 </root>

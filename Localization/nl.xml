@@ -88,5 +88,7 @@
     <Debug language="nl">Debug</Debug>
     <New_in_Memory_Db language="nl">Nieuw in de Database van het geheugen</New_in_Memory_Db>
     <Import_SQL language="nl">Import SQL</Import_SQL>
+    <Plugin language="nl">Plugin</Plugin>
+    <Opened language="nl">Geopend</Opened>
   </Language>
 </root>

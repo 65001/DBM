@@ -88,5 +88,7 @@
     <Debug language="tr">Hata ayıklama</Debug>
     <New_in_Memory_Db language="tr">Yeni bellek veritabanı</New_in_Memory_Db>
     <Import_SQL language="tr">Alma SQL</Import_SQL>
+    <Plugin language="tr">Eklenti</Plugin>
+    <Opened language="tr">Açıldı</Opened>
   </Language>
 </root>

@@ -88,5 +88,7 @@
     <Debug language="ro">Depanare</Debug>
     <New_in_Memory_Db language="ro">Nou în baza de date de memorie</New_in_Memory_Db>
     <Import_SQL language="ro">Import SQL</Import_SQL>
+    <Plugin language="ro">Plugin-ul</Plugin>
+    <Opened language="ro">Deschis</Opened>
   </Language>
 </root>

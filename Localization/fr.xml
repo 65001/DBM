@@ -88,5 +88,7 @@
     <Debug language="fr">Débogage</Debug>
     <New_in_Memory_Db language="fr">Nouveau dans la mémoire de base de données</New_in_Memory_Db>
     <Import_SQL language="fr">Importation SQL</Import_SQL>
+    <Plugin language="fr">Plugin</Plugin>
+    <Opened language="fr">Ouvert</Opened>
   </Language>
 </root>

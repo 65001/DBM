@@ -88,5 +88,7 @@
     <Debug language="hu">Debug</Debug>
     <New_in_Memory_Db language="hu">Új memória adatbázis</New_in_Memory_Db>
     <Import_SQL language="hu">Importálása SQL</Import_SQL>
+    <Plugin language="hu">Plugin</Plugin>
+    <Opened language="hu">Nyitott</Opened>
   </Language>
 </root>

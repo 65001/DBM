@@ -20,7 +20,7 @@
     <Toggle_Debug language="yua">Depuración palanca</Toggle_Debug>
     <Toggle_Transaction_Log language="yua">Registro transacciones palanca</Toggle_Transaction_Log>
     <Refresh_Schema language="yua">Actualizar esquema</Refresh_Schema>
-    <Check_for_Updates language="yua">Kaxant actualizaciones</Check_for_Updates>
+    <Check_for_Updates language="yua">Check for Updates</Check_for_Updates>
     <PXML language="yua">XML</PXML>
     <PRGM_Start language="yua">Cha'ana' iniciado</PRGM_Start>
     <App language="yua">Ka'anatako'ob</App>
@@ -88,5 +88,7 @@
     <Debug language="yua">U depuración</Debug>
     <New_in_Memory_Db language="yua">Túumben k'oja'ano'obo' u datos u memoria</New_in_Memory_Db>
     <Import_SQL language="yua">Tasbil SQL</Import_SQL>
+    <Plugin language="yua">Plugin</Plugin>
+    <Opened language="yua">Pi'ik'a'</Opened>
   </Language>
 </root>

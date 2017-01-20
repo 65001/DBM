@@ -88,5 +88,7 @@
     <Debug language="hi">डीबग करें</Debug>
     <New_in_Memory_Db language="hi">स्मृति डेटाबेस में नए</New_in_Memory_Db>
     <Import_SQL language="hi">आयात SQL</Import_SQL>
+    <Plugin language="hi">प्लगइन</Plugin>
+    <Opened language="hi">खोला</Opened>
   </Language>
 </root>

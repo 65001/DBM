@@ -88,5 +88,7 @@
     <Debug language="mg">Mikasika ny fanitsiana</Debug>
     <New_in_Memory_Db language="mg">Vaovao ao amin' ny Fahatsiarovana ny tahirin-Kevitra</New_in_Memory_Db>
     <Import_SQL language="mg">Tena lanjan' SQL</Import_SQL>
+    <Plugin language="mg">Plugin</Plugin>
+    <Opened language="mg">Nanokatra</Opened>
   </Language>
 </root>

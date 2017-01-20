@@ -8,7 +8,7 @@
     <View language="uk">Подання</View>
     <Save language="uk">Зберегти</Save>
     <Import language="uk">Імпорт</Import>
-    <CSV language="uk">DS1</CSV>
+    <CSV language="uk">CSV</CSV>
     <SQL language="uk">SQL</SQL>
     <Export language="uk">Експорт</Export>
     <HTML language="uk">HTML</HTML>
@@ -88,5 +88,7 @@
     <Debug language="uk">Налагодження</Debug>
     <New_in_Memory_Db language="uk">Нове в пам'яті бази даних</New_in_Memory_Db>
     <Import_SQL language="uk">Імпорт SQL</Import_SQL>
+    <Plugin language="uk">Плагін</Plugin>
+    <Opened language="uk">Відкрито</Opened>
   </Language>
 </root>

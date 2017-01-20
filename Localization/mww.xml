@@ -88,5 +88,7 @@
     <Debug language="mww">Debug</Debug>
     <New_in_Memory_Db language="mww">Tshiab nyob hauv lub cim xeeb Database</New_in_Memory_Db>
     <Import_SQL language="mww">Ntshuam SQL</Import_SQL>
+    <Plugin language="mww">Plugin</Plugin>
+    <Opened language="mww">Qhib</Opened>
   </Language>
 </root>

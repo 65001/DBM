@@ -88,5 +88,7 @@
     <Debug language="da">Debug</Debug>
     <New_in_Memory_Db language="da">Nyt i Memory Database</New_in_Memory_Db>
     <Import_SQL language="da">Importere SQL</Import_SQL>
+    <Plugin language="da">Plugin</Plugin>
+    <Opened language="da">Åbnet</Opened>
   </Language>
 </root>

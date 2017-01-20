@@ -88,5 +88,7 @@
     <Debug language="et">Siluda</Debug>
     <New_in_Memory_Db language="et">Uus andmebaas</New_in_Memory_Db>
     <Import_SQL language="et">Impordi SQL</Import_SQL>
+    <Plugin language="et">Plugin</Plugin>
+    <Opened language="et">Avatud</Opened>
   </Language>
 </root>

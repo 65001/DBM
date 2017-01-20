@@ -88,5 +88,7 @@
     <Debug language="ur">ٹھیک کریں</Debug>
     <New_in_Memory_Db language="ur">میموری کوائفیہ میں نیا</New_in_Memory_Db>
     <Import_SQL language="ur">SQL درآمد کریں</Import_SQL>
+    <Plugin language="ur">پلگ ان</Plugin>
+    <Opened language="ur">کھولا</Opened>
   </Language>
 </root>

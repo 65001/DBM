@@ -88,5 +88,7 @@
     <Debug language="yue">調試</Debug>
     <New_in_Memory_Db language="yue">內存數據庫中新增功能</New_in_Memory_Db>
     <Import_SQL language="yue">導入 sql</Import_SQL>
+    <Plugin language="yue">插件</Plugin>
+    <Opened language="yue">打開</Opened>
   </Language>
 </root>

@@ -88,5 +88,7 @@
     <Debug language="tlh-Qaak"></Debug>
     <New_in_Memory_Db language="tlh-Qaak">   </New_in_Memory_Db>
     <Import_SQL language="tlh-Qaak"> </Import_SQL>
+    <Plugin language="tlh-Qaak"></Plugin>
+    <Opened language="tlh-Qaak"></Opened>
   </Language>
 </root>

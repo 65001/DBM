@@ -88,5 +88,7 @@
     <Debug language="no">Feilsøke</Debug>
     <New_in_Memory_Db language="no">Nytt i minnet Database</New_in_Memory_Db>
     <Import_SQL language="no">Importere SQL</Import_SQL>
+    <Plugin language="no">Plugin</Plugin>
+    <Opened language="no">Åpnet</Opened>
   </Language>
 </root>

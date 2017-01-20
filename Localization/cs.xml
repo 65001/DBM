@@ -88,5 +88,7 @@
     <Debug language="cs">Ladění</Debug>
     <New_in_Memory_Db language="cs">Novinky v paměti databáze</New_in_Memory_Db>
     <Import_SQL language="cs">Importovat SQL</Import_SQL>
+    <Plugin language="cs">Plugin</Plugin>
+    <Opened language="cs">Otevřen</Opened>
   </Language>
 </root>

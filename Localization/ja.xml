@@ -88,5 +88,7 @@
     <Debug language="ja">デバッグ</Debug>
     <New_in_Memory_Db language="ja">メモリ データベースの新機能</New_in_Memory_Db>
     <Import_SQL language="ja">SQL のインポート</Import_SQL>
+    <Plugin language="ja">プラグイン</Plugin>
+    <Opened language="ja">オープン</Opened>
   </Language>
 </root>

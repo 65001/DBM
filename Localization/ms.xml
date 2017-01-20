@@ -88,5 +88,7 @@
     <Debug language="ms">Nyahpepijat</Debug>
     <New_in_Memory_Db language="ms">Baru dalam memori pangkalan data</New_in_Memory_Db>
     <Import_SQL language="ms">Import SQL</Import_SQL>
+    <Plugin language="ms">Plugin</Plugin>
+    <Opened language="ms">Dibuka</Opened>
   </Language>
 </root>

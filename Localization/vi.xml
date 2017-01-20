@@ -88,5 +88,7 @@
     <Debug language="vi">Gỡ lỗi</Debug>
     <New_in_Memory_Db language="vi">Mới trong cơ sở dữ liệu bộ nhớ</New_in_Memory_Db>
     <Import_SQL language="vi">Nhập khẩu SQL</Import_SQL>
+    <Plugin language="vi">Plugin</Plugin>
+    <Opened language="vi">Khai trương</Opened>
   </Language>
 </root>

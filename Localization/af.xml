@@ -88,5 +88,7 @@
     <Debug language="af">Ontfout</Debug>
     <New_in_Memory_Db language="af">Nuwe in geheue databasis</New_in_Memory_Db>
     <Import_SQL language="af">Invoer SQL</Import_SQL>
+    <Plugin language="af">Plugin</Plugin>
+    <Opened language="af">Geopen</Opened>
   </Language>
 </root>

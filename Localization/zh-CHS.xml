@@ -88,5 +88,7 @@
     <Debug language="zh-CHS">调试</Debug>
     <New_in_Memory_Db language="zh-CHS">内存数据库中的新增功能</New_in_Memory_Db>
     <Import_SQL language="zh-CHS">导入 SQL</Import_SQL>
+    <Plugin language="zh-CHS">插件</Plugin>
+    <Opened language="zh-CHS">打开</Opened>
   </Language>
 </root>

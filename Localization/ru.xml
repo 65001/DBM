@@ -88,5 +88,7 @@
     <Debug language="ru">Отладка</Debug>
     <New_in_Memory_Db language="ru">Новое в базе данных памяти</New_in_Memory_Db>
     <Import_SQL language="ru">Импорт SQL</Import_SQL>
+    <Plugin language="ru">Плагин</Plugin>
+    <Opened language="ru">Открыт</Opened>
   </Language>
 </root>

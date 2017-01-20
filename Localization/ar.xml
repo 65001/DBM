@@ -88,5 +88,7 @@
     <Debug language="ar">التصحيح</Debug>
     <New_in_Memory_Db language="ar">الجديد في قاعدة البيانات في الذاكرة</New_in_Memory_Db>
     <Import_SQL language="ar">استيراد SQL</Import_SQL>
+    <Plugin language="ar">البرنامج المساعد</Plugin>
+    <Opened language="ar">فتحت</Opened>
   </Language>
 </root>
