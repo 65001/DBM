@@ -31,42 +31,70 @@ EndSub
 
 Sub HTML
   LDList.Add(List_Stack_Trace,"Plugin : Export.HTML")
+  Export_Start = Clock.ElapsedMilliseconds 
   TextWindow.WriteLine("EXPORT.HTML()")
   EXPORT_HTML_DATA = LDCall.Function5(QueryFunction,"Select * FROM "+DQC + Default_Table+ DQC +";","","True",LangList["App"],LangList["Export HTML Data"] + LDFile.UserName ) 
   EXPORT_HTML_PATH = LDFile.GetFolder(databasepath) +"\" +  Default_Table + " "+ TypesOfSorts[SortByMode] +".html"
   
   Export_HTML_SCHEMA = SchemaList 
   HTML_Statement = "<!DOCTYPE html>"+CLLF+"<html>"+CLLF+TabKey+"<title>" + Default_Table +" Exported</title>" +CLLF + CLLF
-  HTML_Statement = HTML_Statement + TabKey + "<meta name=" + DoubleQuotesCharacter +"viewport" +  DoubleQuotesCharacter + "content=" + DoubleQuotesCharacter + "width=device-width, initial-scale=1" + DoubleQuotesCharacter  +">"
-  HTML_Statement = HTML_Statement + TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}" +CLLF+TabKey+TabKey+TabKey+"table {border-collapse: collapse; width: 100%;}" +CLLF+TabKey+TabKey+TabKey+"th,td {padding: 5px;}" 'Padding is now much better
+  HTML_Statement = Text.Append( HTML_Statement , TabKey + "<meta name=" + DoubleQuotesCharacter +"viewport" +  DoubleQuotesCharacter + "content=" + DoubleQuotesCharacter + "width=device-width, initial-scale=1" + DoubleQuotesCharacter  +">")
+  HTML_Statement = Text.Append( HTML_Statement , TabKey+"<head>"+CLLF+TabKey+TabKey+"<style>"+CLLF+TabKey+TabKey+TabKey+"table, td, th {border: 1px solid #ddd;text-align: left;}" +CLLF+TabKey+TabKey+TabKey+"table {border-collapse: collapse; width: 100%;}" +CLLF+TabKey+TabKey+TabKey+"th,td {padding: 5px;}" ) 'Padding is now much better
   
-  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}"
-  HTML_Statement = HTML_Statement + CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF
-  HTML_Statement = HTML_Statement + TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF 
-  HTML_Statement = HTML_Statement + TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://github.com/65001/DBM -->" + CLLF 
-  HTML_Statement = HTML_Statement + TabKey +"</head>" + CLLF + CLLF  
-  HTML_Statement = HTML_Statement + TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>"
-  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr> "  +CLLF + TabKey+TabKey+Tabkey+Tabkey+ TabKey + "<td id = " +DoubleQuotesCharacter +"Main"+ DoubleQuotesCharacter +" + colspan = " + DoubleQuotesCharacter + Array.GetItemCount(Export_HTML_SCHEMA ) + DoubleQuotesCharacter +">" + Default_Table +"</td>"
-  HTML_Statement = HTML_Statement + CLLF + TabKey+TabKey+Tabkey+Tabkey+"</tr>" +CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr>"+CLLF 
+  HTML_Statement = Text.Append( HTML_Statement , CLLF+TabKey+TabKey+TabKey+ "tr:hover{background-color:#f5f5f5}" +CLLF+TabKey+TabKey+TabKey+"th,td#Main {background-color: #4CAF50;color: white;font-size:120%;border:0px;text-align:center}")
+  HTML_Statement = Text.Append( HTML_Statement , CLLF+TabKey+TabKey+"</style>"+CLLF+TabKey+TabKey +"<meta charset = " + DoubleQuotesCharacter +"UTF-8" + DoubleQuotesCharacter +">" + CLLF)
+  HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey +"<meta name="+DoubleQuotesCharacter+"generator"+ DoubleQuotesCharacter + " content=" +DoubleQuotesCharacter + "DBM v" + PrgmVersionID + DoubleQuotesCharacter +">" + CLLF )
+  HTML_Statement = Text.Append( HTML_Statement , TabKey+ TabKey +"<!-- DMB is developed by Abhishek Sathiabalan. LINK: https://github.com/65001/DBM -->" + CLLF )
+  HTML_Statement = Text.Append( HTML_Statement , TabKey +"</head>" + CLLF + CLLF ) 
+  HTML_Statement = Text.Append( HTML_Statement , TabKey +"<body>" + CLLF + TabKey+ TabKey + "<div style="+ DoubleQuotesCharacter + "overflow-x:auto;" + DoubleQuotesCharacter+">" + CLLF + Tabkey +TabKey + TabKey +"<table>")
+  HTML_Statement = Text.Append( HTML_Statement , CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr> "  +CLLF + TabKey+TabKey+Tabkey+Tabkey+ TabKey + "<td id = " +DoubleQuotesCharacter +"Main"+ DoubleQuotesCharacter +" + colspan = " + DoubleQuotesCharacter + Array.GetItemCount(Export_HTML_SCHEMA ) + DoubleQuotesCharacter +">" + Default_Table +"</td>")
+  HTML_Statement = Text.Append( HTML_Statement , CLLF + TabKey+TabKey+Tabkey+Tabkey+"</tr>" +CLLF + TabKey+TabKey+Tabkey+Tabkey+ "<tr>"+CLLF )
   
-  For EXPORT_HTML_I = 1 To  Array.GetItemCount(Export_HTML_SCHEMA)
-    TextWindow.WriteLine("(" +EXPORT_HTML_I +"\" + Array.GetItemCount(Export_HTML_SCHEMA) +")") 
-    HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" + Export_HTML_SCHEMA[EXPORT_HTML_I] +"</th>" + CLLF )
-  EndFor 
-  HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF )
-  For EXPORT_HTML_I = 1 To Array.GetItemCount(EXPORT_HTML_DATA)
-    TextWindow.WriteLine("(" + EXPORT_HTML_I +"\" + Array.GetItemCount(EXPORT_HTML_DATA) +")")
-    HTML_Statement = Text.Append( HTML_Statement , TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF )
-    For EXPORT_HTML_II = 1 To Array.GetItemCount(Export_HTML_SCHEMA)
-      HTML_Statement =Text.Append( HTML_Statement , TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + EXPORT_HTML_DATA[EXPORT_HTML_I][Export_HTML_SCHEMA[EXPORT_HTML_II]] +"</td>" + CLLF )
+  TextWindow.WriteLine("Initial Statements : " + (Clock.ElapsedMilliseconds - Export_Start ) )
+  Export_HTML_Schema_Count = Array.GetItemCount(Export_HTML_SCHEMA)
+  EXPORT_HTML_DATA_Count = Array.GetItemCount(EXPORT_HTML_DATA)
+  Export_HTML_DATA_FASTARRAY = LDFastArray.Add()
+  
+  For EXPORT_HTML_I = 1 To EXPORT_HTML_DATA_Count 
+    TextWindow.Title = EXPORT_HTML_I
+    Temp_EXPORT_HTML = EXPORT_HTML_DATA[EXPORT_HTML_I]
+    For EXPORT_HTML_II = 1 To Export_HTML_Schema_Count 
+      LDFastArray.Set2D(Export_HTML_DATA_FASTARRAY,EXPORT_HTML_I,EXPORT_HTML_II,Temp_EXPORT_HTML[Export_HTML_SCHEMA[EXPORT_HTML_II]]) 
     EndFor
-    HTML_Statement = HTML_Statement +TabKey + TabKey+Tabkey+Tabkey+"</tr>"+CLLF 
+  EndFor 
+  Temp_EXPORT_HTML = ""
+  EXPORT_HTML_DATA = ""
+  TextWindow.WriteLine("Converting : " + (Clock.ElapsedMilliseconds - Export_Start ) )
+  
+  For EXPORT_HTML_I = 1 To  Export_HTML_Schema_Count 'Header Data
+    TextWindow.Title = "(" +EXPORT_HTML_I +"\" + Export_HTML_Schema_Count  +")" 
+    HTML_SCHEMA = LDText.Replace( Export_HTML_SCHEMA[EXPORT_HTML_I],"_"," ")
+    HTML_SCHEMA = Text.Append( Text.ConvertToUpperCase( Text.GetSubText(HTML_SCHEMA,1,1) ), Text.GetSubTextToEnd(HTML_SCHEMA,2) )
+    HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey +TabKey +TabKey +TabKey + "<th>" +HTML_SCHEMA +"</th>" + CLLF )
+  EndFor 
+  
+  TextWindow.WriteLine("Schema Statements : " + (Clock.ElapsedMilliseconds - Export_Start ) )
+  
+  HTML_Statement = Text.Append( HTML_Statement , TabKey +TabKey+Tabkey+Tabkey+"</tr>" +CLLF )
+  
+  For EXPORT_HTML_I = 1 To EXPORT_HTML_DATA_Count 
+    TextWindow.Title = "(" + EXPORT_HTML_I +"\" + EXPORT_HTML_DATA_Count  +")"
+    HTML_Statement = Text.Append( HTML_Statement , TabKey+TabKey+Tabkey+Tabkey+"<tr>"+CLLF )
+    For EXPORT_HTML_II = 1 To Export_HTML_Schema_Count 
+      HTML_Statement =Text.Append( HTML_Statement , TabKey + TabKey +TabKey +TabKey +TabKey +"<td>" + LDFastArray.Get2D(Export_HTML_DATA_FASTARRAY,EXPORT_HTML_I,EXPORT_HTML_II) +"</td>" + CLLF )
+    EndFor
+    HTML_Statement =Text.Append( HTML_Statement ,TabKey + TabKey+Tabkey+Tabkey+"</tr>"+CLLF )
   EndFor
-  HTML_Statement = HTML_Statement +TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>"
+  
+  LDFastArray.Remove(Export_HTML_DATA_FASTARRAY)
+  HTML_Statement =Text.Append( HTML_Statement, TabKey + TabKey +TabKey+"</table>"+CLLF+TabKey + TabKey+"</div>"+CLLF+TabKey +"</body>"+CLLF+"</html>")
+  TextWindow.WriteLine("Data Statements : " + (Clock.ElapsedMilliseconds - Export_Start ) )
+  
   File.WriteContents(EXPORT_HTML_PATH,HTML_Statement)
+  HTML_Statement = ""
   LDCall.Function2(logfunction, "Exported: " + databasepath+" | " +TypesOfSorts[ SortByMode ] +":" + Default_Table + " INTO HTML",LangList["Application"]) '//Localize 
   TextWindow.Hide()
-  GraphicsWindow.ShowMessage("RAN EXPORT INTO HTML", LangList[ "Export"]) '//Localize  
+  GraphicsWindow.ShowMessage("RAN EXPORT INTO HTML", LangList[ "Export"] +" :" + (Clock.ElapsedMilliseconds - Export_Start) +" ms" ) '//Localize  
 EndSub
 
 Sub Export_SQL
@@ -136,6 +164,7 @@ Sub SQL_Dump_WRITE
   Dump_SQL = LDText.Replace( Dump_SQL ,"''","NULL")
   
   File.WriteContents(EXPORT_SQL_PATH,DUMP_SQL)
+  Dump_SQL = ""
 EndSub
 
 Sub CSV
@@ -161,7 +190,7 @@ Sub CSV
     csvdata[0][i] =  return2[i]
   EndFor
   
-  For i = 0 To Array.GetItemCount(csvdata) + 1 'Puts Column Names into Data
+  For i = 0 To Array.GetItemCount(csvdata) + 1 'Puts Column Names into Data and offsets all other data by 1 
     csvdataREAL[i+1] = csvdata[i]
   EndFor
   

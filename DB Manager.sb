@@ -1709,7 +1709,7 @@ Sub Command 'Runs A Command Function
     If CommandArgs[1] <> "" Then
       LDCall.Function5( TransactionFunction , CommandArgs[3] , CommandArgs[1], CommandArgs[2] ,"CMD", CommandArgs[4] ) 'Sends Data to Transaction Function. (Logs SQL Commands)
       
-      If debug_Parser = 1  Then 
+      If debug_Parser = 1  Or Text.GetLength(CommandArgs[2]) > 100000 Then 'When to use Command Parser
         LDCall.Function( Function_Command_Parser , CommandArgs[2]) 'Transforms String into List
         LDList.Add(List_Stack_Trace,"Command")
         
@@ -1729,7 +1729,7 @@ Sub Command 'Runs A Command Function
           Command_Counter = Command_Counter + Temp_Command_Counter
         EndFor
         
-        If debug_Parser = 1 Then
+        If debug_Parser = 1 Then 'Print Parser Data
           LDList.Print( List_Command_Parser ) 
           'LDList.Print( List_Command_Parser_Status ) 'Commented bc rarley used
           If LDList.Count( List_Command_Parser_OnFail ) > 0 Then 'Only If there are failed statements display them
@@ -1737,7 +1737,7 @@ Sub Command 'Runs A Command Function
           EndIf 
           Command_Num_Cmds = LDList.Count( List_Command_Parser_Status ) 
         EndIf 
-      Else 
+      Else 'Direct Commands
         LDList.Clear( List_Command_Parser )
         Command_Counter = LDDataBase.Command(CommandArgs[1],CommandArgs[2])
         Command_Num_Cmds = Command_Counter  
@@ -1766,6 +1766,11 @@ Sub Command_Parse '(Command); returns Data in a list;
   Parser_InString = 0 
   Parser_Length = Text.GetLength( ParseArgs[1] ) 
   Parser_String =""
+  If Parser_Length >= 100000 Then 
+    Parser_MultiLine_Commands = 1 
+  Else 
+    Parser_MultiLine_Commands = 0 
+  EndIf
   
   For Parser_I = 1 to Parser_Length
     Parser_Character = Text.GetSubText( ParseArgs[1] , Parser_I , 1 )
@@ -1882,10 +1887,12 @@ Sub ErrorHandler
   TextWindow.ForegroundColor = "YELLOW"
   If LDList.Count(List_Stack_Trace) > 0 Then 'Prevents Errors that cause Stack over flow exception
     TextWindow.Write("Error Caught : " + LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :" )
-    TextWindow.ForegroundColor = "WHITE"
     LDCall.Function(Function_logCB,"Error Caught : " + LDList.GetAt( List_Stack_Trace , LDList.Count(List_Stack_Trace) ) +" ("+LDList.Count(List_Stack_Trace)+") :"  + LangList["System"]+":" + LDEvents.LastError )
+  Else 
+    TextWindow.Write("Unknown Location or outside of a subroutine ")
   EndIf 
   
+  TextWindow.ForegroundColor = "WHITE"
   TextWindow.WriteLine(LangList["System"]+":" + LDEvents.LastError ) 
   
   LDList.Add(List_Stack_Trace,"Error Handler")  
