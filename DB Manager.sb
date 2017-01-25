@@ -35,6 +35,8 @@
 'v1122
 'Fixed a bug that could cause a stack overflow exception
 'Set a default table for Define New Table function
+'Made Export CSV roughly 7x faster on test files.
+'Made change so Edit Table should work more reliabley
 
 
 StartTime[0] = Clock.ElapsedMilliseconds
@@ -830,7 +832,7 @@ Sub MainMenuHandler
           Controls.ShowControl(Dataview)
         EndIf
         CurrentControl = Dataview
-        LDDataBase.EditTable(database,Default_Table,CurrentControl)
+        LDDataBase.EditTable(database,DQC + Default_Table + DQC ,CurrentControl)
         Hide_Display_Results()
       EndIf 
     Else 
