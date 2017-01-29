@@ -254,12 +254,13 @@ Sub Startup 'Akin to Main in C#
   EndIf
 EndSub
 
-Sub Int_DB
+Sub Int_DB ' Cannot be Localized 
   LDList.Add(List_Stack_Trace,"Int_DB")
   IF LDFile.Exists(AssetPath) = "False" Or LDFile.Exists(LocalizationsFolder) = "False" Or LDFile.Exists( ModPath ) = "False" Then 
     File.CreateDirectory(AssetPath)
-    File.CreateDirectory(LocalizationsFolder ) 
-    File.CreateDirectory(ModPath ) 
+    File.CreateDirectory(ModPath)
+    File.CreateDirectory(LocalizationsFolder )
+    File.CreateDirectory(LocalizationsLangFolder )   
   EndIf 
   
   If LDFile.Exists( AutoRunMod_Path ) = "False" Then
@@ -273,9 +274,9 @@ Sub Int_DB
   LOG_DB= LDDataBase.ConnectSQLite(LogDBpath) ' Creates Log DB if it does not exist 
   TransactionDB = LDDataBase.ConnectSQLite( TransactionDBpath ) 'Creates Transaction DB Path
   
-  LDList.Add(List_DB_Path, "<None>" ) '//Localize
+  LDList.Add(List_DB_Path, "<None>" )
   LDList.Add(List_DB_Name, "<None>" ) 
-  LDList.Add(List_DB_ShortName,"<None>") '//Localize
+  LDList.Add(List_DB_ShortName,"<None>") 
   
   LDList.Add(List_DB_Path, LogDBpath ) 
   LDList.Add(List_DB_Name, Log_DB ) 
@@ -292,9 +293,6 @@ Sub Int_DB
   
   LogNumber = LDDataBase.Query( LOG_DB,"SELECT COUNT(ID) From Log;","","True")
   LogNumber = LogNumber[1]["COUNT(ID)"]
-  LDCall.Function5(TransactionFunction , "App" , LOG_DB +"| LOG"  ,"SELECT COUNT(ID) From Log;" ,"Query", " Auto Query Log Count") 'Cannot be Localized 
-  TransactionNumber = LDDataBase.Query( TransactionDB,"SELECT COUNT(ID) From Transactions","","True") 
-  TransactionNumber = TransactionNumber[1]["COUNT(ID)"]
 EndSub
 
 Sub Startup_GUI
@@ -397,7 +395,7 @@ Sub LoadSettings
       RestoreSettings = 1 
     EndIf 
     
-    If ( Setting_Files[I] = 1 AND  LDFile.Exists( Setting_Files[I] ) = "False" ) Then 'Run this check only in debug mode
+    If ( Setting_Files[I] = 1 AND  LDFile.Exists(Settings[ Setting_Files[I] ]) = "False" ) Then 'Run this check only in debug mode
       Settings[ Null_Settings[I] ] = Setting_Default[I] 
       RestoreSettings = 1 
     EndIf 
@@ -433,7 +431,7 @@ Sub SaveSettings
   EndIf 
   
   If status = "FAILED" Then
-    LDCall.Function2( Function_Log ,"Failed to save settings",LangList["UI"]) 
+    LDCall.Function2( Function_Log ,LangList["Failed Save Settings"],LangList["UI"]) 
     GraphicsWindow.ShowMessage(LangList["Failed Save Settings"] ,LangList["Error"]) 'Failed to Save Settings
   EndIf
 EndSub
@@ -631,18 +629,10 @@ Sub MainMenuUI
   LDList.Add(List_Stack_Trace,"MainMenuUI ")
   GraphicsWindow.CanResize = "True"
   LDGraphicsWindow.ExitButtonMode(GraphicsWindow.Title,"Enabled")
-  
+  CheckList[ LangList["Toggle Debug"] ] = Booleans[debug_mode] 
+  CheckList[LangList["Toggle Transaction Log"]] = Booleans[Transactions_mode]  
   If debug_mode = 1 Then 
-    CheckList[ LangList["Toggle Debug"]] = "True"
     LDCall.Function2( Function_Log , "Debug Mode is ON","UI")
-  ElseIf debug_mode = 0 Then  
-    CheckList[LangList["Toggle Debug"]] = "False"
-  EndIf
-  
-  If Transactions_mode = 1 Then 
-    CheckList[LangList["Toggle Transaction Log"]] = "True"
-  ElseIf Transactions_mode = 0 Then
-    CheckList[LangList["Toggle Transaction Log"]] = "False" 
   EndIf
   
   LDGraphicsWindow.State = 2
@@ -1471,7 +1461,7 @@ Sub Add_UI_Controls '5 Args needed
       LDList.SetAt( List_UI_Action , Temp_UI_Num , Add_UI_Args[5])
       Temp_UI_Num = "" 'Deallocates data
     EndIf 
-    return = 1 'Ends Function
+    return = 1 
   ElseIf Add_UI_Args[1] = Register Then 'Registers a UI control to a function that will be called when the UI element is triggered in some way.
     If LDList.IndexOf(List_UI_Name , Add_UI_Args[2] ) = 0 Then 'Adds a new UI control to the list
       LDList.Add( List_UI_Name , Add_UI_Args[2] )
@@ -1555,8 +1545,7 @@ Sub MOD_External_Menu 'Lets External Entities add Menu Items by mainpulating a M
         External_Menu_Cnts[i][4] = LangList[ External_Menu_Cnts[I][4] ] 
       EndIf  
       
-      External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Mod Parser>",Function_RunMod_Parser )
-      External_Menu_Cnts[i][3] = LDText.Replace(External_Menu_Cnts[i][3] ,"<Main Menu>",Function_Handler_MainMenu)
+      External_Menu_Cnts[i][3] = LDText.Replace( LDText.Replace(External_Menu_Cnts[i][3] ,"<Mod Parser>",Function_RunMod_Parser ) ,"<Main Menu>",Function_Handler_MainMenu) 
       LDCall.Function5(Function_UI_Add,External_Menu_Cnts[i][1] ,External_Menu_Cnts[i][2], External_Menu_Cnts[i][3] , External_Menu_Cnts[i][4],External_Menu_Cnts[i][5])
     EndFor 
   Else 'Creates a Menu File if it does not exist
@@ -1688,6 +1677,7 @@ Sub Query_SQLITE_Emulator
       Emulator_SQL = Emulator_SQL + "INSERT INTO " + Emulator_Table + " VALUES ('"+ Mod_Name[Mod_Name_Index[i]] +"','"+ Mod_Name_Index[i] +"','" + LDList.GetAt(List_Mod_Path,LDList.IndexOf( List_Mod_Name , Mod_Name_Index[i])) +"');"
     Endfor 
   EndIf 
+  
   If Emulator_Table = "" Then 
     GraphicsWindow.ShowMessage("Not Supported!","") 'Localize 
   Else 
@@ -1768,44 +1758,48 @@ Sub Command_Parse '(Command); returns Data in a list;
   Parser_InString = 0 
   Parser_Length = Text.GetLength( ParseArgs[1] ) 
   Parser_String =""
-  If Parser_Length >= 100000 Then 
+  If Parser_Length >= 1000000 Then 'Commands over a million
     Parser_MultiLine_Commands = 1 
   Else 
     Parser_MultiLine_Commands = 0 
   EndIf
   
-  For Parser_I = 1 to Parser_Length
-    Parser_Character = Text.GetSubText( ParseArgs[1] , Parser_I , 1 )
-    Parser_Character2 = Text.GetSubText( ParseArgs[1] , Parser_I , 2 )
+  If Parser_MultiLine_Commands = 0 Then 
+    For Parser_I = 1 to Parser_Length
+      Parser_Character = Text.GetSubText( ParseArgs[1] , Parser_I , 1 )
+      Parser_Character2 = Text.GetSubText( ParseArgs[1] , Parser_I , 2 )
+      
+      Parser_Terminate = 0
+      Parser_Append = 0 
+      
+      If debug_Parser = 1 Or (Clock.ElapsedMilliseconds - CMD_StartTime ) > Settings["TimeOut"] Then 
+        TextWindow.Title = Parser_I + "/" + Parser_Length + " " + Math.Floor(Parser_I/ Parser_Length ) * 100 +"%"
+      EndIf 
+      
+      If  (Parser_Character = ";" And Parser_Character2 <> ";;" AND Parser_InString = 0)    Then
+        Parser_Terminate = 1
+        LDList.Add(List_Command_Parser , Parser_String +";")
+      ElseIf Parser_Character = ";" And Parser_Character2 = ";;" AND Parser_InString = 0 Then 
+        Parser_Terminate = 1 
+        LDList.Add(List_Command_Parser , Parser_String +";;")
+        Parser_I = Parser_I + 2
+      ElseIf Parser_Character ="'" Then 
+        Parser_Append = 1
+        Parser_InString = Toggle_Booleans[Parser_InString]
+      Else  
+        Parser_Append = 1
+      EndIf
+      
+      If Parser_Terminate = 1 Then 
+        Parser_String = ""
+        Parser_Character = ""
+      ElseIf Parser_Append = 1 Then 
+        Parser_String = Parser_String + Parser_Character 
+      EndIf 
+    EndFor 
+  ElseIf Parser_MultiLine_Commands = 1 Then 
     
-    Parser_Terminate = 0
-    Parser_Append = 0 
-    
-    If debug_Parser = 1 Or (Clock.ElapsedMilliseconds - CMD_StartTime ) > Settings["TimeOut"] Then 
-      TextWindow.Title = Parser_I + "/" + Parser_Length + " " + Math.Floor(Parser_I/ Parser_Length ) * 100 +"%"
-    EndIf 
-    
-    If  (Parser_Character = ";" And Parser_Character2 <> ";;" AND Parser_InString = 0)    Then
-      Parser_Terminate = 1
-      LDList.Add(List_Command_Parser , Parser_String +";")
-    ElseIf Parser_Character = ";" And Parser_Character2 = ";;" AND Parser_InString = 0 Then 
-      Parser_Terminate = 1 
-      LDList.Add(List_Command_Parser , Parser_String +";;")
-      Parser_I = Parser_I + 2
-    ElseIf Parser_Character ="'" Then 
-      Parser_Append = 1
-      Parser_InString = Toggle_Booleans[Parser_InString]
-    Else  
-      Parser_Append = 1
-    EndIf
-    
-    If Parser_Terminate = 1 Then 
-      Parser_String = ""
-      Parser_Character = ""
-    ElseIf Parser_Append = 1 Then 
-      Parser_String = Parser_String + Parser_Character 
-    EndIf 
-  EndFor 
+  EndIf 
   
   Parser_String = "" 
   Parser_Append =""
