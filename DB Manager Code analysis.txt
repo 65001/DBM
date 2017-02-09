@@ -1,0 +1,396 @@
+Analysing : C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\DB Manager.sb
+
+Subroutine Call : startup
+Start of : startup 
+Comment :akin to main in c#
+Subroutine Call : loadsettings
+Subroutine Call : int_db
+Subroutine Call : mod_find_all
+Subroutine Call : localization_xml
+Function  Call  :  function_log 
+Function  Call  : function_load_db
+Subroutine Call : startup_gui
+Subroutine Call : savesettings
+Subroutine Call : eula_ui
+End of   : startup 
+
+Start of : int_db 
+Comment : cannot be localized
+Function  Call  :  commandfunction 
+Function  Call  :  commandfunction 
+Function  Call  :  commandfunction 
+End of   : int_db 
+
+Start of : startup_gui
+Subroutine Call : pre_mainmenuui
+Subroutine Call : mod_read_autorunfile
+Subroutine Call : mod_autorun
+Function  Call  :  function_log 
+Subroutine Call : mainmenuui
+End of   : startup_gui
+
+Start of : localization_xml
+Function  Call  :  function_xml_attributes 
+Function  Call  :  function_xml_attributes 
+Function  Call  :  function_log 
+End of   : localization_xml
+
+Start of : loadsettings
+Subroutine Call : savesettings
+End of   : loadsettings
+
+Start of : savesettings
+Function  Call  :  function_log 
+End of   : savesettings
+
+Start of : getpath
+End of   : getpath
+
+Start of : load_db
+Function  Call  : function_log
+Subroutine Call : savesettings
+Function  Call  : function_log
+Function  Call  : function_log
+Function  Call  : function_log
+End of   : load_db
+
+Start of : eula_ui
+Function  Call  :  function_log 
+Function  Call  :  function_log 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+End of   : eula_ui
+
+Start of : eula_handler
+Subroutine Call : savesettings
+Subroutine Call : startup_gui
+Subroutine Call : savesettings
+Function  Call  :  function_log
+End of   : eula_handler
+
+Start of : pre_mainmenuui 
+Comment :basically a list of defines for the main menu ui
+Subroutine Call : mod_external_menu
+End of   : pre_mainmenuui 
+
+Start of : mainmenuui
+Function  Call  :  function_log 
+Subroutine Call : get_schema
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Subroutine Call : mainmenuhandler
+Subroutine Call : set_title
+End of   : mainmenuui
+
+Start of : mainmenubutton
+Function  Call  :  function_handler_mainmenu 
+End of   : mainmenubutton
+
+Start of : comboboxchanged
+Subroutine Call : get_schema_private
+Subroutine Call : hide_display_results
+Subroutine Call : set_title
+Subroutine Call : mainmenuhandler
+Function  Call  :  function_load_db 
+Subroutine Call : get_schema
+Subroutine Call : get_schema_private
+Function  Call  : function_handler_combobox
+Function  Call  : function_handler_combobox
+Subroutine Call : get_schema_private
+Subroutine Call : get_schema_private
+Function  Call  :  function_handler_universal 
+Subroutine Call : get_schema_private
+Subroutine Call : get_schema_private
+Subroutine Call : hide_display_results
+Subroutine Call : set_title
+Function  Call  :  function_handler_universal 
+Subroutine Call : set_title
+Function  Call  : function_log
+End of   : comboboxchanged
+
+Start of : mainmenuhandler
+Subroutine Call : savesettings
+Function  Call  : function_log
+Subroutine Call : loadsettings
+Function  Call  :  function_load_db 
+Subroutine Call : savesettings
+Subroutine Call : pre_mainmenuui
+Subroutine Call : mainmenuui
+Function  Call  : function_log 
+Function  Call  : function_log 
+Subroutine Call : hide_display_results
+Function  Call  : function_log 
+Subroutine Call : display_results
+Subroutine Call : show_display_results
+Function  Call  : queryfunction
+Subroutine Call : loadsettings
+Function  Call  : function_load_db
+Subroutine Call : savesettings
+Subroutine Call : pre_mainmenuui
+Subroutine Call : mainmenuui
+Function  Call  : function_log 
+Function  Call  : function_log
+Subroutine Call : generatequery
+Subroutine Call : generatequery
+Subroutine Call : generatequery
+Function  Call  : queryfunction
+Function  Call  : commandfunction 
+Function  Call  :  commandfunction 
+Function  Call  : function_log
+Function  Call  : function_runmod_parser
+Function  Call  :  function_runmod_parser 
+Function  Call  :  function_query 
+Subroutine Call : about_msg=about_msg+cllf+"sqliteversion:"+about_data[1]["sqlite_version
+Subroutine Call : settings_ui
+Subroutine Call : savesettings
+Subroutine Call : loadsettings
+Subroutine Call : localization_xml
+Subroutine Call : mainmenuhandler
+Subroutine Call : pre_mainmenuui
+Subroutine Call : mainmenuui
+Subroutine Call : get_schema
+Subroutine Call : savesettings
+Subroutine Call : create_table_ui
+Subroutine Call : get_schema_private
+Function  Call  :  function_handler_createstatistics
+Function  Call  : function_query 
+Subroutine Call : loadsettings
+Subroutine Call : savesettings
+Subroutine Call : pre_mainmenuui
+Subroutine Call : mainmenuui
+Function  Call  :  lastclickedbutton + " caption : " + controls.getbuttoncaption(lastclickedbutton) + " handler:"+ ldcall.function2( function_ui_query 
+Function  Call  : function_log
+End of   : mainmenuhandler
+
+Start of : hide_display_results
+End of   : hide_display_results
+
+Start of : show_display_results
+End of   : show_display_results
+
+Start of : display_results 
+Comment :right hand panel with functions and the like
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+End of   : display_results 
+
+Start of : settings_ui
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+Function  Call  :  function_ui_add 
+End of   : settings_ui
+
+Start of : generatequery
+Function  Call  : queryfunction
+End of   : generatequery
+
+Start of : get_schema 
+Comment :fetches all tables,views,indexs ets from the current db
+Function  Call  : queryfunction
+Subroutine Call : get_schema_private
+End of   : get_schema 
+
+Start of : get_schema_private 
+Comment :fetches the rows from the current table , index, or view
+Function  Call  : queryfunction
+End of   : get_schema_private 
+
+Start of : create_table_ui
+Subroutine Call : hide_display_results
+Function  Call  : function_ui_add
+Function  Call  : function_ui_add
+End of   : create_table_ui
+
+Start of : create_table_ui_cmds
+Function  Call  : function_command
+Function  Call  : "mainmenuhandler"
+Function  Call  :  function_handler_universal 
+Subroutine Call : show_display_results
+Subroutine Call : mainmenuui
+Function  Call  : function_handler_universal
+End of   : create_table_ui_cmds
+
+Start of : set_title
+Function  Call  : function_logcb 
+End of   : set_title
+
+Start of : fileread 
+Comment :file reader that ignores # and empty lines. function( path) returns array of data
+End of   : fileread 
+
+Start of : xml_fetch_all
+End of   : xml_fetch_all
+
+Start of : add_ui_controls 
+Comment :5 args needed
+Function  Call  : function_log 
+End of   : add_ui_controls 
+
+Start of : query_ui_controls
+Function  Call  : function_log 
+End of   : query_ui_controls
+
+Start of : universal_bd
+Function  Call  :  function_handler_universal 
+End of   : universal_bd
+
+Start of : universal_menuclicked
+Function  Call  :  function_handler_universal 
+End of   : universal_menuclicked
+
+Start of : universal_comboboxchanged
+Function  Call  :  function_handler_universal 
+End of   : universal_comboboxchanged
+
+Start of : universal_handler
+Function  Call  :  function_ui_query 
+Function  Call  :  function_ui_query 
+Function  Call  :  universal_find_hanlder 
+Function  Call  :  universal_find_hanlder 
+End of   : universal_handler
+
+Start of : mod_external_menu 
+Comment :lets external entities add menu items by mainpulating a menu.txt file with an array of items
+Function  Call  : function_fileread
+Function  Call  : function_ui_add
+End of   : mod_external_menu 
+
+Start of : mod_read_autorunfile 
+Comment :reads all the plugins the application should run
+Function  Call  :  function_fileread 
+End of   : mod_read_autorunfile 
+
+Start of : mod_autorun 
+Comment :runs all the plugins the application should run.
+Function  Call  :  function_runmod_parser 
+End of   : mod_autorun 
+
+Start of : mod_run_parser
+Function  Call  : function_log 
+Function  Call  : function_log 
+End of   : mod_run_parser
+
+Start of : mod_find_all
+End of   : mod_find_all
+
+Start of : query
+Function  Call  :  transactionfunction
+Function  Call  : function_logcb
+Subroutine Call : set_title
+Function  Call  : function_query_emulator
+Function  Call  : function_log
+End of   : query
+
+Start of : query_sqlite_emulator
+Function  Call  : function_command
+Function  Call  : function_query
+Subroutine Call : set_title
+End of   : query_sqlite_emulator
+
+Start of : command 
+Comment :runs a command function
+Function  Call  :  transactionfunction 
+Function  Call  :  function_command_parser 
+Subroutine Call : set_title
+Function  Call  : function_log 
+End of   : command 
+
+Start of : command_parse 
+Comment :(command); returns data in a list;
+End of   : command_parse 
+
+Start of : transactionrecord 
+Comment :direct sql commands are used to prevent a possible cycle of loops going to commands and then back to this function
+End of   : transactionrecord 
+
+Start of : create_statistics_page
+Function  Call  : commandfunction
+End of   : create_statistics_page
+
+Start of : closing
+Function  Call  : function_log
+Function  Call  : function_log
+End of   : closing
+
+Start of : errorhandler
+Function  Call  : function_logcb
+Function  Call  : function_log
+End of   : errorhandler
+
+Start of : log
+Function  Call  : function_logcb
+Function  Call  :  commandfunction 
+End of   : log
+
+Start of : logcbfunction
+End of   : logcbfunction
+
+
+Possibly un-reachable code:
+getpath
+load_db
+eula_handler
+mainmenubutton
+comboboxchanged
+create_table_ui_cmds
+fileread 
+xml_fetch_all
+add_ui_controls 
+query_ui_controls
+universal_bd
+universal_menuclicked
+universal_comboboxchanged
+universal_handler
+mod_run_parser
+query
+query_sqlite_emulator
+command 
+command_parse 
+transactionrecord 
+create_statistics_page
+closing
+errorhandler
+log
+logcbfunction
+
+Possible Functions:
+function_log
+function_load_db
+commandfunction
+function_xml_attributes
+function_ui_add
+function_handler_mainmenu
+function_handler_combobox
+function_handler_universal
+queryfunction
+function_runmod_parser
+function_query
+function_handler_createstatistics
+lastclickedbutton + " caption : " + controls.getbuttoncaption(lastclickedbutton) + " handler:"+ ldcall.function2( function_ui_query
+function_command
+"mainmenuhandler"
+function_logcb
+function_ui_query
+universal_find_hanlder
+function_fileread
+transactionfunction
+function_query_emulator
+function_command_parser
+
+180 subroutine and function calls.
+48 different subroutines.
+
+Execution Time: 1909(ms)

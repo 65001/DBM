@@ -1,0 +1,73 @@
+Anaylzeing : C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Plugin\Automated Backup Script.sb
+
+Start of : abs_void
+End of   : abs_void
+
+Start of : abs_ui
+Function  Call :  function_ui_add 
+Function  Call :  function_ui_add 
+Function  Call :  function_ui_add 
+Function  Call :  function_ui_add 
+End of   : abs_ui
+
+Start of : abs_mod_view_results_ui
+Function  Call :  function_ui_add 
+Function  Call :  function_ui_add 
+End of   : abs_mod_view_results_ui
+
+Start of : abs_view_handler
+Function  Call : function_query 
+Function  Call : function_query 
+End of   : abs_view_handler
+
+Start of : abs_main
+Subroutine Call :   abs_setup()
+Subroutine Call :   abs_new_scan()
+End of   : abs_main
+
+Start of : abs_setup
+Subroutine Call :   abs_generate_blacklist() 'gets list of all folders the program should not scan
+Function  Call :  function_command 
+End of   : abs_setup
+
+Start of : abs_new_scan
+Subroutine Call :   abs_get_folder()'gets all sub folders 
+Subroutine Call :   abs_get_files() 'get all files in sub folders
+Subroutine Call :   abs_sort() 'fetch data and commit data to a database 
+End of   : abs_new_scan
+
+Start of : abs_get_folder
+Subroutine Call :       abs_blacklist()
+End of   : abs_get_folder
+
+Start of : abs_get_files
+End of   : abs_get_files
+
+Start of : abs_sort
+Function  Call : function_command 
+Function  Call :  function_query 
+End of   : abs_sort
+
+Start of : abs_generate_blacklist
+End of   : abs_generate_blacklist
+
+Start of : abs_blacklist
+End of   : abs_blacklist
+
+
+Functions or unrechable code:
+abs_void
+abs_ui
+abs_mod_view_results_ui
+abs_view_handler
+abs_main
+abs_setup
+abs_new_scan
+abs_generate_blacklist
+abs_get_folder
+abs_get_files
+abs_sort
+abs_blacklist
+
+18 differnt subroutine and function calls.
+12 differnt subroutine.

@@ -1,0 +1,36 @@
+Analysing : C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Utilities\Code Analysis Tool.sb
+
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : cnts[i]
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Function  Call : function_console
+Start of : console 
+Comment : appends data to file and writes to screen
+End of   : console 
+
+
+Possibly un-reachable code:
+console 
+
+Possible Functions:
+function_console
+cnts[i]
+
+20 different subroutine and function calls.
+1 different subroutine.

@@ -38,7 +38,6 @@
 'Made Export CSV roughly 7x faster on test files.
 'Made change so Edit Table should work more reliabley
 
-
 StartTime[0] = Clock.ElapsedMilliseconds
 GraphicsWindow.Show()
 MainWindowID =  LDWindows.CurrentID
@@ -1925,7 +1924,6 @@ Sub Log
     
     If Text.IsSubText( LogEvent , "Operation is not valid due to the current state of the object" ) <> "True" And Text.IsSubText(LogEvent, "SQL logic error or missing database" ) <> "True" Then 'To Prevent Stackoverflow Errors. Without this an error can cascade forever.
       LOG_CMD = "INSERT INTO LOG ([UTC DATE],[UTC TIME],DATE,TIME,USER,ProductID,ProductVersion,Event,Type) VALUES(DATE(),TIME(),DATE('now','localtime'),TIME('now','localtime'),'"+Username+"','"+ProductID+"','"+PrgmVersionID+"','"+LogEvent+"','"+TypeofError+"');" 'TODO
-      
       LDCall.Function4( CommandFunction , LOG_DB , LOG_CMD , LangList["App"] ,LangList["Auto Log"])  
     EndIf 
     

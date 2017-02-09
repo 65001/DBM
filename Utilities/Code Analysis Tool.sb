@@ -1,0 +1,106 @@
+Function_Console = "Console" 
+LDCall.Function(Function_Console,"This tool is (C) Abhishek Sathiabalan 2017. MIT LISCENSE. ")
+TextWindow.WriteLine("Please select a SmallBasic file to anaylze.")
+
+Path = LDDialogs.OpenFile("sb","")
+WritePath = LDFile.GetFolder(Path) +"\"+ LDFile.GetFile(Path) + " Code analysis.txt"
+If LDFile.Exists(WritePath) Then 
+  If LDDialogs.Confirm("Permission to delete : " + WritePath +"?","Delete Confirmation") = "Yes" Then 
+    File.DeleteFile(WritePath)
+  EndIF  
+EndIf 
+StopWatch = LDStopwatch.Add()
+LDStopwatch.Start(StopWatch)
+CNTS = LDFile.ReadToArray(Path)
+ 
+args = ""
+LDCall.Function2(Function_Console,"Analysing : " + Path , "Green" )
+LDCall.Function(Function_Console,"")
+
+For I = 1 To Array.GetItemCount(CNTS)
+  CNTS[i] = Text.ConvertToLowerCase(CNTS[i]) 
+  
+  If Text.StartsWith(CNTS[i],"sub") Then 'Start Sub
+    CurrentSub =LDText.Trim( Text.GetSubTextToEnd(CNTS[i],4) )
+    
+    CurrentSub2 = CurrentSub 
+    If Text.GetIndexOf(CurrentSub,"'") <> 0 Then 'Strips Comments
+      CurrentSub = Text.GetSubText( CurrentSub , 1, Text.GetIndexOf(CurrentSub,"'") -1  )
+    EndIf 
+    
+    If Text.GetIndexOf(CNTS[i],"'") <> 0 Then 'Commented Subroutine
+      LDCall.Function2(Function_Console,"Start of : " + CurrentSub,"WHITE" )
+      LDCall.Function2(Function_Console,"Comment :" + Text.GetSubTextToEnd(CurrentSub2,Text.GetIndexOf(CurrentSub2,"'") + 1 ),"WHITE" ) 
+    Else 'Uncommented Subroutine
+      LDCall.Function2(Function_Console,"Start of : " + CurrentSub,"WHITE" )
+    EndIf 
+    SubroutineArray[CurrentSub] = 1 
+    SubRoutineCount = SubRoutineCount + 1 
+  ElseIf Text.StartsWith(CNTS[i],"endsub") Then 'End Sub
+    LDCall.Function2(Function_Console,"End of   : " + CurrentSub + Text.GetCharacter(10),"WHITE")
+  ElseIF Text.GetIndexOf(CNTS[i],"(") <> 0 AND Text.GetIndexOf(CNTS[i],")") <> 0 Then 
+    If Text.GetIndexOf(CNTS[i],"ldcall.f") <> 0 Then 'Function Call
+      Length = ( Text.GetIndexOf(CNTS[i],",") - 1 )
+      Start = Text.GetIndexOf(CNTS[i],"(") + 1
+      
+      If Length - Start > 0 Then 'Default Function Call
+        FunctionText = Text.GetSubText( CNTS[i] , Start, (Length - Start)+1 )
+        LDCall.Function2(Function_Console,"Function  Call  : " +  FunctionText,"GRAY")
+        LDList.Add("Function",FunctionText)
+      Else 'Backup
+        FunctionText = CNTS[i]
+        LDCall.Function2(Function_Console,"Function  Call (Type 2): " +  CNTS[i],"GRAY") 
+        LDList.Add("Function",CNTS[i])
+      EndIf 
+      Calls = Calls + 1 
+      
+    ElseIF Text.GetIndexOf(CNTS[i],".") = 0 Then 'Subroutine Calls
+      StartP = Text.GetIndexOf(CNTS[i],"(") 
+      EndP = Text.GetIndexOf(CNTS[i],")") 
+      SubRoutineText = LDText.Replace(LDText.Trim( Text.GetSubText( CNTS[i] ,1 (StartP - 1) ) )," ","")
+      If EndP = StartP + 1 Then 
+        LDCall.Function2(Function_Console,"Subroutine Call : " + SubRoutineText,"GRAY")
+        LDList.Add("Sub",SubRoutineText)
+        Calls = Calls + 1 
+        SubroutineArray[LDText.Replace(SubRoutineText,"()","")] = 2
+      Else 
+        
+      EndIf 
+    EndIf 
+  EndIf 
+  
+EndFor
+'Results and the like
+Indicies = Array.GetAllIndices(SubroutineArray)
+
+LDCall.Function(Function_Console,"")
+LDCall.Function(Function_Console,"Possibly un-reachable code:")
+For I = 1 to Array.GetItemCount(SubroutineArray)
+  If LDList.Contains("Sub",LDText.Trim(Indicies[i]) ) = "False" Then 
+    LDCall.Function(Function_Console, Indicies[i] )
+  EndIf 
+EndFor 
+
+LDCall.Function(Function_Console,"")
+LDCall.Function(Function_Console,"Possible Functions:")
+For I = 1 to LDList.Count("Function")
+  Function = LDText.Trim( LDList.GetAt("Function",i) ) 
+  If FunctionArray[Function] <> 1 Then 
+    LDCall.Function(Function_Console, Function ) 
+    FunctionArray[Function] = 1 
+  EndIf 
+EndFor 
+
+LDCall.Function2(Function_Console,"","GRAY")
+LDCall.Function2(Function_Console,Calls + " subroutine and function calls." ,"GRAY") 
+LDCall.Function2(Function_Console,SubRoutineCount + " different subroutines." ,"GRAY") 
+LDCall.Function(Function_Console,"")
+LDCall.Function(Function_Console,"Execution Time: " + LDStopwatch.ElapsedMilliseconds(StopWatch) + "(ms)" )
+
+LDProcess.Start(WritePath,"")
+
+Sub Console ' Appends Data to File and writes to screen
+  TextWindow.ForegroundColor = args[2]
+  TextWindow.WriteLine(args[1])
+  File.AppendContents( WritePath , args[1] )
+EndSub 

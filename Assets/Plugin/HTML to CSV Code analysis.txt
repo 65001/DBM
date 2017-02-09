@@ -1,0 +1,29 @@
+Analysing : C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Plugin\HTML to CSV.sb
+
+Subroutine Call : main
+Start of : void
+End of   : void
+
+Start of : main
+Subroutine Call : tabletoarray
+End of   : main
+
+Start of : tabletoarray
+Subroutine Call : getheaders
+Subroutine Call : getdata
+End of   : tabletoarray
+
+Start of : getheaders
+End of   : getheaders
+
+Start of : getdata
+End of   : getdata
+
+
+Possibly un-reachable code:
+void
+
+Possible Functions:
+
+4 different subroutine and function calls.
+5 different subroutine.

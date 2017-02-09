@@ -1,0 +1,29 @@
+Analysing : C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\Assets\Plugin\Import.sb
+
+Start of : void
+End of   : void
+
+Start of : csv_interface
+Subroutine Call : arraytosql
+Subroutine Call : csvheaders
+Function  Call : commandfunction 
+Function  Call : logfunction
+End of   : csv_interface
+
+Start of : arraytosql
+End of   : arraytosql
+
+Start of : csvheaders
+End of   : csvheaders
+
+
+Possibly un-reachable code:
+void
+csv_interface
+
+Possible Functions:
+commandfunction
+logfunction
+
+4 different subroutine and function calls.
+4 different subroutine.
