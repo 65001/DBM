@@ -28,6 +28,7 @@ For I = 1 To Array.GetItemCount(CNTS)
       CurrentSub = Text.GetSubText( CurrentSub , 1, Text.GetIndexOf(CurrentSub,"'") -1  )
     EndIf 
     
+    LDCall.Function(Function_Console,"")
     If Text.GetIndexOf(CNTS[i],"'") <> 0 Then 'Commented Subroutine
       LDCall.Function2(Function_Console,"Start of : " + CurrentSub,"WHITE" )
       LDCall.Function2(Function_Console,"Comment :" + Text.GetSubTextToEnd(CurrentSub2,Text.GetIndexOf(CurrentSub2,"'") + 1 ),"WHITE" ) 
@@ -37,7 +38,7 @@ For I = 1 To Array.GetItemCount(CNTS)
     SubroutineArray[CurrentSub] = 1 
     SubRoutineCount = SubRoutineCount + 1 
   ElseIf Text.StartsWith(CNTS[i],"endsub") Then 'End Sub
-    LDCall.Function2(Function_Console,"End of   : " + CurrentSub + Text.GetCharacter(10),"WHITE")
+    LDCall.Function2(Function_Console,"End of   : " + CurrentSub,"WHITE")
   ElseIF Text.GetIndexOf(CNTS[i],"(") <> 0 AND Text.GetIndexOf(CNTS[i],")") <> 0 Then 
     If Text.GetIndexOf(CNTS[i],"ldcall.f") <> 0 Then 'Function Call
       Length = ( Text.GetIndexOf(CNTS[i],",") - 1 )

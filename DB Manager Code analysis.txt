@@ -1,6 +1,7 @@
 Analysing : C:\Users\Abhishek\Documents\Proggraming\SB\Projects\DB Manager\DB Manager.sb
 
 Subroutine Call : startup
+
 Start of : startup 
 Comment :akin to main in c#
 Subroutine Call : loadsettings
@@ -338,7 +339,6 @@ End of   : log
 Start of : logcbfunction
 End of   : logcbfunction
 
-
 Possibly un-reachable code:
 getpath
 load_db
@@ -379,7 +379,6 @@ queryfunction
 function_runmod_parser
 function_query
 function_handler_createstatistics
-lastclickedbutton + " caption : " + controls.getbuttoncaption(lastclickedbutton) + " handler:"+ ldcall.function2( function_ui_query
 function_command
 "mainmenuhandler"
 function_logcb
@@ -393,4 +392,4 @@ function_command_parser
 180 subroutine and function calls.
 48 different subroutines.
 
-Execution Time: 1909(ms)
+Execution Time: 1889(ms)
