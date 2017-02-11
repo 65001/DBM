@@ -798,8 +798,7 @@ Sub MainMenuHandler
       Dataview = "" 
       LoadSettings()
       LDDataBase.ConnectSQLite(NewFileSavePath)
-      LDCall.Function2( Function_Load_DB , 4 , NewFileSavePath )
-      SaveSettings()
+      LDCall.Function2( Function_Load_DB , 4 , NewFileSavePath ) ' Includes Save Settings
       Pre_MainMenuUI()
       MainMenuUI()
       LDDataBase.Connection = ""

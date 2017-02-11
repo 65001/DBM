@@ -88,3 +88,7 @@ New in Memory Database
 Import SQL
 Plugin
 Opened
+Converter
+HTML to CSV
+Developer
+Stack Trace

@@ -88,3 +88,7 @@ New_in_Memory_Db
 Import_SQL
 Plugin
 Opened
+Converter
+HTML_to_CSV
+Developer
+Stack_Trace
